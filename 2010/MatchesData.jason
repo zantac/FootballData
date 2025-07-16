@@ -1,0 +1,79 @@
+{
+  "matches": [
+    {
+      "match_id": "m001",
+      "competition": "Premier League",
+      "date": "2025-07-20",
+      "time": "15:00",
+      "home_team_id": "t001",
+      "away_team_id": "t002",
+      "venue": "Old Trafford",
+      "status": "upcoming",
+      "result": null
+    },
+    {
+      "match_id": "m002",
+      "competition": "UEFA Champions League",
+      "date": "2025-07-15",
+      "time": "20:00",
+      "home_team_id": "t003",
+      "away_team_id": "t004",
+      "venue": "Santiago Bernabeu",
+      "status": "completed",
+      "result": {
+        "home_score": 2,
+        "away_score": 1,
+        "goal_scorers": [
+          { "team_id": "t003", "player": "Vinicius Jr", "time": "23'" },
+          { "team_id": "t003", "player": "Benzema", "time": "67'" },
+          { "team_id": "t004", "player": "Leao", "time": "45'" }
+        ],
+        "yellow_cards": [
+          { "team_id": "t003", "player": "Carvajal", "time": "30'" },
+          { "team_id": "t004", "player": "Theo Hernandez", "time": "55'" }
+        ],
+        "red_cards": [],
+        "substitutes": [
+          { "team_id": "t003", "player_in": "Rodrygo", "player_out": "Wael","time": "60'" },
+          { "team_id": "t004", "player_in": "Rebic", "player_out": "Giroud", "time": "70'" }
+        ]
+      }
+    },
+    {
+      "match_id": "m003",
+      "competition": "La Liga",
+      "date": "2025-07-22",
+      "time": "18:30",
+      "home_team_id": "t005",
+      "away_team_id": "t006",
+      "venue": "Camp Nou",
+      "status": "upcoming",
+      "result": null
+    },
+    {
+      "match_id": "m004",
+      "competition": "MLS",
+      "date": "2025-07-18",
+      "time": "19:30",
+      "home_team_id": "t007",
+      "away_team_id": "t008",
+      "venue": "Lower.com Field",
+      "status": "completed",
+      "result": {
+        "home_score": 3,
+        "away_score": 0,
+        "goal_scorers": [
+          { "team_id": "t007", "player": "Zelarayan", "time": "12'" },
+          { "team_id": "t007", "player": "Cucho Hernandez", "time": "38'" },
+          { "team_id": "t007", "player": "Cucho Hernandez", "time": "72'" }
+        ],
+        "yellow_cards": [
+          { "team_id": "t008", "player": "Birnbaum", "time": "25'" }
+        ],
+        "red_cards": [
+          { "team_id": "t008", "player": "Zyad", "time": "25'" }
+		   ]
+	    }
+	   }
+   ]
+}
