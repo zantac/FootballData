@@ -10,7 +10,7 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 3,
-      "goals_against": 0
+      "goals_against": 0,
       "Penality_points": 0
     },
     {
@@ -22,7 +22,7 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 2,
-      "goals_against": 1
+      "goals_against": 1,
       "Penality_points": 0
     },
     {
@@ -34,7 +34,8 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 0,
-      "goals_against": 0
+      "goals_against": 0,
+      "Penality_points": 0
     },
     {
       "team_id": "t002",
@@ -45,7 +46,7 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 0,
-      "goals_against": 0
+      "goals_against": 0,
       "Penality_points": 0
     },
     {
@@ -57,7 +58,7 @@
       "draws": 0,
       "losses": 1,
       "goals_for": 1,
-      "goals_against": 2
+      "goals_against": 2,
       "Penality_points": 0
     },
     {
@@ -69,7 +70,7 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 0,
-      "goals_against": 0
+      "goals_against": 0,
       "Penality_points": 0
     },
     {
@@ -81,7 +82,7 @@
       "draws": 0,
       "losses": 0,
       "goals_for": 0,
-      "goals_against": 0
+      "goals_against": 0,
       "Penality_points": 0
     },
     {
@@ -93,7 +94,7 @@
       "draws": 0,
       "losses": 1,
       "goals_for": 0,
-      "goals_against": 3
+      "goals_against": 3,
       "Penality_points": 0
     }
   ]
