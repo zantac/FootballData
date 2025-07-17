@@ -2,7 +2,7 @@
   "teams": [
     {
       "team_id": "t001",
-      "name": "Manchester United",
+      "name": "الجيزة",
       "players": [
         { "name": "Bruno Fernandes", "position": "Midfielder" },
         { "name": "Marcus Rashford", "position": "Forward" },
@@ -18,7 +18,7 @@
     },
     {
       "team_id": "t002",
-      "name": "Arsenal",
+      "name": "القليوبية",
       "players": [
         { "name": "Bukayo Saka", "position": "Forward" },
         { "name": "Martin Odegaard", "position": "Midfielder" },
@@ -34,7 +34,7 @@
     },
     {
       "team_id": "t003",
-      "name": "Real Madrid",
+      "name": "القاهرة",
       "players": [
         { "name": "Vinicius Jr", "position": "Forward" },
         { "name": "Karim Benzema", "position": "Forward" },
@@ -50,7 +50,7 @@
     },
     {
       "team_id": "t004",
-      "name": "AC Milan",
+      "name": "الشرقية",
       "players": [
         { "name": "Rafael Leao", "position": "Forward" },
         { "name": "Theo Hernandez", "position": "Defender" },
