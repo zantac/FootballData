@@ -42,7 +42,7 @@
         { "age": "2008", "matchesurl": null, "standingsurl": null },
         { "age": "2009", "matchesurl": null, "standingsurl": null },
         { "age": "2010", "matchesurl": null, "standingsurl": null },
-		{ "age": "2010", "matchesurl": null, "standingsurl": null }
+		    { "age": "2010", "matchesurl": null, "standingsurl": null }
       ]
     },
     {
@@ -54,19 +54,18 @@
         { "age": "2008", "matchesurl": null, "standingsurl": null },
         { "age": "2009", "matchesurl": null, "standingsurl": null },
         { "age": "2010", "matchesurl": null, "standingsurl": null },
-		{ "age": "2011", "matchesurl": null, "standingsurl": null }
+		    { "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
 	  },
     {
       "competition_id": "c006",
       "name": "منافسات المناطق",
-	  "sector": "منطقة القليوبية",
       "ages": [
         { "age": "2007", "matchesurl": null, "standingsurl": null },
-        { "age": "2008", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/MatchesData.json", "standingsurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/TeamStandings.json" },
+        { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/MatchesData.json", "standingsurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/TeamStandings.json" },
         { "age": "2009", "matchesurl": null, "standingsurl": null },
         { "age": "2010", "matchesurl": null, "standingsurl": null },
-		{ "age": "2011", "matchesurl": null, "standingsurl": null }
+		    { "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
       }
 	 ] 
