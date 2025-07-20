@@ -3,7 +3,6 @@
     {
       "competition_id": "c001",
       "name": "دوري الجمهورية القسم الاول",
-	  "sector": null,
       "ages": [
         { "age": "2005", "matchesurl": null, "standingsurl": null },
         { "age": "2007", "matchesurl": null, "standingsurl": null },
@@ -14,7 +13,6 @@
     {
       "competition_id": "c002",
       "name": "دوري الجمهورية القسم الثاني أ",
-	  "sector": null,
       "ages": [
         { "age": "2005", "matchesurl": null, "standingsurl": null },
         { "age": "2007", "matchesurl": null, "standingsurl": null },
@@ -25,7 +23,6 @@
     {
       "competition_id": "c003",
       "name": "دوري الجمهورية القسم الثاني ب",
-	  "sector": null,
       "ages": [
         { "age": "2005", "matchesurl": null, "standingsurl": null },
         { "age": "2007", "matchesurl": null, "standingsurl": null },
@@ -36,37 +33,29 @@
     {
       "competition_id": "c004",
       "name": "منافسات القطاعات",
-	  "sector": "قطاع القاهرة الكبري",
       "ages": [
-        { "age": "2007", "matchesurl": null, "standingsurl": null },
-        { "age": "2008", "matchesurl": null, "standingsurl": null },
-        { "age": "2009", "matchesurl": null, "standingsurl": null },
-        { "age": "2010", "matchesurl": null, "standingsurl": null },
-		    { "age": "2010", "matchesurl": null, "standingsurl": null }
+        { "age": "2007", "sector": "قطاع القاهرة الكبري","matchesurl": null, "standingsurl": null },
+        { "age": "2008", "sector": "قطاع القاهرة الكبري","matchesurl": null, "standingsurl": null },
+        { "age": "2009", "sector": "قطاع القاهرة الكبري","matchesurl": null, "standingsurl": null },
+        { "age": "2010", "sector": "قطاع القاهرة الكبري","matchesurl": null, "standingsurl": null },
+		    { "age": "2010", "sector": "قطاع القاهرة الكبري","matchesurl": null, "standingsurl": null }
       ]
     },
     {
       "competition_id": "c005",
       "name": "منافسات المناطق",
-	  "sector": "منطقة القاهرة",
       "ages": [
-        { "age": "2007", "matchesurl": null, "standingsurl": null },
-        { "age": "2008", "matchesurl": null, "standingsurl": null },
-        { "age": "2009", "matchesurl": null, "standingsurl": null },
-        { "age": "2010", "matchesurl": null, "standingsurl": null },
-		    { "age": "2011", "matchesurl": null, "standingsurl": null }
-      ]
-	  },
-    {
-      "competition_id": "c006",
-      "name": "منافسات المناطق",
-      "ages": [
-        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2007", "sector": "منطقة القاهرة","matchesurl": null, "standingsurl": null },
+        { "age": "2008", "sector": "منطقة القاهرة","matchesurl": null, "standingsurl": null },
+        { "age": "2009", "sector": "منطقة القاهرة","matchesurl": null, "standingsurl": null },
+        { "age": "2010", "sector": "منطقة القاهرة","matchesurl": null, "standingsurl": null },
+		    { "age": "2011", "sector": "منطقة القاهرة","matchesurl": null, "standingsurl": null },
+        { "age": "2007", "sector": "منطقة القليوبية", "matchesurl": null, "standingsurl": null },
         { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/MatchesData.json", "standingsurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/TeamStandings.json" },
-        { "age": "2009", "matchesurl": null, "standingsurl": null },
-        { "age": "2010", "matchesurl": null, "standingsurl": null },
-		    { "age": "2011", "matchesurl": null, "standingsurl": null }
+        { "age": "2009", "sector": "منطقة القليوبية", "matchesurl": null, "standingsurl": null },
+        { "age": "2010", "sector": "منطقة القليوبية", "matchesurl": null, "standingsurl": null },
+		    { "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null, "standingsurl": null }
       ]
-      }
+	  }
 	 ] 
 	} 
