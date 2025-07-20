@@ -5,10 +5,10 @@
       "name": "دوري الجمهورية القسم الاول",
 	  "sector": null,
       "ages": [
-        { "age": "2005" },
-        { "age": "2007" },
-        { "age": "2009" },
-        { "age": "2011" }
+        { "age": "2005", "matchesurl": null, "standingsurl": null },
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
       },
     {
@@ -16,10 +16,10 @@
       "name": "دوري الجمهورية القسم الثاني أ",
 	  "sector": null,
       "ages": [
-        { "age": "2005" },
-        { "age": "2007" },
-        { "age": "2009" },
-        { "age": "2011" }
+        { "age": "2005", "matchesurl": null, "standingsurl": null },
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
     },
     {
@@ -27,10 +27,10 @@
       "name": "دوري الجمهورية القسم الثاني ب",
 	  "sector": null,
       "ages": [
-        { "age": "2005" },
-        { "age": "2007" },
-        { "age": "2009" },
-        { "age": "2011" }
+        { "age": "2005", "matchesurl": null, "standingsurl": null },
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
     },
     {
@@ -38,11 +38,11 @@
       "name": "منافسات القطاعات",
 	  "sector": "قطاع القاهرة الكبري",
       "ages": [
-        { "age": "2007" },
-        { "age": "2008" },
-        { "age": "2009" },
-        { "age": "2010" },
-		{ "age": "2010" }
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2008", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2010", "matchesurl": null, "standingsurl": null },
+		{ "age": "2010", "matchesurl": null, "standingsurl": null }
       ]
     },
     {
@@ -50,11 +50,11 @@
       "name": "منافسات المناطق",
 	  "sector": "منطقة القاهرة",
       "ages": [
-        { "age": "2007" },
-        { "age": "2008" },
-        { "age": "2009" },
-        { "age": "2010" },
-		{ "age": "2011" }
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2008", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2010", "matchesurl": null, "standingsurl": null },
+		{ "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
 	  },
     {
@@ -62,11 +62,11 @@
       "name": "منافسات المناطق",
 	  "sector": "منطقة القليوبية",
       "ages": [
-        { "age": "2007" },
-        { "age": "2008" },
-        { "age": "2009" },
-        { "age": "2010" },
-		{ "age": "2011" }
+        { "age": "2007", "matchesurl": null, "standingsurl": null },
+        { "age": "2008", "matchesurl": null, "standingsurl": null },
+        { "age": "2009", "matchesurl": null, "standingsurl": null },
+        { "age": "2010", "matchesurl": null, "standingsurl": null },
+		{ "age": "2011", "matchesurl": null, "standingsurl": null }
       ]
       }
 	 ] 
