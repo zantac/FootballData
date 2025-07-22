@@ -4,70 +4,69 @@
       "competition_id": "c001",
       "name": "دوري الجمهورية القسم الاول",
       "ages": [
-        { "age": "2005", "matchesurl": null },
-        { "age": "2007", "matchesurl": null },
-        { "age": "2009", "matchesurl": null },
-        { "age": "2011", "matchesurl": null }
+        { "age": "2005", "matchesurl": null, "sector": null },
+        { "age": "2007", "matchesurl": null, "sector": null },
+        { "age": "2009", "matchesurl": null, "sector": null },
+        { "age": "2011", "matchesurl": null, "sector": null }
       ]
-      },
+    },
     {
       "competition_id": "c002",
       "name": "دوري الجمهورية القسم الثاني أ",
       "ages": [
-        { "age": "2005", "matchesurl": null },
-        { "age": "2007", "matchesurl": null },
-        { "age": "2009", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2009/BA/BA2009Data.json" },
-        { "age": "2011", "matchesurl": null }
+        { "age": "2005", "matchesurl": null, "sector": null },
+        { "age": "2007", "matchesurl": null, "sector": null },
+        { "age": "2009", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2009/BA/BA2009Data.json", "sector": null },
+        { "age": "2011", "matchesurl": null, "sector": null }
       ]
     },
     {
       "competition_id": "c003",
       "name": "دوري الجمهورية القسم الثاني ب",
       "ages": [
-        { "age": "2005", "matchesurl": null },
-        { "age": "2007", "matchesurl": null },
-        { "age": "2009", "matchesurl": null },
-        { "age": "2011", "matchesurl": null }
+        { "age": "2005", "matchesurl": null, "sector": null },
+        { "age": "2007", "matchesurl": null, "sector": null },
+        { "age": "2009", "matchesurl": null, "sector": null },
+        { "age": "2011", "matchesurl": null, "sector": null }
       ]
     },
     {
       "competition_id": "c004",
       "name": "منافسات القطاعات",
       "ages": [
-        { "age": "2007", "sector": "قطاع القاهرة الكبري","matchesurl": null },
-        { "age": "2008", "sector": "قطاع القاهرة الكبري","matchesurl": null },
-        { "age": "2009", "sector": "قطاع القاهرة الكبري","matchesurl": null },
-        { "age": "2010", "sector": "قطاع القاهرة الكبري","matchesurl": null },
-	{ "age": "2010", "sector": "قطاع القاهرة الكبري","matchesurl": null }
+        { "age": "2007", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
+        { "age": "2008", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
+        { "age": "2009", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
+        { "age": "2010", "sector": "قطاع القاهرة الكبري", "matchesurl": null }
       ]
     },
     {
       "competition_id": "c005",
       "name": "منافسات المناطق",
       "ages": [
-        { "age": "2007", "sector": "منطقة القاهرة","matchesurl": null },
-        { "age": "2008", "sector": "منطقة القاهرة","matchesurl": null },
-        { "age": "2009", "sector": "منطقة القاهرة","matchesurl": null },
-        { "age": "2010", "sector": "منطقة القاهرة","matchesurl": null },
-	{ "age": "2011", "sector": "منطقة القاهرة","matchesurl": null },
+        { "age": "2007", "sector": "منطقة القاهرة", "matchesurl": null },
+        { "age": "2008", "sector": "منطقة القاهرة", "matchesurl": null },
+        { "age": "2009", "sector": "منطقة القاهرة", "matchesurl": null },
+        { "age": "2010", "sector": "منطقة القاهرة", "matchesurl": null },
+        { "age": "2011", "sector": "منطقة القاهرة", "matchesurl": null },
         { "age": "2007", "sector": "منطقة القليوبية", "matchesurl": null },
         { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/MatchesData.json" },
         { "age": "2009", "sector": "منطقة القليوبية", "matchesurl": null },
         { "age": "2010", "sector": "منطقة القليوبية", "matchesurl": null },
-	{ "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null }
+        { "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null }
       ]
-	  }
-	 ],
-   "venues": [
+    }
+  ],
+  "venues": [
     {
       "venue_id": "v001",
       "name": "ملعب السكة الحديد",
       "url": "https://maps.app.goo.gl/jdRHUM5q1aSmzu7U7"
-      },
-      {
+    },
+    {
       "venue_id": "v002",
       "name": "منتجع لافيينا",
-      "url": "https://maps.app.goo.gl/jdRHUM5q1aSmzu7U7"
-      }
-    ]
-	} 
+      "url": "https://maps.app.goo.gl/ZXjMe6iDBw9LAtY99"
+    }
+  ]
+}
