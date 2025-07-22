@@ -57,5 +57,17 @@
 	{ "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null }
       ]
 	  }
-	 ] 
+	 ],
+   "venues": [
+    {
+      "venue_id": "v001",
+      "name": "ملعب السكة الحديد",
+      "url": "https://maps.app.goo.gl/jdRHUM5q1aSmzu7U7"
+      },
+      {
+      "venue_id": "v002",
+      "name": "منتجع لافيينا",
+      "url": "https://maps.app.goo.gl/jdRHUM5q1aSmzu7U7"
+      }
+    ]
 	} 
