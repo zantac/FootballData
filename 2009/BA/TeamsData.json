@@ -1,0 +1,132 @@
+{
+  "teams": [
+    {
+      "team_id": "t001",
+      "name": "Manchester United",
+      "players": [
+        { "name": "Bruno Fernandes", "position": "Midfielder" },
+        { "name": "Marcus Rashford", "position": "Forward" },
+        { "name": "Lisandro Martinez", "position": "Defender" },
+        { "name": "Casemiro", "position": "Midfielder" },
+        { "name": "Alejandro Garnacho", "position": "Forward" }
+      ],
+      "coach": "Erik ten Hag",
+      "training_field": {
+        "name": "Carrington Training Centre",
+        "location": "Manchester, England"
+      }
+    },
+    {
+      "team_id": "t002",
+      "name": "Arsenal",
+      "players": [
+        { "name": "Bukayo Saka", "position": "Forward" },
+        { "name": "Martin Odegaard", "position": "Midfielder" },
+        { "name": "Gabriel Jesus", "position": "Forward" },
+        { "name": "William Saliba", "position": "Defender" },
+        { "name": "Declan Rice", "position": "Midfielder" }
+      ],
+      "coach": "Mikel Arteta",
+      "training_field": {
+        "name": "London Colney",
+        "location": "Hertfordshire, England"
+      }
+    },
+    {
+      "team_id": "t003",
+      "name": "Real Madrid",
+      "players": [
+        { "name": "Vinicius Jr", "position": "Forward" },
+        { "name": "Karim Benzema", "position": "Forward" },
+        { "name": "Dani Carvajal", "position": "Defender" },
+        { "name": "Luka Modric", "position": "Midfielder" },
+        { "name": "Marco Asensio", "position": "Midfielder" }
+      ],
+      "coach": "Carlo Ancelotti",
+      "training_field": {
+        "name": "Ciudad Real Madrid",
+        "location": "Madrid, Spain"
+      }
+    },
+    {
+      "team_id": "t004",
+      "name": "AC Milan",
+      "players": [
+        { "name": "Rafael Leao", "position": "Forward" },
+        { "name": "Theo Hernandez", "position": "Defender" },
+        { "name": "Olivier Giroud", "position": "Forward" },
+        { "name": "Fikayo Tomori", "position": "Defender" },
+        { "name": "Christian Pulisic", "position": "Midfielder" }
+      ],
+      "coach": "Paulo Fonseca",
+      "training_field": {
+        "name": "Milanello",
+        "location": "Milan, Italy"
+      }
+    },
+    {
+      "team_id": "t005",
+      "name": "Barcelona",
+      "players": [
+        { "name": "Robert Lewandowski", "position": "Forward" },
+        { "name": "Pedri", "position": "Midfielder" },
+        { "name": "Gavi", "position": "Midfielder" },
+        { "name": "Frenkie de Jong", "position": "Midfielder" },
+        { "name": "Raphinha", "position": "Forward" }
+      ],
+      "coach": "Hansi Flick",
+      "training_field": {
+        "name": "Ciutat Esportiva Joan Gamper",
+        "location": "Barcelona, Spain"
+      }
+    },
+    {
+      "team_id": "t006",
+      "name": "Atletico Madrid",
+      "players": [
+        { "name": "Antoine Griezmann", "position": "Forward" },
+        { "name": "Alvaro Morata", "position": "Forward" },
+        { "name": "Koke", "position": "Midfielder" },
+        { "name": "Marcos Llorente", "position": "Midfielder" },
+        { "name": "Rodrigo De Paul", "position": "Midfielder" }
+      ],
+      "coach": "Diego Simeone",
+      "training_field": {
+        "name": "Ciudad Deportiva Wanda",
+        "location": "Madrid, Spain"
+      }
+    },
+    {
+      "team_id": "t007",
+      "name": "Columbus Crew",
+      "players": [
+        { "name": "Lucas Zelarayan", "position": "Midfielder" },
+        { "name": "Cucho Hernandez", "position": "Forward" },
+        { "name": "Darlington Nagbe", "position": "Midfielder" },
+        { "name": "Pedro Santos", "position": "Midfielder" },
+        { "name": "Steven Moreira", "position": "Defender" }
+      ],
+      "coach": "Wilfried Nancy",
+      "training_field": {
+        "name": "OhioHealth Performance Center",
+        "location": "Columbus, Ohio, USA"
+      }
+    },
+    {
+      "team_id": "t008",
+      "name": "D.C. United",
+      "players": [
+        { "name": "Christian Benteke", "position": "Forward" },
+        { "name": "Steve Birnbaum", "position": "Defender" },
+        { "name": "Mateusz Klich", "position": "Midfielder" },
+        { "name": "David Estrada", "position": "Forward" },
+        { "name": "Chris Durkin", "position": "Midfielder" }
+      ],
+      "coach": "Troy Lesesne",
+      "training_field": {
+        "name": "Audi Field Training Complex",
+        "location": "Washington, D.C., USA"
+      }
+    }
+  ]
+}

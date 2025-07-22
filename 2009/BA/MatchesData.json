@@ -1,0 +1,609 @@
+{
+  "matches": [
+    {
+      "match_id": "m001",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t001",
+      "away_team_id": "t002",
+      "venue": "v001",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 0,
+        "away_score": 1,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m002",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t003",
+      "away_team_id": "t004",
+      "venue": "v002",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 1,
+        "away_score": 0,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m003",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t005",
+      "away_team_id": "t006",
+      "venue": "v003",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 0,
+        "away_score": 2,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m004",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "14:30",
+      "home_team_id": "t007",
+      "away_team_id": "t008",
+      "venue": "v004",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 1,
+        "away_score": 0,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null
+	    }
+	   },
+     {
+      "match_id": "m005",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t009",
+      "away_team_id": "t010",
+      "venue": "v005",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 0,
+        "away_score": 1,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m006",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t011",
+      "away_team_id": "t012",
+      "venue": "v006",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 1,
+        "away_score": 0,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m007",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "16:00",
+      "home_team_id": "t013",
+      "away_team_id": "t014",
+      "venue": "v007",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 0,
+        "away_score": 2,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null,
+        "substitutes": null
+      }
+    },
+    {
+      "match_id": "m008",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "14:30",
+      "home_team_id": "t015",
+      "away_team_id": "t016",
+      "venue": "v008",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 1,
+        "away_score": 0,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null
+	    }
+	   },
+    {
+      "match_id": "m009",
+      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "date": "2025-09-01",
+      "time": "14:30",
+      "home_team_id": "t017",
+      "away_team_id": "t018",
+      "venue": "v009",
+      "status": "upcoming",
+      "note" : null,
+      "result": {
+        "home_score": 1,
+        "away_score": 0,
+        "goal_scorers": null,
+        "yellow_cards": null,
+        "red_cards": null
+	    }
+	   }
+   ],
+ "standings": [
+    {
+      "team_id": "t001",
+      "position": 1,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t002",
+      "position": 2,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t003",
+      "position": 3,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t004",
+      "position": 4,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t005",
+      "position": 5,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t006",
+      "position": 6,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t007",
+      "position": 7,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t008",
+      "position": 8,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t009",
+      "position": 9,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t010",
+      "position": 10,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t011",
+      "position": 11,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t012",
+      "position": 12,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t013",
+      "position": 13,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t014",
+      "position": 14,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t015",
+      "position": 15,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t016",
+      "position": 16,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t017",
+      "position": 17,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t018",
+      "position": 18,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    }
+  ],
+ "teams": [
+    {
+      "team_id": "t001",
+      "name": "ابو قير للاسمدة",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t002",
+      "name": "القناة",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t003",
+      "name": "بترول أسيوط",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t004",
+      "name": "الاتصالات",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t005",
+      "name": "الترسانة",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t006",
+      "name": "بلدية المحلة",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t007",
+      "name": "المنصورة",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t008",
+      "name": "راية",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t009",
+      "name": "طنطا",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t010",
+      "name": "ديروط",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t011",
+      "name": "لافيينا",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t012",
+      "name": "الانتاج الحربي",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t013",
+      "name": "اسوان",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t014",
+      "name": "بروكسي",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t015",
+      "name": "الداخلية",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t016",
+      "name": "اف سي مسار",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t017",
+      "name": "مالية كفر الزيات",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    },
+    {
+      "team_id": "t018",
+      "name": "السكة الحديد",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": [
+        { "name": null, "position": null },
+        { "name": null, "position": null }
+      ]
+    }
+  ]
+
+}
