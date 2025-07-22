@@ -173,14 +173,14 @@
     {
       "team_id": "t001",
       "position": 1,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
+      "points": 1,
+      "matches_played": 2,
+      "wins": 3,
+      "draws": 4,
+      "losses": 5,
+      "goals_for": 10,
+      "goals_against": 5,
+      "Penality_points": 2
     },
     {
       "team_id": "t002",
