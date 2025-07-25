@@ -171,6 +171,19 @@
    ],
  "standings": [
     {
+      "team_id": "t000",
+      "group": null,
+      "position": null,
+      "points": "نقاط",
+      "matches_played": "لعب",
+      "wins": "ف",
+      "draws": "ت",
+      "losses": "خ",
+      "goals_for": "+",
+      "goals_against": "-",
+      "Penality_points": "ض.ج"
+    },
+    {
       "team_id": "t001",
       "group": null,
       "position": 1,
