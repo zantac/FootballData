@@ -2,7 +2,7 @@
   "matches": [
     {
       "match_id": "m001",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t001",
@@ -21,7 +21,7 @@
     },
     {
       "match_id": "m002",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t003",
@@ -40,7 +40,7 @@
     },
     {
       "match_id": "m003",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t005",
@@ -59,7 +59,7 @@
     },
     {
       "match_id": "m004",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "14:30",
       "home_team_id": "t007",
@@ -77,7 +77,7 @@
 	   },
      {
       "match_id": "m005",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t009",
@@ -96,7 +96,7 @@
     },
     {
       "match_id": "m006",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t011",
@@ -115,7 +115,7 @@
     },
     {
       "match_id": "m007",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "16:00",
       "home_team_id": "t013",
@@ -134,7 +134,7 @@
     },
     {
       "match_id": "m008",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "14:30",
       "home_team_id": "t015",
@@ -152,7 +152,7 @@
 	   },
     {
       "match_id": "m009",
-      "competition": "بطولة الجمهورية القسم الثاني أ ( المحترفين)",
+      "group": null,
       "date": "2025-09-01",
       "time": "14:30",
       "home_team_id": "t017",
@@ -172,6 +172,7 @@
  "standings": [
     {
       "team_id": "t001",
+      "group": null,
       "position": 1,
       "points": 1,
       "matches_played": 2,
@@ -184,6 +185,7 @@
     },
     {
       "team_id": "t002",
+      "group": null,
       "position": 2,
       "points": 0,
       "matches_played": 0,
@@ -196,6 +198,7 @@
     },
     {
       "team_id": "t003",
+      "group": null,
       "position": 3,
       "points": 0,
       "matches_played": 0,
@@ -208,6 +211,7 @@
     },
     {
       "team_id": "t004",
+      "group": null,
       "position": 4,
       "points": 0,
       "matches_played": 0,
@@ -220,6 +224,7 @@
     },
     {
       "team_id": "t005",
+      "group": null,
       "position": 5,
       "points": 0,
       "matches_played": 0,
@@ -232,6 +237,7 @@
     },
     {
       "team_id": "t006",
+      "group": null,
       "position": 6,
       "points": 0,
       "matches_played": 0,
@@ -244,6 +250,7 @@
     },
     {
       "team_id": "t007",
+      "group": null,
       "position": 7,
       "points": 0,
       "matches_played": 0,
@@ -256,6 +263,7 @@
     },
     {
       "team_id": "t008",
+      "group": null,
       "position": 8,
       "points": 0,
       "matches_played": 0,
@@ -268,6 +276,7 @@
     },
     {
       "team_id": "t009",
+      "group": null,
       "position": 9,
       "points": 0,
       "matches_played": 0,
@@ -280,6 +289,7 @@
     },
     {
       "team_id": "t010",
+      "group": null,
       "position": 10,
       "points": 0,
       "matches_played": 0,
@@ -292,6 +302,7 @@
     },
     {
       "team_id": "t011",
+      "group": null,
       "position": 11,
       "points": 0,
       "matches_played": 0,
@@ -304,6 +315,7 @@
     },
     {
       "team_id": "t012",
+      "group": null,
       "position": 12,
       "points": 0,
       "matches_played": 0,
@@ -316,6 +328,7 @@
     },
     {
       "team_id": "t013",
+      "group": null,
       "position": 13,
       "points": 0,
       "matches_played": 0,
@@ -328,6 +341,7 @@
     },
     {
       "team_id": "t014",
+      "group": null,
       "position": 14,
       "points": 0,
       "matches_played": 0,
@@ -340,6 +354,7 @@
     },
     {
       "team_id": "t015",
+      "group": null,
       "position": 15,
       "points": 0,
       "matches_played": 0,
@@ -352,6 +367,7 @@
     },
     {
       "team_id": "t016",
+      "group": null,
       "position": 16,
       "points": 0,
       "matches_played": 0,
@@ -364,6 +380,7 @@
     },
     {
       "team_id": "t017",
+      "group": null,
       "position": 17,
       "points": 0,
       "matches_played": 0,
@@ -376,6 +393,7 @@
     },
     {
       "team_id": "t018",
+      "group": null,
       "position": 18,
       "points": 0,
       "matches_played": 0,
@@ -390,6 +408,7 @@
  "teams": [
     {
       "team_id": "t001",
+      "group": null,
       "name": "ابو قير للاسمدة",
       "field": null,
       "fieldurl": null,
@@ -402,6 +421,7 @@
     },
     {
       "team_id": "t002",
+      "group": null,
       "name": "القناة",
       "field": null,
       "fieldurl": null,
@@ -414,6 +434,7 @@
     },
     {
       "team_id": "t003",
+      "group": null,
       "name": "بترول أسيوط",
       "field": null,
       "fieldurl": null,
@@ -426,6 +447,7 @@
     },
     {
       "team_id": "t004",
+      "group": null,
       "name": "الاتصالات",
       "field": null,
       "fieldurl": null,
@@ -438,6 +460,7 @@
     },
     {
       "team_id": "t005",
+      "group": null,
       "name": "الترسانة",
       "field": null,
       "fieldurl": null,
@@ -450,6 +473,7 @@
     },
     {
       "team_id": "t006",
+      "group": null,
       "name": "بلدية المحلة",
       "field": null,
       "fieldurl": null,
@@ -462,6 +486,7 @@
     },
     {
       "team_id": "t007",
+      "group": null,
       "name": "المنصورة",
       "field": null,
       "fieldurl": null,
@@ -474,6 +499,7 @@
     },
     {
       "team_id": "t008",
+      "group": null,
       "name": "راية",
       "field": null,
       "fieldurl": null,
@@ -486,6 +512,7 @@
     },
     {
       "team_id": "t009",
+      "group": null,
       "name": "طنطا",
       "field": null,
       "fieldurl": null,
@@ -498,6 +525,7 @@
     },
     {
       "team_id": "t010",
+      "group": null,
       "name": "ديروط",
       "field": null,
       "fieldurl": null,
@@ -510,6 +538,7 @@
     },
     {
       "team_id": "t011",
+      "group": null,
       "name": "لافيينا",
       "field": null,
       "fieldurl": null,
@@ -522,6 +551,7 @@
     },
     {
       "team_id": "t012",
+      "group": null,
       "name": "الانتاج الحربي",
       "field": null,
       "fieldurl": null,
@@ -534,6 +564,7 @@
     },
     {
       "team_id": "t013",
+      "group": null,
       "name": "اسوان",
       "field": null,
       "fieldurl": null,
@@ -546,6 +577,7 @@
     },
     {
       "team_id": "t014",
+      "group": null,
       "name": "بروكسي",
       "field": null,
       "fieldurl": null,
@@ -558,6 +590,7 @@
     },
     {
       "team_id": "t015",
+      "group": null,
       "name": "الداخلية",
       "field": null,
       "fieldurl": null,
@@ -570,6 +603,7 @@
     },
     {
       "team_id": "t016",
+      "group": null,
       "name": "اف سي مسار",
       "field": null,
       "fieldurl": null,
@@ -582,6 +616,7 @@
     },
     {
       "team_id": "t017",
+      "group": null,
       "name": "مالية كفر الزيات",
       "field": null,
       "fieldurl": null,
@@ -594,6 +629,7 @@
     },
     {
       "team_id": "t018",
+      "group": null,
       "name": "السكة الحديد",
       "field": null,
       "fieldurl": null,
