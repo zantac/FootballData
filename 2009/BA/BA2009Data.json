@@ -427,10 +427,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t002",
@@ -440,10 +442,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t003",
@@ -453,10 +457,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t004",
@@ -466,10 +472,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t005",
@@ -479,10 +487,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t006",
@@ -492,10 +502,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t007",
@@ -505,10 +517,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t008",
@@ -518,10 +532,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t009",
@@ -531,10 +547,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t010",
@@ -544,10 +562,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t011",
@@ -557,10 +577,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t012",
@@ -570,10 +592,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t013",
@@ -583,10 +607,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t014",
@@ -596,10 +622,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t015",
@@ -609,10 +637,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t016",
@@ -622,10 +652,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+      }
     },
     {
       "team_id": "t017",
@@ -635,10 +667,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     },
     {
       "team_id": "t018",
@@ -648,10 +682,12 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": [
-        { "name": null, "position": null },
-        { "name": null, "position": null }
-      ]
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
     }
   ]
 
