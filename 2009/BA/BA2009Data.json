@@ -427,12 +427,7 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": { 
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
-    }
+       "players": null
     },
     {
       "team_id": "t002",
@@ -443,7 +438,7 @@
       "coach": null,
       "city": null,
        "players": { 
-        "goalkeepers": ["player1", "player2", "player3"],
+        "goalkeepers": null,
         "defenders": ["player1", "player2", "player3"],
         "midfielders": ["player1", "player2", "player3"],
         "attackers": ["player1", "player2", "player3"]
@@ -459,7 +454,7 @@
       "city": null,
        "players": { 
         "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
+        "defenders": null,
         "midfielders": ["player1", "player2", "player3"],
         "attackers": ["player1", "player2", "player3"]
     }
@@ -475,7 +470,7 @@
        "players": { 
         "goalkeepers": ["player1", "player2", "player3"],
         "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
+        "midfielders": null,
         "attackers": ["player1", "player2", "player3"]
     }
     },
@@ -491,7 +486,7 @@
         "goalkeepers": ["player1", "player2", "player3"],
         "defenders": ["player1", "player2", "player3"],
         "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "attackers": null
     }
     },
     {
@@ -503,10 +498,10 @@
       "coach": null,
       "city": null,
        "players": { 
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
