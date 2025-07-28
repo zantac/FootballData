@@ -15,7 +15,7 @@
       "name": "دوري الجمهورية القسم الثاني أ",
       "ages": [
         { "age": "2005", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2005/BA/BA2005Data.json", "sector": null },
-        { "age": "2007", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2007/BA/BA2007Data.json", "sector": null },
+        { "age": "2007", "matchesurl": null, "sector": null },
         { "age": "2009", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2009/BA/BA2009Data.json", "sector": null },
         { "age": "2011", "matchesurl": null, "sector": null }
       ]
