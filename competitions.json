@@ -62,6 +62,51 @@
       "venue_id": "v002",
       "name": "منتجع لافيينا",
       "url": "https://www.google.com/maps/place/Assyouti+Sport+Resort/@29.3938076,31.1073591,17z/data=!4m6!3m5!1s0x145990cc446b235d:0x1ea97054e86d8fc5!8m2!3d29.3953279!4d31.1098909!16s%2Fg%2F11b6gn16gf?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v003",
+      "name": "نادي انبي الكيلو 4.5",
+      "url": "https://www.google.com/maps/place/Enppi+club/@30.080225,31.4105811,17z/data=!3m1!4b1!4m6!3m5!1s0x145817d026bbf6c7:0xf949a7dadac9243f!8m2!3d30.080225!4d31.4105811!16s%2Fg%2F11c52tblz9?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v004",
+      "name": "النادي الاهلي - مدينه نصر",
+      "url": "https://www.google.com/maps/place/An+Nadi+Al+Ahli,+Nasr+City,+Cairo+Governorate/@30.0680414,31.3674293,15z/data=!3m1!4b1!4m6!3m5!1s0x14583def118d7edf:0xa67726dc75420b62!8m2!3d30.0633155!4d31.3684577!16s%2Fg%2F1tgfsxrd?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v005",
+      "name": "نادي الزمالك - ميت عقبة",
+      "url": "https://www.google.com/maps/place/%D9%86%D8%A7%D8%AF%D9%8A+%D8%A7%D9%84%D8%B2%D9%85%D8%A7%D9%84%D9%83+-+%D8%A8%D9%88%D8%A7%D8%A8%D8%A9+5%E2%80%AD/@30.0584827,31.2021914,17z/data=!3m1!4b1!4m6!3m5!1s0x14584100735ba79d:0xfd89ed0c017d5bfa!8m2!3d30.0584827!4d31.2021914!16s%2Fg%2F11vyp08gj4?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v006",
+      "name": "نادي المقاولون العرب - الجبل الاخضر",
+      "url": "https://www.google.com/maps/place/Arab+Contractors+Club/@30.0565399,31.2995771,17z/data=!3m1!4b1!4m6!3m5!1s0x14583f05bdc0b7e7:0xd6f2f894289a8fd4!8m2!3d30.0565399!4d31.2995771!16s%2Fg%2F11gz71rc5?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v007",
+      "name": "الدفاع الجوي",
+      "url": "https://www.google.com/maps/place/30th+June+Stadium/@30.0199207,31.3737559,17z/data=!3m1!4b1!4m6!3m5!1s0x14583c3e2196ac09:0xbea129dc1dd1224d!8m2!3d30.0199207!4d31.3737559!16s%2Fg%2F1hm35stft?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v008",
+      "name": "دار ضباط الوقود",
+      "url": "https://www.google.com/maps/place/%D8%AF%D8%A7%D8%B1+%D8%B6%D8%A8%D8%A7%D8%B7+%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%E2%80%AD/@30.0230991,31.3642221,18.75z/data=!4m6!3m5!1s0x14583df88e8382a3:0xa644b234c41c08ff!8m2!3d30.0234136!4d31.3642338!16s%2Fg%2F11t1rlkyh2?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v009",
+      "name": "مركز شباب زينهم",
+      "url": "https://www.google.com/maps/place/Zeinhom+soccer+field/@30.0238432,31.2452768,17z/data=!4m14!1m7!3m6!1s0x1458474e9ed65b17:0xe7ddc11f1e3a3a3f!2sZeinhum+Youth+Center!8m2!3d30.0238386!4d31.2478517!16s%2Fg%2F1264f0ps2!3m5!1s0x1458474e94329b23:0xe8fb496a8c90725!8m2!3d30.0243646!4d31.2474514!16s%2Fg%2F11cn076p1d?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v010",
+      "name": "ملعب المحروسة",
+      "url": "https://www.google.com/maps/place/%D9%85%D9%84%D8%B9%D8%A8+%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D9%88%D8%B3%D8%A9%E2%80%AD/@30.07166,31.2877006,17z/data=!3m1!4b1!4m6!3m5!1s0x14583f229664f55d:0xa1eba646ec5072f3!8m2!3d30.0716554!4d31.2925715!16s%2Fg%2F11pg5vg9yn?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v011",
+      "name": "جهاز الرياضة العسكري",
+      "url": "https://www.google.com/maps/place/Gehaz+El+Reyada+Stadium/@30.0811054,31.3035863,17z/data=!3m1!4b1!4m6!3m5!1s0x14583fca3078adc1:0x53e4c9547ebd87f3!8m2!3d30.0811054!4d31.3035863!16s%2Fg%2F11gy75xc7z?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
     }
   ]
 }
