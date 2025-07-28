@@ -932,7 +932,7 @@
         "midfielders": ["player1", "player2", "player3"],
         "attackers": ["player1", "player2", "player3"]
     }
-    },,
+    },
     {
       "team_id": "t014",
       "group": null,
