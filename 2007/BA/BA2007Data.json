@@ -746,7 +746,7 @@
     {
       "team_id": "t001",
       "group": null,
-      "name": "بروكسي",
+      "name": "القناة",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -756,7 +756,7 @@
     {
       "team_id": "t002",
       "group": null,
-      "name": "القناة",
+      "name": "الداخلية",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -771,7 +771,7 @@
     {
       "team_id": "t003",
       "group": null,
-      "name": "راية",
+      "name": "بلدية المحلة",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -786,7 +786,7 @@
     {
       "team_id": "t004",
       "group": null,
-      "name": "الانتاج الحربي",
+      "name": "الترسانة",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -801,7 +801,7 @@
     {
       "team_id": "t005",
       "group": null,
-      "name": "مالية كفر الزيات",
+      "name": "السكة الحديد",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -816,7 +816,7 @@
     {
       "team_id": "t006",
       "group": null,
-      "name": "طنطا",
+      "name": "لافيينا",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -831,7 +831,7 @@
     {
       "team_id": "t007",
       "group": null,
-      "name": "السكة الحديد",
+      "name": "طنطا",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -846,7 +846,7 @@
     {
       "team_id": "t008",
       "group": null,
-      "name": "ديروط",
+      "name": "المنصورة",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -861,7 +861,7 @@
     {
       "team_id": "t009",
       "group": null,
-      "name": "المنصورة",
+      "name": "المصرية للاتصالات",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -876,7 +876,7 @@
     {
       "team_id": "t010",
       "group": null,
-      "name": "بلدية المحلة",
+      "name": "ديروط",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -891,7 +891,7 @@
     {
       "team_id": "t011",
       "group": null,
-      "name": "الاتصالات",
+      "name": "الانتاج الحربي",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -906,7 +906,7 @@
     {
       "team_id": "t012",
       "group": null,
-      "name": "الترسانة",
+      "name": "أبو قير للاسمدة",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -921,7 +921,22 @@
     {
       "team_id": "t013",
       "group": null,
-      "name": "لافيينا",
+      "name": "مالية كفر الزيات",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
+    },,
+    {
+      "team_id": "t014",
+      "group": null,
+      "name": "بروكسي",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -934,7 +949,22 @@
     }
     },
     {
-      "team_id": "t014",
+      "team_id": "t015",
+      "group": null,
+      "name": "راية",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": { 
+        "goalkeepers": ["player1", "player2", "player3"],
+        "defenders": ["player1", "player2", "player3"],
+        "midfielders": ["player1", "player2", "player3"],
+        "attackers": ["player1", "player2", "player3"]
+    }
+    },
+    {
+      "team_id": "t016",
       "group": null,
       "name": "باي",
       "field": null,
