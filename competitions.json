@@ -28,12 +28,7 @@
     {
       "competition_id": "c004",
       "name": "منافسات القطاعات",
-      "ages": [
-        { "age": "2007", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
-        { "age": "2008", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
-        { "age": "2009", "sector": "قطاع القاهرة الكبري", "matchesurl": null },
-        { "age": "2010", "sector": "قطاع القاهرة الكبري", "matchesurl": null }
-      ]
+      "ages": null
     },
     {
       "competition_id": "c005",
