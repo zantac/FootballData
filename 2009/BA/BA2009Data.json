@@ -562,7 +562,7 @@
     {
       "team_id": "t000",
       "group": null,
-      "position": null,
+      "position": 0,
       "points": "نقاط",
       "matches_played": "لعب",
       "wins": "ف",
