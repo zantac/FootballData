@@ -35,12 +35,12 @@
       "name": "منافسات المناطق",
       "ages": [
         { "age": "2007", "sector": "منطقة القاهرة", "matchesurl": null },
-        { "age": "2008", "sector": "منطقة القاهرة", "matchesurl": null },
+        { "age": "2008", "sector": "منطقة القاهرة", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Cairo/Area_Cairo_2008Data.json" },
         { "age": "2009", "sector": "منطقة القاهرة", "matchesurl": null },
         { "age": "2010", "sector": "منطقة القاهرة", "matchesurl": null },
         { "age": "2011", "sector": "منطقة القاهرة", "matchesurl": null },
         { "age": "2007", "sector": "منطقة القليوبية", "matchesurl": null },
-        { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Qalubia/MatchesData.json" },
+        { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": null },
         { "age": "2009", "sector": "منطقة القليوبية", "matchesurl": null },
         { "age": "2010", "sector": "منطقة القليوبية", "matchesurl": null },
         { "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null }
