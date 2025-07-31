@@ -14,7 +14,10 @@
       "result": {
         "home_score": 1,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي"],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -24,17 +27,20 @@
       "match_id": "m002",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t009",
       "away_team_id": "t011",
       "venue": "v002",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
       "result": {
         "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
+        "away_score": 1,
+        "goal_scorers": {
+          "home_scorers": [],
+          "away_scorers": ["محمد محمود"]
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -44,17 +50,20 @@
       "match_id": "m003",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t008",
       "away_team_id": "t012",
       "venue": "v003",
-      "status": "upcoming",
-      "note" : null,
+      "status": "completed",
+      "note" : "فوز مسار اف سي بضربات الترجيح بنتيجة 5-4",
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": [],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -64,17 +73,20 @@
       "match_id": "m004",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "14:30",
       "home_team_id": "t007",
       "away_team_id": "t013",
       "venue": "v004",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
       "result": {
-        "home_score": 0,
+        "home_score": 3,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي","محمد محمود","عماد متعب"],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null
 	    }
@@ -83,17 +95,20 @@
       "match_id": "m005",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t006",
       "away_team_id": "t014",
       "venue": "v005",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
       "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
+        "home_score": 1,
+        "away_score": 4,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي"],
+          "away_scorers": ["حسام حسن","فيلكس","حسام حسن","محمد بركات"]
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -103,17 +118,20 @@
       "match_id": "m006",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t005",
       "away_team_id": "t015",
       "venue": "v006",
-      "status": "upcoming",
+      "status": "delayed",
       "note" : null,
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي"],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -123,17 +141,20 @@
       "match_id": "m007",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t004",
       "away_team_id": "t016",
       "venue": "v007",
-      "status": "upcoming",
-      "note" : null,
+      "status": "completed",
+      "note" : "فوز ديروط بضربات الجزاء بنتيجة 4-3",
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": [],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -143,17 +164,20 @@
       "match_id": "m008",
       "group": null,
       "week": "1",
-      "date": "2025-09-01", 
+      "date": "2025-07-01", 
       "time": "16:00",
       "home_team_id": "t003",
       "away_team_id": "t017",
       "venue": "v001",
-      "status": "upcoming",
-      "note" : null,
+      "status": "completed",
+      "note" : "فوز أبو قير للأسمدة بضربات الجزاء 4-2",
       "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
+        "home_score": 1,
+        "away_score": 1,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي"],
+          "away_scorers": ["أسامة فيصل"]
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
@@ -163,17 +187,20 @@
       "match_id": "m009",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-07-01",
       "time": "16:00",
       "home_team_id": "t010",
       "away_team_id": "t018",
       "venue": "v002",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
       "result": {
-        "home_score": 0,
+        "home_score": 1,
         "away_score": 0,
-        "goal_scorers": null,
+        "goal_scorers": {
+          "home_scorers": ["أحمد علي"],
+          "away_scorers": []
+      },
         "yellow_cards": null,
         "red_cards": null,
         "substitutes": null
