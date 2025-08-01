@@ -18,9 +18,18 @@
           "home_scorers": ["أحمد علي"],
           "away_scorers": []
       },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "yellow_cards": {
+          "home_yc": [],
+          "away_yc": []
+        },
+        "red_cards": {
+          "home_rc": [],
+          "away_rc": []
+        },
+        "substitutes": {
+          "home_sub": [],
+          "away_sub": []
+        }
       }
     },
     {
