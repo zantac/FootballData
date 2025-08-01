@@ -1099,6 +1099,38 @@
         "attackers": ["player1", "player2", "player3"]
     }
     }
+  ],
+  "scorrers": [
+    {
+      "position": 1,
+      "name": "player1",
+      "team_id": "t001",
+      "goals": 7
+    }
+  ],
+  "assists": [
+    {
+      "position": 1,
+      "name": "player1",
+      "team_id": "t001",
+      "assist": 10
+    }
+  ],
+  "cleansheets": [
+    {
+      "position": 1,
+      "name": "player1",
+      "team_id": "t001",
+      "cleansheet": 3
+    }
+  ],
+  "penaliyblocks": [
+    {
+      "position": 1,
+      "name": "player1",
+      "team_id": "t001",
+      "block": 1
+    }
   ]
 
 }
