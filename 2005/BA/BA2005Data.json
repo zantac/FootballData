@@ -19,16 +19,16 @@
           "away_scorers": []
       },
         "yellow_cards": {
-          "home_yc": [],
-          "away_yc": []
+          "home_yc": null,
+          "away_yc": null
         },
         "red_cards": {
-          "home_rc": [],
-          "away_rc": []
+          "home_rc": null,
+          "away_rc": null
         },
         "substitutes": {
-          "home_sub": [],
-          "away_sub": []
+          "home_sub": null,
+          "away_sub": null
         }
       }
     },
