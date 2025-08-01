@@ -76,7 +76,8 @@
         "away_score": 0,
         "goal_scorers": null,
         "yellow_cards": null,
-        "red_cards": null
+        "red_cards": null,
+        "substitutes": null
 	    }
 	   },
      {
