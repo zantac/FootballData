@@ -14,10 +14,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -34,10 +46,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -54,10 +78,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -74,11 +110,23 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-	    }
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
+      }
 	   },
      {
       "match_id": "m005",
@@ -94,10 +142,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -114,10 +174,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -134,10 +206,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -154,10 +238,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -174,10 +270,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -194,10 +302,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     },
     {
@@ -214,10 +334,22 @@
       "result": {
         "home_score": 0,
         "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
+        "goal_scorers": {
+          "home_scorers": null,
+          "away_scorers": null
+      },
+        "yellow_cards": {
+          "home_yc": null,
+          "away_yc": null
+        },
+        "red_cards": {
+          "home_rc": null,
+          "away_rc": null
+        },
+        "substitutes": {
+          "home_sub": null,
+          "away_sub": null
+        }
       }
     }
     
