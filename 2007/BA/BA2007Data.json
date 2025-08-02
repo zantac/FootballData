@@ -1104,14 +1104,7 @@
     }
     }
   ],
-  "scorrers": [
-    {
-      "position": 1,
-      "name": "player1",
-      "team_id": "t001",
-      "goals": 7
-    }
-  ],
+  "scorrers": null,
   "assists": [
     {
       "position": 1,
