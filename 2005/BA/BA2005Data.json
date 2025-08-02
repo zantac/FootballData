@@ -1293,10 +1293,16 @@
   ],
   "scorrers": [
     {
-      "position": 1,
-      "name": "احمد حسن",
-      "team_id": "انبي",
+      "position": 2,
+      "name": "محمد شريف - مهاجم صريح",
+      "team_id": "الاهلي",
       "goals": 7
+    },
+    {
+      "position": 1,
+      "name": "احمد حسن - مهاجم ايسر",
+      "team_id": "انبي",
+      "goals": 9
     }
   ],
   "assists": [
