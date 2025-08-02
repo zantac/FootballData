@@ -45,6 +45,8 @@
       "venue": "v002",
       "status": "completed",
       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
       "result": {
         "home_score": 0,
         "away_score": 1,
