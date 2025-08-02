@@ -37,17 +37,16 @@
       "note" : null,
       "home_squade": null,
       "away_squade": null,
-      "result": {
-        "home_score": 0,
-        "away_score": 1,
-        "goal_scorers": {
-          "home_scorers": [],
-          "away_scorers": ["محمد محمود"]
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_score": 1,
+      "away_score": 0,
+      "home_scorers": ["أحمد علي"],
+      "away_scorers": [],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m003",
@@ -62,17 +61,16 @@
       "note" : "فوز مسار اف سي بضربات الترجيح بنتيجة 5-4",
       "home_squade": null,
       "away_squade": null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": [],
-          "away_scorers": []
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_score": 1,
+      "away_score": 0,
+      "home_scorers": ["أحمد علي"],
+      "away_scorers": [],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m004",
@@ -87,17 +85,16 @@
       "note" : null,
       "home_squade": null,
       "away_squade": null,
-      "result": {
-        "home_score": 3,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي","محمد محمود","عماد متعب"],
-          "away_scorers": []
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-	    }
+      "home_score": 1,
+      "away_score": 0,
+      "home_scorers": ["أحمد علي"],
+      "away_scorers": [],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m005",
@@ -112,17 +109,16 @@
       "note" : null,
       "home_squade": null,
       "away_squade": null,
-      "result": {
-        "home_score": 1,
-        "away_score": 4,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي"],
-          "away_scorers": ["حسام حسن","فيلكس","حسام حسن","محمد بركات"]
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_score": 1,
+      "away_score": 0,
+      "home_scorers": ["أحمد علي"],
+      "away_scorers": [],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m006",
@@ -135,17 +131,18 @@
       "venue": "v006",
       "status": "delayed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي"],
-          "away_scorers": []
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m007",
@@ -158,17 +155,18 @@
       "venue": "v007",
       "status": "completed",
       "note" : "فوز ديروط بضربات الجزاء بنتيجة 4-3",
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": [],
-          "away_scorers": []
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m008",
@@ -181,17 +179,18 @@
       "venue": "v001",
       "status": "completed",
       "note" : "فوز أبو قير للأسمدة بضربات الجزاء 4-2",
-      "result": {
-        "home_score": 1,
-        "away_score": 1,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي"],
-          "away_scorers": ["أسامة فيصل"]
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m009",
@@ -204,17 +203,18 @@
       "venue": "v002",
       "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 1,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي"],
-          "away_scorers": []
-      },
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m010",
@@ -227,14 +227,18 @@
       "venue": "v003",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m011",
@@ -247,14 +251,18 @@
       "venue": "v004",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-	    }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m012",
@@ -267,14 +275,18 @@
       "venue": "v005",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m013",
@@ -287,14 +299,18 @@
       "venue": "v006",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m014",
@@ -307,14 +323,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m015",
@@ -327,14 +347,18 @@
       "venue": "v001",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m016",
@@ -347,14 +371,18 @@
       "venue": "v002",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m017",
@@ -367,14 +395,18 @@
       "venue": "v003",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m018",
@@ -387,14 +419,18 @@
       "venue": "v004",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-	    }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m019",
@@ -407,14 +443,18 @@
       "venue": "v005",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m020",
@@ -427,14 +467,18 @@
       "venue": "v006",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m021",
@@ -447,14 +491,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m022",
@@ -467,14 +515,18 @@
       "venue": "v001",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m023",
@@ -487,14 +539,18 @@
       "venue": "v002",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m024",
@@ -507,14 +563,18 @@
       "venue": "v003",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m025",
@@ -527,14 +587,18 @@
       "venue": "v004",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-	    }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m026",
@@ -547,14 +611,18 @@
       "venue": "v005",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m027",
@@ -567,14 +635,18 @@
       "venue": "v006",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m028",
@@ -587,14 +659,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m029",
@@ -607,14 +683,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m030",
@@ -627,14 +707,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m031",
@@ -647,14 +731,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m032",
@@ -667,14 +755,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m033",
@@ -687,14 +779,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m034",
@@ -707,14 +803,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m035",
@@ -727,14 +827,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m036",
@@ -747,14 +851,18 @@
       "venue": "v007",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": null,
-        "yellow_cards": null,
-        "red_cards": null,
-        "substitutes": null
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     }
     
    ],
