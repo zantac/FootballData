@@ -11,6 +11,8 @@
       "venue": "v001",
       "status": "completed",
       "note" : null,
+      "home_squade": [1,2,3,4,5,6,7,8,9,10,11],
+      "away_squade": [1,2,3,4,5,6,7,8,9,10,11],
       "result": {
         "home_score": 1,
         "away_score": 0,
