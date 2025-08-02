@@ -1294,32 +1294,32 @@
   "scorrers": [
     {
       "position": 1,
-      "name": "player1",
-      "team_id": "t001",
+      "name": "احمد حسن",
+      "team_id": "انبي",
       "goals": 7
     }
   ],
   "assists": [
     {
       "position": 1,
-      "name": "player1",
-      "team_id": "t001",
+      "name": "زياد طارق",
+      "team_id": "بتروجت",
       "assist": 10
     }
   ],
   "cleansheets": [
     {
       "position": 1,
-      "name": "player1",
-      "team_id": "t001",
+      "name": "احمد الشناوي",
+      "team_id": "بيراميدز",
       "cleansheet": 3
     }
   ],
   "penaliyblocks": [
     {
       "position": 1,
-      "name": "player1",
-      "team_id": "t001",
+      "name": "مصطفي شوبير",
+      "team_id": "الاهلي",
       "block": 1
     }
   ]    
