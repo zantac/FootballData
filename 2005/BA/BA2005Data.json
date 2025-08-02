@@ -11,28 +11,18 @@
       "venue": "v001",
       "status": "completed",
       "note" : null,
-      "home_squade": [1,2,3,4,5,6,7,8,9,10,11,"<big><big>البدلاء<big><big>",13,14,15,16,17,18,19,20,21,22,23,24,25],
-      "away_squade": [1,2,3,4,5,6,7,8,9,10,11,"<big><big>البدلاء<big><big>",13,14,15,16,17,18,19,20,21,22,23,24,25],
-      "result": {
-        "home_score": 1,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": ["أحمد علي"],
-          "away_scorers": []
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 1,
+      "away_score": 0,
+      "home_scorers": ["أحمد علي"],
+      "away_scorers": [],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m002",
@@ -70,6 +60,8 @@
       "venue": "v003",
       "status": "completed",
       "note" : "فوز مسار اف سي بضربات الترجيح بنتيجة 5-4",
+      "home_squade": null,
+      "away_squade": null,
       "result": {
         "home_score": 0,
         "away_score": 0,
@@ -93,6 +85,8 @@
       "venue": "v004",
       "status": "completed",
       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
       "result": {
         "home_score": 3,
         "away_score": 0,
@@ -116,6 +110,8 @@
       "venue": "v005",
       "status": "completed",
       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
       "result": {
         "home_score": 1,
         "away_score": 4,
