@@ -1453,43 +1453,9 @@
     }
     }
   ],
-  "scorrers": [
-    {
-      "position": 2,
-      "name": "محمد شريف - مهاجم صريح",
-      "team_id": "الاهلي",
-      "goals": 7
-    },
-    {
-      "position": 1,
-      "name": "احمد حسن - مهاجم ايسر",
-      "team_id": "انبي",
-      "goals": 9
-    }
-  ],
-  "assists": [
-    {
-      "position": 1,
-      "name": "زياد طارق",
-      "team_id": "بتروجت",
-      "assist": 10
-    }
-  ],
-  "cleansheets": [
-    {
-      "position": 1,
-      "name": "احمد الشناوي",
-      "team_id": "بيراميدز",
-      "cleansheet": 3
-    }
-  ],
-  "penaliyblocks": [
-    {
-      "position": 1,
-      "name": "مصطفي شوبير",
-      "team_id": "الاهلي",
-      "block": 1
-    }
-  ]    
+  "scorrers": null,
+  "assists": null,
+  "cleansheets": null,
+  "penaliyblocks": null    
 
 }
