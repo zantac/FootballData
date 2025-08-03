@@ -970,22 +970,6 @@
         "midfielders": null,
         "attackers": null
     }
-    },
-    {
-      "team_id": "t014",
-      "group": null,
-      "name": "باي",
-      "logo": null,
-      "field": null,
-      "fieldurl": null,
-      "city": null,
-       "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-    }
     }
   ],
   "scorrers": null,
