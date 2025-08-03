@@ -4,20 +4,52 @@
       "competition_id": "c001",
       "name": "دوري الجمهورية القسم الاول",
       "ages": [
-        { "age": "2005", "matchesurl": null, "sector": null },
-        { "age": "2007", "matchesurl": null, "sector": null },
-        { "age": "2009", "matchesurl": null, "sector": null },
-        { "age": "2011", "matchesurl": null, "sector": null }
+        {
+          "age": "2005",
+          "matchesurl": null,
+          "sector": null
+        },
+        {
+          "age": "2007",
+          "matchesurl": null,
+          "sector": null
+        },
+        {
+          "age": "2009",
+          "matchesurl": null,
+          "sector": null
+        },
+        {
+          "age": "2011",
+          "matchesurl": null,
+          "sector": null
+        }
       ]
     },
     {
       "competition_id": "c002",
       "name": "دوري الجمهورية القسم الثاني أ",
       "ages": [
-        { "age": "2005", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2005/BA/BA2005Data.json", "sector": null },
-        { "age": "2007", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2007/BA/BA2007Data.json", "sector": null },
-        { "age": "2009", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2009/BA/BA2009Data.json", "sector": null },
-        { "age": "2011", "matchesurl": null, "sector": null }
+        {
+          "age": "2005",
+          "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2005/BA/BA2005Data.json",
+          "sector": null
+        },
+        {
+          "age": "2007",
+          "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2007/BA/BA2007Data.json",
+          "sector": null
+        },
+        {
+          "age": "2009",
+          "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2009/BA/BA2009Data.json",
+          "sector": null
+        },
+        {
+          "age": "2011",
+          "matchesurl": null,
+          "sector": null
+        }
       ]
     },
     {
@@ -34,16 +66,56 @@
       "competition_id": "c005",
       "name": "منافسات المناطق",
       "ages": [
-        { "age": "2007", "sector": "منطقة القاهرة", "matchesurl": null },
-        { "age": "2008", "sector": "منطقة القاهرة", "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Cairo/Area_Cairo_2008Data.json" },
-        { "age": "2009", "sector": "منطقة القاهرة", "matchesurl": null },
-        { "age": "2010", "sector": "منطقة القاهرة", "matchesurl": null },
-        { "age": "2011", "sector": "منطقة القاهرة", "matchesurl": null },
-        { "age": "2007", "sector": "منطقة القليوبية", "matchesurl": null },
-        { "age": "2008", "sector": "منطقة القليوبية", "matchesurl": null },
-        { "age": "2009", "sector": "منطقة القليوبية", "matchesurl": null },
-        { "age": "2010", "sector": "منطقة القليوبية", "matchesurl": null },
-        { "age": "2011", "sector": "منطقة القليوبية", "matchesurl": null }
+        {
+          "age": "2007",
+          "sector": "منطقة القاهرة",
+          "matchesurl": null
+        },
+        {
+          "age": "2008",
+          "sector": "منطقة القاهرة",
+          "matchesurl": "https://raw.githubusercontent.com/zantac/FootballData/refs/heads/main/2008/Area/Cairo/Area_Cairo_2008Data.json"
+        },
+        {
+          "age": "2009",
+          "sector": "منطقة القاهرة",
+          "matchesurl": null
+        },
+        {
+          "age": "2010",
+          "sector": "منطقة القاهرة",
+          "matchesurl": null
+        },
+        {
+          "age": "2011",
+          "sector": "منطقة القاهرة",
+          "matchesurl": null
+        },
+        {
+          "age": "2007",
+          "sector": "منطقة القليوبية",
+          "matchesurl": null
+        },
+        {
+          "age": "2008",
+          "sector": "منطقة القليوبية",
+          "matchesurl": null
+        },
+        {
+          "age": "2009",
+          "sector": "منطقة القليوبية",
+          "matchesurl": null
+        },
+        {
+          "age": "2010",
+          "sector": "منطقة القليوبية",
+          "matchesurl": null
+        },
+        {
+          "age": "2011",
+          "sector": "منطقة القليوبية",
+          "matchesurl": null
+        }
       ]
     }
   ],
