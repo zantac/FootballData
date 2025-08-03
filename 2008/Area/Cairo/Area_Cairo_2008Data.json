@@ -656,37 +656,9 @@
     }
   ]
   ,
-  "scorrers": [
-    {
-      "position": 1,
-      "name": "player1",
-      "team_id": "t001",
-      "goals": 7
-    }
-  ],
-  "assists": [
-    {
-      "position": 1,
-      "name": "player1",
-      "team_id": "t001",
-      "assist": 10
-    }
-  ],
-  "cleansheets": [
-    {
-      "position": 1,
-      "name": "player1",
-      "team_id": "t001",
-      "cleansheet": 3
-    }
-  ],
-  "penaliyblocks": [
-    {
-      "position": 1,
-      "name": "player1",
-      "team_id": "t001",
-      "block": 1
-    }
-  ]
+  "scorrers": null,
+  "assists": null,
+  "cleansheets": null,
+  "penalityblocks": null
 
 }
