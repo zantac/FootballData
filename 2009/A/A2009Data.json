@@ -1119,82 +1119,88 @@
     {
       "team_id": "t001",
       "group": null,
-      "name": "بلدية المحلة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v6/Competitors/19491",
+      "name": "الاهلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
       "field": null,
       "fieldurl": null,
       "city": null,
-      "players": null
+      "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
     },
     {
       "team_id": "t002",
       "group": null,
-      "name": "الداخلية",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
+      "name": "الزمالك",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
         "goalkeepers": null,
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t003",
       "group": null,
-      "name": "بترول أسيوط",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/12254",
+      "name": "بيراميدز",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
+        "goalkeepers": null,
         "defenders": null,
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t004",
       "group": null,
-      "name": "مالية كفر الزيات",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/19481",
+      "name": "المصري",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8303",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
+        "goalkeepers": null,
+        "defenders": null,
         "midfielders": null,
-        "attackers": ["player1", "player2", "player3"]
+        "attackers": null
     }
     },
     {
       "team_id": "t005",
       "group": null,
-      "name": "القناة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/12252",
+      "name": "البنك الاهلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50527",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
         "attackers": null
     }
     },
     {
       "team_id": "t006",
       "group": null,
-      "name": "بروكسي",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/72162",
+      "name": "سيراميكا كليوباترا",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50882",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -1209,193 +1215,241 @@
     {
       "team_id": "t007",
       "group": null,
-      "name": "المصرية للاتصالات",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/54377",
+      "name": "فاركو",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/46242",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t008",
       "group": null,
-      "name": "مسار اف سي",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/89524",
+      "name": "بتروجت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t009",
       "group": null,
-      "name": "لافيينا",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/67727",
+      "name": "حرس الحدود",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8307",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t010",
       "group": null,
-      "name": "الترسانة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/19470",
+      "name": "زد",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/29732",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t011",
       "group": null,
-      "name": "راية",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/74225",
+      "name": "طلائع الجيش",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8306",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t012",
       "group": null,
-      "name": "الانتاج الحربي",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/8304",
+      "name": "سموحة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8309",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t013",
       "group": null,
-      "name": "السكة الحديد",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/19463",
+      "name": "الاسماعيلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8299",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t014",
       "group": null,
-      "name": "المنصورة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/23662",
+      "name": "الاتحاد السكندري",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t015",
       "group": null,
-      "name": "أسوان",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/12257",
+      "name": "الجونة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t016",
       "group": null,
-      "name": "ديروط",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/20475",
+      "name": "غزل المحلة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8610",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t017",
       "group": null,
-      "name": "أبو قير للأسمدة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/19480",
+      "name": "انبي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     },
     {
       "team_id": "t018",
       "group": null,
-      "name": "طنطا",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/12255",
+      "name": "مودرن سبورت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
         "coach": null,
-        "goalkeepers": ["player1", "player2", "player3"],
-        "defenders": ["player1", "player2", "player3"],
-        "midfielders": ["player1", "player2", "player3"],
-        "attackers": ["player1", "player2", "player3"]
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t019",
+      "group": null,
+      "name": "وادي دجلة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t020",
+      "group": null,
+      "name": "المقاولون العرب",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t021",
+      "group": null,
+      "name": "كهرباء الاسماعيلية",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/19506",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
     }
   ],
