@@ -745,45 +745,6 @@
       "goals_for": 0,
       "goals_against": 0,
       "Penality_points": 0
-    },
-    {
-      "team_id": "t011",
-      "group": null,
-      "position": 11,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t012",
-      "group": null,
-      "position": 12,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t013",
-      "group": null,
-      "position": 13,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
     }
   ],
  "teams": [
