@@ -37,7 +37,7 @@
         },
         {
           "age": "2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@b0aa548665bc41567a6036025ea4e33f35eb45fb/2009/BA/BA2009Data.json",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@dc4e4cfd6345c89a307fec54ab224aa703e756e9/2009/BA/BA2009Data.json",
           "sector": null
         },
         {
@@ -214,6 +214,16 @@
       "venue_id": "v029",
       "name": "افريكانا - برج العرب",
       "url" : "https://www.google.com/maps/place/%D9%85%D9%84%D8%B9%D8%A8+%D9%85%D9%86%D8%AA%D8%AC%D8%B9+%D8%A7%D9%81%D8%B1%D9%8A%D9%83%D8%A7%D9%86%D9%88%E2%80%AD/@30.9677389,29.6555712,466m/data=!3m1!1e3!4m6!3m5!1s0x14f58fd14e00306d:0xdccc1a564e398259!8m2!3d30.9673487!4d29.6551225!16s%2Fg%2F11rxp6d2_6?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v030",
+      "name": "مركز شباب كفر الزيات",
+      "url" : "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D9%83%D9%81%D8%B1+%D8%A7%D9%84%D8%B2%D9%8A%D8%A7%D8%AA%E2%80%AD/@30.8199545,30.8213787,467m/data=!3m1!1e3!4m6!3m5!1s0x14f635032a589a4d:0x3f18b372e70143f8!8m2!3d30.8200125!4d30.8216094!16s%2Fg%2F11j239ph_2?entry=ttu&g_ep=EgoyMDI1MDgwMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v031",
+      "name": "مركز شباب الساحل بشبرا",
+      "url" : "https://www.google.com/maps/place/El+sahel/@30.098491,31.2548051,470m/data=!3m1!1e3!4m6!3m5!1s0x14584003bea98437:0xfa0456fe49dfdfd9!8m2!3d30.0995106!4d31.2557545!16s%2Fg%2F11c53138ls?entry=ttu&g_ep=EgoyMDI1MDgwMy4wIKXMDSoASAFQAw%3D%3D"
     }
   ]
 }
