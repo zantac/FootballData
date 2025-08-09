@@ -1310,7 +1310,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ايهاب فرج","مدرب عام ك/ محمود الدولي","مدرب حراس ك/ محمد علي حسن","الاداري ك/ احمد علي","أخصائي علاج طبيعي ك/ سيد شعيب",""],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
