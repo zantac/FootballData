@@ -40,7 +40,7 @@
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["بندق"],
+      "away_scorers": ["يوسف بندق"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -689,14 +689,14 @@
     },
     {
       "position": 6,
-      "name": "بندق",
+      "name": "يوسف بندق",
       "team_id": "المصرية للاتصالات",
       "goals": 1
     },
     {
       "position": 7,
       "name": "مانو",
-      "team_id": "المصرية للاتصالات",
+      "team_id": "الاهلي",
       "goals": 1
     }
   ],
