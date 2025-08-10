@@ -567,7 +567,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ كريم السيد","مدرب عام ك/ حمدي اكرامي","مدرب ك/ زيكا","مدرب الحراس ك/ محمد كالابالا","المعد النفسي ك/ محمد شعبان","طبيب القطاع د/ اسلام حلمي",""],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": ["احمد محمد مرسي"],
@@ -583,7 +583,7 @@
       "fieldurl": "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D8%A7%D9%84%D9%87%D8%A7%D9%8A%D9%83%D8%B3%D8%AA%D8%A8%E2%80%AD/@30.139701,31.4229388,235m/data=!3m1!1e3!4m6!3m5!1s0x14581709c1b216f7:0xe7f18b60f2efbe0f!8m2!3d30.1399225!4d31.4230651!16s%2Fg%2F11qpwk5l64?entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
        "players": { 
-        "coach": ["المدير الفني ك/ أحمد هلاوي"],
+        "coach": ["المدير الفني ك/ أحمد هيلاوي","مدرب عام ك/ محمود حسنين","مدرب الحراس ك/ بوكس","الاداري ك/ جمال سعد","دكتور عبد الرحمن رفيق",""],
         "goalkeepers": ["أحمد الشناوي"],
         "defenders": null,
         "midfielders": null,
