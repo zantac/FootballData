@@ -40,7 +40,7 @@
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["يوسف بندق"],
+      "away_scorers": ["يوسف عبد الرحمن"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -555,7 +555,7 @@
         "goalkeepers": ["أحمد فتوح"],
         "defenders": ["ماندو"],
         "midfielders": null,
-        "attackers": ["يوسف بندق"]
+        "attackers": ["يوسف عبد الرحمن"]
     }
     },
     {
@@ -689,7 +689,7 @@
     },
     {
       "position": 6,
-      "name": "يوسف بندق",
+      "name": "يوسف عبد الرحمن",
       "team_id": "المصرية للاتصالات",
       "goals": 1
     },
