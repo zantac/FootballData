@@ -63,7 +63,7 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["لا يوجد بيانات"],
+      "home_scorers": ["معتز","حسين","عمار"],
       "away_scorers": ["لا يوجد بيانات"],
       "home_yc": null,
       "away_yc": null,
@@ -87,7 +87,7 @@
       "away_squade": null,
       "home_score": 4,
       "away_score": 0,
-      "home_scorers": ["عصام سامح الشهير بأبو جبل - هدفين","محمد كرم","ياسين هيثم"],
+      "home_scorers": ["عصام أبو جبل - هدفين","محمد كرم","ياسين هيثم"],
       "away_scorers": ["لا يوجد بيانات"],
       "home_yc": null,
       "away_yc": null,
@@ -659,7 +659,7 @@
   "scorrers": [
     {
       "position": 1,
-      "name": "عصام سامح",
+      "name": "عصام أبو جبل",
       "team_id": "الداخلية",
       "goals": 2
     },
@@ -697,6 +697,24 @@
       "position": 7,
       "name": "مانو",
       "team_id": "الاهلي",
+      "goals": 1
+    },
+    {
+      "position": 8,
+      "name": "معتز",
+      "team_id": "المستقبل سبورت",
+      "goals": 1
+    },
+    {
+      "position": 9,
+      "name": "حسين",
+      "team_id": "المستقبل سبورت",
+      "goals": 1
+    },
+    {
+      "position": 10,
+      "name": "عمار",
+      "team_id": "المستقبل سبورت",
       "goals": 1
     }
   ],
