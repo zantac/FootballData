@@ -4,11 +4,11 @@
       "match_id": "m001",
       "group": null,
       "week": "1",
-      "date": "2025-09-01", 
+      "date": "2025-09-02", 
       "time": "16:00",
       "home_team_id": "t002",
       "away_team_id": "t001",
-      "venue": "v001",
+      "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -36,11 +36,11 @@
       "match_id": "m002",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t008",
       "away_team_id": "t010",
-      "venue": "v002",
+      "venue": "نادي الشعب بالدقهلية",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -68,11 +68,11 @@
       "match_id": "m003",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t007",
       "away_team_id": "t011",
-      "venue": "v003",
+      "venue": "مركز شباب محلة مرحوم",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -100,11 +100,11 @@
       "match_id": "m004",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
-      "time": "14:30",
+      "date": "2025-09-02",
+      "time": "15:00",
       "home_team_id": "t006",
       "away_team_id": "t012",
-      "venue": "v004",
+      "venue": "الامن المركزي 6 أكتوبر",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -132,11 +132,11 @@
       "match_id": "m005",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t005",
       "away_team_id": "t013",
-      "venue": "v005",
+      "venue": "السكة الحديد الرئيسي",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -164,11 +164,11 @@
       "match_id": "m006",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t004",
       "away_team_id": "t014",
-      "venue": "v006",
+      "venue": "الترسانة الفرعي",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -196,11 +196,11 @@
       "match_id": "m007",
       "group": null,
       "week": "1",
-      "date": "2025-09-01",
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t003",
       "away_team_id": "t015",
-      "venue": "v007",
+      "venue": "نادي الغابة",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -227,12 +227,12 @@
     {
       "match_id": "m008",
       "group": null,
-      "week": "1",
-      "date": "2025-09-01", 
+      "week": "2",
+      "date": "2025-09-09",
       "time": "16:00",
-      "home_team_id": "t009",
-      "away_team_id": "t016",
-      "venue": "v001",
+      "home_team_id": "t001",
+      "away_team_id": "t003",
+      "venue": "فرعي القناة الجديد رقم 2",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -260,11 +260,11 @@
       "match_id": "m009",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
+      "date": "2025-09-09",
       "time": "16:00",
-      "home_team_id": "t016",
-      "away_team_id": "t002",
-      "venue": "v002",
+      "home_team_id": "t015",
+      "away_team_id": "t004",
+      "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -287,16 +287,16 @@
           "away_sub": null
         }
       }
-    },
-    {
+	   },
+     {
       "match_id": "m010",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
+      "date": "2025-09-09",
       "time": "16:00",
-      "home_team_id": "t001",
-      "away_team_id": "t003",
-      "venue": "v003",
+      "home_team_id": "t014",
+      "away_team_id": "t005",
+      "venue": "مركز شباب ابو المطامير",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -324,11 +324,11 @@
       "match_id": "m011",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
-      "time": "14:30",
-      "home_team_id": "t015",
-      "away_team_id": "t004",
-      "venue": "v004",
+      "date": "2025-09-09",
+      "time": "16:00",
+      "home_team_id": "t013",
+      "away_team_id": "t006",
+      "venue": "نادي مالية كفر الزيات",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -351,16 +351,16 @@
           "away_sub": null
         }
       }
-	   },
-     {
+    },
+    {
       "match_id": "m012",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
+      "date": "2025-09-09",
       "time": "16:00",
-      "home_team_id": "t014",
-      "away_team_id": "t005",
-      "venue": "v005",
+      "home_team_id": "t012",
+      "away_team_id": "t007",
+      "venue": "المدينة الشبابية بأبوقير",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -388,11 +388,11 @@
       "match_id": "m013",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
+      "date": "2025-09-09", 
       "time": "16:00",
-      "home_team_id": "t013",
-      "away_team_id": "t006",
-      "venue": "v006",
+      "home_team_id": "t011",
+      "away_team_id": "t008",
+      "venue": "فرعي استاد السلام",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -420,11 +420,11 @@
       "match_id": "m014",
       "group": null,
       "week": "2",
-      "date": "2025-09-01",
+      "date": "2025-09-09",
       "time": "16:00",
-      "home_team_id": "t012",
-      "away_team_id": "t007",
-      "venue": "v007",
+      "home_team_id": "t010",
+      "away_team_id": "t009",
+      "venue": "مركز شباب الساحل بشبرا",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -451,12 +451,12 @@
     {
       "match_id": "m015",
       "group": null,
-      "week": "2",
-      "date": "2025-09-01", 
+      "week": "3",
+      "date": "2025-09-16",
       "time": "16:00",
-      "home_team_id": "t011",
-      "away_team_id": "t008",
-      "venue": "v001",
+      "home_team_id": "t004",
+      "away_team_id": "t001",
+      "venue": "الترسانة الفرعي",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -483,12 +483,12 @@
     {
       "match_id": "m016",
       "group": null,
-      "week": "2",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t010",
-      "away_team_id": "t009",
-      "venue": "v002",
+      "week": "3",
+      "date": "2025-09-16",
+      "time": "14:30",
+      "home_team_id": "t003",
+      "away_team_id": "t002",
+      "venue": "نادي الغابة",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -511,16 +511,16 @@
           "away_sub": null
         }
       }
-    },
-    {
+	   },
+     {
       "match_id": "m017",
       "group": null,
       "week": "3",
-      "date": "2025-09-01",
+      "date": "2025-09-16",
       "time": "16:00",
-      "home_team_id": "t004",
-      "away_team_id": "t001",
-      "venue": "v003",
+      "home_team_id": "t009",
+      "away_team_id": "t011",
+      "venue": "الاتصالات القديم",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -548,11 +548,11 @@
       "match_id": "m018",
       "group": null,
       "week": "3",
-      "date": "2025-09-01",
-      "time": "14:30",
-      "home_team_id": "t003",
-      "away_team_id": "t002",
-      "venue": "v004",
+      "date": "2025-09-16",
+      "time": "16:00",
+      "home_team_id": "t008",
+      "away_team_id": "t012",
+      "venue": "نادي الشعب بالدقهلية",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -575,16 +575,16 @@
           "away_sub": null
         }
       }
-	   },
-     {
+    },
+    {
       "match_id": "m019",
       "group": null,
       "week": "3",
-      "date": "2025-09-01",
+      "date": "2025-09-16",
       "time": "16:00",
-      "home_team_id": "t009",
-      "away_team_id": "t011",
-      "venue": "v005",
+      "home_team_id": "t007",
+      "away_team_id": "t013",
+      "venue": "مركز شباب محلة مرحوم",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -612,11 +612,11 @@
       "match_id": "m020",
       "group": null,
       "week": "3",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t008",
-      "away_team_id": "t012",
-      "venue": "v006",
+      "date": "2025-09-16", 
+      "time": "15:00",
+      "home_team_id": "t006",
+      "away_team_id": "t014",
+      "venue": "الامن المركزي 6 أكتوبر",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -644,11 +644,11 @@
       "match_id": "m021",
       "group": null,
       "week": "3",
-      "date": "2025-09-01",
+      "date": "2025-09-16",
       "time": "16:00",
-      "home_team_id": "t007",
-      "away_team_id": "t013",
-      "venue": "v007",
+      "home_team_id": "t005",
+      "away_team_id": "t015",
+      "venue": "السكة الحديد الرئيسي",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -672,15 +672,15 @@
         }
       }
     },
-    {
+     {
       "match_id": "m022",
       "group": null,
-      "week": "3",
-      "date": "2025-09-01", 
+      "week": "4",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t006",
-      "away_team_id": "t014",
-      "venue": "v001",
+      "home_team_id": "t002",
+      "away_team_id": "t004",
+      "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -707,12 +707,12 @@
     {
       "match_id": "m023",
       "group": null,
-      "week": "3",
-      "date": "2025-09-01",
+      "week": "4",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t005",
-      "away_team_id": "t015",
-      "venue": "v002",
+      "home_team_id": "t001",
+      "away_team_id": "t005",
+      "venue": "فرعي القناة الجديد رقم 2",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -739,12 +739,12 @@
     {
       "match_id": "m024",
       "group": null,
-      "week": "3",
-      "date": "2025-09-01",
+      "week": "4",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t010",
-      "away_team_id": "t016",
-      "venue": "v003",
+      "home_team_id": "t015",
+      "away_team_id": "t006",
+      "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -772,11 +772,11 @@
       "match_id": "m025",
       "group": null,
       "week": "4",
-      "date": "2025-09-01",
-      "time": "14:30",
-      "home_team_id": "t016",
-      "away_team_id": "t003",
-      "venue": "v004",
+      "date": "2025-09-23",
+      "time": "16:00",
+      "home_team_id": "t014",
+      "away_team_id": "t007",
+      "venue": "مركز شباب ابو المطامير",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -799,16 +799,16 @@
           "away_sub": null
         }
       }
-	   },
-     {
+    },
+    {
       "match_id": "m026",
       "group": null,
       "week": "4",
-      "date": "2025-09-01",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t002",
-      "away_team_id": "t004",
-      "venue": "v005",
+      "home_team_id": "t013",
+      "away_team_id": "t008",
+      "venue": "نادي مالية كفر الزيات",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -836,11 +836,11 @@
       "match_id": "m027",
       "group": null,
       "week": "4",
-      "date": "2025-09-01",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t001",
-      "away_team_id": "t005",
-      "venue": "v006",
+      "home_team_id": "t012",
+      "away_team_id": "t009",
+      "venue": "المدينة الشبابية بأبوقير",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -868,139 +868,11 @@
       "match_id": "m028",
       "group": null,
       "week": "4",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t015",
-      "away_team_id": "t006",
-      "venue": "v007",
-      "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
-    },
-    {
-      "match_id": "m029",
-      "group": null,
-      "week": "4",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t014",
-      "away_team_id": "t007",
-      "venue": "v007",
-      "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
-    },
-    {
-      "match_id": "m030",
-      "group": null,
-      "week": "4",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t013",
-      "away_team_id": "t008",
-      "venue": "v007",
-      "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
-    },
-    {
-      "match_id": "m031",
-      "group": null,
-      "week": "4",
-      "date": "2025-09-01",
-      "time": "16:00",
-      "home_team_id": "t012",
-      "away_team_id": "t009",
-      "venue": "v007",
-      "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
-    },
-    {
-      "match_id": "m032",
-      "group": null,
-      "week": "4",
-      "date": "2025-09-01",
+      "date": "2025-09-23",
       "time": "16:00",
       "home_team_id": "t011",
       "away_team_id": "t010",
-      "venue": "v007",
+      "venue": "فرعي استاد السلام",
       "status": "upcoming",
       "note" : null,
       "result": {
@@ -1274,8 +1146,8 @@
       "group": null,
       "name": "بلدية المحلة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v6/Competitors/19491",
-      "field": null,
-      "fieldurl": null,
+      "field": "نادي الغابة",
+      "fieldurl": "https://www.google.com/maps/place/Forest+Sporting+Club/@30.1024182,31.3374519,235m/data=!3m1!1e3!4m6!3m5!1s0x145815eee8669443:0xc16d5aaa0baf8f07!8m2!3d30.1028344!4d31.3382485!16s%2Fg%2F1hm41wv_2?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
        "players": { 
         "coach": null,
@@ -1322,8 +1194,8 @@
       "group": null,
       "name": "لافيينا",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/67727",
-      "field": null,
-      "fieldurl": null,
+      "field": "نادي الامن المركزي",
+      "fieldurl": "https://www.google.com/maps/place/Central+Security+Forces+Club,+26th+of+July+Corridor,+Kerdasa,+Giza+Governorate/@30.0470841,31.0546146,1119m/data=!3m1!1e3!4m14!1m7!3m6!1s0x14585b061b6efa07:0xfddefaec34e96390!2z2YbYp9iv2Yog2KfZhNij2YXZhiDYp9mE2YXYsdmD2LLZiiDYt9ix2YrZgiDYp9mE2LXYrdix2KfZiNmK!8m2!3d30.0466183!4d31.0581483!16s%2Fg%2F11r113r4l9!3m5!1s0x14585b22ee8db5f7:0xd6f4add7ec4433b6!8m2!3d30.0465573!4d31.0585922!16s%2Fg%2F11cknf6gdk?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
        "players": { 
         "coach": null,
@@ -1466,22 +1338,6 @@
       "group": null,
       "name": "راية",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/74225",
-      "field": null,
-      "fieldurl": null,
-      "city": null,
-       "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-    }
-    },
-    {
-      "team_id": "t016",
-      "group": null,
-      "name": "باي",
-      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
