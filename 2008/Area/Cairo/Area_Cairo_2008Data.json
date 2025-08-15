@@ -159,7 +159,7 @@
       "away_squade": null,
       "home_score": 6,
       "away_score": 0,
-      "home_scorers": ["لا يوجد بيانات"],
+      "home_scorers": ["عبد الرحمن الكاس هدفين","محمد أشرف","عبد الرحمن استالي","احمد رزق","محمد فرج"],
       "away_scorers": ["لا يوجد بيانات"],
       "home_yc": null,
       "away_yc": null,
@@ -488,7 +488,7 @@
       "city": null,
        "players": { 
         "coach": ["المدير الفني ك/ أحمد شعبان","مدرب عام ك/ متولي طلبه","مدرب الحراس ك/ محمود عامر","أخصائي اصابات د/ محمد عادل","طبيب القطاع د/ مختار","الاداري ك/ خالد رمضان",""],
-        "goalkeepers": null,
+        "goalkeepers": ["يوسف ياسر"],
         "defenders": null,
         "midfielders": null,
         "attackers": null
@@ -665,57 +665,9 @@
     },
     {
       "position": 2,
-      "name": "محمد كرم",
-      "team_id": "الداخلية",
-      "goals": 1
-    },
-    {
-      "position": 3,
-      "name": "ياسين هيثم",
-      "team_id": "الداخلية",
-      "goals": 1
-    },
-    {
-      "position": 4,
-      "name": "محمد فرج",
+      "name": "عبد الرحمن الكاس",
       "team_id": "بتروجت",
-      "goals": 1
-    },
-    {
-      "position": 5,
-      "name": "أحمد محمد ضيف",
-      "team_id": "السكة الحديد",
-      "goals": 1
-    },
-    {
-      "position": 6,
-      "name": "يوسف عبد الرحمن",
-      "team_id": "المصرية للاتصالات",
-      "goals": 1
-    },
-    {
-      "position": 7,
-      "name": "مانو",
-      "team_id": "الاهلي",
-      "goals": 1
-    },
-    {
-      "position": 8,
-      "name": "معتز",
-      "team_id": "المستقبل سبورت",
-      "goals": 1
-    },
-    {
-      "position": 9,
-      "name": "حسين",
-      "team_id": "المستقبل سبورت",
-      "goals": 1
-    },
-    {
-      "position": 10,
-      "name": "عمار",
-      "team_id": "المستقبل سبورت",
-      "goals": 1
+      "goals": 2
     }
   ],
   "assists": null,
@@ -730,6 +682,12 @@
       "position": 2,
       "name": "أحمد فتوح",
       "team_id": "المصرية للاتصالات",
+      "cleansheet": 1
+    },
+    {
+      "position": 3,
+      "name": "يوسف ياسر",
+      "team_id": "بتروجت",
       "cleansheet": 1
     }
   ],
