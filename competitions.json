@@ -55,7 +55,13 @@
     {
       "competition_id": "c003",
       "name": "دوري الجمهورية القسم الثاني ب",
-      "ages": null
+      "ages": [
+        {
+          "age": "2009",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@417520a7d5bd8c2121dd46c9adce96ea20fb02fd/2005/BA/BA2005Data.json",
+          "sector": "مجموعة القاهرة1"
+        }
+      ]
     },
     {
       "competition_id": "c004",
