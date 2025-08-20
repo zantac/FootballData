@@ -57,6 +57,16 @@
       "name": "دوري الجمهورية القسم الثاني ب",
       "ages": [
         {
+          "age": "القاهرة1-2005",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@4a4a7499bdbc8dd40dedcbc18166e46495c918d8/2005/BB/BB2005Cairo1Data.json",
+          "sector": "1مجموعة القاهرة"
+        },
+        {
+          "age": "القاهرة2-2005",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@d9e287cb0238db33eac37477a6e0be186cbf0fc5/2005/BB/BB2005Cairo2Data.json",
+          "sector": "2مجموعة القاهرة"
+        },
+        {
           "age": "القاهرة1-2007",
           "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@64f9dd788a743c891775d28571453aa7bc4186d1/2007/BB/BB2007Cairo1Data.json",
           "sector": "1مجموعة القاهرة"
