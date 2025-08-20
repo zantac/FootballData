@@ -58,13 +58,13 @@
       "ages": [
         {
           "age": "القاهرة1-2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e1b14aff9483a00fdc27e60f904a8ab9168e8e0f/2009/BB/BB2009Cairo1Data.json",
-          "sector": "مجموعة القاهرة"
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@3448af56baad04b37296db63ea82f2e9ab77a1a2/2009/BB/BB2009Cairo1Data.json",
+          "sector": "1مجموعة القاهرة"
         },
         {
           "age": "القاهرة2-2009",
           "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@95fb5446d54cdab5a48455f149c9e7bb84387564/2009/BB/BB2009Cairo2Data.json",
-          "sector": "مجموعة القاهرة"
+          "sector": "2مجموعة القاهرة"
         }
       ]
     },
