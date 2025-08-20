@@ -2,7 +2,7 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "week": "1",
       "date": "2025-09-06", 
       "time": "16:00",
@@ -26,7 +26,7 @@
     },
     {
       "match_id": "m002",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "week": "1",
       "date": "2025-09-06",
       "time": "16:00",
@@ -66,7 +66,7 @@
     },
     {
       "team_id": "t001",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 1,
       "points": 0,
       "matches_played": 0,
@@ -79,7 +79,7 @@
     },
     {
       "team_id": "t002",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 2,
       "points": 0,
       "matches_played": 0,
@@ -92,7 +92,7 @@
     },
     {
       "team_id": "t003",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 3,
       "points": 0,
       "matches_played": 0,
@@ -105,7 +105,7 @@
     },
     {
       "team_id": "t004",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 4,
       "points": 0,
       "matches_played": 0,
@@ -118,7 +118,7 @@
     },
     {
       "team_id": "t005",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 5,
       "points": 0,
       "matches_played": 0,
@@ -131,7 +131,7 @@
     },
     {
       "team_id": "t006",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 6,
       "points": 0,
       "matches_played": 0,
@@ -144,7 +144,7 @@
     },
     {
       "team_id": "t007",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 7,
       "points": 0,
       "matches_played": 0,
@@ -157,7 +157,7 @@
     },
     {
       "team_id": "t008",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 8,
       "points": 0,
       "matches_played": 0,
@@ -170,7 +170,7 @@
     },
     {
       "team_id": "t009",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 9,
       "points": 0,
       "matches_played": 0,
@@ -183,7 +183,7 @@
     },
     {
       "team_id": "t010",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 10,
       "points": 0,
       "matches_played": 0,
@@ -196,7 +196,7 @@
     },
     {
       "team_id": "t011",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 11,
       "points": 0,
       "matches_played": 0,
@@ -209,7 +209,7 @@
     },
     {
       "team_id": "t012",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 12,
       "points": 0,
       "matches_played": 0,
@@ -222,7 +222,7 @@
     },
     {
       "team_id": "t013",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 13,
       "points": 0,
       "matches_played": 0,
@@ -235,7 +235,7 @@
     },
     {
       "team_id": "t014",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 14,
       "points": 0,
       "matches_played": 0,
@@ -248,7 +248,7 @@
     },
     {
       "team_id": "t015",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "position": 15,
       "points": 0,
       "matches_played": 0,
@@ -263,7 +263,7 @@
  "teams": [
     {
       "team_id": "t001",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "ايسترن كومباني",
       "logo": null,
       "field": null,
@@ -279,7 +279,7 @@
     },
     {
       "team_id": "t002",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "النجوم",
       "logo": null,
       "field": null,
@@ -295,7 +295,7 @@
     },
     {
       "team_id": "t003",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "النصر",
       "logo": null,
       "field": null,
@@ -311,7 +311,7 @@
     },
     {
       "team_id": "t004",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "اتحاد الشرطة",
       "logo": null,
       "field": null,
@@ -327,7 +327,7 @@
     },
     {
       "team_id": "t005",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "ليفيلز",
       "logo": null,
       "field": null,
@@ -343,7 +343,7 @@
     },
     {
       "team_id": "t006",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "مستقبل سبورت",
       "logo": null,
       "field": null,
@@ -359,7 +359,7 @@
     },
     {
       "team_id": "t007",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "ألو ايجيبت",
       "logo": null,
       "field": null,
@@ -375,7 +375,7 @@
     },
     {
       "team_id": "t008",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "تيم اف سي",
       "logo": null,
       "field": null,
@@ -391,7 +391,7 @@
     },
     {
       "team_id": "t009",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "كسكادا",
       "logo": null,
       "field": null,
@@ -408,7 +408,7 @@
     },
     {
       "team_id": "t010",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "الاعلاميين",
       "logo": null,
       "field": null,
@@ -424,7 +424,7 @@
     },
     {
       "team_id": "t011",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "مصر للتأمين",
       "logo": null,
       "field": null,
@@ -440,7 +440,7 @@
     },
     {
       "team_id": "t012",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "داياموند",
       "logo": null,
       "field": null,
@@ -456,7 +456,7 @@
     },
     {
       "team_id": "t013",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "الشمس",
       "logo": null,
       "field": null,
@@ -472,7 +472,7 @@
     },
     {
       "team_id": "t014",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "بنها",
       "logo": null,
       "field": null,
@@ -488,7 +488,7 @@
     },
     {
       "team_id": "t015",
-      "group": "1القاهرة",
+      "group": "القاهرة-1",
       "name": "القناطر الخيرية",
       "logo": null,
       "field": null,
