@@ -65,6 +65,16 @@
           "age": "القاهرة2-2009",
           "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@9137871a2655a0021397bbf16201d36516fb6e09/2009/BB/BB2009Cairo2Data.json",
           "sector": "2مجموعة القاهرة"
+        },
+        {
+          "age": "بحري1-2009",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a1bf48a033d848f04e57db27e724cefd76fa6a8/2009/BB/BB2009Delta1Data.json",
+          "sector": "1مجموعة بحري"
+        },
+        {
+          "age": "بحري2-2009",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@4953e7888babc1c6c96b66ad34f04c782187f848/2009/BB/BB2009Delta2Data.json",
+          "sector": "2مجموعة بحري"
         }
       ]
     },
