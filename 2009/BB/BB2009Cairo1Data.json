@@ -258,39 +258,13 @@
       "goals_for": 0,
       "goals_against": 0,
       "Penality_points": 0
-    },
-    {
-      "team_id": "tg2001",
-      "group": "2القاهرة",
-      "position": 16,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "tg2002",
-      "group": "2القاهرة",
-      "position": 17,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
     }
   ],
  "teams": [
     {
       "team_id": "t001",
       "group": "1القاهرة",
-      "name": "اليكس كومباني",
+      "name": "ايسترن كومباني",
       "logo": null,
       "field": null,
       "fieldurl": null,
