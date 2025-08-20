@@ -8,7 +8,7 @@
       "time": "16:00",
       "home_team_id": "t002",
       "away_team_id": "t003",
-      "venue": "ملعب بورفؤاد",
+      "venue": "ملعب الرباط و الانوار",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -32,7 +32,7 @@
       "time": "16:00",
       "home_team_id": "t003",
       "away_team_id": "t012",
-      "venue": "ملعب الرباط و الانوار",
+      "venue": "ملعب اكتوبر برمانة",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -63,6 +63,19 @@
       "goals_for": "+",
       "goals_against": "-",
       "Penality_points": "ض.ج"
+    },
+    {
+      "team_id": "t001",
+      "group": "القاهرة-2",
+      "position": 1,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
     },
     {
       "team_id": "t002",
@@ -206,25 +219,12 @@
       "goals_for": 0,
       "goals_against": 0,
       "Penality_points": 0
-    },
-    {
-      "team_id": "t013",
-      "group": "القاهرة-2",
-      "position": 13,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
     }
   ],
  "teams": [
     
     {
-      "team_id": "t002",
+      "team_id": "t001",
       "group": "القاهرة-2",
       "name": "بورفؤاد",
       "logo": null,
@@ -240,7 +240,7 @@
     }
     },
     {
-      "team_id": "t003",
+      "team_id": "t002",
       "group": "القاهرة-2",
       "name": "الرباط و الانوار",
       "logo": null,
@@ -256,7 +256,7 @@
     }
     },
     {
-      "team_id": "t004",
+      "team_id": "t003",
       "group": "القاهرة-2",
       "name": "اكتوبر برمانة",
       "logo": null,
@@ -272,7 +272,7 @@
     }
     },
     {
-      "team_id": "t005",
+      "team_id": "t004",
       "group": "القاهرة-2",
       "name": "نجمة سيناء",
       "logo": null,
@@ -288,7 +288,7 @@
     }
     },
     {
-      "team_id": "t006",
+      "team_id": "t005",
       "group": "القاهرة-2",
       "name": "منتخب السويس",
       "logo": null,
@@ -304,7 +304,7 @@
     }
     },
     {
-      "team_id": "t007",
+      "team_id": "t006",
       "group": "القاهرة-2",
       "name": "المريخ",
       "logo": null,
@@ -320,7 +320,7 @@
     }
     },
     {
-      "team_id": "t008",
+      "team_id": "t007",
       "group": "القاهرة-2",
       "name": "الزرقا",
       "logo": null,
@@ -336,7 +336,7 @@
     }
     },
     {
-      "team_id": "t009",
+      "team_id": "t008",
       "group": "القاهرة-2",
       "name": "الشرقية زقازيق",
       "logo": null,
@@ -352,7 +352,7 @@
     }
     },
     {
-      "team_id": "t010",
+      "team_id": "t009",
       "group": "القاهرة-2",
       "name": "م.ش القزازين",
       "logo": null,
@@ -368,7 +368,7 @@
     }
     },
     {
-      "team_id": "t011",
+      "team_id": "t010",
       "group": "القاهرة-2",
       "name": "م.ش النجوم(الخربة)",
       "logo": null,
@@ -384,7 +384,7 @@
     }
     },
     {
-      "team_id": "t012",
+      "team_id": "t011",
       "group": "القاهرة-2",
       "name": "العبور",
       "logo": null,
@@ -400,7 +400,7 @@
     }
     },
     {
-      "team_id": "t013",
+      "team_id": "t012",
       "group": "القاهرة-2",
       "name": "رع",
       "logo": null,
