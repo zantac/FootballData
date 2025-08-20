@@ -57,8 +57,13 @@
       "name": "دوري الجمهورية القسم الثاني ب",
       "ages": [
         {
-          "age": "الفاهرة 2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@5900e23882e4f2a5eeb360b446e6b0b6c1624769/2009/BB/BB2009CairoData.json",
+          "age": "القاهرة1-2009",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e1b14aff9483a00fdc27e60f904a8ab9168e8e0f/2009/BB/BB2009Cairo1Data.json",
+          "sector": "مجموعة القاهرة"
+        },
+        {
+          "age": "القاهرة2-2009",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@95fb5446d54cdab5a48455f149c9e7bb84387564/2009/BB/BB2009Cairo2Data.json",
           "sector": "مجموعة القاهرة"
         }
       ]
