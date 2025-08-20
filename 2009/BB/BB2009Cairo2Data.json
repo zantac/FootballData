@@ -2,7 +2,7 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "week": "1",
       "date": "2025-09-06", 
       "time": "16:00",
@@ -26,7 +26,7 @@
     },
     {
       "match_id": "m002",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "week": "1",
       "date": "2025-09-06",
       "time": "16:00",
@@ -66,7 +66,7 @@
     },
     {
       "team_id": "t001",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 1,
       "points": 0,
       "matches_played": 0,
@@ -79,7 +79,7 @@
     },
     {
       "team_id": "t002",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 2,
       "points": 0,
       "matches_played": 0,
@@ -92,7 +92,7 @@
     },
     {
       "team_id": "t003",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 3,
       "points": 0,
       "matches_played": 0,
@@ -105,7 +105,7 @@
     },
     {
       "team_id": "t004",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 4,
       "points": 0,
       "matches_played": 0,
@@ -118,7 +118,7 @@
     },
     {
       "team_id": "t005",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 5,
       "points": 0,
       "matches_played": 0,
@@ -131,7 +131,7 @@
     },
     {
       "team_id": "t006",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 6,
       "points": 0,
       "matches_played": 0,
@@ -144,7 +144,7 @@
     },
     {
       "team_id": "t007",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 7,
       "points": 0,
       "matches_played": 0,
@@ -157,7 +157,7 @@
     },
     {
       "team_id": "t008",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 8,
       "points": 0,
       "matches_played": 0,
@@ -170,7 +170,7 @@
     },
     {
       "team_id": "t009",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 9,
       "points": 0,
       "matches_played": 0,
@@ -183,7 +183,7 @@
     },
     {
       "team_id": "t010",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 10,
       "points": 0,
       "matches_played": 0,
@@ -196,7 +196,7 @@
     },
     {
       "team_id": "t011",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 11,
       "points": 0,
       "matches_played": 0,
@@ -209,7 +209,7 @@
     },
     {
       "team_id": "t012",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "position": 12,
       "points": 0,
       "matches_played": 0,
@@ -225,7 +225,7 @@
     
     {
       "team_id": "t001",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "م.ش قرية عامر",
       "logo": null,
       "field": null,
@@ -241,7 +241,7 @@
     },
     {
       "team_id": "t002",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "بورفؤاد",
       "logo": null,
       "field": null,
@@ -257,7 +257,7 @@
     },
     {
       "team_id": "t003",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "الرباط و الانوار",
       "logo": null,
       "field": null,
@@ -273,7 +273,7 @@
     },
     {
       "team_id": "t004",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "اكتوبر برمانة",
       "logo": null,
       "field": null,
@@ -289,7 +289,7 @@
     },
     {
       "team_id": "t005",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "نجمة سيناء",
       "logo": null,
       "field": null,
@@ -305,7 +305,7 @@
     },
     {
       "team_id": "t006",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "م.ش النجوم(الخربة)",
       "logo": null,
       "field": null,
@@ -321,7 +321,7 @@
     },
     {
       "team_id": "t007",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "المريخ",
       "logo": null,
       "field": null,
@@ -337,7 +337,7 @@
     },
     {
       "team_id": "t008",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "منتخب السويس",
       "logo": null,
       "field": null,
@@ -353,7 +353,7 @@
     },
     {
       "team_id": "t009",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "الزرقا",
       "logo": null,
       "field": null,
@@ -369,7 +369,7 @@
     },
     {
       "team_id": "t010",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "الشرقية زقازيق",
       "logo": null,
       "field": null,
@@ -385,7 +385,7 @@
     },
     {
       "team_id": "t011",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "العبور",
       "logo": null,
       "field": null,
@@ -401,7 +401,7 @@
     },
     {
       "team_id": "t012",
-      "group": "2القاهرة",
+      "group": "القاهرة-2",
       "name": "رع",
       "logo": null,
       "field": null,
