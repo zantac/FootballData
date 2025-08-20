@@ -8,7 +8,7 @@
       "time": "16:00",
       "home_team_id": "t002",
       "away_team_id": "t004",
-      "venue": "ملعب النجوم",
+      "venue": "ملعب النصر",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -32,7 +32,7 @@
       "time": "16:00",
       "home_team_id": "t003",
       "away_team_id": "t012",
-      "venue": "ملعب النصر",
+      "venue": "ملعب اتحاد الشرطة",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -63,6 +63,19 @@
       "goals_for": "+",
       "goals_against": "-",
       "Penality_points": "ض.ج"
+    },
+    {
+      "team_id": "t001",
+      "group": "القاهرة-1",
+      "position": 1,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
     },
     {
       "team_id": "t002",
@@ -232,25 +245,12 @@
       "goals_for": 0,
       "goals_against": 0,
       "Penality_points": 0
-    },
-    {
-      "team_id": "t015",
-      "group": "القاهرة-1",
-      "position": 15,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
     }
   ],
  "teams": [
     
     {
-      "team_id": "t002",
+      "team_id": "t001",
       "group": "القاهرة-1",
       "name": "النجوم",
       "logo": null,
@@ -266,7 +266,7 @@
     }
     },
     {
-      "team_id": "t003",
+      "team_id": "t002",
       "group": "القاهرة-1",
       "name": "النصر",
       "logo": null,
@@ -282,7 +282,7 @@
     }
     },
     {
-      "team_id": "t004",
+      "team_id": "t003",
       "group": "القاهرة-1",
       "name": "اتحاد الشرطة",
       "logo": null,
@@ -298,7 +298,7 @@
     }
     },
     {
-      "team_id": "t005",
+      "team_id": "t004",
       "group": "القاهرة-1",
       "name": "داياموند",
       "logo": null,
@@ -314,7 +314,7 @@
     }
     },
     {
-      "team_id": "t006",
+      "team_id": "t005",
       "group": "القاهرة-1",
       "name": "الاعلاميين",
       "logo": null,
@@ -331,7 +331,7 @@
     },
     
     {
-      "team_id": "t007",
+      "team_id": "t006",
       "group": "القاهرة-1",
       "name": "كسكادا",
       "logo": null,
@@ -348,7 +348,7 @@
     }
     },
     {
-      "team_id": "t008",
+      "team_id": "t007",
       "group": "القاهرة-1",
       "name": "مصر للتأمين",
       "logo": null,
@@ -364,7 +364,7 @@
     }
     },
     {
-      "team_id": "t009",
+      "team_id": "t008",
       "group": "القاهرة-1",
       "name": "ليفيلز",
       "logo": null,
@@ -380,7 +380,7 @@
     }
     },
     {
-      "team_id": "t010",
+      "team_id": "t009",
       "group": "القاهرة-1",
       "name": "مستقبل سبورت",
       "logo": null,
@@ -396,7 +396,7 @@
     }
     },
     {
-      "team_id": "t011",
+      "team_id": "t010",
       "group": "القاهرة-1",
       "name": "حلوان العام",
       "logo": null,
@@ -412,7 +412,7 @@
     }
     },
     {
-      "team_id": "t012",
+      "team_id": "t011",
       "group": "القاهرة-1",
       "name": "الشمس",
       "logo": null,
@@ -428,7 +428,7 @@
     }
     },
     {
-      "team_id": "t013",
+      "team_id": "t012",
       "group": "القاهرة-1",
       "name": "تيم اف سي",
       "logo": null,
@@ -444,7 +444,7 @@
     }
     },
     {
-      "team_id": "t014",
+      "team_id": "t013",
       "group": "القاهرة-1",
       "name": "القناطر الخيرية",
       "logo": null,
@@ -459,7 +459,7 @@
         "attackers": null
     }
     },{
-      "team_id": "t015",
+      "team_id": "t014",
       "group": "القاهرة-1",
       "name": "بنها",
       "logo": null,
