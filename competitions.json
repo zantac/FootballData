@@ -115,6 +115,16 @@
           "age": "القاهرة2-2011",
           "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@bd7fbf6581a8c434b117529502f76faf59a1c5c3/2011/BB/BB2011Cairo2Data.json",
           "sector": "2مجموعة القاهرة"
+        },
+        {
+          "age": "بحري1-2011",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@656fa7075a406be4bebe3d81bf90bf20e948c9c2/2011/BB/BB2011Delta1Data.json",
+          "sector": "1مجموعة بحري"
+        },
+        {
+          "age": "بحري2-2011",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@ae2d8c21fd2dc820d24407bdc29689e8f2c8793f/2011/BB/BB2011Delta2Data.json",
+          "sector": "2مجموعة بحري"
         }
       ]
     },
