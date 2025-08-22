@@ -3180,7 +3180,7 @@
       "fieldurl": null,
       "city": "القاهرة",
       "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ سامر عبد الرحمن"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3196,7 +3196,7 @@
       "fieldurl": null,
       "city": "الجيزة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ وجيه عبد العظيم"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3212,7 +3212,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد شعبان"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3228,7 +3228,7 @@
       "fieldurl": null,
       "city": "بورسعيد",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد خليفة"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3244,7 +3244,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ أيمن عبد السميع"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3260,7 +3260,7 @@
       "fieldurl": null,
       "city": "السويس",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ حسن كفته"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3276,7 +3276,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ هاني سامي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3292,7 +3292,7 @@
       "fieldurl": null,
       "city": "السويس",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ أشرف أبو زيد"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3308,7 +3308,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ وائل الدقاق"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3340,7 +3340,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمود نظمي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3356,7 +3356,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ هاني العجيزي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3372,7 +3372,7 @@
       "fieldurl": null,
       "city": "الاسماعيلية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ علي يحيي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3388,7 +3388,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد فتحي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3404,7 +3404,7 @@
       "fieldurl": null,
       "city": "الغردقة",
        "players": { 
-        "coach": "المدير الفني كابتن محمود علوان",
+        "coach": ["المدير الفني ك/ محمود علوان"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3420,7 +3420,7 @@
       "fieldurl": null,
       "city": "الغربية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ عبد العظيم الشوري"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3436,7 +3436,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد السيد"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3452,7 +3452,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد عبدالله"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3468,7 +3468,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ أحمد فتحي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3484,7 +3484,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ محمد سعد"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -3500,7 +3500,7 @@
       "fieldurl": null,
       "city": "الاسماعيلية",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ أحمد عبد الغني"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
