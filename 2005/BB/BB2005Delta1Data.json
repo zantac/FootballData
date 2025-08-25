@@ -1,0 +1,425 @@
+{
+  "matches": [
+    {
+      "match_id": "m001",
+      "group": "بحري-1",
+      "week": "1",
+      "date": "2025-09-06", 
+      "time": "16:00",
+      "home_team_id": "t002",
+      "away_team_id": "t001",
+      "venue": "مركز شباب أبو المطامير",
+      "status": "upcoming",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
+    },
+    {
+      "match_id": "m002",
+      "group": "بحري-1",
+      "week": "1",
+      "date": "2025-09-06",
+      "time": "16:00",
+      "home_team_id": "t003",
+      "away_team_id": "t010",
+      "venue": "ملعب بدر",
+      "status": "upcoming",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
+    }
+     
+   ],
+ "standings": [
+    {
+      "team_id": "t000",
+      "group": null,
+      "position": null,
+      "points": "نقاط",
+      "matches_played": "لعب",
+      "wins": "ف",
+      "draws": "ت",
+      "losses": "خ",
+      "goals_for": "+",
+      "goals_against": "-",
+      "Penality_points": "ض.ج"
+    },
+    {
+      "team_id": "t001",
+      "group": "بحري-1",
+      "position": 1,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t002",
+      "group": "بحري-1",
+      "position": 2,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t003",
+      "group": "بحري-1",
+      "position": 3,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t004",
+      "group": "بحري-1",
+      "position": 4,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t005",
+      "group": "بحري-1",
+      "position": 5,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t006",
+      "group": "بحري-1",
+      "position": 6,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t007",
+      "group": "بحري-1",
+      "position": 7,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t008",
+      "group": "بحري-1",
+      "position": 8,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t009",
+      "group": "بحري-1",
+      "position": 9,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t010",
+      "group": "بحري-1",
+      "position": 10,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t011",
+      "group": "بحري-1",
+      "position": 11,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    },
+    {
+      "team_id": "t012",
+      "group": "بحري-1",
+      "position": 12,
+      "points": 0,
+      "matches_played": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "goals_for": 0,
+      "goals_against": 0,
+      "Penality_points": 0
+    }
+  ],
+ "teams": [
+    
+    {
+      "team_id": "t001",
+      "group": "بحري-1",
+      "name": "ألعاب دمنهور",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t002",
+      "group": "بحري-1",
+      "name": "م.ش أبو المطامير",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t003",
+      "group": "بحري-1",
+      "name": "بدر",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t004",
+      "group": "بحري-1",
+      "name": "م.ش كوم حماده",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t005",
+      "group": "بحري-1",
+      "name": "دلفي",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t006",
+      "group": "بحري-1",
+      "name": "طلائع الاسطول",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t007",
+      "group": "بحري-1",
+      "name": "أصحاب الجياد",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t008",
+      "group": "بحري-1",
+      "name": "سبورتنج",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t009",
+      "group": "بحري-1",
+      "name": "الاسكندرية للبترول",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t010",
+      "group": "بحري-1",
+      "name": "الهلال بالضبعة",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t011",
+      "group": "بحري-1",
+      "name": "الزهور بمطروح",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t012",
+      "group": "بحري-1",
+      "name": "الرجاء",
+      "logo": null,
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }
+  ],
+  "scorrers": null,
+  "assists": null,
+  "cleansheets": null,
+  "penalityblocks": null
+
+
+}
