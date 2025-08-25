@@ -68,7 +68,7 @@
         },
         {
           "age": "بحري1-2005",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f23912a40e980193544dcc30aa63f46d323249d8/2007/BB/BB2007Delta1Data.json",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f23912a40e980193544dcc30aa63f46d323249d8/2005/BB/BB2005Delta1Data.json",
           "sector": "1مجموعة بحري"
         },
         {
@@ -78,7 +78,7 @@
         },
         {
           "age": "القاهرة1-2007",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@64f9dd788a743c891775d28571453aa7bc4186d1/2005/BB/BB2005Cairo1Data.json",
+          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@64f9dd788a743c891775d28571453aa7bc4186d1/2007/BB/BB2007Cairo1Data.json",
           "sector": "1مجموعة القاهرة"
         },
         {
