@@ -25,7 +25,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m002",
+      "match_id": "m012",
       "group": "القاهرة-1",
       "week": "1",
       "date": "2025-09-06",
@@ -252,8 +252,8 @@
     {
       "team_id": "t001",
       "group": "القاهرة-1",
-      "name": "النجوم",
-      "logo": null,
+      "name": "الشمس",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-1/518289435_766974882505474_5776949650544494729_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeEKMfwz16o3UjyMZ5M2u1AIbHQRfM1So-hsdBF8zVKj6EYo9Lgk0PDzG6Dxe6qUt9A&_nc_ohc=mFM_hf_RN3MQ7kNvwHWWwbX&_nc_oc=AdlLnQHN_0EwimrHuyunr1Lc7AIZMHAa6Wk9HArREdClRPjsFyGYq2BcRlq6uIpj1QQ&_nc_zt=24&_nc_ht=scontent.faly1-2.fna&_nc_gid=rSyd0WdMqG-NLFcDt5iTeQ&oh=00_AfXnPyzytd3ET0s6urknzSaJURaOVyy66urdc3GTR8wRKA&oe=68B394CF",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -268,8 +268,8 @@
     {
       "team_id": "t002",
       "group": "القاهرة-1",
-      "name": "النصر",
-      "logo": null,
+      "name": "حلوان العام",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Helwan_Club.png/500px-Helwan_Club.png",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -284,8 +284,8 @@
     {
       "team_id": "t003",
       "group": "القاهرة-1",
-      "name": "اتحاد الشرطة",
-      "logo": null,
+      "name": "القناطر الخيرية",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/245040782_101365389005050_3252538846420124069_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHVg66Zrxo1BE97vwD2t-x8BsMFeDIz6FkGwwV4MjPoWX2pfU-6E9AxNXkd85UrJuA&_nc_ohc=C4vd6ofUu4cQ7kNvwEdBJIj&_nc_oc=AdnrqzRYu29hilPtG0YuL-K5qhSvYGx3V7ona9JiLLixW8PlUF4WDiFL-TiGwKPxBwU&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=9Ik6FRENqKveB0wJqtRFBg&oh=00_AfXoO7w25wJaEwPvV5cFQHEEq5G2px1TJjMoResCjSlDLw&oe=68B3AC97",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -300,8 +300,8 @@
     {
       "team_id": "t004",
       "group": "القاهرة-1",
-      "name": "داياموند",
-      "logo": null,
+      "name": "سرس الليان",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/302328842_472395734901620_12311736832844554_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEiexpynSuvYqOnxRuJDgdv7pslufy64RbumyW5_LrhFgHMsto-m0uN7LRaeR1wmIY&_nc_ohc=kjrVKmtknb8Q7kNvwFeVYJh&_nc_oc=AdlGLUR4NaUuSwiaH3wzp3Syye8Bl9Zcmnt-S_1IxQMri_1DfKHEuKeKZO9f_zUdSwM&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=gQj_fFLjY0gUJztH_Upp4Q&oh=00_AfVzjfYYCWc48iv6wyhsLRfR7cnzDagLxX1WQr1WnTsQTw&oe=68B396A0",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -316,8 +316,8 @@
     {
       "team_id": "t005",
       "group": "القاهرة-1",
-      "name": "الاعلاميين",
-      "logo": null,
+      "name": "ليفيلز",
+      "logo": "https://ia601001.us.archive.org/12/items/20250822_20250822_1330/%D9%84%D9%8A%D9%81%D9%8A%D9%84%D8%B2.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -329,12 +329,11 @@
         "attackers": null
     }
     },
-    
     {
       "team_id": "t006",
       "group": "القاهرة-1",
-      "name": "كسكادا",
-      "logo": null,
+      "name": "ايسترن كومباني",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/270862222_4180175055415877_5787969104746256394_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFSFxn50xDCX2NyN_lPOkVTbdR7C3sxhfBt1HsLezGF8H3gwrqMqoGUlSyxzIzJZr4&_nc_ohc=SNUYVnbC1VIQ7kNvwGd9wnE&_nc_oc=Admyru17g4L7Pvoc88hckloUwSK60oAtMkqAfbuOtU89-uYRwPsRHZeh6x_v_nsgF5g&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=bM0lo2UXKWJKDhfuvRx9sw&oh=00_AfWK6NcASKLgtUg5pOD65pLny1B8Suc6GwrAG8Ykc-G4bg&oe=68B3A4D4",
       "field": null,
       "fieldurl": null,
       "coach": null,
@@ -350,10 +349,11 @@
     {
       "team_id": "t007",
       "group": "القاهرة-1",
-      "name": "مصر للتأمين",
-      "logo": null,
+      "name": "كسكادا",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/466923467_1689251701638223_7692334400096301919_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeELwD-aP_hH6SzvPCrMoGxdP_hOiFHk-ds_-E6IUeT522msNA2_45UNY5NI0IgLBsI&_nc_ohc=Ww6pUvTRUkAQ7kNvwG_5PrS&_nc_oc=AdkJej7K_RGu0d7t6wkSC30bF9Xg1-vW789vGQtvtTUty_L_vdyNOIGVgvgf4BV-MW8&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=tef1Gvdhu5vKmcmif2xV_Q&oh=00_AfVHzkNxmHqsQVf9fjnSPqJXtAJMONv2fSgtMjzA1PM-1A&oe=68B3AFBA",
       "field": null,
       "fieldurl": null,
+      "coach": null,
       "city": null,
        "players": { 
         "coach": null,
@@ -366,8 +366,8 @@
     {
       "team_id": "t008",
       "group": "القاهرة-1",
-      "name": "ليفيلز",
-      "logo": null,
+      "name": "مستقبل سبورت",
+      "logo": "https://ia801003.us.archive.org/35/items/20250822_20250822_1314/clubs%20logo/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84%20%D8%B3%D8%A8%D9%88%D8%B1%D8%AA.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -382,8 +382,8 @@
     {
       "team_id": "t009",
       "group": "القاهرة-1",
-      "name": "مستقبل سبورت",
-      "logo": null,
+      "name": "الاعلاميين",
+      "logo": "https://upload.wikimedia.org/wikipedia/ar/e/ea/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A%D9%8A%D9%86.jpg?20231126115851",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -398,8 +398,8 @@
     {
       "team_id": "t010",
       "group": "القاهرة-1",
-      "name": "حلوان العام",
-      "logo": null,
+      "name": "النصر",
+      "logo": "https://upload.wikimedia.org/wikipedia/ar/0/0c/Al_Nasr_SC_Egypt.png",
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -413,22 +413,6 @@
     },
     {
       "team_id": "t011",
-      "group": "القاهرة-1",
-      "name": "الشمس",
-      "logo": null,
-      "field": null,
-      "fieldurl": null,
-      "city": null,
-       "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-    }
-    },
-    {
-      "team_id": "t012",
       "group": "القاهرة-1",
       "name": "تيم اف سي",
       "logo": null,
@@ -444,9 +428,25 @@
     }
     },
     {
+      "team_id": "t012",
+      "group": "القاهرة-1",
+      "name": "اتحاد الشرطة",
+      "logo": "https://ia600905.us.archive.org/29/items/20250822_20250822_1326/%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
       "team_id": "t013",
       "group": "القاهرة-1",
-      "name": "القناطر الخيرية",
+      "name": "النجوم",
       "logo": null,
       "field": null,
       "fieldurl": null,
@@ -458,10 +458,11 @@
         "midfielders": null,
         "attackers": null
     }
-    },{
+    },
+    {
       "team_id": "t014",
       "group": "القاهرة-1",
-      "name": "بنها",
+      "name": "داياموند",
       "logo": null,
       "field": null,
       "fieldurl": null,
@@ -473,7 +474,39 @@
         "midfielders": null,
         "attackers": null
     }
+    },
+    {
+      "team_id": "t015",
+      "group": "القاهرة-1",
+      "name": "بنها",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/459074373_527053489822953_5784056542535580891_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHJ7R7I5L68lP3xSIqtDPXOVZNlYS0jNQVVk2VhLSM1Bf-E-JeiVOBEDtUvMv8CDFA&_nc_ohc=7LJR_NAinm4Q7kNvwGPoLlL&_nc_oc=AdkTNVcdO0trPMoniUYq7DJlvc92ThhxiBSTpfHZgTi30qiYjhp04Xw3-x9xGVEs-84&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=yW7tQBdO_FsTUvQbPGh_uw&oh=00_AfXOeKWD-e9LNbLlKLZgjCWcrAnjQ_qdyWq_eKYHDhvGuA&oe=68B3A156",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
     }
+    },
+    {
+      "team_id": "t016",
+      "group": "القاهرة-1",
+      "name": "مصر للتأمين",
+      "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/471232091_122102909864695122_2639181160926721162_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF3uDqJlu-ql0GiR2VICP82Wy7wUr_t_PxbLvBSv-38_BbJ1peOQcbHXt_yJhQtmXo&_nc_ohc=npAcXIgOKGAQ7kNvwE7J1Eq&_nc_oc=Adn_XEW8wqEdQ8KTCZ9DjbWJzFCdj4OiTfFw6JuEaf8zeCsoQ4gNuMr5QmRFO2s18yY&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=l1qA6aXwOAS13efpRYzdoQ&oh=00_AfWGN0t1uLQ4vJYzAb-tBjqU5Xye5Wx4MPPI41AluWshgg&oe=68B3ADC8",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }  
   ],
   "scorrers": null,
   "assists": null,
