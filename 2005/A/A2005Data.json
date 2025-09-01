@@ -59,11 +59,11 @@
       "venue": "النادي الاجتماعي رقم 1",
       "status": "completed",
       "note" : null,
-      "home_squade": null,
+      "home_squade": ["فارس عجمي","اشرف غزالة","عبد الوهاب نادر","عمر فاروق","أحمد صلاح","يوسف مصطفي","عمر عرفة","محمد أكرم","محمود سيد","حسام حسن","زياد فرج","","البدلاء","حسين عبد الستار","صالح فريد","محمود أشرف"],
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["لا يوجد بيانات"],
+      "home_scorers": ["حسام حسن","صالح فريد"],
       "away_scorers": ["لا يوجد بيانات"],
       "home_yc": null,
       "away_yc": null,
@@ -184,7 +184,7 @@
       "home_score": 1,
       "away_score": 3,
       "home_scorers": ["محمود الخطيب"],
-      "away_scorers": ["لا يوجد بيانات"],
+      "away_scorers": ["سيف عماد","كريم توفيق","عمر فولي"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -231,7 +231,7 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["لا يوجد بيانات"],
+      "home_scorers": ["يوسف جلال","سليم سليمان","مصطفي محمود"],
       "away_scorers": ["لا يوجد بيانات"],
       "home_yc": null,
       "away_yc": null,
@@ -3228,11 +3228,11 @@
       "fieldurl": null,
       "city": "بورسعيد",
        "players": { 
-        "coach": ["المدير الفني ك/ محمد خليفة"],
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": ["المدير الفني ك/ محمد خليفة","مدرب ك/ محمد فاروق","مدرب ك/ هاني فريد","مدرب حراس ك/ محمد بوريو","اداري ك/ السيد شعيب","علاج طبيعي ك/ يحيي زكريا"],
+        "goalkeepers": ["فارس عجمي"],
+        "defenders": ["اشرف غزالة","عبد الوهاب نادر","عمر فاروق","أحمد صلاح"],
+        "midfielders": ["يوسف مصطفي","عمر عرفة","محمد أكرم"],
+        "attackers": ["محمود سيد","حسام حسن","زياد فرج"]
     }
     },
     {
