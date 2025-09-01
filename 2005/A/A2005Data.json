@@ -2899,7 +2899,7 @@
     {
       "team_id": "t001",
       "group": null,
-      "position": 1,
+      "position": 13,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -2912,7 +2912,7 @@
     {
       "team_id": "t002",
       "group": null,
-      "position": 2,
+      "position": 1,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -2925,7 +2925,7 @@
     {
       "team_id": "t003",
       "group": null,
-      "position": 3,
+      "position": 7,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -2938,7 +2938,7 @@
     {
       "team_id": "t004",
       "group": null,
-      "position": 4,
+      "position": 6,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -2951,7 +2951,7 @@
     {
       "team_id": "t005",
       "group": null,
-      "position": 5,
+      "position": 10,
       "points": 1,
       "matches_played": 1,
       "wins": 0,
@@ -2964,7 +2964,7 @@
     {
       "team_id": "t006",
       "group": null,
-      "position": 6,
+      "position": 21,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -2977,7 +2977,7 @@
     {
       "team_id": "t007",
       "group": null,
-      "position": 7,
+      "position": 19,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -2990,7 +2990,7 @@
     {
       "team_id": "t008",
       "group": null,
-      "position": 8,
+      "position": 9,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3003,7 +3003,7 @@
     {
       "team_id": "t009",
       "group": null,
-      "position": 9,
+      "position": 12,
       "points": 0,
       "matches_played": 0,
       "wins": 0,
@@ -3016,7 +3016,7 @@
     {
       "team_id": "t010",
       "group": null,
-      "position": 10,
+      "position": 3,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3029,7 +3029,7 @@
     {
       "team_id": "t011",
       "group": null,
-      "position": 11,
+      "position": 20,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -3042,7 +3042,7 @@
     {
       "team_id": "t012",
       "group": null,
-      "position": 12,
+      "position": 4,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3055,7 +3055,7 @@
     {
       "team_id": "t013",
       "group": null,
-      "position": 13,
+      "position": 16,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -3081,7 +3081,7 @@
     {
       "team_id": "t015",
       "group": null,
-      "position": 15,
+      "position": 8,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3094,7 +3094,7 @@
     {
       "team_id": "t016",
       "group": null,
-      "position": 16,
+      "position": 11,
       "points": 1,
       "matches_played": 1,
       "wins": 0,
@@ -3107,7 +3107,7 @@
     {
       "team_id": "t017",
       "group": null,
-      "position": 17,
+      "position": 2,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3120,7 +3120,7 @@
     {
       "team_id": "t018",
       "group": null,
-      "position": 18,
+      "position": 5,
       "points": 3,
       "matches_played": 1,
       "wins": 1,
@@ -3133,7 +3133,7 @@
     {
       "team_id": "t019",
       "group": null,
-      "position": 19,
+      "position": 15,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -3146,7 +3146,7 @@
     {
       "team_id": "t020",
       "group": null,
-      "position": 20,
+      "position": 18,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
@@ -3159,7 +3159,7 @@
     {
       "team_id": "t021",
       "group": null,
-      "position": 21,
+      "position": 17,
       "points": 0,
       "matches_played": 1,
       "wins": 0,
