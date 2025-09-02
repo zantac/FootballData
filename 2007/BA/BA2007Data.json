@@ -9,29 +9,21 @@
       "home_team_id": "t002",
       "away_team_id": "t001",
       "venue": "مركز شباب الهايكستب",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 1,
+      "away_score": 1,
+      "home_scorers": ["لا يوجد بيانات"],
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
       },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
-    },
     {
       "match_id": "m002",
       "group": null,
@@ -41,28 +33,20 @@
       "home_team_id": "t008",
       "away_team_id": "t010",
       "venue": "نادي الشعب بالدقهلية",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 1,
+      "home_scorers": null,
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m003",
@@ -73,28 +57,20 @@
       "home_team_id": "t007",
       "away_team_id": "t011",
       "venue": "مركز شباب محلة مرحوم",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 2,
+      "away_score": 1,
+      "home_scorers": ["لا يوجد بيانات"],
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m004",
@@ -105,28 +81,20 @@
       "home_team_id": "t006",
       "away_team_id": "t012",
       "venue": "الامن المركزي 6 أكتوبر",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 3,
+      "away_score": 2,
+      "home_scorers": ["عمر عبد الهادي","ابراهيم فتحي","ابراهيم هاني"],
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m005",
@@ -137,28 +105,20 @@
       "home_team_id": "t005",
       "away_team_id": "t013",
       "venue": "السكة الحديد الرئيسي",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 2,
+      "away_score": 0,
+      "home_scorers": ["مصطفي فتحي","نور محمد"],
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m006",
@@ -169,28 +129,20 @@
       "home_team_id": "t004",
       "away_team_id": "t014",
       "venue": "الترسانة الفرعي",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 1,
+      "home_scorers": ["لا يوجد بيانات"],
+      "away_scorers": ["فارس الزناتي"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m007",
@@ -201,28 +153,20 @@
       "home_team_id": "t003",
       "away_team_id": "t015",
       "venue": "نادي الغابة",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 1,
+      "away_score": 4,
+      "home_scorers": ["لا يوجد بيانات"],
+      "away_scorers": ["لا يوجد بيانات"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m008",
@@ -235,26 +179,18 @@
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m009",
@@ -266,27 +202,19 @@
       "away_team_id": "t004",
       "venue": "نادي راية بالبحيرة",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m010",
@@ -298,27 +226,19 @@
       "away_team_id": "t005",
       "venue": "مركز شباب ابو المطامير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m011",
@@ -330,27 +250,19 @@
       "away_team_id": "t006",
       "venue": "مركز شباب كفر الزيات",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m012",
@@ -362,27 +274,19 @@
       "away_team_id": "t007",
       "venue": "المدينة الشبابية بأبوقير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m013",
@@ -394,27 +298,19 @@
       "away_team_id": "t008",
       "venue": "فرعي استاد السلام",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m014",
@@ -426,27 +322,19 @@
       "away_team_id": "t009",
       "venue": "مركز شباب الساحل بشبرا",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m015",
@@ -458,27 +346,19 @@
       "away_team_id": "t001",
       "venue": "الترسانة الفرعي",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m016",
@@ -490,27 +370,19 @@
       "away_team_id": "t002",
       "venue": "نادي الغابة",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
 	   },
      {
       "match_id": "m017",
@@ -522,27 +394,19 @@
       "away_team_id": "t011",
       "venue": "الاتصالات القديم",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m018",
@@ -554,27 +418,19 @@
       "away_team_id": "t012",
       "venue": "نادي الشعب بالدقهلية",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m019",
@@ -586,27 +442,19 @@
       "away_team_id": "t013",
       "venue": "مركز شباب محلة مرحوم",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m020",
@@ -618,27 +466,19 @@
       "away_team_id": "t014",
       "venue": "الامن المركزي 6 أكتوبر",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m021",
@@ -650,27 +490,19 @@
       "away_team_id": "t015",
       "venue": "السكة الحديد الرئيسي",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
      {
       "match_id": "m022",
@@ -682,27 +514,19 @@
       "away_team_id": "t004",
       "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m023",
@@ -714,27 +538,19 @@
       "away_team_id": "t005",
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m024",
@@ -746,27 +562,19 @@
       "away_team_id": "t006",
       "venue": "نادي راية بالبحيرة",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m025",
@@ -778,27 +586,19 @@
       "away_team_id": "t007",
       "venue": "مركز شباب ابو المطامير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m026",
@@ -810,27 +610,19 @@
       "away_team_id": "t008",
       "venue": "مركز شباب كفر الزيات",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m027",
@@ -842,27 +634,19 @@
       "away_team_id": "t009",
       "venue": "المدينة الشبابية بأبوقير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m028",
@@ -874,27 +658,19 @@
       "away_team_id": "t010",
       "venue": "فرعي استاد السلام",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m029",
@@ -906,27 +682,19 @@
       "away_team_id": "t001",
       "venue": "الامن المركزي 6 أكتوبر",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m030",
@@ -938,27 +706,19 @@
       "away_team_id": "t002",
       "venue": "السكة الحديد الرئيسي",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m031",
@@ -971,26 +731,18 @@
       "venue": "الترسانة الفرعي",
       "status": "upcoming",
       "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m032",
@@ -1002,27 +754,19 @@
       "away_team_id": "t012",
       "venue": "مركز شباب الساحل بشبرا",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m033",
@@ -1034,27 +778,19 @@
       "away_team_id": "t013",
       "venue": "الاتصالات القديم",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m034",
@@ -1066,27 +802,19 @@
       "away_team_id": "t014",
       "venue": "نادي الشعب بالدقهلية",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m035",
@@ -1098,27 +826,19 @@
       "away_team_id": "t015",
       "venue": "مركز شباب محلة مرحوم",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m036",
@@ -1130,27 +850,19 @@
       "away_team_id": "t005",
       "venue": "نادي الغابة",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m037",
@@ -1162,27 +874,19 @@
       "away_team_id": "t006",
       "venue": "مركز شباب الهايكستب",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m038",
@@ -1194,27 +898,19 @@
       "away_team_id": "t007",
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m039",
@@ -1226,27 +922,19 @@
       "away_team_id": "t008",
       "venue": "نادي راية بالبحيرة",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m040",
@@ -1258,27 +946,19 @@
       "away_team_id": "t009",
       "venue": "مركز شباب ابو المطامير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m041",
@@ -1290,27 +970,19 @@
       "away_team_id": "t010",
       "venue": "مركز شباب كفر الزيات",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     },
     {
       "match_id": "m042",
@@ -1322,27 +994,19 @@
       "away_team_id": "t011",
       "venue": "المدينة الشبابية بأبوقير",
       "status": "upcoming",
-      "note" : null,
-      "result": {
-        "home_score": 0,
-        "away_score": 0,
-        "goal_scorers": {
-          "home_scorers": null,
-          "away_scorers": null
-      },
-        "yellow_cards": {
-          "home_yc": null,
-          "away_yc": null
-        },
-        "red_cards": {
-          "home_rc": null,
-          "away_rc": null
-        },
-        "substitutes": {
-          "home_sub": null,
-          "away_sub": null
-        }
-      }
+       "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
     }
     
    ],
@@ -1774,7 +1438,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك/ سعد الحنتوشي","مدرب عام ك/ محمود بكار","مدرب حراس ك/ مراد النجار","دكتور/ اسماعيل عمران"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
