@@ -1847,16 +1847,16 @@
   "scorrers": [
     {
       
-      "name": {"ar":"عصام أبو جبل"},
-      "team_name":{"ar": "رع"},
-      "group": "2",
+      "name": "عصام أبو جبل",
+      "team_ID": "g2t012",
+      "group": "القاهرة-2",
       "goals": 4
     },
     {
       "position": 2,
       "name": "عبد الرحمن الكاس",
-      "team_id": "الشمس",
-      "group": "1",
+      "team_id": "g1t003",
+      "group": "القاهرة-1",
       "goals": 5
     }
   ],
