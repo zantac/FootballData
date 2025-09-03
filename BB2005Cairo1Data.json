@@ -1846,22 +1846,39 @@
   ],
   "scorrers": [
     {
-      
-      "name": "عصام أبو جبل",
-      "team_ID": "g2t012",
       "group": "القاهرة-2",
+      "name": "عصام أبو جبل",
+      "team_id": "g2t012",
       "goals": 4
     },
     {
-      "position": 2,
+      "group": "1",
       "name": "عبد الرحمن الكاس",
-      "team_id": "g1t003",
-      "group": "القاهرة-1",
+      "team_id": "g1t001",
       "goals": 5
     }
   ],
   "assists": null,
-  "cleansheets": null,
+  "cleansheets": [
+    {
+      "position": 1,
+      "name": "احمد الشناوي",
+      "team_id": "g2t012",
+      "clean_sheets": 1
+    },
+    {
+      "position": 2,
+      "name": "أحمد فتوح",
+      "team_id": "g1t001",
+      "clean_sheets": 1
+    },
+    {
+      "position": 3,
+      "name": "يوسف ياسر",
+      "team_id": "g2t011",
+      "clean_sheets": 1
+    }
+  ],
   "penalityblocks": null
 
 
