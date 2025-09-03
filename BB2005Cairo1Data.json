@@ -469,20 +469,54 @@
      {
       "team_id": "g1t001",
       "group": "القاهرة-1",
-      "name": {
-        "ar":"الشمس",
-        "en": "Alshams"
-      },
+      "name": 
+            {
+             "ar":"الشمس",
+             "en": "Alshams"
+            },
       "logo": "https://ia600903.us.archive.org/5/items/20250826_20250826_1851/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B4%D9%85%D8%B3.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -490,15 +524,48 @@
       "group": "القاهرة-1",
       "name": "حلوان العام",
       "logo": "https://ia601605.us.archive.org/4/items/20250826_20250826_1951/%D9%86%D8%A7%D8%AF%D9%8A_%D8%AD%D9%84%D9%88%D8%A7%D9%86_%D8%A7%D9%84%D8%B9%D8%A7%D9%85.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -506,15 +573,48 @@
       "group": "القاهرة-1",
       "name": "القناطر الخيرية",
       "logo": "https://ia801603.us.archive.org/28/items/20250826_20250826_1848/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%82%D9%86%D8%A7%D8%B7%D8%B1_%D8%A7%D9%84%D8%AE%D9%8A%D8%B1%D9%8A%D8%A9.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -522,15 +622,48 @@
       "group": "القاهرة-1",
       "name": "سرس الليان",
       "logo": "https://ia601704.us.archive.org/35/items/20250826_20250826_1836/%D9%86%D8%A7%D8%AF%D9%8A_%D8%B3%D8%B1%D8%B3_%D8%A7%D9%84%D9%84%D9%8A%D8%A7%D9%86.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -538,15 +671,48 @@
       "group": "القاهرة-1",
       "name": "ليفيلز",
       "logo": "https://ia601001.us.archive.org/12/items/20250822_20250822_1330/%D9%84%D9%8A%D9%81%D9%8A%D9%84%D8%B2.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -554,15 +720,48 @@
       "group": "القاهرة-1",
       "name": "ايسترن كومباني",
       "logo": "https://ia802907.us.archive.org/27/items/20250826_20250826_1717/%D8%A7%D9%8A%D8%B3%D8%AA%D8%B1%D9%86%20%D9%83%D9%88%D9%85%D8%A8%D8%A7%D9%86%D9%8A.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -570,16 +769,48 @@
       "group": "القاهرة-1",
       "name": "كسكادا",
       "logo": "https://ia801003.us.archive.org/30/items/20250826_20250826_1730/%D9%86%D8%A7%D8%AF%D9%8A_%D9%83%D8%B3%D9%83%D8%A7%D8%AF%D8%A7.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "coach": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -587,15 +818,48 @@
       "group": "القاهرة-1",
       "name": "مستقبل سبورت",
       "logo": "https://ia801003.us.archive.org/35/items/20250822_20250822_1314/clubs%20logo/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84%20%D8%B3%D8%A8%D9%88%D8%B1%D8%AA.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
      
@@ -604,15 +868,48 @@
       "group": "القاهرة-1",
       "name": "الاعلاميين",
       "logo": "https://ia902907.us.archive.org/28/items/20250826_20250826_1746/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A%D9%8A%D9%86.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -620,15 +917,48 @@
       "group": "القاهرة-1",
       "name": "النصر",
       "logo": "https://upload.wikimedia.org/wikipedia/ar/0/0c/Al_Nasr_SC_Egypt.png",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
      {
@@ -636,15 +966,48 @@
       "group": "القاهرة-1",
       "name": "تيم اف سي",
       "logo": "https://ia600206.us.archive.org/18/items/20250826_20250826_1719/%D8%AA%D9%8A%D9%85%20%D8%A7%D9%81%20%D8%B3%D9%8A.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
      {
@@ -652,15 +1015,48 @@
       "group": "القاهرة-1",
       "name": "اتحاد الشرطة",
       "logo": "https://ia600905.us.archive.org/29/items/20250822_20250822_1326/%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -668,15 +1064,48 @@
       "group": "القاهرة-1",
       "name": "النجوم",
       "logo": "https://ia601907.us.archive.org/29/items/20250826_20250826_1713/%D8%A7%D9%84%D9%86%D8%AC%D9%88%D9%85.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
      {
@@ -684,15 +1113,48 @@
       "group": "القاهرة-1",
       "name": "داياموند",
       "logo": "https://ia601006.us.archive.org/16/items/20250826_20250826_1727/%D8%AF%D8%A7%D9%8A%D8%A7%D9%85%D9%88%D9%86%D8%AF.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
      {
@@ -700,15 +1162,48 @@
       "group": "القاهرة-1",
       "name": "بنها",
       "logo": "https://ia600905.us.archive.org/31/items/20250826_20250826_1831/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A8%D9%86%D9%87%D8%A7.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -716,15 +1211,48 @@
       "group": "القاهرة-1",
       "name": "مصر للتأمين",
       "logo": "https://ia600906.us.archive.org/27/items/20250826_20250826_1842/%D9%86%D8%A7%D8%AF%D9%8A_%D9%85%D8%B5%D8%B1_%D9%84%D9%84%D8%AA%D8%A3%D9%85%D9%8A%D9%86.jpg",
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -732,15 +1260,48 @@
       "group": "القاهرة-2",
       "name": "بورفؤاد",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -748,15 +1309,48 @@
       "group": "القاهرة-2",
       "name": "الرباط و الانوار",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -764,15 +1358,48 @@
       "group": "القاهرة-2",
       "name": "اكتوبر برمانة",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -780,15 +1407,48 @@
       "group": "القاهرة-2",
       "name": "نجمة سيناء",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -796,15 +1456,48 @@
       "group": "القاهرة-2",
       "name": "منتخب السويس",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -812,15 +1505,48 @@
       "group": "القاهرة-2",
       "name": "المريخ",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -828,15 +1554,48 @@
       "group": "القاهرة-2",
       "name": "الزرقا",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -844,15 +1603,48 @@
       "group": "القاهرة-2",
       "name": "الشرقية زقازيق",
       "logo": null,
-      "field": null,
+     "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -860,15 +1652,48 @@
       "group": "القاهرة-2",
       "name": "م.ش القزازين",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -876,15 +1701,48 @@
       "group": "القاهرة-2",
       "name": "م.ش النجوم(الخربة)",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -892,15 +1750,48 @@
       "group": "القاهرة-2",
       "name": "العبور",
       "logo": null,
-      "field": null,
+      "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     },
     {
@@ -908,15 +1799,48 @@
       "group": "القاهرة-2",
       "name": "رع",
       "logo": null,
-      "field": null,
+     "field":
+              {
+              "ar": null,
+              "en": null
+              },
       "fieldurl": null,
-      "city": null,
+      "city": 
+            {
+              "ar": null,
+              "en": null
+              },
+       "information":
+             {
+              "ar": null,
+              "en": null
+            },
        "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
+        "coach": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "goalkeepers": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "defenders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "midfielders": 
+              {
+              "ar": null,
+              "en": null
+              },
+        "attackers": 
+              {
+              "ar": null,
+              "en": null
+              }
     }
     }
   ],
