@@ -2925,20 +2925,20 @@
     {
       "team_id": "t003",
       "group": null,
-      "position": 5,
+      "position": 4,
       "points": 6,
       "matches_played": 2,
       "wins": 2,
       "draws": 0,
       "losses": 0,
       "goals_for": 4,
-      "goals_against": 2,
+      "goals_against": 1,
       "Penality_points": 0
     },
     {
       "team_id": "t004",
       "group": null,
-      "position": 4,
+      "position": 5,
       "points": 6,
       "matches_played": 2,
       "wins": 2,
