@@ -297,16 +297,33 @@
       "date":null,
       "title": null,
       "details": null
+    },
+    {
+      "date":null,
+      "title": null,
+      "details": null
     }
   ],
   "Ads": [
     {
       "name": null,
       "image": null,
-      "video":null,
+      "youtube_video":null,
+      "facebook_link":null,
       "mobile_number": null,
       "whatsapp_number": null,
-      "location": null
+      "location": null,
+      "expire_date": null
+    },
+     {
+      "name": null,
+      "image": null,
+      "youtube_video":null,
+      "facebook_link":null,
+      "mobile_number": null,
+      "whatsapp_number": null,
+      "location": null,
+      "expire_date": null
     }
   ]
 }
