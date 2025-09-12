@@ -54,7 +54,10 @@
     },
     {
       "competition_id": "c003",
-      "name": "دوري الجمهورية القسم الثاني ب",
+      "name": {
+               "ar":"دوري الجمهورية القسم الثاني ب",
+               "en": "National league second division B"
+              },
       "ages": [
         {
           "age": "2005",
@@ -64,12 +67,16 @@
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@f23912a40e980193544dcc30aa63f46d323249d8/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@af7e3e7d6772f1268f3655c4cd22b01e9461f61a/2005/BB/BB2005Delta2Data.json"
                         ],
-          "sector": [
+          "sector": {
+                    "ar":
+                     [
                      "1مجموعة القاهرة",
                      "2مجموعة القاهرة",
                      "1مجموعة بحري",
                      "2مجموعة بحري"
-                    ]
+                     ],
+                     "en":["Cairo1","Cairo2","Delta1","Delta2"]
+                    }
         },
         {
           "age": "2007",
