@@ -1,148 +1,167 @@
 {
-  "competitions": [
+  "seasons":
+  [
     {
-      "competition_id": "c001",
-      "name": "دوري الجمهورية القسم الاول",
-      "ages": [
-        {
-          "age": "2005",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@0e6aa26efc6983ee5e36c0db7c8c5d11dffc0bc6/2005/A/A2005Data.json",
-          "sector": null
-        },
-        {
-          "age": "2007",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e15d4520606b3d4d2908c8ccab3d49571446fe52/2007/A/A2007Data.json",
-          "sector": null
-        },
-        {
-          "age": "2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@608f5f8ff75ec67a633ec1bb69bc507c058422c5/2009/A/A2009Data.json",
-          "sector": null
-        },
-        {
-          "age": "2011",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f8e7fa317173432e686e7d8ad939e4057489f4c1/2011/A/A2011Data.json",
-          "sector": null
-        }
-      ]
-    },
-    {
-      "competition_id": "c002",
-      "name": "دوري الجمهورية القسم الثاني أ",
-      "ages": [
-        {
-          "age": "2005",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@417520a7d5bd8c2121dd46c9adce96ea20fb02fd/2005/BA/BA2005Data.json",
-          "sector": null
-        },
-        {
-          "age": "2007",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e98a8eeac98a24df6aa8c25830a98ded2914395b/2007/BA/BA2007Data.json",
-          "sector": null
-        },
-        {
-          "age": "2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@5ab7fac1591ff149194aaaf5a620d2be17163427/2009/BA/BA2009Data.json",
-          "sector": null
-        },
-        {
-          "age": "2011",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@b86644b2c85fb7b357a67f34c6be1e8e30397c36/2011/BA/BA2011Data.json",
-          "sector": null
-        }
-      ]
-    },
-    {
-      "competition_id": "c003",
-      "name": {
-               "ar":"دوري الجمهورية القسم الثاني ب",
-               "en": "National league second division B"
-              },
-      "ages": [
-        {
-          "age": "2005",
-          "matchesurl": [
+      "season": "2025-2026",
+      "competitions": 
+              [
+                  {
+                    "competition_id": "c001",
+                     "name": "دوري الجمهورية القسم الاول",
+                     "ages": 
+                    [
+                     {
+                      "age": "2005",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@0e6aa26efc6983ee5e36c0db7c8c5d11dffc0bc6/2005/A/A2005Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2007",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e15d4520606b3d4d2908c8ccab3d49571446fe52/2007/A/A2007Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@608f5f8ff75ec67a633ec1bb69bc507c058422c5/2009/A/A2009Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f8e7fa317173432e686e7d8ad939e4057489f4c1/2011/A/A2011Data.json",
+                      "sector": null
+                     }
+                   ]
+                  },
+                  {
+                     "competition_id": "c002",
+                     "name": "دوري الجمهورية القسم الثاني أ",
+                     "ages": 
+                   [
+                     {
+                     "age": "2005",
+                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@417520a7d5bd8c2121dd46c9adce96ea20fb02fd/2005/BA/BA2005Data.json",
+                     "sector": null
+                     },
+                     {
+                      "age": "2007",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e98a8eeac98a24df6aa8c25830a98ded2914395b/2007/BA/BA2007Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@5ab7fac1591ff149194aaaf5a620d2be17163427/2009/BA/BA2009Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@b86644b2c85fb7b357a67f34c6be1e8e30397c36/2011/BA/BA2011Data.json",
+                      "sector": null
+                     }
+                   ]
+                  },
+                  {
+                      "competition_id": "c003",
+                      "name": {
+                               "ar":"دوري الجمهورية القسم الثاني ب",
+                               "en": "National league second division B"
+                             },
+                      "ages": 
+                    [
+                     {
+                      "age": "2005",
+                      "matchesurl": 
+                        [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@d3d7c422552f3dda71d33cb4b834856eb8151732/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a602a4c5c83132c7cc77292ef7c7e8fc15f7a30/2005/BB/BB2005Cairo2Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@f23912a40e980193544dcc30aa63f46d323249d8/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@af7e3e7d6772f1268f3655c4cd22b01e9461f61a/2005/BB/BB2005Delta2Data.json"
                         ],
-          "sector": {
-                    "ar":
-                     [
-                     "1مجموعة القاهرة",
-                     "2مجموعة القاهرة",
-                     "1مجموعة بحري",
-                     "2مجموعة بحري"
-                     ],
-                     "en":["Cairo1","Cairo2","Delta1","Delta2"]
-                    }
-        },
-        {
-          "age": "2007",
-          "matchesurl": [
+                      "sector": {
+                                 "ar":
+                                      [
+                                       "1مجموعة القاهرة",
+                                       "2مجموعة القاهرة",
+                                       "1مجموعة بحري",
+                                       "2مجموعة بحري"
+                                      ],
+                                  "en":["Cairo1","Cairo2","Delta1","Delta2"]
+                                }
+                      },
+                      {
+                      "age": "2007",
+                      "matchesurl": 
+                        [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@f7fd6f1569898d5854a9b5736ff7b4d147d3c7b4/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@da5c55d84894ac640c649e3e9c7be9a2fda817e0/2007/BB/BB2007Cairo2Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@dd4ca03257771fef97f73f023a1a406744bc8cd0/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a922d321a7bd916548e612e356be3fb25ca246e/2007/BB/BB2007Delta2Data.json"
                         ],
-          "sector": [
+                      "sector": 
+                        [
                          "1مجموعة القاهرة",
                          "2مجموعة القاهرة",
                          "1مجموعة بحري",
                          "2مجموعة بحري"
-          ]
-        },
-        {
-          "age": "2009",
-          "matchesurl": [
+                        ]
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": 
+                        [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7fab91339629844f8108c54ae97b5dfbedebc335/2009/BB/BB2009Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@9137871a2655a0021397bbf16201d36516fb6e09/2009/BB/BB2009Cairo2Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a1bf48a033d848f04e57db27e724cefd76fa6a8/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8e74d7d0372a5f1bdec00b5d91f71dbdac5e859c/2009/BB/BB2009Delta2Data.json"
                         ],
-          "sector": [
+                     "sector": 
+                        [
                          "1مجموعة القاهرة",
                          "2مجموعة القاهرة",
                          "1مجموعة بحري",
                          "2مجموعة بحري"
-          ]
-        },
-        {
-          "age": "2011",
-          "matchesurl": [
+                        ]
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": 
+                        [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@272bf93e49998ed6d783e76dcda62754e8cbb574/2011/BB/BB2011Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@bd7fbf6581a8c434b117529502f76faf59a1c5c3/2011/BB/BB2011Cairo2Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@656fa7075a406be4bebe3d81bf90bf20e948c9c2/2011/BB/BB2011Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@ae2d8c21fd2dc820d24407bdc29689e8f2c8793f/2011/BB/BB2011Delta2Data.json"
                         ],
-          "sector": [
+                      "sector": 
+                        [
                          "1مجموعة القاهرة",
                          "2مجموعة القاهرة",
                          "1مجموعة بحري",
                          "2مجموعة بحري"
-          ]
-        }
-      ]
-    },
-    {
-      "competition_id": "c004",
-      "name": "منافسات القطاعات",
-      "ages": null
-    },
-    {
-      "competition_id": "c005",
-      "name": "منافسات المناطق",
-      "ages": [
-        {
-          "age": "2008",
-          "sector": "منطقة القاهرة",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@6e2f6cc62cb3109c224bdd49d37e8ce515c2aa37/2008/Area/Cairo/Area_Cairo_2008Data.json"
-        }
-      ]
-    }
-  ],
-  "venues": [
+                        ]
+                     }
+                   ]
+                  },
+                  {
+                    "competition_id": "c004",
+                    "name": "منافسات القطاعات",
+                    "ages": null
+                  },
+                {
+                    "competition_id": "c005",
+                    "name": "منافسات المناطق",
+                    "ages": 
+                   [
+                    {
+                     "age": "2008",
+                     "sector": "منطقة القاهرة",
+                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@6e2f6cc62cb3109c224bdd49d37e8ce515c2aa37/2008/Area/Cairo/Area_Cairo_2008Data.json"
+                    }
+                   ]
+                }
+              ]
+   }
+ ],
+  "venues": 
+  [
     {
       "venue_id": "v001",
       "name": "استاد السكة الحديد",
@@ -299,7 +318,8 @@
       "url" : "https://www.google.com/maps/place/El+sahel/@30.098491,31.2548051,470m/data=!3m1!1e3!4m6!3m5!1s0x14584003bea98437:0xfa0456fe49dfdfd9!8m2!3d30.0995106!4d31.2557545!16s%2Fg%2F11c53138ls?entry=ttu&g_ep=EgoyMDI1MDgwMy4wIKXMDSoASAFQAw%3D%3D"
     }
   ],
-  "news": [
+  "news": 
+  [
     {
       "date":"07-09-2025",
       "title": "برشلونة واستغلال المربع 14 من الركنيات",
@@ -311,7 +331,8 @@
       "details": "لا يُرسل برشلونة الكرة مباشرة، بل يعتمد على تمريرات قصيرة لسحب الخصم نحو الأطراف، مما يُربك التمركز الدفاعي ويفتح المساحات أمام منطقة الجزاء"
     }
   ],
-  "Ads": [
+  "Ads": 
+  [
     {
       "name": "مركز التحدي",
       "image": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/352212790_5900727380037728_423199179564314680_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEgQsz8evP39v39ImFM4s5UjnTrydN7NDaOdOvJ03s0NnrmnA_slrvt4pE2u966-cc&_nc_ohc=r7-6CnmY0HMQ7kNvwHxLM3T&_nc_oc=Adm5Yb5s1jOJ5llOTJ17oquXSYrTNX1ib--nvwzoOmM1moTXrRFqelG37YkQMo6_geU&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=4bmJsH7agV5cn4HS1sBmVg&oh=00_Afb26IbWkZoHCQu-CJvUSHzgK3OnXMXZybbWuH5Rt9aEPA&oe=68C8F3C2",
