@@ -114,14 +114,14 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@87b79e11065a6d0b2bbf83e2730c84d47b956b3a/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@e1ea61788f00c3ab9d74d79bd1dad9e6b49422c5/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@45d89cff3b761ea06b23f3352f5689a606815ac8/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8e74d7d0372a5f1bdec00b5d91f71dbdac5e859c/2009/BB/BB2009Delta2Data.json"
                         ],
                      "sector": {
                                  "ar":
                                       [
                                        "مجموعة القاهرة",
-                                       "1مجموعة بحري",
+                                       "مجموعة بحري",
                                        "2مجموعة بحري"
                                       ],
                                   "en":["Cairo1","Delta1","Delta2"]
