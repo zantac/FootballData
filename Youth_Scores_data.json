@@ -96,17 +96,18 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@f7fd6f1569898d5854a9b5736ff7b4d147d3c7b4/2007/BB/BB2007Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@da5c55d84894ac640c649e3e9c7be9a2fda817e0/2007/BB/BB2007Cairo2Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@dd4ca03257771fef97f73f023a1a406744bc8cd0/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a922d321a7bd916548e612e356be3fb25ca246e/2007/BB/BB2007Delta2Data.json"
                         ],
-                      "sector": 
-                        [
-                         "1مجموعة القاهرة",
-                         "2مجموعة القاهرة",
-                         "1مجموعة بحري",
-                         "2مجموعة بحري"
-                        ]
+                      "sector": {
+                                 "ar":
+                                      [
+                                       "مجموعة القاهرة",
+                                       "1مجموعة بحري",
+                                       "2مجموعة بحري"
+                                      ],
+                                  "en":["Cairo1","Delta1","Delta2"]
+                                }
                      },
                      {
                       "age": "2009",
@@ -116,12 +117,15 @@
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a1bf48a033d848f04e57db27e724cefd76fa6a8/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8e74d7d0372a5f1bdec00b5d91f71dbdac5e859c/2009/BB/BB2009Delta2Data.json"
                         ],
-                     "sector": 
-                        [
-                         "مجموعة القاهرة",
-                         "1مجموعة بحري",
-                         "2مجموعة بحري"
-                        ]
+                     "sector": {
+                                 "ar":
+                                      [
+                                       "مجموعة القاهرة",
+                                       "1مجموعة بحري",
+                                       "2مجموعة بحري"
+                                      ],
+                                  "en":["Cairo1","Delta1","Delta2"]
+                               }
                      },
                      {
                       "age": "2011",
