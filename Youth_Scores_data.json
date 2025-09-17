@@ -7,7 +7,10 @@
               [
                   {
                     "competition_id": "c001",
-                     "name": "دوري الجمهورية القسم الاول",
+                     "name": {
+                              "ar": "دوري الجمهورية القسم الاول",
+                              "en": "National league first division"
+                             },
                      "ages": 
                     [
                      {
@@ -34,7 +37,10 @@
                   },
                   {
                      "competition_id": "c002",
-                     "name": "دوري الجمهورية القسم الثاني أ",
+                     "name": {
+                               "ar":"دوري القسم الثاني أ",
+                               "en": "National league second division A"
+                             },
                      "ages": 
                    [
                      {
@@ -82,7 +88,7 @@
                                        "1مجموعة بحري",
                                        "2مجموعة بحري"
                                       ],
-                                  "en":["Cairo1","Cairo2","Delta1","Delta2"]
+                                  "en":["Cairo1","Delta1","Delta2"]
                                 }
                       },
                       {
@@ -138,12 +144,19 @@
                   },
                   {
                     "competition_id": "c004",
-                    "name": "منافسات القطاعات",
+                    "name": {
+                             "ar": "منافسات القطاعات",
+                             "en":"Sectors"
+                            },
                     "ages": null
                   },
                 {
                     "competition_id": "c005",
-                    "name": "منافسات المناطق",
+                    "name": {
+                             "ar":"منافسات المناطق",
+                             "en": "Areas"
+                            },
+                             
                     "ages": 
                    [
                     {
