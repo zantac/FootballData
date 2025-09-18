@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@f7fd6f1569898d5854a9b5736ff7b4d147d3c7b4/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@474f06fed4fcb54516914239417609a0b29f4dc9/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@dd4ca03257771fef97f73f023a1a406744bc8cd0/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@2a922d321a7bd916548e612e356be3fb25ca246e/2007/BB/BB2007Delta2Data.json"
                         ],
