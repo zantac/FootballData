@@ -165,8 +165,8 @@
                    [
                     {
                      "age": "2008",
-                     "sector": ["منطقة القاهرة"],
-                     "matchesurl": ["https://cdn.jsdelivr.net/gh/zantac/FootballData@b939c4f38315e7ae65a28c521989077b3241113e/2008/Area/Cairo/Area_Cairo_2008Data.json"]
+                     "matchesurl": ["https://cdn.jsdelivr.net/gh/zantac/FootballData@b939c4f38315e7ae65a28c521989077b3241113e/2008/Area/Cairo/Area_Cairo_2008Data.json"],
+                     "sector":["منطقة القاهرة"]
                     }
                    ]
                 }
