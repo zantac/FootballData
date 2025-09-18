@@ -2,12 +2,12 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": "القاهرة-2",
+      "group": "2B",
       "week": "1",
-      "date": "2025-09-06", 
+      "date": "2025-09-17", 
       "time": "16:00",
-      "home_team_id": "t002",
-      "away_team_id": "t001",
+      "home_team_id": "gbt002",
+      "away_team_id": "gbt001",
       "venue": "ملعب بورفؤاد",
       "status": "upcoming",
       "note" : null,
@@ -26,12 +26,12 @@
     },
     {
       "match_id": "m002",
-      "group": "القاهرة-2",
+      "group": "2B",
       "week": "1",
-      "date": "2025-09-06",
+      "date": "2025-09-17",
       "time": "16:00",
-      "home_team_id": "t003",
-      "away_team_id": "t012",
+      "home_team_id": "gbt003",
+      "away_team_id": "gbt012",
       "venue": "ملعب الرباط و الانوار",
       "status": "upcoming",
       "note" : null,
@@ -52,7 +52,7 @@
    ],
  "standings": [
     {
-      "team_id": "t000",
+      "team_id": "gbt000",
       "group": null,
       "position": null,
       "points": "نقاط",
@@ -65,8 +65,8 @@
       "Penality_points": "ض.ج"
     },
     {
-      "team_id": "t001",
-      "group": "القاهرة-2",
+      "team_id": "gbt001",
+      "group": "2B",
       "position": 1,
       "points": 0,
       "matches_played": 0,
@@ -78,8 +78,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t002",
-      "group": "القاهرة-2",
+      "team_id": "gbt002",
+      "group": "2B",
       "position": 2,
       "points": 0,
       "matches_played": 0,
@@ -91,8 +91,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t003",
-      "group": "القاهرة-2",
+      "team_id": "gbt003",
+      "group": "2B",
       "position": 3,
       "points": 0,
       "matches_played": 0,
@@ -104,8 +104,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t004",
-      "group": "القاهرة-2",
+      "team_id": "gbt004",
+      "group": "2B",
       "position": 4,
       "points": 0,
       "matches_played": 0,
@@ -117,8 +117,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t005",
-      "group": "القاهرة-2",
+      "team_id": "gbt005",
+      "group": "2B",
       "position": 5,
       "points": 0,
       "matches_played": 0,
@@ -130,8 +130,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t006",
-      "group": "القاهرة-2",
+      "team_id": "gbt006",
+      "group": "2B",
       "position": 6,
       "points": 0,
       "matches_played": 0,
@@ -143,8 +143,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t007",
-      "group": "القاهرة-2",
+      "team_id": "gbt007",
+      "group": "2B",
       "position": 7,
       "points": 0,
       "matches_played": 0,
@@ -156,8 +156,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t008",
-      "group": "القاهرة-2",
+      "team_id": "gbt008",
+      "group": "2B",
       "position": 8,
       "points": 0,
       "matches_played": 0,
@@ -169,8 +169,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t009",
-      "group": "القاهرة-2",
+      "team_id": "gbt009",
+      "group": "2B",
       "position": 9,
       "points": 0,
       "matches_played": 0,
@@ -182,8 +182,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t010",
-      "group": "القاهرة-2",
+      "team_id": "gbt010",
+      "group": "2B",
       "position": 10,
       "points": 0,
       "matches_played": 0,
@@ -195,8 +195,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t011",
-      "group": "القاهرة-2",
+      "team_id": "gbt011",
+      "group": "2B",
       "position": 11,
       "points": 0,
       "matches_played": 0,
@@ -208,8 +208,8 @@
       "Penality_points": 0
     },
     {
-      "team_id": "t012",
-      "group": "القاهرة-2",
+      "team_id": "gbt012",
+      "group": "2B",
       "position": 12,
       "points": 0,
       "matches_played": 0,
@@ -224,8 +224,8 @@
  "teams": [
     
     {
-      "team_id": "t001",
-      "group": "القاهرة-2",
+      "team_id": "gbt001",
+      "group": "2B",
       "name": "العبور",
       "logo": "https://ia801001.us.archive.org/27/items/20250826_20250826_2044/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B9%D8%A8%D9%88%D8%B1.png",
       "field": null,
@@ -240,8 +240,8 @@
     }
     },
     {
-      "team_id": "t002",
-      "group": "القاهرة-2",
+      "team_id": "gbt002",
+      "group": "2B",
       "name": "الرباط و الانوار",
       "logo": "https://ia601002.us.archive.org/19/items/20250826_20250826_2047/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B1%D8%A8%D8%A7%D8%B7%20%D9%88%20%D8%A7%D9%84%D8%A7%D9%86%D9%88%D8%A7%D8%B1.jpg",
       "field": null,
@@ -256,8 +256,8 @@
     }
     },
     {
-      "team_id": "t003",
-      "group": "القاهرة-2",
+      "team_id": "gbt003",
+      "group": "2B",
       "name": "نجمة سيناء",
       "logo": "https://ia601006.us.archive.org/21/items/20250826_20250826_2050/%D9%86%D8%A7%D8%AF%D9%8A_%D9%86%D8%AC%D9%85%D8%A9_%D8%B3%D9%8A%D9%86%D8%A7.jpg",
       "field": null,
@@ -272,8 +272,8 @@
     }
     },
     {
-      "team_id": "t004",
-      "group": "القاهرة-2",
+      "team_id": "gbt004",
+      "group": "2B",
       "name": "م.ش النجوم(الخربة)",
       "logo": "https://www.efa.com.eg/media/okmdjzir/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF.png?width=64&height=64",
       "field": null,
@@ -288,8 +288,8 @@
     }
     },
     {
-      "team_id": "t005",
-      "group": "القاهرة-2",
+      "team_id": "gbt005",
+      "group": "2B",
       "name": "بورفؤاد",
       "logo": "https://ia601708.us.archive.org/0/items/20250826_20250826_2057/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A8%D9%88%D8%B1%D9%81%D8%A4%D8%A7%D8%AF.jpg",
       "field": null,
@@ -304,8 +304,8 @@
     }
     },
     {
-      "team_id": "t006",
-      "group": "القاهرة-2",
+      "team_id": "gbt006",
+      "group": "2B",
       "name": "رع",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13881.png",
       "field": null,
@@ -320,8 +320,8 @@
     }
     },
     {
-      "team_id": "t007",
-      "group": "القاهرة-2",
+      "team_id": "gbt007",
+      "group": "2B",
       "name": "المريخ",
       "logo": "https://ia800506.us.archive.org/21/items/20250826_20250826_2101/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%85%D8%B1%D9%8A%D8%AE.jpg",
       "field": null,
@@ -336,8 +336,8 @@
     }
     },
     {
-      "team_id": "t008",
-      "group": "القاهرة-2",
+      "team_id": "gbt008",
+      "group": "2B",
       "name": "شرم الشيخ",
       "logo": "https://ia801007.us.archive.org/21/items/20250826_20250826_2104/%D9%86%D8%A7%D8%AF%D9%8A_%D8%B4%D8%B1%D9%85_%D8%A7%D9%84%D8%B4%D9%8A%D8%AE.jpg",
       "field": null,
@@ -352,8 +352,8 @@
     }
     },
     {
-      "team_id": "t009",
-      "group": "القاهرة-2",
+      "team_id": "gbt009",
+      "group": "2B",
       "name": "القزازين",
       "logo": "https://ia601905.us.archive.org/23/items/20250826_20250826_2106/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D9%82%D8%B2%D8%A7%D8%B2%D9%8A%D9%86.jpg",
       "field": null,
@@ -368,8 +368,8 @@
     }
     },
     {
-      "team_id": "t010",
-      "group": "القاهرة-2",
+      "team_id": "gbt010",
+      "group": "2B",
       "name": "اكتوبر برمانه",
       "logo": "https://ia601002.us.archive.org/8/items/20250826_20250826_2108/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%83%D8%AA%D9%88%D8%A8%D8%B1.jpg",
       "field": null,
@@ -384,8 +384,8 @@
     }
     },
     {
-      "team_id": "t011",
-      "group": "القاهرة-2",
+      "team_id": "gbt011",
+      "group": "2B",
       "name": "الشرقية زقازيق",
       "logo": "https://ia800508.us.archive.org/33/items/20250826_20250826_2112/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9.jpg",
       "field": null,
@@ -400,8 +400,8 @@
     }
     },
     {
-      "team_id": "t012",
-      "group": "القاهرة-2",
+      "team_id": "gbt012",
+      "group": "2B",
       "name": "م.ش قرية عامر",
       "logo": "https://ia600900.us.archive.org/8/items/20250826_20250826_2114/%D9%82%D8%B1%D9%8A%D8%A9_%D8%B9%D8%A7%D9%85%D8%B1.jpg",
       "field": null,
