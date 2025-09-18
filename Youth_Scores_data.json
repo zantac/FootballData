@@ -149,7 +149,7 @@
                   {
                     "competition_id": "c004",
                     "name": {
-                             "ar": "منافسات القطاعات",
+                             "ar": "القطاعات",
                              "en":"Sectors"
                             },
                     "ages": null
@@ -157,7 +157,7 @@
                 {
                     "competition_id": "c005",
                     "name": {
-                             "ar":"منافسات المناطق",
+                             "ar":"المناطق",
                              "en": "Areas"
                             },
                              
