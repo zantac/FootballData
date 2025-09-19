@@ -2,7 +2,7 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18", 
       "time": "16:00",
@@ -26,7 +26,7 @@
     },
     {
       "match_id": "m002",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18",
       "time": "16:00",
@@ -50,7 +50,7 @@
     },
     {
       "match_id": "m003",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18",
       "time": "16:00",
@@ -74,7 +74,7 @@
     },
     {
       "match_id": "m004",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18",
       "time": "16:00",
@@ -98,7 +98,7 @@
     },
     {
       "match_id": "m005",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18",
       "time": "16:00",
@@ -122,7 +122,7 @@
     },
     {
       "match_id": "m006",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "1",
       "date": "2025-09-18",
       "time": "16:00",
@@ -266,7 +266,7 @@
     },
     {
       "match_id": "m012",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -290,7 +290,7 @@
     },
     {
       "match_id": "m013",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -314,7 +314,7 @@
     },
     {
       "match_id": "m014",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -338,7 +338,7 @@
     },
     {
       "match_id": "m015",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -362,7 +362,7 @@
     },
     {
       "match_id": "m016",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -386,7 +386,7 @@
     },
     {
       "match_id": "m017",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "week": "2",
       "date": "2025-09-25",
       "time": "16:00",
@@ -694,7 +694,7 @@
     },
     {
       "team_id": "gbt001",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "ألعاب دمنهور",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/495122560_1263621068454999_5344680240359248884_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHMDL31-GqaCmkOROb-ou3sD-5fZjjFUTIP7l9mOMVRMoOj2uhzuO6PRNjkdG6qp7I&_nc_ohc=KkvfRF0ki48Q7kNvwGJDVfi&_nc_oc=Adm7GSi4ugKHJnDzU6S96MquTh7AbaLc4hE7-nLLL_S3p8MumL42KAU1ZY5kDaEw1ew&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=eTNIuzKwDyqw-4IAfPcoOg&oh=00_AfYcBgqOH9Vi888pqPE1g0bg_WL-vw_vVJxCyYme6k2Mdg&oe=68D03050",
       "field": null,
@@ -710,7 +710,7 @@
     },
     {
       "team_id": "gbt002",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "م.ش ابو المطامير",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/258843746_105120678669901_7249448045836942617_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE1FY7BAsfxoKAmMp9PNv6x3X5m9-UIj3vdfmb35QiPe_iJi62gdtqKY8AzAkVLiYk&_nc_ohc=oBY4_Y0KXzcQ7kNvwExf0xp&_nc_oc=Adm2ArQ2jdoUVGAcXfLVOidwfU4yCPg65m4b8vCZCPIp-6RMNviulUWf8Ped2HguxoA&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=EwvKfaZZw6FuJ3azG0EV3Q&oh=00_AfbMdpRlbW9OGA6MR_NCjSYKj5N6BsVXDXTcMSDm3_seqQ&oe=68D040C4",
       "field": null,
@@ -726,7 +726,7 @@
     },
     {
       "team_id": "gbt003",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "م.ش كوم حماده",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/452592358_1013959657400491_8723749028188820941_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHFIWsUT_rlQQzNu3URC9_KZnfUfS8xXGVmd9R9LzFcZXME_wFE0FK6YqilmZlj80g&_nc_ohc=oAB33jAYpRAQ7kNvwHi2FOX&_nc_oc=AdmzaCGRZ_wRQbju7ekoBgZoMJ_LIENU-EYNdFxta5ZIWsXhl3pLSDqLBNRCnaLABig&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=2IStWoS5Ql5aZbhLIOKUFQ&oh=00_AfbikL2IlfewSV3XqaIdiPLB2baAz6125TGcOqtWIufZLw&oe=68D04C0C",
       "field": null,
@@ -742,7 +742,7 @@
     },
     {
       "team_id": "gbt004",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الاوليمبي",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/393728590_732086415630989_1694612542001158773_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEZCk6so75eL-MJN4XEzsn_XMtfXnaeMWhcy19edp4xaNYFD7yuFHkXkxf_8OvBE7A&_nc_ohc=jX3rUauzklAQ7kNvwF--NlQ&_nc_oc=AdlxIeE1TP4c4VqzjN2Fnm0q9ydeZla-PeDqTeDI5Fl7dUW2ZKQTS-lsIQ1PLh6-gEU&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=Biwn9HUlx9gInlp8d9a73A&oh=00_AfZ6Wl56yV0FkUYy6JBpK5wfUU01-R1M_OnJoEsqd3IarQ&oe=68D04B07",
       "field": null,
@@ -758,7 +758,7 @@
     },
     {
       "team_id": "gbt005",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "طلائع الاسطول",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/305657231_766251018038487_6172668124918023743_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFlERGNiUqosS6Z_xYWKEE_M5rK3M2pgfszmsrczamB-9TFvUxc2uimekNAqFXL4HI&_nc_ohc=rYL1JEr-c98Q7kNvwFSlofg&_nc_oc=Adm7fBsunLOxGO0Le0PDTx5aRapUafS5UEQKMjmYjbJaejsk6NIJkH8f05H1AVWIKDY&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=-eYxsaPt3Tkm2zfCnclMUw&oh=00_AfYLAf6YQY-YJtyRqgLafLZfb66jf829AjlL2y11mfEEWA&oe=68D30076",
       "field": null,
@@ -774,7 +774,7 @@
     },
     {
       "team_id": "gbt006",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "أصحاب الجياد",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/393723407_291441170442391_7194539995385195327_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGuUIKvVxR5p4tai1g5kz9yR0VOvhjE_lxHRU6-GMT-XD1ZkiywRxK4d8dhO439VFg&_nc_ohc=fj7p-IONJL8Q7kNvwHBTQ-O&_nc_oc=AdkWJ6QKBgYAICTOSpiQBDd8hU9US8BAbsazPRg3OBXQQ3PWE_mL47w5CE8AYCXw8lA&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=e57H0WdT66jk1KzJDoqYeQ&oh=00_AfYnRSz6FNuUboHPxZHRNOXCY5hTX7DkshuSLWWBC_n67A&oe=68D0347E",
       "field": null,
@@ -790,7 +790,7 @@
     },
     {
       "team_id": "gbt007",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "سبورتنج",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/271740707_5075783469112370_5940238950055336643_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG5ZSSjckinq8wiSfwbaI43Ju-zEDZYKZAm77MQNlgpkBJjy7D1Fhv2ZD_0m6cXPsA&_nc_ohc=eioqO_6wO4gQ7kNvwHGwOXg&_nc_oc=Adkrg1aP7vmLquNQy6aK0GCf2MKwFv1B23mt_kgHqh2yFDa8D_zZIycbqhfB_XfjNrY&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=weU7Fet56O4XJbjvr3lwWw&oh=00_AfaJse2o7qFeHLyxZlXh7DRrA5feANuxew386Yhm4r53mg&oe=68D03A2E",
       "field": null,
@@ -806,7 +806,7 @@
     },
     {
       "team_id": "gbt008",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "المجد السكندري",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/476007658_9470062569712521_5706212681735822477_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFPSF0yhPwqO6Nr_q4x2zKnUolEYwbQa6JSiURjBtBrorNcU4i-jxlToyQXzCztSJo&_nc_ohc=nffjy1zwHi4Q7kNvwF4KJRf&_nc_oc=AdkNhWoB8xK-Ep96Gc_LOhrlftKhTAoNzmIbUrACCFowbtGd4X5NhVm8RfOe8sCPGQ8&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=C1_WPJ4JQ2snW5iikT2DRg&oh=00_AfaSIi-d6MZD8YIZ7AYfW4wQRtEWdSB6-Imp60G_l-Depw&oe=68D2D3F3",
       "field": null,
@@ -822,7 +822,7 @@
     },
     {
       "team_id": "gbt009",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الحرية",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/400740772_845530734242636_946998463526742808_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHUJkeb6dbDjuensJv6tdI0NwVjggWw8D43BWOCBbDwPoVpaI0PRLjNZinDPMCpBlQ&_nc_ohc=Yyi8mJXy8asQ7kNvwGCXTOX&_nc_oc=Adl-133V6llvILS4uIpTUuUhUsiCrfzp2AT6xPO90qmKwvu4mlb10MEAOryLlTw6Cl8&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=e4x1G3-BZyPA3orHKiZB-Q&oh=00_AfZ7mGrkpasLRtvC8eguzsrCX4SfWEMrj4B7EDHe-Malwg&oe=68D2FEF3",
       "field": null,
@@ -838,7 +838,7 @@
     },
     {
       "team_id": "gbt010",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الهلال بالضبعة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_68,h_68,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/54389",
       "field": null,
@@ -854,7 +854,7 @@
     },
     {
       "team_id": "gbt011",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الزهور بمطروح",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-1/460732032_992559309551905_6584430712252824272_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGypbdRVLk0ymvS0sh408PcPhiyVmQWWXg-GLJWZBZZeJnFfQb1x2Y_9w1Q4TmVXKA&_nc_ohc=tRt8gsHF8TcQ7kNvwGcR6Xm&_nc_oc=AdkjTAhCZDAx6scnuBg5qiTrcFSK_bFmbUb0OYwcex6K_MsKHH2R_wO73K_K9IA1Am4&_nc_zt=24&_nc_ht=scontent.faly1-2.fna&_nc_gid=veyI924CP5b5DybKZa6sRQ&oh=00_Afaf9b3wfqJ5WxkLZ5NaCl3Jj9fmqdTLXr8KdR2dacomKQ&oe=68D036BA",
       "field": null,
@@ -870,7 +870,7 @@
     },
     {
       "team_id": "gbt012",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الحمام",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/460955859_1070313428427665_4013371749009551588_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGroTzMK4RZHAIBSBDbI34WB77eFymcCcMHvt4XKZwJw-yGeiTWBk6ktgplLmg5exk&_nc_ohc=PbRoqAm8h3AQ7kNvwGnum-z&_nc_oc=Adl3LTwXcp3iozii2tzl4v39HwTs92Y64aBzDQqR1JQaPXdwPhwjSgM5Bwkl0J7tSbQ&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=G98rPNV0VbgA-8GIf63DDA&oh=00_AfbBAk-5CmbbLwqQ5QiSWraqpmWaHIyXlt_P63uF0wsisA&oe=68D2CE5A",
       "field": null,
@@ -886,7 +886,7 @@
     },
     {
       "team_id": "gbt013",
-      "group": "3B",
+      "group": "المجموعة الثالثة",
       "name": "الرجاء",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-1/393857727_647479154199134_8547987347448692578_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGVgZpVgU_3QoeNJhhQAzi2eLWn4MimLsV4tafgyKYuxUEl7oUqwLNa5zxLA3mY5Q8&_nc_ohc=Gh9Cb7n1_lYQ7kNvwFiQ2hD&_nc_oc=AdlX8z_PfvniTJn097PQCXlPzubiUYtXiL-UaJlBAmbg2hNi5qN6SMh4Xf5b2vt3Nvw&_nc_zt=24&_nc_ht=scontent.faly1-2.fna&_nc_gid=FsG3P0G1rAjdV_FW61PBOA&oh=00_Afbe8gonCf2Uh_VMrT4li_5HwbEuWxmuWtIPL0GKLSN3eg&oe=68D0340F",
       "field": null,
