@@ -37,7 +37,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@DesignerComponent(version = 69, description = "A professional football data parser with full UI generation and group-aware statistics.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
+@DesignerComponent(version = 72, description = "A professional football data parser with relative dates (Today/Yesterday) in match lists.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 @UsesLibraries(libraries = "androidasync-2.1.1.jar, gson-2.8.2.jar, picasso-2.5.2.jar")
@@ -293,7 +293,6 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     }
     
     // ================== HELPER METHODS ==================
-
     private int dpToPx(int dp) { return (int) (dp * context.getResources().getDisplayMetrics().density); }
     private JSONObject findMatchById(String mId) throws JSONException {
         JSONArray matches = jsonData.optJSONArray("matches"); if (matches == null) return null;
@@ -364,35 +363,25 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
             JSONArray teams = jsonData.getJSONArray("teams");
             for (int i = 0; i < matches.length(); i++) {
                 JSONObject match = matches.getJSONObject(i); if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
-                String groupName = match.optString("group", "");
                 JSONObject homeTInfo = getTeamInfoById(match.getString("home_team_id"), teams);
                 JSONObject awayTInfo = getTeamInfoById(match.getString("away_team_id"), teams);
-                processTeamEvents(playerStats, match, "home_scorers", homeTInfo, lang, groupName);
-                processTeamEvents(playerStats, match, "away_scorers", awayTInfo, lang, groupName);
+                processTeamEvents(playerStats, match, "home_scorers", homeTInfo, lang);
+                processTeamEvents(playerStats, match, "away_scorers", awayTInfo, lang);
             }
-            java.util.Map<String, java.util.List<PlayerStat>> statsByGroup = new java.util.LinkedHashMap<>();
-            for (PlayerStat stat : playerStats.values()) {
-                String groupKey = stat.teamId != null && getTeamInfoById(stat.teamId, teams) != null ? getTeamInfoById(stat.teamId, teams).optString("group", "main") : "main";
-                if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.util.ArrayList<PlayerStat>());
-                statsByGroup.get(groupKey).add(stat);
-            }
-            ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();
-            ScrollView sv = new ScrollView(context); LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);
-            for(java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()) {
-                String groupName = entry.getKey();
-                java.util.List<PlayerStat> groupStats = entry.getValue();
-                Collections.sort(groupStats, new Comparator<PlayerStat>() {
-                    @Override public int compare(PlayerStat o1, PlayerStat o2) {
-                        if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals);
-                        else return Integer.valueOf(o2.assists).compareTo(o1.assists);
-                    }
-                });
-                if (!groupName.equals("main") && statsByGroup.size() > 1) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
-                ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang))); ml.addView(createDivider());
-                for (PlayerStat stat : groupStats) {
-                    int count = "goals".equals(statType) ? stat.goals : stat.assists;
-                    if (count > 0) { ml.addView(createTournamentStatRow(stat, count, lang)); ml.addView(createDivider()); }
+            java.util.List<PlayerStat> sortedStats = new java.util.ArrayList<>(playerStats.values());
+            Collections.sort(sortedStats, new Comparator<PlayerStat>() {
+                @Override public int compare(PlayerStat o1, PlayerStat o2) {
+                    if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals);
+                    else return Integer.valueOf(o2.assists).compareTo(o1.assists);
                 }
+            });
+            ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();
+            ScrollView sv = new ScrollView(context);
+            LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);
+            ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang))); ml.addView(createDivider());
+            for (PlayerStat stat : sortedStats) {
+                int count = "goals".equals(statType) ? stat.goals : stat.assists;
+                if (count > 0) { ml.addView(createTournamentStatRow(stat, count, lang)); ml.addView(createDivider()); }
             }
             sv.addView(ml); vg.addView(sv);
         } catch(Exception e) { AfterParsingFail("Error calculating tournament stats: " + e.getMessage()); }
@@ -402,7 +391,7 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
         if (m.find()) return new String[]{m.group(1).trim(), m.group(2)};
         return new String[]{raw.trim(), "1"};
     }
-    private void processTeamEvents(java.util.Map<String, PlayerStat> stats, JSONObject match, String key, JSONObject tInfo, String lang, String groupName) throws JSONException {
+    private void processTeamEvents(java.util.Map<String, PlayerStat> stats, JSONObject match, String key, JSONObject tInfo, String lang) throws JSONException {
         JSONArray events = getLocalizedArray(match, key, lang); if (events == null || tInfo == null) return;
         boolean isParsingAssists = false;
         String teamId = tInfo.getString("team_id"); String teamName = getLocalizedText(tInfo, "name", lang);
@@ -435,23 +424,13 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
                     updateCleanSheetStat(keeperStats, teamInfo, getLocalizedArray(match, "away_squade", lang), lang);
                 }
             }
-            java.util.Map<String, java.util.List<PlayerStat>> statsByGroup = new java.util.LinkedHashMap<>();
-            for(PlayerStat stat : keeperStats.values()){
-                String groupKey = stat.teamId != null && getTeamInfoById(stat.teamId, teams) != null ? getTeamInfoById(stat.teamId, teams).optString("group", "main") : "main";
-                if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.util.ArrayList<PlayerStat>());
-                statsByGroup.get(groupKey).add(stat);
-            }
+            java.util.List<PlayerStat> sortedStats = new java.util.ArrayList<>(keeperStats.values());
+            Collections.sort(sortedStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets); }});
             ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();
             ScrollView sv = new ScrollView(context); LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);
-            for(java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()){
-                String groupName = entry.getKey();
-                java.util.List<PlayerStat> groupStats = entry.getValue();
-                Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets); }});
-                if (!groupName.equals("main") && statsByGroup.size() > 1) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
-                ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, "clean_sheets", lang))); ml.addView(createDivider());
-                for (PlayerStat stat : groupStats) {
-                    if (stat.cleanSheets > 0) { ml.addView(createTournamentStatRow(stat, stat.cleanSheets, lang)); ml.addView(createDivider()); }
-                }
+            ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, "clean_sheets", lang))); ml.addView(createDivider());
+            for (PlayerStat stat : sortedStats) {
+                if (stat.cleanSheets > 0) { ml.addView(createTournamentStatRow(stat, stat.cleanSheets, lang)); ml.addView(createDivider()); }
             }
             sv.addView(ml); vg.addView(sv);
         } catch(Exception e) { AfterParsingFail("Error calculating clean sheets: " + e.getMessage()); }
@@ -465,7 +444,10 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
         String displayName = (keeperName != null) ? keeperName : teamName;
         
         PlayerStat stat = stats.get(uniqueKey);
-        if (stat == null) { stat = new PlayerStat(displayName, teamId, teamName); stats.put(uniqueKey, stat); }
+        if (stat == null) {
+            stat = new PlayerStat(displayName, teamId, teamName);
+            stats.put(uniqueKey, stat);
+        }
         stat.cleanSheets++;
     }
     private String findGoalkeeperInSquad(JSONArray squad) throws JSONException {
@@ -614,8 +596,37 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     private View createDateHeaderView(JSONObject match, String dateStr, int count, String lang) throws JSONException, ParseException {
         boolean isRTL = "ar".equalsIgnoreCase(lang); LinearLayout h = new LinearLayout(context); h.setOrientation(LinearLayout.HORIZONTAL); h.setPadding(24, 24, 24, 16); h.setGravity(Gravity.CENTER_VERTICAL);
         TextView wl = createTextView(getLocalizedText(null, "week", lang) + " " + match.getString("week"), 0, 1, true); wl.setGravity(isRTL ? Gravity.END : Gravity.START);
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM yyyy", isRTL ? new Locale("ar") : Locale.US); Date date = new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(dateStr);
-        TextView dl = createTextView(sdf.format(date), 0, 2, false); dl.setTextSize(12);
+        
+        // *** NEW RELATIVE DATE LOGIC ***
+        String dateText;
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        Date matchDate = parser.parse(dateStr);
+        Calendar matchCal = Calendar.getInstance(); matchCal.setTime(matchDate);
+        
+        Calendar today = Calendar.getInstance();
+        Calendar yesterday = Calendar.getInstance(); yesterday.add(Calendar.DATE, -1);
+        Calendar tomorrow = Calendar.getInstance(); tomorrow.add(Calendar.DATE, 1);
+        
+        // Normalize calendars to compare dates only
+        today.set(Calendar.HOUR_OF_DAY, 0); today.set(Calendar.MINUTE, 0); today.set(Calendar.SECOND, 0); today.set(Calendar.MILLISECOND, 0);
+        yesterday.set(Calendar.HOUR_OF_DAY, 0); yesterday.set(Calendar.MINUTE, 0); yesterday.set(Calendar.SECOND, 0); yesterday.set(Calendar.MILLISECOND, 0);
+        tomorrow.set(Calendar.HOUR_OF_DAY, 0); tomorrow.set(Calendar.MINUTE, 0); tomorrow.set(Calendar.SECOND, 0); tomorrow.set(Calendar.MILLISECOND, 0);
+        matchCal.set(Calendar.HOUR_OF_DAY, 0); matchCal.set(Calendar.MINUTE, 0); matchCal.set(Calendar.SECOND, 0); matchCal.set(Calendar.MILLISECOND, 0);
+
+        if(today.getTime().equals(matchCal.getTime())) {
+            dateText = getLocalizedText(null, "today", lang);
+        } else if (yesterday.getTime().equals(matchCal.getTime())) {
+            dateText = getLocalizedText(null, "yesterday", lang);
+        } else if (tomorrow.getTime().equals(matchCal.getTime())) {
+            dateText = getLocalizedText(null, "tomorrow", lang);
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM yyyy", isRTL ? new Locale("ar") : Locale.US);
+            dateText = sdf.format(matchDate);
+        }
+        
+        TextView dl = createTextView(dateText, 0, 2, false); dl.setTextSize(12);
+        // ********************************
+
         String gamesText = (count == 1) ? getLocalizedText(null, "game_one", lang) : count + " " + getLocalizedText(null, "games", lang);
         TextView cl = createTextView(gamesText, 0, 1, false); cl.setTextSize(12); cl.setGravity(isRTL ? Gravity.START : Gravity.END);
         if (isRTL) { h.addView(cl); h.addView(dl); h.addView(wl); } else { h.addView(wl); h.addView(dl); h.addView(cl); } return h;
@@ -664,6 +675,7 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     private String getLocalizedText(JSONObject o, String key, String lang) {
         if (o == null) {
             boolean isAR = "ar".equalsIgnoreCase(lang);
+            if ("today".equals(key)) return isAR ? "اليوم" : "Today"; if ("yesterday".equals(key)) return isAR ? "أمس" : "Yesterday"; if ("tomorrow".equals(key)) return isAR ? "غدا" : "Tomorrow";
             if ("team".equals(key)) return isAR ? "الفريق" : "Team"; if ("pts".equals(key)) return isAR ? "نقاط" : "Points"; if ("p".equals(key)) return isAR ? "لعب" : "P"; if ("w".equals(key)) return isAR ? "ف" : "W";
             if ("d".equals(key)) return isAR ? "ت" : "D"; if ("l".equals(key)) return isAR ? "ه" : "L"; if ("f:a".equals(key)) return isAR ? "له/عليه" : "F:A"; if ("gd".equals(key)) return isAR ? "فارق" : "+/-";
             if ("p.p".equals(key)) return isAR ? "ر.ت" : "P.P"; if ("week".equals(key)) return isAR ? "الأسبوع" : "Week"; if ("games".equals(key)) return isAR ? "مباريات" : "Games"; if ("game_one".equals(key)) return isAR ? "مباراة واحدة" : "1 Game"; if ("completed".equals(key)) return isAR ? "انتهت" : "Completed";
@@ -721,6 +733,6 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
         if (isBold) tv.setTypeface(null, Typeface.BOLD); return tv;
     }
     private View createDivider() {
-        View d = new View(context); d.setLayoutParams(new LinearLayout.LayoutParams(-1, 1)); d.setBackgroundColor(Color.parseColor("#F0F0F0")); return d;
+        View d = new View(context); d.setLayoutParams(new LinearLayout.LayoutParams(-1, 1)); d.setBackgroundColor(Color.parseColor("#E0E0E0")); return d;
     }
 }
