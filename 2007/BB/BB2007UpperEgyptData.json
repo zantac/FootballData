@@ -2,13 +2,13 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": "بحري-2",
+      "group": null,
       "week": "1",
-      "date": "2025-09-06", 
+      "date": "2025-09-23", 
       "time": "16:00",
-      "home_team_id": "t001",
-      "away_team_id": "t002",
-      "venue": "ملعب منية النصر",
+      "home_team_id": "t008",
+      "away_team_id": "t007",
+      "venue": "التنمية الشبابية بشرق النيل",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -26,13 +26,13 @@
     },
     {
       "match_id": "m002",
-      "group": "بحري-2",
+      "group": null,
       "week": "1",
-      "date": "2025-09-06",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t009",
-      "away_team_id": "t003",
-      "venue": "ملعب بايونيرز",
+      "home_team_id": "t003",
+      "away_team_id": "t004",
+      "venue": "نادي طهطا",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -50,13 +50,13 @@
     },
     {
       "match_id": "m003",
-      "group": "بحري-2",
+      "group": null,
       "week": "1",
-      "date": "2025-09-06",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t008",
-      "away_team_id": "t004",
-      "venue": "ملعب الشنواني",
+      "home_team_id": "t005",
+      "away_team_id": "t001",
+      "venue": "فرعي الاسيوطي 2",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -74,37 +74,13 @@
     },
     {
       "match_id": "m004",
-      "group": "بحري-2",
+      "group": null,
       "week": "1",
-      "date": "2025-09-06",
+      "date": "2025-09-23",
       "time": "16:00",
-      "home_team_id": "t007",
-      "away_team_id": "t005",
-      "venue": "ملعب دكرنس",
-      "status": "upcoming",
-      "note" : null,
-      "home_squade": null,
-      "away_squade": null,
-      "home_score": 0,
-      "away_score": 0,
-      "home_scorers": null,
-      "away_scorers": null,
-      "home_yc": null,
-      "away_yc": null,
-      "home_rc": null,
-      "away_rc": null,
-      "home_sub": null,
-      "away_sub": null
-    },
-    {
-      "match_id": "m005",
-      "group": "بحري-2",
-      "week": "1",
-      "date": "2025-09-06",
-      "time": "16:00",
-      "home_team_id": "t010",
-      "away_team_id": "t006",
-      "venue": "ملعب نبروه",
+      "home_team_id": "t006",
+      "away_team_id": "t002",
+      "venue": "نجوم مصر ببني سويف",
       "status": "upcoming",
       "note" : null,
       "home_squade": null,
@@ -122,158 +98,13 @@
     }
      
    ],
- "standings": [
-    {
-      "team_id": "t000",
-      "group": null,
-      "position": null,
-      "points": "نقاط",
-      "matches_played": "لعب",
-      "wins": "ف",
-      "draws": "ت",
-      "losses": "خ",
-      "goals_for": "+",
-      "goals_against": "-",
-      "Penality_points": "ض.ج"
-    },
-    {
-      "team_id": "t001",
-      "group": "بحري-2",
-      "position": 1,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t002",
-      "group": "بحري-2",
-      "position": 2,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t003",
-      "group": "بحري-2",
-      "position": 3,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t004",
-      "group": "بحري-2",
-      "position": 4,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t005",
-      "group": "بحري-2",
-      "position": 5,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t006",
-      "group": "بحري-2",
-      "position": 6,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t007",
-      "group": "بحري-2",
-      "position": 7,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t008",
-      "group": "بحري-2",
-      "position": 8,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t009",
-      "group": "بحري-2",
-      "position": 9,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    },
-    {
-      "team_id": "t010",
-      "group": "بحري-2",
-      "position": 10,
-      "points": 0,
-      "matches_played": 0,
-      "wins": 0,
-      "draws": 0,
-      "losses": 0,
-      "goals_for": 0,
-      "goals_against": 0,
-      "Penality_points": 0
-    }
-  ],
  "teams": [
-
-     {
+    
+    {
       "team_id": "t001",
-      "group": "بحري-2",
-      "name": "منية النصر",
-      "logo": "https://ia801005.us.archive.org/22/items/20250827_20250827_0703/%D9%86%D8%A7%D8%AF%D9%8A_%D9%85%D9%86%D9%8A%D8%A9_%D8%A7%D9%84%D9%86%D8%B5%D8%B1.jpg",
+      "group": null,
+      "name": "مصر المقاصة",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -284,12 +115,13 @@
         "midfielders": null,
         "attackers": null
     }
-    }, 
+    },
+    
     {
       "team_id": "t002",
-      "group": "بحري-2",
-      "name": "الجمهورية بشبين الكوم",
-      "logo": "https://ia601001.us.archive.org/28/items/20250827_20250827_0739/%D9%86%D8%A7%D8%AF%D9%8A_%D8%AC%D9%85%D9%87%D9%88%D8%B1%D9%8A%D8%A9_%D8%B4%D8%A8%D9%8A%D9%86.jpg",
+      "group": null,
+      "name": "مركز شباب طامية",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -303,9 +135,9 @@
     },
     {
       "team_id": "t003",
-      "group": "بحري-2",
-      "name": "ميجاسبورت",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_68,h_68,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/54378",
+      "group": null,
+      "name": "طهطا",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -319,9 +151,9 @@
     },
     {
       "team_id": "t004",
-      "group": "بحري-2",
-      "name": "بيلا",
-      "logo": "https://ia600907.us.archive.org/14/items/20250827_20250827_0659/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A8%D9%8A%D9%84%D8%A7.jpg",
+      "group": null,
+      "name": "الفيوم",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -332,12 +164,12 @@
         "midfielders": null,
         "attackers": null
     }
-    }, 
-     {
+    },
+    {
       "team_id": "t005",
-      "group": "بحري-2",
-      "name": "الزرقا",
-      "logo": "https://ia601209.us.archive.org/20/items/20250827_20250827_0759/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B2%D8%B1%D9%82%D8%A7.jpg",
+      "group": null,
+      "name": "ملوي",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -351,9 +183,9 @@
     },
     {
       "team_id": "t006",
-      "group": "بحري-2",
-      "name": "صيد المحلة",
-      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/1469.png",
+      "group": null,
+      "name": "نجوم مصر",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -367,9 +199,9 @@
     },
     {
       "team_id": "t007",
-      "group": "بحري-2",
-      "name": "دكرنس",
-      "logo": "https://ia600906.us.archive.org/23/items/20250827_20250827_0805/%D9%86%D8%A7%D8%AF%D9%8A_%D8%AF%D9%83%D8%B1%D9%86%D8%B3.jpg",
+      "group": null,
+      "name": "المنيا",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -381,11 +213,11 @@
         "attackers": null
     }
     },
-     {
+    {
       "team_id": "t008",
-      "group": "بحري-2",
-      "name": "اللجنة الرياضية بالشنواني",
-      "logo": "https://ia601001.us.archive.org/4/items/20250827_20250827_0809/%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B4%D9%86%D9%88%D8%A7%D9%86%D9%8A.jpg",
+      "group": null,
+      "name": "تليفونات بني سويف",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -399,9 +231,9 @@
     },
     {
       "team_id": "t009",
-      "group": "بحري-2",
-      "name": "بايونيرز",
-      "logo": "https://ia600905.us.archive.org/26/items/pioneers-club/Pioneers%20Club.jpg",
+      "group": null,
+      "name": "البداري",
+      "logo": null,
       "field": null,
       "fieldurl": null,
       "city": null,
@@ -412,28 +244,9 @@
         "midfielders": null,
         "attackers": null
     }
-    },
-    {
-      "team_id": "t010",
-      "group": "بحري-2",
-      "name": "اتحاد نبروة",
-      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_68,h_68,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/19499",
-      "field": null,
-      "fieldurl": null,
-      "city": null,
-       "players": { 
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
     }
-    } 
-  ],
-  "scorrers": null,
-  "assists": null,
-  "cleansheets": null,
-  "penalityblocks": null
+  ]
+  
 
 
 }
