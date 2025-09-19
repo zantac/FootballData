@@ -462,30 +462,6 @@
       "week": "2",
       "date": "2025-10-02",
       "time": "15:30",
-      "home_team_id": "gat002",
-      "away_team_id": "gat010",
-      "venue": "فرعي غزل شبين",
-      "status": "upcoming",
-      "note" : null,
-      "home_squade": null,
-      "away_squade": null,
-      "home_score": 0,
-      "away_score": 0,
-      "home_scorers": null,
-      "away_scorers": null,
-      "home_yc": null,
-      "away_yc": null,
-      "home_rc": null,
-      "away_rc": null,
-      "home_sub": null,
-      "away_sub": null
-    },
-    {
-      "match_id": "m021",
-      "group": "3A",
-      "week": "2",
-      "date": "2025-10-02",
-      "time": "15:30",
       "home_team_id": "gat004",
       "away_team_id": "gat009",
       "venue": "نادي بيلا",
@@ -505,7 +481,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m022",
+      "match_id": "m021",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -529,7 +505,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m023",
+      "match_id": "m022",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
