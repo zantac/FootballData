@@ -1,7 +1,7 @@
 {
   "matches": [
     {
-      "match_id": "m006",
+      "match_id": "m001",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18", 
@@ -25,7 +25,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m007",
+      "match_id": "m002",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18",
@@ -49,7 +49,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m008",
+      "match_id": "m003",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18",
@@ -73,7 +73,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m009",
+      "match_id": "m004",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18",
@@ -97,7 +97,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m010",
+      "match_id": "m005",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18",
@@ -121,7 +121,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m011",
+      "match_id": "m006",
       "group": "3B",
       "week": "1",
       "date": "2025-09-18",
@@ -145,7 +145,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m001",
+      "match_id": "m007",
       "group": "3A",
       "week": "1",
       "date": "2025-09-25", 
@@ -169,7 +169,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m002",
+      "match_id": "m008",
       "group": "3A",
       "week": "1",
       "date": "2025-09-25",
@@ -193,7 +193,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m003",
+      "match_id": "m009",
       "group": "3A",
       "week": "1",
       "date": "2025-09-25",
@@ -217,7 +217,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m004",
+      "match_id": "m010",
       "group": "3A",
       "week": "1",
       "date": "2025-09-25",
@@ -241,7 +241,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m005",
+      "match_id": "m011",
       "group": "3A",
       "week": "1",
       "date": "2025-09-25",
@@ -265,7 +265,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m017",
+      "match_id": "m012",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -289,7 +289,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m018",
+      "match_id": "m013",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -313,7 +313,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m019",
+      "match_id": "m014",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -337,7 +337,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m020",
+      "match_id": "m015",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -361,7 +361,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m021",
+      "match_id": "m016",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -385,7 +385,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m022",
+      "match_id": "m017",
       "group": "3B",
       "week": "2",
       "date": "2025-09-25",
@@ -409,7 +409,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m012",
+      "match_id": "m018",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -433,7 +433,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m013",
+      "match_id": "m019",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -457,7 +457,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m013",
+      "match_id": "m020",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -481,7 +481,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m014",
+      "match_id": "m021",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -505,7 +505,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m015",
+      "match_id": "m022",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
@@ -529,7 +529,7 @@
       "away_sub": null
     },
     {
-      "match_id": "m016",
+      "match_id": "m023",
       "group": "3A",
       "week": "2",
       "date": "2025-10-02",
