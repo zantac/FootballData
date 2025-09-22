@@ -8,8 +8,10 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -18,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -33,15 +36,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 
-@DesignerComponent(version = 19, description = "Companion with news, ads, and multi-level season/competition navigation.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
+@DesignerComponent(version = 40, description = "Companion with news, ads, stats, and multi-level season/competition navigation.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
 @SimpleObject(external = true)
-// @UsesLibraries(libraries = "picasso-2.5.2.jar") // <-- FIX: REMOVED THIS LINE
 public class Footballdataplus extends AndroidNonvisibleComponent implements Component {
 
     private final Context context;
@@ -51,6 +54,13 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
     private static final String LAST_NEWS_COUNT_KEY = "lastNewsCount";
     private static final String SHOWN_ADS_KEY = "shownAds";
     private final Form form;
+
+    private class TeamStats {
+        String teamId;
+        int goalsFor = 0;
+        int goalsAgainst = 0;
+        TeamStats(String tId) { this.teamId = tId; }
+    }
 
     public Footballdataplus(ComponentContainer container) {
         super(container.$form());
@@ -65,7 +75,6 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
     public void AfterParsingSuccess() { EventDispatcher.dispatchEvent(this, "AfterParsingSuccess"); }
     @SimpleEvent(description = "Triggered if the JSON data string is invalid.")
     public void AfterParsingFail(String error) { EventDispatcher.dispatchEvent(this, "AfterParsingFail", error); }
-    
     @SimpleEvent(description = "Triggered when a season is clicked.")
     public void SeasonClicked(String seasonName) { EventDispatcher.dispatchEvent(this, "SeasonClicked", seasonName); }
     @SimpleEvent(description = "Triggered when a competition is clicked.")
@@ -74,6 +83,8 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
     public void AgeClicked(String competitionId, String age, boolean hasSectors, String matchesUrlOrNull) { EventDispatcher.dispatchEvent(this, "AgeClicked", competitionId, age, hasSectors, matchesUrlOrNull); }
     @SimpleEvent(description = "Triggered when a sector is clicked.")
     public void SectorClicked(String sectorName, String matchesUrl) { EventDispatcher.dispatchEvent(this, "SectorClicked", sectorName, matchesUrl); }
+    @SimpleEvent(description = "Triggered when the ad's close button is clicked after the countdown.")
+    public void AdClosed() { EventDispatcher.dispatchEvent(this, "AdClosed"); }
 
 
     @SimpleFunction(description = "Loads JSON data from a string. Must be called first.")
@@ -88,9 +99,56 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
         }
     }
 
-    // ================== COMPETITION BLOCKS ==================
-    
-    @SimpleFunction(description = "Creates a searchable list of seasons. This is the new first step.")
+    // --- STATISTICS BLOCKS ---
+
+    @SimpleFunction(description = "1. Total Matches Played. Displays stats per group if multiple groups exist.")
+    public void CreateTotalMatchesPlayedView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "total_matches");
+    }
+
+    @SimpleFunction(description = "2. Total Goals Scored. Displays stats per group if multiple groups exist.")
+    public void CreateTotalGoalsScoredView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "total_goals");
+    }
+
+    @SimpleFunction(description = "3. Goal Rate Per Match. Displays stats per group if multiple groups exist.")
+    public void CreateGoalRateView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "goal_rate");
+    }
+
+    @SimpleFunction(description = "4. Matches With a Winner. Displays stats per group if multiple groups exist.")
+    public void CreateMatchesWithWinnerView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "winner_matches");
+    }
+
+    @SimpleFunction(description = "5. Matches Ended in a Draw. Displays stats per group if multiple groups exist.")
+    public void CreateDrawMatchesView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "draw_matches");
+    }
+
+    @SimpleFunction(description = "6. Strongest Attack. Displays stats per group if multiple groups exist.")
+    public void CreateStrongestAttackView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "strongest_attack");
+    }
+
+    @SimpleFunction(description = "7. Strongest Defense. Displays stats per group if multiple groups exist.")
+    public void CreateStrongestDefenseView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "strongest_defense");
+    }
+
+    @SimpleFunction(description = "8. Weakest Attack. Displays stats per group if multiple groups exist.")
+    public void CreateWeakestAttackView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "weakest_attack");
+    }
+
+    @SimpleFunction(description = "9. Weakest Defense. Displays stats per group if multiple groups exist.")
+    public void CreateWeakestDefenseView(HVArrangement container, String language) {
+        handleStatCalculation(container, language, "weakest_defense");
+    }
+
+
+    // ================== OTHER BLOCKS ==================
+    @SimpleFunction(description = "Creates a searchable list of seasons.")
     public void CreateSeasonList(HVArrangement container, final String language) {
         if (jsonData == null) return;
         try {
@@ -156,8 +214,6 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
             createSearchableListView(container, language, "sector", customList, competitionId, age);
         } catch (Exception e) { AfterParsingFail("Error creating sector list: " + e.getMessage()); }
     }
-
-    // ================== OTHER BLOCKS (GLOBAL DATA) ==================
     
     @SimpleFunction(description = "Saves the current number of news items as the last seen count.")
     public void UpdateLastNewsCount() {
@@ -210,10 +266,10 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
         } catch (Exception e) { AfterParsingFail("Error creating venue list: " + e.getMessage()); }
     }
 
-    @SimpleFunction(description = "Displays a random, non-expired, non-repeated ad in full screen.")
-    public void CreateRandomAd(HVArrangement container) {
+    @SimpleFunction(description = "Displays a random, non-expired, non-repeated ad in full screen with a countdown timer and close button.")
+    public void CreateRandomAd(HVArrangement container, final long timeInMilliseconds) {
         if (jsonData == null) return;
-        ViewGroup vg = (ViewGroup) container.getView(); vg.removeAllViews();
+        final ViewGroup vg = (ViewGroup) container.getView(); vg.removeAllViews();
         try {
             JSONArray adsArray = jsonData.optJSONArray("Ads");
             if (adsArray == null || adsArray.length() == 0) return;
@@ -241,7 +297,107 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
             }
             if (unseenAds.isEmpty()) return;
             JSONObject randomAd = unseenAds.get(new Random().nextInt(unseenAds.size()));
-            vg.addView(createAdCardView(randomAd));
+            
+            final RelativeLayout adContainer = createAdCardView(randomAd);
+            vg.addView(adContainer);
+
+            if (timeInMilliseconds > 0) {
+                final RelativeLayout countdownLayout = new RelativeLayout(context);
+                final RelativeLayout.LayoutParams countdownParams = new RelativeLayout.LayoutParams(dpToPx(50), dpToPx(50));
+                countdownParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                countdownParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                countdownParams.setMargins(0, dpToPx(16), dpToPx(16), 0);
+                countdownLayout.setLayoutParams(countdownParams);
+
+                final ProgressBar progressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
+                progressBar.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+                progressBar.setMax((int) timeInMilliseconds);
+                progressBar.setProgress(0);
+
+                GradientDrawable backgroundCircle = new GradientDrawable();
+                backgroundCircle.setShape(GradientDrawable.OVAL);
+                backgroundCircle.setColor(Color.parseColor("#80FFFFFF"));
+
+                GradientDrawable progressCircle = new GradientDrawable();
+                progressCircle.setShape(GradientDrawable.OVAL);
+                progressCircle.setColor(Color.parseColor("#4CAF50"));
+
+                Drawable[] layers = {backgroundCircle, new android.graphics.drawable.ClipDrawable(progressCircle, Gravity.LEFT, android.graphics.drawable.ClipDrawable.HORIZONTAL)};
+                LayerDrawable layerDrawable = new LayerDrawable(layers);
+                progressBar.setProgressDrawable(layerDrawable);
+
+                final TextView countdownText = new TextView(context);
+                countdownText.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+                countdownText.setTextColor(Color.BLACK);
+                countdownText.setTextSize(18);
+                countdownText.setTypeface(null, Typeface.BOLD);
+                countdownText.setGravity(Gravity.CENTER);
+
+                countdownLayout.addView(progressBar);
+                countdownLayout.addView(countdownText);
+                adContainer.addView(countdownLayout);
+
+                new CountDownTimer(timeInMilliseconds, 50) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        final int secondsRemaining = (int) Math.ceil((double) millisUntilFinished / 1000.0);
+                        final int progress = (int) (timeInMilliseconds - millisUntilFinished);
+                        
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                countdownText.setText(String.valueOf(secondsRemaining));
+                                progressBar.setProgress(progress);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (adContainer != null) {
+                                    adContainer.removeView(countdownLayout);
+                                }
+                                
+                                TextView closeButton = new TextView(context);
+                                closeButton.setLayoutParams(countdownParams);
+                                closeButton.setText("X");
+                                closeButton.setTextColor(Color.DKGRAY);
+                                closeButton.setTextSize(20);
+                                closeButton.setTypeface(null, Typeface.BOLD);
+                                closeButton.setGravity(Gravity.CENTER);
+
+                                GradientDrawable closeBg = new GradientDrawable();
+                                closeBg.setShape(GradientDrawable.OVAL);
+                                closeBg.setColor(Color.parseColor("#B3FFFFFF"));
+                                closeBg.setStroke(dpToPx(2), Color.DKGRAY);
+                                if (Build.VERSION.SDK_INT >= 16) {
+                                    closeButton.setBackground(closeBg);
+                                } else {
+                                    closeButton.setBackgroundDrawable(closeBg);
+                                }
+                                
+                                closeButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (vg != null && adContainer.getParent() == vg) {
+                                            vg.removeView(adContainer);
+                                        }
+                                        AdClosed();
+                                    }
+                                });
+
+                                if (adContainer != null) {
+                                    adContainer.addView(closeButton);
+                                }
+                            }
+                        });
+                    }
+                }.start();
+            }
+
             String newShownAds = prefs.getString(SHOWN_ADS_KEY, "") + randomAd.optString("name") + ",";
             prefs.edit().putString(SHOWN_ADS_KEY, newShownAds).apply();
         } catch (Exception e) { AfterParsingFail("Error creating ad view: " + e.getMessage()); }
@@ -285,7 +441,7 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
         }
         return null;
     }
-    private View createAdCardView(JSONObject ad) { /* Unchanged */
+    private RelativeLayout createAdCardView(JSONObject ad) {
         RelativeLayout adLayout=new RelativeLayout(context);adLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1,-1));adLayout.setBackgroundColor(Color.BLACK);ImageView adImage=new ImageView(context);RelativeLayout.LayoutParams imageParams=new RelativeLayout.LayoutParams(-1,-2);imageParams.addRule(RelativeLayout.CENTER_IN_PARENT);adImage.setLayoutParams(imageParams);adImage.setAdjustViewBounds(true);adImage.setScaleType(ImageView.ScaleType.FIT_CENTER);Picasso.with(context).load(ad.optString("image")).into(adImage);adLayout.addView(adImage);TextView adName=new TextView(context);adName.setText(getLocalizedText(ad,"name","ar"));adName.setTextSize(18);adName.setTypeface(null,Typeface.BOLD);adName.setTextColor(Color.WHITE);adName.setGravity(Gravity.CENTER);adName.setBackgroundColor(Color.parseColor("#80000000"));adName.setPadding(dpToPx(8),dpToPx(8),dpToPx(8),dpToPx(8));RelativeLayout.LayoutParams nameParams=new RelativeLayout.LayoutParams(-1,-2);nameParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);adLayout.addView(adName,nameParams);LinearLayout actions=new LinearLayout(context);actions.setOrientation(LinearLayout.HORIZONTAL);actions.setGravity(Gravity.CENTER_VERTICAL);actions.setBackgroundColor(Color.parseColor("#80000000"));actions.setPadding(dpToPx(8),dpToPx(8),dpToPx(8),dpToPx(8));RelativeLayout.LayoutParams actionParams=new RelativeLayout.LayoutParams(-1,-2);actionParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);adLayout.addView(actions,actionParams);String locationUrl=ad.optString("location_url",null);if(isValid(locationUrl)){LinearLayout locGroup=new LinearLayout(context);locGroup.setOrientation(LinearLayout.HORIZONTAL);locGroup.setGravity(Gravity.CENTER_VERTICAL);locGroup.setPadding(dpToPx(8),0,dpToPx(8),0);locGroup.setOnClickListener(createLinkClickListener(locationUrl));locGroup.addView(createIcon("location_icon.png"));TextView locText=new TextView(context);locText.setText(getLocalizedText(ad,"location","ar"));locText.setTextColor(Color.WHITE);locText.setTextSize(14);locText.setPadding(dpToPx(4),0,0,0);locGroup.addView(locText);actions.addView(locGroup);}
         LinearLayout iconGroup=new LinearLayout(context);iconGroup.setOrientation(LinearLayout.HORIZONTAL);iconGroup.setGravity(Gravity.END|Gravity.CENTER_VERTICAL);iconGroup.setLayoutParams(new LinearLayout.LayoutParams(0,-2,1));addClickableIcon(iconGroup,ad,"youtube_video","yt_icon.png",null);addClickableIcon(iconGroup,ad,"facebook_link","fb_icon.png",null);addClickableIcon(iconGroup,ad,"mobile_number","phone_icon.png","tel:");addClickableIcon(iconGroup,ad,"whatsapp_number","whatsapp_icon.png","https://wa.me/");actions.addView(iconGroup);return adLayout;
     }
@@ -345,5 +501,250 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
     }
     private View createDivider() {
         View d = new View(context); d.setLayoutParams(new LinearLayout.LayoutParams(-1, 1)); d.setBackgroundColor(Color.parseColor("#E0E0E0")); return d;
+    }
+
+    // --- HELPERS FOR STATISTICS BLOCKS ---
+
+    private void handleStatCalculation(HVArrangement container, String language, String statType) {
+        if (this.jsonData == null) { AfterParsingFail("JSON data is not set. Use SetJsonDataFromString first."); return; }
+        try {
+            JSONArray allMatches = this.jsonData.optJSONArray("matches");
+            JSONArray allTeams = this.jsonData.optJSONArray("teams");
+            if (allMatches == null || allTeams == null) { AfterParsingFail("JSON data is missing 'matches' or 'teams' array."); return; }
+
+            Map<String, List<JSONObject>> matchesByGroup = groupCompletedMatches(allMatches, allTeams);
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+
+            if (matchesByGroup.isEmpty()) {
+                createSingleStatView(vg, getStatLocalizedText(statType + "_title", language), "-");
+                return;
+            }
+
+            boolean isSingleGroup = matchesByGroup.size() == 1 && matchesByGroup.containsKey("_DEFAULT_GROUP_");
+
+            if (isSingleGroup) {
+                String value = calculateStatForGroup(matchesByGroup.get("_DEFAULT_GROUP_"), allTeams, statType, language);
+                createSingleStatView(vg, getStatLocalizedText(statType + "_title", language), value);
+            } else {
+                LinearLayout mainLayout = new LinearLayout(context);
+                mainLayout.setOrientation(LinearLayout.VERTICAL);
+                mainLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                mainLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                
+                List<String> sortedGroupNames = new ArrayList<>(matchesByGroup.keySet());
+                Collections.sort(sortedGroupNames);
+
+                TextView titleView = new TextView(context);
+                titleView.setText(getStatLocalizedText(statType + "_title", language));
+                titleView.setTextSize(18);
+                titleView.setTextColor(Color.BLACK);
+                titleView.setGravity(Gravity.CENTER);
+                titleView.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+                titleView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+                mainLayout.addView(titleView);
+
+                for (String groupName : sortedGroupNames) {
+                    if(matchesByGroup.get(groupName).isEmpty()) continue;
+                    String value = calculateStatForGroup(matchesByGroup.get(groupName), allTeams, statType, language);
+                    
+                    TextView groupNameView = new TextView(context);
+                    groupNameView.setText(getStatLocalizedText("group", language) + " " + groupName);
+                    groupNameView.setTextSize(16);
+                    groupNameView.setTextColor(Color.DKGRAY);
+                    groupNameView.setGravity(Gravity.CENTER);
+                    groupNameView.setPadding(0, dpToPx(12), 0, 0);
+                    groupNameView.setTypeface(null, Typeface.BOLD);
+                    mainLayout.addView(groupNameView);
+                    
+                    TextView groupValueView = new TextView(context);
+                    groupValueView.setText(value);
+                    groupValueView.setTextSize(22);
+                    groupValueView.setTypeface(null, Typeface.BOLD);
+                    groupValueView.setTextColor(Color.BLACK);
+                    groupValueView.setGravity(Gravity.CENTER);
+                    groupValueView.setPadding(0, dpToPx(4), 0, dpToPx(12));
+                    mainLayout.addView(groupValueView);
+                }
+                vg.addView(mainLayout);
+            }
+        } catch (JSONException e) {
+            AfterParsingFail("Error calculating stat '" + statType + "': " + e.getMessage());
+        }
+    }
+
+    private String calculateStatForGroup(List<JSONObject> groupMatches, JSONArray allTeams, String statType, String language) throws JSONException {
+        int totalMatches = groupMatches.size();
+        int totalGoals = 0;
+        int winnerMatches = 0;
+        int drawMatches = 0;
+        Map<String, TeamStats> statsMap = new HashMap<>();
+
+        for (JSONObject match : groupMatches) {
+            int homeScore = match.getInt("home_score");
+            int awayScore = match.getInt("away_score");
+            totalGoals += homeScore;
+            totalGoals += awayScore;
+
+            if (homeScore > awayScore || awayScore > homeScore) {
+                winnerMatches++;
+            } else {
+                drawMatches++;
+            }
+
+            String homeTeamId = match.getString("home_team_id");
+            String awayTeamId = match.getString("away_team_id");
+            if (!statsMap.containsKey(homeTeamId)) statsMap.put(homeTeamId, new TeamStats(homeTeamId));
+            if (!statsMap.containsKey(awayTeamId)) statsMap.put(awayTeamId, new TeamStats(awayTeamId));
+            statsMap.get(homeTeamId).goalsFor += homeScore;
+            statsMap.get(homeTeamId).goalsAgainst += awayScore;
+            statsMap.get(awayTeamId).goalsFor += awayScore;
+            statsMap.get(awayTeamId).goalsAgainst += homeScore;
+        }
+
+        switch (statType) {
+            case "total_matches":
+                return String.valueOf(totalMatches);
+            case "total_goals":
+                return String.valueOf(totalGoals);
+            case "goal_rate":
+                double rate = (totalMatches > 0) ? (double) totalGoals / totalMatches : 0;
+                return String.format(Locale.US, "%.2f", rate);
+            case "winner_matches":
+                double winPercent = (totalMatches > 0) ? (double) winnerMatches / totalMatches * 100 : 0;
+                return String.format(Locale.US, "%d (%.1f%%)", winnerMatches, winPercent);
+            case "draw_matches":
+                double drawPercent = (totalMatches > 0) ? (double) drawMatches / totalMatches * 100 : 0;
+                return String.format(Locale.US, "%d (%.1f%%)", drawMatches, drawPercent);
+            case "strongest_attack":
+            case "weakest_defense":
+            case "strongest_defense":
+            case "weakest_attack":
+                int bestValue;
+                boolean findMax;
+
+                if (statType.equals("strongest_attack") || statType.equals("weakest_defense")) {
+                    bestValue = -1;
+                    findMax = true;
+                } else {
+                    bestValue = Integer.MAX_VALUE;
+                    findMax = false;
+                }
+                
+                List<String> bestTeamIds = new ArrayList<>();
+                for (TeamStats stats : statsMap.values()) {
+                    int currentValue;
+                    if (statType.equals("strongest_attack") || statType.equals("weakest_attack")) {
+                        currentValue = stats.goalsFor;
+                    } else {
+                        currentValue = stats.goalsAgainst;
+                    }
+                    
+                    boolean isBetter = findMax ? currentValue > bestValue : currentValue < bestValue;
+
+                    if (isBetter) {
+                        bestValue = currentValue;
+                        bestTeamIds.clear();
+                        bestTeamIds.add(stats.teamId);
+                    } else if (currentValue == bestValue) {
+                        bestTeamIds.add(stats.teamId);
+                    }
+                }
+                String teamNames = getTeamNamesByIds(bestTeamIds, allTeams, language);
+                if (bestValue == -1 || bestValue == Integer.MAX_VALUE) return "-";
+                return teamNames.isEmpty() ? "-" : String.format("%s (%d)", teamNames, bestValue);
+            default:
+                return "";
+        }
+    }
+
+    private void createSingleStatView(ViewGroup container, String title, String value) {
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+        mainLayout.setGravity(Gravity.CENTER_HORIZONTAL);
+        mainLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+        
+        TextView titleView = new TextView(context);
+        titleView.setText(title);
+        titleView.setTextSize(18);
+        titleView.setTextColor(Color.BLACK);
+        titleView.setGravity(Gravity.CENTER);
+        titleView.setBackgroundColor(Color.parseColor("#EEEEEE"));
+        titleView.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+        mainLayout.addView(titleView, new LinearLayout.LayoutParams(-1, -2));
+        
+        TextView valueView = new TextView(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, -2);
+        params.setMargins(0, dpToPx(8), 0, 0);
+        valueView.setLayoutParams(params);
+        valueView.setText(value);
+        valueView.setTextSize(28);
+        valueView.setTypeface(null, Typeface.BOLD);
+        valueView.setTextColor(Color.BLACK);
+        valueView.setGravity(Gravity.CENTER);
+        mainLayout.addView(valueView);
+        container.addView(mainLayout);
+    }
+    
+    private Map<String, List<JSONObject>> groupCompletedMatches(JSONArray allMatches, JSONArray allTeams) throws JSONException {
+        Map<String, List<JSONObject>> matchesByGroup = new HashMap<>();
+        for (int i = 0; i < allMatches.length(); i++) {
+            JSONObject match = allMatches.getJSONObject(i);
+            if (!"completed".equalsIgnoreCase(match.optString("status"))) {
+                continue;
+            }
+            String homeTeamId = match.getString("home_team_id");
+            JSONObject homeTeam = findTeamById(homeTeamId, allTeams);
+            String groupKey = "_DEFAULT_GROUP_"; 
+            if (homeTeam != null && homeTeam.has("group") && !homeTeam.isNull("group")) {
+                String teamGroup = homeTeam.getString("group");
+                if (teamGroup != null && !teamGroup.isEmpty()) {
+                    groupKey = teamGroup;
+                }
+            }
+            if (!matchesByGroup.containsKey(groupKey)) {
+                matchesByGroup.put(groupKey, new ArrayList<JSONObject>());
+            }
+            matchesByGroup.get(groupKey).add(match);
+        }
+        return matchesByGroup;
+    }
+    private JSONObject findTeamById(String teamId, JSONArray teams) throws JSONException {
+        if (teamId == null || teams == null) return null;
+        for (int i = 0; i < teams.length(); i++) {
+            JSONObject team = teams.getJSONObject(i);
+            if (teamId.equals(team.optString("team_id"))) {
+                return team;
+            }
+        }
+        return null;
+    }
+    private String getTeamNamesByIds(List<String> ids, JSONArray teams, String lang) throws JSONException {
+        StringBuilder names = new StringBuilder();
+        for (int i = 0; i < ids.size(); i++) {
+            JSONObject team = findTeamById(ids.get(i), teams);
+            if (team != null) {
+                names.append(getLocalizedText(team, "name", lang));
+                if (i < ids.size() - 1) {
+                    names.append(", ");
+                }
+            }
+        }
+        return names.toString();
+    }
+    private String getStatLocalizedText(String key, String lang) {
+        boolean isAR = "ar".equalsIgnoreCase(lang);
+        if ("total_matches_title".equals(key)) return isAR ? "إجمالي المباريات المكتملة" : "Total Matches Played";
+        if ("total_goals_title".equals(key)) return isAR ? "إجمالي الأهداف المسجلة" : "Total Goals Scored";
+        if ("goal_rate_title".equals(key)) return isAR ? "معدل الأهداف / مباراة" : "Goal Rate / Match";
+        if ("winner_matches_title".equals(key)) return isAR ? "مباريات انتهت بفوز" : "Matches with a Winner";
+        if ("draw_matches_title".equals(key)) return isAR ? "مباريات انتهت بالتعادل" : "Matches Ended in a Draw";
+        if ("strongest_attack_title".equals(key)) return isAR ? "أقوى خط هجوم" : "Strongest Attack";
+        if ("strongest_defense_title".equals(key)) return isAR ? "أقوى خط دفاع" : "Strongest Defense";
+        if ("weakest_attack_title".equals(key)) return isAR ? "أضعف خط هجوم" : "Weakest Attack";
+        if ("weakest_defense_title".equals(key)) return isAR ? "أضعف خط دفاع" : "Weakest Defense";
+        if ("no_completed_matches".equals(key)) return isAR ? "لا توجد مباريات مكتملة" : "No completed matches.";
+        if ("group".equals(key)) return isAR ? "المجموعة" : "Group";
+        return key;
     }
 }
