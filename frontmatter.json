@@ -227,10 +227,30 @@
   ],
   "frontMatter.content.pageFolders": [
     {
-      "title": "FootballData",
-      "path": "[[workspace]]/FootballData"
+      "title": "Competition 2005",
+      "path": "[[workspace]]/2005"
+    },
+    {
+      "title": "Competition 2007",
+      "path": "[[workspace]]/2007"
+    },
+    {
+      "title": "Competition 2008",
+      "path": "[[workspace]]/2008"
+    },
+    {
+      "title": "Competition 2009",
+      "path": "[[workspace]]/2009"
+    },
+    {
+      "title": "Competition 2010",
+      "path": "[[workspace]]/2010"
+    },
+    {
+      "title": "Competition 2011",
+      "path": "[[workspace]]/2011"
     }
   ],
-  "frontMatter.framework.id": "other",
-  "frontMatter.content.publicFolder": ""
+  "frontMatter.framework.id": "other"
+  
 }
