@@ -1,21 +1,8 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.content.supportedFileTypes": [
-    "json"
-  ],
-  "frontMatter.data.files": [
+  "frontMatter.data.types": [
     {
-      "id": "competitionsData",
-      "fileType": "json",
-      "contentType": "competition",
-      "path": "[[workspace]]/**/!(*.schema|frontmatter).json"
-    }
-  ],
-  "frontMatter.taxonomy.contentTypes": [
-    {
-      "id": "competition",
-      "name": "Competition",
-      "pageBundle": false,
+      "id": "competitionData",
       "fields": [
         {
           "title": "Matches",
@@ -35,10 +22,8 @@
                 { "title": "Home Team ID", "name": "home_team_id", "type": "string" },
                 { "title": "Away Team ID", "name": "away_team_id", "type": "string" },
                 { "title": "Venue", "name": "venue", "type": "string" },
-                { "title": "Status", "name": "status", "type": "choice", "choices": ["completed", "upcoming"] },
+                { "title": "Status", "name": "status", "type": "choice", "choices": ["completed", "upcoming", "postponed", "cancelled"] },
                 { "title": "Note", "name": "note", "type": "string" },
-                { "title": "Home Squad", "name": "home_squade", "type": "list" },
-                { "title": "Away Squad", "name": "away_squade", "type": "list" },
                 { "title": "Home Score", "name": "home_score", "type": "number" },
                 { "title": "Away Score", "name": "away_score", "type": "number" },
                 { "title": "Home Scorers", "name": "home_scorers", "type": "list" },
@@ -98,20 +83,20 @@
               ]
             }
           ]
-        },
-        { "title": "Scorers", "name": "scorrers", "type": "string" },
-        { "title": "Assists", "name": "assists", "type": "string" },
-        { "title": "Cleansheets", "name": "cleansheets", "type": "string" },
-        { "title": "Penalty Blocks", "name": "penalityblocks", "type": "string" }
+        }
       ]
     }
   ],
-  "frontMatter.content.pageFolders": [
-    { "title": "Competition 2005", "path": "[[workspace]]/2005" },
-    { "title": "Competition 2007", "path": "[[workspace]]/2007" },
-    { "title": "Competition 2008", "path": "[[workspace]]/2008" },
-    { "title": "Competition 2009", "path": "[[workspace]]/2009" },
-    { "title": "Competition 2010", "path": "[[workspace]]/2010" },
-    { "title": "Competition 2011", "path": "[[workspace]]/2011" }
+  "frontMatter.data.files": [
+    {
+      "id": "competitions",
+      "title": "Competitions",
+      "fileType": "json",
+      "labelField": "name",
+      "path": "[[workspace]]/**/*.json",
+      "schema": {
+        "type": "competitionData"
+      }
+    }
   ]
 }
