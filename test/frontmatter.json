@@ -1,0 +1,31 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.data.files": [
+    {
+      "id": "myTestFile",
+      "title": "My Test File",
+      "fileType": "json",
+      "isSingleEntry": true,
+      "file": "[[workspace]]/test/mytest.json",
+      "fields": [
+        {
+          "title": "Team Name",
+          "name": "teamName",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "test",
+      "path": "[[workspace]]/test"
+    },
+    {
+      "title": "test",
+      "path": "[[workspace]]/test"
+    }
+  ]
+}
