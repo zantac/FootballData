@@ -3,6 +3,14 @@
   "frontMatter.content.supportedFileTypes": [
     "json"
   ],
+  "frontMatter.data.files": [
+    {
+      "id": "competitionsData",
+      "fileType": "json",
+      "contentType": "competition",
+      "path": "[[workspace]]/**/!(frontmatter.json)*.json"
+    }
+  ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "id": "competition",
@@ -40,13 +48,7 @@
                 { "title": "Home Squad", "name": "home_squade", "type": "list" },
                 { "title": "Away Squad", "name": "away_squade", "type": "list" },
                 { "title": "Home Scorers", "name": "home_scorers", "type": "list" },
-                { "title": "Away Scorers", "name": "away_scorers", "type": "list" },
-                { "title": "Home Yellow Cards", "name": "home_yc", "type": "list" },
-                { "title": "Away Yellow Cards", "name": "away_yc", "type": "list" },
-                { "title": "Home Red Cards", "name": "home_rc", "type": "list" },
-                { "title": "Away Red Cards", "name": "away_rc", "type": "list" },
-                { "title": "Home Substitutions", "name": "home_sub", "type": "list" },
-                { "title": "Away Substitutions", "name": "away_sub", "type": "list" }
+                { "title": "Away Scorers", "name": "away_scorers", "type": "list" }
               ]
             }
           ]
@@ -65,9 +67,6 @@
                 { "title": "Group", "name": "group", "type": "string" },
                 { "title": "Team Name", "name": "name", "type": "string" },
                 { "title": "Logo URL", "name": "logo", "type": "string" },
-                { "title": "Field Name", "name": "field", "type": "string" },
-                { "title": "Field URL", "name": "fieldurl", "type": "string" },
-                { "title": "City", "name": "city", "type": "string" },
                 {
                   "title": "Players",
                   "name": "players",
@@ -88,11 +87,11 @@
     }
   ],
   "frontMatter.content.pageFolders": [
-    { "title": "Competition 2005", "path": "[[workspace]]/2005", "contentTypes": ["competition"] },
-    { "title": "Competition 2007", "path": "[[workspace]]/2007", "contentTypes": ["competition"] },
-    { "title": "Competition 2008", "path": "[[workspace]]/2008", "contentTypes": ["competition"] },
-    { "title": "Competition 2009", "path": "[[workspace]]/2009", "contentTypes": ["competition"] },
-    { "title": "Competition 2010", "path": "[[workspace]]/2010", "contentTypes": ["competition"] },
-    { "title": "Competition 2011", "path": "[[workspace]]/2011", "contentTypes": ["competition"] }
+    { "title": "Competition 2005", "path": "[[workspace]]/2005" },
+    { "title": "Competition 2007", "path": "[[workspace]]/2007" },
+    { "title": "Competition 2008", "path": "[[workspace]]/2008" },
+    { "title": "Competition 2009", "path": "[[workspace]]/2009" },
+    { "title": "Competition 2010", "path": "[[workspace]]/2010" },
+    { "title": "Competition 2011", "path": "[[workspace]]/2011" }
   ]
 }
