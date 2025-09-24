@@ -2,230 +2,24 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.data.types": [
     {
-      "id": "competitionData",
+      "id": "testData",
       "fields": [
         {
-          "title": "Matches",
-          "name": "matches",
-          "type": "list",
-          "fields": [
-            {
-              "title": "Match Details",
-              "name": "match_details",
-              "type": "block",
-              "fields": [
-                {
-                  "title": "Match ID",
-                  "name": "match_id",
-                  "type": "string"
-                },
-                {
-                  "title": "Group",
-                  "name": "group",
-                  "type": "string"
-                },
-                {
-                  "title": "Week",
-                  "name": "week",
-                  "type": "string"
-                },
-                {
-                  "title": "Date",
-                  "name": "date",
-                  "type": "datetime",
-                  "isMeridiem": false
-                },
-                {
-                  "title": "Time",
-                  "name": "time",
-                  "type": "string"
-                },
-                {
-                  "title": "Home Team ID",
-                  "name": "home_team_id",
-                  "type": "string"
-                },
-                {
-                  "title": "Away Team ID",
-                  "name": "away_team_id",
-                  "type": "string"
-                },
-                {
-                  "title": "Venue",
-                  "name": "venue",
-                  "type": "string"
-                },
-                {
-                  "title": "Status",
-                  "name": "status",
-                  "type": "choice",
-                  "choices": [
-                    "completed",
-                    "upcoming",
-                    "postponed",
-                    "cancelled"
-                  ]
-                },
-                {
-                  "title": "Note",
-                  "name": "note",
-                  "type": "string"
-                },
-                {
-                  "title": "Home Score",
-                  "name": "home_score",
-                  "type": "number"
-                },
-                {
-                  "title": "Away Score",
-                  "name": "away_score",
-                  "type": "number"
-                },
-                {
-                  "title": "Home Scorers",
-                  "name": "home_scorers",
-                  "type": "list"
-                },
-                {
-                  "title": "Away Scorers",
-                  "name": "away_scorers",
-                  "type": "list"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Standings",
-          "name": "standings",
-          "type": "list",
-          "fields": [
-            {
-              "title": "Standing Entry",
-              "name": "standing_entry",
-              "type": "block",
-              "fields": [
-                {
-                  "title": "Team ID",
-                  "name": "team_id",
-                  "type": "string"
-                },
-                {
-                  "title": "Position",
-                  "name": "position",
-                  "type": "number"
-                },
-                {
-                  "title": "Points",
-                  "name": "points",
-                  "type": "number"
-                },
-                {
-                  "title": "Matches Played",
-                  "name": "matches_played",
-                  "type": "number"
-                },
-                {
-                  "title": "Wins",
-                  "name": "wins",
-                  "type": "number"
-                },
-                {
-                  "title": "Draws",
-                  "name": "draws",
-                  "type": "number"
-                },
-                {
-                  "title": "Losses",
-                  "name": "losses",
-                  "type": "number"
-                },
-                {
-                  "title": "Goals For",
-                  "name": "goals_for",
-                  "type": "number"
-                },
-                {
-                  "title": "Goals Against",
-                  "name": "goals_against",
-                  "type": "number"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Teams",
-          "name": "teams",
-          "type": "list",
-          "fields": [
-            {
-              "title": "Team Details",
-              "name": "team_details",
-              "type": "block",
-              "fields": [
-                {
-                  "title": "Team ID",
-                  "name": "team_id",
-                  "type": "string"
-                },
-                {
-                  "title": "Team Name",
-                  "name": "name",
-                  "type": "string"
-                },
-                {
-                  "title": "Logo URL",
-                  "name": "logo",
-                  "type": "string"
-                },
-                {
-                  "title": "Players",
-                  "name": "players",
-                  "type": "fieldGroup",
-                  "fields": [
-                    {
-                      "title": "Coach",
-                      "name": "coach",
-                      "type": "list"
-                    },
-                    {
-                      "title": "Goalkeepers",
-                      "name": "goalkeepers",
-                      "type": "list"
-                    },
-                    {
-                      "title": "Defenders",
-                      "name": "defenders",
-                      "type": "list"
-                    },
-                    {
-                      "title": "Midfielders",
-                      "name": "midfielders",
-                      "type": "list"
-                    },
-                    {
-                      "title": "Attackers",
-                      "name": "attackers",
-                      "type": "list"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "title": "Team Name",
+          "name": "teamName",
+          "type": "string"
         }
       ]
     }
   ],
   "frontMatter.data.files": [
     {
-      "id": "competitionFiles",
-      "title": "Competition Files",
+      "id": "testFiles",
+      "title": "Test Files",
       "fileType": "json",
-      "path": "[[workspace]]/**/*.json",
+      "path": "[[workspace]]/test/*.json",
       "schema": {
-        "type": "competitionData"
+        "type": "testData"
       }
     }
   ],
@@ -233,16 +27,8 @@
   "frontMatter.content.publicFolder": "",
   "frontMatter.content.pageFolders": [
     {
-      "title": "2005",
-      "path": "[[workspace]]/2005"
-    },
-    {
-      "title": "A",
-      "path": "[[workspace]]/2005/A"
-    },
-    {
-      "title": "2005",
-      "path": "[[workspace]]/2005"
+      "title": "test",
+      "path": "[[workspace]]/test"
     }
   ]
 }
