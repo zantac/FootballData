@@ -14,18 +14,20 @@
   ],
   "frontMatter.data.files": [
     {
-      "id": "testFiles",
-      "title": "Test Files",
+      "id": "myTestFile",
+      "title": "My Test File",
       "fileType": "json",
-      "path": "[[workspace]]/test/*.json",
-      "schema": {
-        "type": "testData"
-      }
+      "file": "test/mytest.json",
+      "type": "testData"
     }
   ],
   "frontMatter.framework.id": "other",
   "frontMatter.content.publicFolder": "",
   "frontMatter.content.pageFolders": [
+    {
+      "title": "test",
+      "path": "[[workspace]]/test"
+    },
     {
       "title": "test",
       "path": "[[workspace]]/test"
