@@ -16,34 +16,127 @@
               "name": "match_entry",
               "type": "block",
               "fields": [
-                { "title": "Match ID", "name": "match_id", "type": "string" },
-                { "title": "Group", "name": "group", "type": "string" },
-                { "title": "Week", "name": "week", "type": "string" },
-                { "title": "Date", "name": "date", "type": "datetime", "isMeridiem": false },
-                { "title": "Time", "name": "time", "type": "string", "default": "16:00" },
-                { "title": "Home Team ID", "name": "home_team_id", "type": "string" },
-                { "title": "Away Team ID", "name": "away_team_id", "type": "string" },
-                { "title": "Venue", "name": "venue", "type": "string" },
+                {
+                  "title": "Match ID",
+                  "name": "match_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Group",
+                  "name": "group",
+                  "type": "string"
+                },
+                {
+                  "title": "Week",
+                  "name": "week",
+                  "type": "string"
+                },
+                {
+                  "title": "Date",
+                  "name": "date",
+                  "type": "datetime",
+                  "isMeridiem": false
+                },
+                {
+                  "title": "Time",
+                  "name": "time",
+                  "type": "string",
+                  "default": "16:00"
+                },
+                {
+                  "title": "Home Team ID",
+                  "name": "home_team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Away Team ID",
+                  "name": "away_team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Venue",
+                  "name": "venue",
+                  "type": "string"
+                },
                 {
                   "title": "Status",
                   "name": "status",
                   "type": "choice",
-                  "choices": ["completed", "upcoming", "postponed", "cancelled"],
+                  "choices": [
+                    "completed",
+                    "upcoming",
+                    "postponed",
+                    "cancelled"
+                  ],
                   "default": "completed"
                 },
-                { "title": "Note", "name": "note", "type": "string" },
-                { "title": "Home Score", "name": "home_score", "type": "number", "default": 0 },
-                { "title": "Away Score", "name": "away_score", "type": "number", "default": 0 },
-                { "title": "Home Squad", "name": "home_squade", "type": "list" },
-                { "title": "Away Squad", "name": "away_squade", "type": "list" },
-                { "title": "Home Scorers", "name": "home_scorers", "type": "list" },
-                { "title": "Away Scorers", "name": "away_scorers", "type": "list" },
-                { "title": "Home Yellow Cards", "name": "home_yc", "type": "list" },
-                { "title": "Away Yellow Cards", "name": "away_yc", "type": "list" },
-                { "title": "Home Red Cards", "name": "home_rc", "type": "list" },
-                { "title": "Away Red Cards", "name": "away_rc", "type": "list" },
-                { "title": "Home Substitutions", "name": "home_sub", "type": "list" },
-                { "title": "Away Substitutions", "name": "away_sub", "type": "list" }
+                {
+                  "title": "Note",
+                  "name": "note",
+                  "type": "string"
+                },
+                {
+                  "title": "Home Score",
+                  "name": "home_score",
+                  "type": "number",
+                  "default": 0
+                },
+                {
+                  "title": "Away Score",
+                  "name": "away_score",
+                  "type": "number",
+                  "default": 0
+                },
+                {
+                  "title": "Home Squad",
+                  "name": "home_squade",
+                  "type": "list"
+                },
+                {
+                  "title": "Away Squad",
+                  "name": "away_squade",
+                  "type": "list"
+                },
+                {
+                  "title": "Home Scorers",
+                  "name": "home_scorers",
+                  "type": "list"
+                },
+                {
+                  "title": "Away Scorers",
+                  "name": "away_scorers",
+                  "type": "list"
+                },
+                {
+                  "title": "Home Yellow Cards",
+                  "name": "home_yc",
+                  "type": "list"
+                },
+                {
+                  "title": "Away Yellow Cards",
+                  "name": "away_yc",
+                  "type": "list"
+                },
+                {
+                  "title": "Home Red Cards",
+                  "name": "home_rc",
+                  "type": "list"
+                },
+                {
+                  "title": "Away Red Cards",
+                  "name": "away_rc",
+                  "type": "list"
+                },
+                {
+                  "title": "Home Substitutions",
+                  "name": "home_sub",
+                  "type": "list"
+                },
+                {
+                  "title": "Away Substitutions",
+                  "name": "away_sub",
+                  "type": "list"
+                }
               ]
             }
           ]
@@ -58,23 +151,71 @@
               "name": "team_entry",
               "type": "block",
               "fields": [
-                { "title": "Team ID", "name": "team_id", "type": "string" },
-                { "title": "Group", "name": "group", "type": "string" },
-                { "title": "Team Name", "name": "name", "type": "string" },
-                { "title": "Logo URL", "name": "logo", "type": "string" },
-                { "title": "Field Name", "name": "field", "type": "string" },
-                { "title": "Field URL", "name": "fieldurl", "type": "string" },
-                { "title": "City", "name": "city", "type": "string" },
+                {
+                  "title": "Team ID",
+                  "name": "team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Group",
+                  "name": "group",
+                  "type": "string"
+                },
+                {
+                  "title": "Team Name",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "title": "Logo URL",
+                  "name": "logo",
+                  "type": "string"
+                },
+                {
+                  "title": "Field Name",
+                  "name": "field",
+                  "type": "string"
+                },
+                {
+                  "title": "Field URL",
+                  "name": "fieldurl",
+                  "type": "string"
+                },
+                {
+                  "title": "City",
+                  "name": "city",
+                  "type": "string"
+                },
                 {
                   "title": "Players",
                   "name": "players",
                   "type": "fieldGroup",
                   "fields": [
-                    { "title": "Coach", "name": "coach", "type": "string" },
-                    { "title": "Goalkeepers", "name": "goalkeepers", "type": "list" },
-                    { "title": "Defenders", "name": "defenders", "type": "list" },
-                    { "title": "Midfielders", "name": "midfielders", "type": "list" },
-                    { "title": "Attackers", "name": "attackers", "type": "list" }
+                    {
+                      "title": "Coach",
+                      "name": "coach",
+                      "type": "string"
+                    },
+                    {
+                      "title": "Goalkeepers",
+                      "name": "goalkeepers",
+                      "type": "list"
+                    },
+                    {
+                      "title": "Defenders",
+                      "name": "defenders",
+                      "type": "list"
+                    },
+                    {
+                      "title": "Midfielders",
+                      "name": "midfielders",
+                      "type": "list"
+                    },
+                    {
+                      "title": "Attackers",
+                      "name": "attackers",
+                      "type": "list"
+                    }
                   ]
                 }
               ]
@@ -86,10 +227,10 @@
   ],
   "frontMatter.content.pageFolders": [
     {
-      "title": "Competitions",
-      "path": "[[workspace]]/FootballData"
-      // IMPORTANT: Change "competitions" to the name of your folder that contains the JSON files.
-      // For example, if your files are in the root, use "[[workspace]]/"
+      "title": "2005",
+      "path": "[[workspace]]/2005"
     }
-  ]
+  ],
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": ""
 }
