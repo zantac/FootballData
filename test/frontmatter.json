@@ -17,6 +17,7 @@
       "id": "myTestFile",
       "title": "My Test File",
       "fileType": "json",
+      "isSingleEntry": true,
       "file": "test/mytest.json",
       "type": "testData"
     }
