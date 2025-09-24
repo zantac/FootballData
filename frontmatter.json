@@ -8,7 +8,7 @@
       "id": "competitionsData",
       "fileType": "json",
       "contentType": "competition",
-      "path": "[[workspace]]/**/!(frontmatter.json)*.json"
+      "path": "[[workspace]]/**/!(*.schema|frontmatter).json"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
@@ -23,32 +23,49 @@
           "type": "list",
           "fields": [
             {
-              "title": "Match Entry",
-              "name": "match_entry",
+              "title": "Match Details",
+              "name": "match_details",
               "type": "block",
               "fields": [
                 { "title": "Match ID", "name": "match_id", "type": "string" },
                 { "title": "Group", "name": "group", "type": "string" },
                 { "title": "Week", "name": "week", "type": "string" },
                 { "title": "Date", "name": "date", "type": "datetime", "isMeridiem": false },
-                { "title": "Time", "name": "time", "type": "string", "default": "16:00" },
+                { "title": "Time", "name": "time", "type": "string" },
                 { "title": "Home Team ID", "name": "home_team_id", "type": "string" },
                 { "title": "Away Team ID", "name": "away_team_id", "type": "string" },
                 { "title": "Venue", "name": "venue", "type": "string" },
-                {
-                  "title": "Status",
-                  "name": "status",
-                  "type": "choice",
-                  "choices": ["completed", "upcoming", "postponed", "cancelled"],
-                  "default": "completed"
-                },
+                { "title": "Status", "name": "status", "type": "choice", "choices": ["completed", "upcoming"] },
                 { "title": "Note", "name": "note", "type": "string" },
-                { "title": "Home Score", "name": "home_score", "type": "number", "default": 0 },
-                { "title": "Away Score", "name": "away_score", "type": "number", "default": 0 },
                 { "title": "Home Squad", "name": "home_squade", "type": "list" },
                 { "title": "Away Squad", "name": "away_squade", "type": "list" },
+                { "title": "Home Score", "name": "home_score", "type": "number" },
+                { "title": "Away Score", "name": "away_score", "type": "number" },
                 { "title": "Home Scorers", "name": "home_scorers", "type": "list" },
                 { "title": "Away Scorers", "name": "away_scorers", "type": "list" }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Standings",
+          "name": "standings",
+          "type": "list",
+          "fields": [
+            {
+              "title": "Standing Entry",
+              "name": "standing_entry",
+              "type": "block",
+              "fields": [
+                { "title": "Team ID", "name": "team_id", "type": "string" },
+                { "title": "Position", "name": "position", "type": "number" },
+                { "title": "Points", "name": "points", "type": "number" },
+                { "title": "Matches Played", "name": "matches_played", "type": "number" },
+                { "title": "Wins", "name": "wins", "type": "number" },
+                { "title": "Draws", "name": "draws", "type": "number" },
+                { "title": "Losses", "name": "losses", "type": "number" },
+                { "title": "Goals For", "name": "goals_for", "type": "number" },
+                { "title": "Goals Against", "name": "goals_against", "type": "number" }
               ]
             }
           ]
@@ -59,12 +76,11 @@
           "type": "list",
           "fields": [
             {
-              "title": "Team Entry",
-              "name": "team_entry",
+              "title": "Team Details",
+              "name": "team_details",
               "type": "block",
               "fields": [
                 { "title": "Team ID", "name": "team_id", "type": "string" },
-                { "title": "Group", "name": "group", "type": "string" },
                 { "title": "Team Name", "name": "name", "type": "string" },
                 { "title": "Logo URL", "name": "logo", "type": "string" },
                 {
@@ -72,7 +88,7 @@
                   "name": "players",
                   "type": "fieldGroup",
                   "fields": [
-                    { "title": "Coach", "name": "coach", "type": "string" },
+                    { "title": "Coach", "name": "coach", "type": "list" },
                     { "title": "Goalkeepers", "name": "goalkeepers", "type": "list" },
                     { "title": "Defenders", "name": "defenders", "type": "list" },
                     { "title": "Midfielders", "name": "midfielders", "type": "list" },
@@ -82,7 +98,11 @@
               ]
             }
           ]
-        }
+        },
+        { "title": "Scorers", "name": "scorrers", "type": "string" },
+        { "title": "Assists", "name": "assists", "type": "string" },
+        { "title": "Cleansheets", "name": "cleansheets", "type": "string" },
+        { "title": "Penalty Blocks", "name": "penalityblocks", "type": "string" }
       ]
     }
   ],
