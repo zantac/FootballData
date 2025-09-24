@@ -22,6 +22,10 @@
     {
       "title": "test",
       "path": "[[workspace]]/test"
+    },
+    {
+      "title": "test",
+      "path": "[[workspace]]/test"
     }
   ]
 }
