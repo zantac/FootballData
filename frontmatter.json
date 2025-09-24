@@ -18,7 +18,7 @@
       "title": "My Test File",
       "fileType": "json",
       "isSingleEntry": true,
-      "file": "test/mytest.json",
+      "file": "[[workspace]]/test/mytest.json", // <-- THE FIX IS HERE
       "type": "testData"
     }
   ],
