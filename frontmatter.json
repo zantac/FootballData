@@ -18,14 +18,46 @@
               "name": "match_details",
               "type": "block",
               "fields": [
-                { "title": "Match ID", "name": "match_id", "type": "string" },
-                { "title": "Group", "name": "group", "type": "string" },
-                { "title": "Week", "name": "week", "type": "string" },
-                { "title": "Date", "name": "date", "type": "datetime" },
-                { "title": "Time", "name": "time", "type": "string" },
-                { "title": "Home Team ID", "name": "home_team_id", "type": "string" },
-                { "title": "Away Team ID", "name": "away_team_id", "type": "string" },
-                { "title": "Venue", "name": "venue", "type": "string" }
+                {
+                  "title": "Match ID",
+                  "name": "match_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Group",
+                  "name": "group",
+                  "type": "string"
+                },
+                {
+                  "title": "Week",
+                  "name": "week",
+                  "type": "string"
+                },
+                {
+                  "title": "Date",
+                  "name": "date",
+                  "type": "datetime"
+                },
+                {
+                  "title": "Time",
+                  "name": "time",
+                  "type": "string"
+                },
+                {
+                  "title": "Home Team ID",
+                  "name": "home_team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Away Team ID",
+                  "name": "away_team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Venue",
+                  "name": "venue",
+                  "type": "string"
+                }
               ]
             }
           ]
@@ -40,13 +72,29 @@
               "name": "team_details",
               "type": "block",
               "fields": [
-                { "title": "Team ID", "name": "team_id", "type": "string" },
-                { "title": "Team Name", "name": "name", "type": "string" }
+                {
+                  "title": "Team ID",
+                  "name": "team_id",
+                  "type": "string"
+                },
+                {
+                  "title": "Team Name",
+                  "name": "name",
+                  "type": "string"
+                }
               ]
             }
           ]
         }
       ]
+    }
+  ],
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "FootballData",
+      "path": "[[workspace]]/FootballData"
     }
   ]
 }
