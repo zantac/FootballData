@@ -89,10 +89,9 @@
   ],
   "frontMatter.data.files": [
     {
-      "id": "competitions",
-      "title": "Competitions",
+      "id": "competitionFiles",
+      "title": "Competition Files",
       "fileType": "json",
-      "labelField": "name",
       "path": "[[workspace]]/**/*.json",
       "schema": {
         "type": "competitionData"
