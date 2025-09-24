@@ -239,6 +239,10 @@
     {
       "title": "A",
       "path": "[[workspace]]/2005/A"
+    },
+    {
+      "title": "2005",
+      "path": "[[workspace]]/2005"
     }
   ]
 }
