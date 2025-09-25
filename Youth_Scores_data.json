@@ -79,7 +79,7 @@
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@871954fccfc382d9a5ce905281346090e5ed30ea/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@5cedc23b7a0e60bd1b81442d252d4a12cce6546a/2005/BB/BB2005Delta1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@ea53475d171f615c8835362d4acad627d38b1032/2005/BB/BB2005UpperEgyptData.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@b76fe31da2a804c8f4ae363f99a14a88c90df90b/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
                                  "ar":
@@ -88,7 +88,7 @@
                                        "مجموعة بحري",
                                        "مجموعة الصعيد"
                                       ],
-                                  "en":["Cairo1","Delta1","Delta2"]
+                                  "en":["Cairo","Delta","‘Upper Egypt"]
                                 }
                       },
                       {
