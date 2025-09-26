@@ -1557,7 +1557,7 @@
     }
     },
     {
-      "team_id": "gbt012",
+      "team_id": "gbt013",
       "group": "3B",
       "name": "الحرية",
       "logo": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/400740772_845530734242636_946998463526742808_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHUJkeb6dbDjuensJv6tdI0NwVjggWw8D43BWOCBbDwPoVpaI0PRLjNZinDPMCpBlQ&_nc_ohc=eVyX27wJioUQ7kNvwHiNy7A&_nc_oc=AdncuSljMxFdMgKzie28vuA_nk5L3hY00ZKIVNdYL87GUw5U_Wlh6L0KvgxxCl8wfuo&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=I2EoT561B-OISLNXqzBUTg&oh=00_AfaPorImFgWsst4BVJzhJl53xzabC7A2GY2vfz69eH4dIQ&oe=68D05BF3",
@@ -1572,11 +1572,6 @@
         "attackers": null
     }
     }
-  ],
-  "scorrers": null,
-  "assists": null,
-  "cleansheets": null,
-  "penalityblocks": null
-
+  ]
 
 }
