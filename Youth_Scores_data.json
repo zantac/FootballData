@@ -357,6 +357,17 @@
   "Ads": 
   [
     {
+      "name": "Youth Scores",
+      "image": "icone.png",
+      "youtube_video":null,
+      "facebook_link":null,
+      "mobile_number": null,
+      "whatsapp_number": "201064428821",
+      "location": null,
+      "location_url": null,
+      "expire_date": "11-10-2025"
+    },
+    {
       "name": "مركز التحدي",
       "image": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/352212790_5900727380037728_423199179564314680_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEgQsz8evP39v39ImFM4s5UjnTrydN7NDaOdOvJ03s0NnrmnA_slrvt4pE2u966-cc&_nc_ohc=r7-6CnmY0HMQ7kNvwHxLM3T&_nc_oc=Adm5Yb5s1jOJ5llOTJ17oquXSYrTNX1ib--nvwzoOmM1moTXrRFqelG37YkQMo6_geU&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=4bmJsH7agV5cn4HS1sBmVg&oh=00_Afb26IbWkZoHCQu-CJvUSHzgK3OnXMXZybbWuH5Rt9aEPA&oe=68C8F3C2",
       "youtube_video":null,
