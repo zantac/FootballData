@@ -5,23 +5,8 @@
       "name": "دوري الجمهورية القسم الاول",
       "ages": [
         {
-          "age": "2005",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@825226c016dc156b0533ab88b2d749a763324df4/2005/A/A2005Data.json",
-          "sector": null
-        },
-        {
-          "age": "2007",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2548f6b950b223da3179c3546c80d788f253c071/2007/A/A2007Data.json",
-          "sector": null
-        },
-        {
-          "age": "2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@14cc304ecb2528f352ca557bbb57624875b203d5/2009/A/A2009Data.json",
-          "sector": null
-        },
-        {
-          "age": "2011",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@0ad606bd37f9793709e980f3822e84e34fba104a/2011/A/A2011Data.json",
+          "age": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "matchesurl": null,
           "sector": null
         }
       ]
@@ -31,23 +16,8 @@
       "name": "دوري الجمهورية القسم الثاني أ",
       "ages": [
         {
-          "age": "2005",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@952789820383f4c08a88b59ab2a8917a7b999019/2005/BA/BA2005Data.json",
-          "sector": null
-        },
-        {
-          "age": "2007",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@774e9dd5699b08f826a79c0a41c4c8dfa0740fd1/2007/BA/BA2007Data.json",
-          "sector": null
-        },
-        {
-          "age": "2009",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@cd8cc812756e5a1fb5ef8998527f1f832a65fe67/2009/BA/BA2009Data.json",
-          "sector": null
-        },
-        {
-          "age": "2011",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@567e42db3eafa123e8d34068497c5f2551eafea2/2011/BA/BA2011Data.json",
+          "age": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "matchesurl": null,
           "sector": null
         }
       ]
@@ -55,21 +25,33 @@
     {
       "competition_id": "c003",
       "name": "دوري الجمهورية القسم الثاني ب",
-      "ages": null
+      "ages": [
+        {
+          "age": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "matchesurl": null,
+          "sector": null
+        }
+      ]
     },
     {
       "competition_id": "c004",
       "name": "منافسات القطاعات",
-      "ages": null
+      "ages": [
+        {
+          "age": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "matchesurl": null,
+          "sector": null
+        }
+      ]
     },
     {
       "competition_id": "c005",
       "name": "منافسات المناطق",
       "ages": [
         {
-          "age": "2008",
-          "sector": "منطقة القاهرة",
-          "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@1b29794b0734ac963ad348b4df4fa1f15eea0add/2008/Area/Cairo/Area_Cairo_2008Data.json"
+          "age": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "sector": "برجاء تحميل التطبيق الجديد من جوجل بلاي - Youth Scores",
+          "matchesurl": null
         }
       ]
     }
