@@ -79,7 +79,7 @@
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@c338d33d32eb20001be6d6d7c96a8b5c178c21af/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b49d3e7dfdfdb46a3935acaa0cddb4989e50aa5e/2005/BB/BB2005Delta1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@53819f188249daa3ddcfadc3792f917e746e5947/2005/BB/BB2005UpperEgyptData.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@0db7eb84f6c01392edd93b90271deb9dc5669d1f/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
                                  "ar":
@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@98638c309d88788c2f1b5a05abfad8096f3a0653/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@fa1ea943e1ee5ab982d5ef479825e5d04136c902/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@0254cb6d9297b33260fb963e4e4d24b961376d83/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@e18ce52134841cfaa8f66dbc8083835c15147bf2/2007/BB/BB2007UpperEgyptData.json"
                         ],
