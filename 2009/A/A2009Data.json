@@ -1353,7 +1353,7 @@
       "home_team_id": "t002",
       "away_team_id": "t004",
       "venue": "الزمالك - ميت عقبة",
-      "status": completed",
+      "status": "completed",
       "note" : null,
       "home_squade": null,
       "away_squade": null,
