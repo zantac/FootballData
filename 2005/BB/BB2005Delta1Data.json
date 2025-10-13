@@ -759,7 +759,7 @@
       "away_squade": null,
       "home_score": 5,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["شيكو","مجدي الشرقاوي","محمد نهاد"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
