@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@02ecafcb3d9a1a147b272963c4f508d7b8462ac3/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@9032d9e6a27ed21836da1ba8ecc75c4988ba2526/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@883b9c3589750af91392c9425c0bd079d09770e5/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@bfe81cd5b33127c8c9ea4d095b1c123789b300b1/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
@@ -88,7 +88,7 @@
                                        "مجموعة بحري",
                                        "مجموعة الصعيد"
                                       ],
-                                  "en":["Cairo","Delta","‘Upper Egypt"]
+                                  "en":["Cairo","Delta","Upper Egypt"]
                                 }
                       },
                       {
@@ -113,7 +113,7 @@
                       "age": "2009",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@346e6f2502718508c5cea2aa3bb717bef176a208/2009/BB/BB2009Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@6d06177e322581c5dd3f6b1085a54ab3cb844ac5/2009/BB/BB2009Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@354f3650c66fb66b2d1ead77352625afd8d29ded/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b75f36c2d454f08cc77051444f3ed804b710d60c/2009/BB/BB2009UpperEgyptData.json"
                         ],
