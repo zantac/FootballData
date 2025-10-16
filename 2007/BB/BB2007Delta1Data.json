@@ -687,7 +687,7 @@
       "away_squade": null,
       "home_score": 5,
       "away_score": 1,
-      "home_scorers": null,
+      "home_scorers": ["احمد النيداني","بودي علام","اسلام عبدالله","سعيد رامي","محمد خضير"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
