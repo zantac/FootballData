@@ -206,7 +206,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": null,
+      "home_scorers": ["يوسف مكرم","سامح قطب"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
