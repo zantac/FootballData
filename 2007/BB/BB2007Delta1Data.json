@@ -3160,7 +3160,7 @@
       "home_score": 2,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["محمود نمشة","احمد دسوقي"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
