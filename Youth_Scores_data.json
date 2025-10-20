@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7b5ac1538de592572744e562d4f13f896d5e64c9/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@14770d541798f502e1a6b7afa386a509d8a0e892/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@7b5ac1538de592572744e562d4f13f896d5e64c9/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@173ef641691cd8a97bf8377bb5345ca3db917f19/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
