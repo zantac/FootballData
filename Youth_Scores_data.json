@@ -161,13 +161,14 @@
                    [
                     {
                      "age": "2008",
-                     "matchesurl": ["https://cdn.jsdelivr.net/gh/zantac/FootballData@98cba4453ecca5d3142387b0f2eb05a7fda5d4df/2008/Area/Cairo/Area_Cairo_2008Data.json"],
-                     "sector":["منطقة القاهرة"]
-                    },
-                    {
-                     "age": "2008",
-                     "matchesurl": ["https://cdn.jsdelivr.net/gh/zantac/FootballData@7140cf091583ba99d66cbcad48e68b64ac1820ea/2008/Area/Qalubia/Area_Qalubia_2008Data.json"],
-                     "sector":["منطقة القليوبية"]
+                     "matchesurl": [
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@98cba4453ecca5d3142387b0f2eb05a7fda5d4df/2008/Area/Cairo/Area_Cairo_2008Data.json",
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@7140cf091583ba99d66cbcad48e68b64ac1820ea/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
+                                   ],
+                     "sector":[
+                                "منطقة القاهرة",
+                                "منطقة القليوبية"
+                              ]
                     }
                    ]
                 }
