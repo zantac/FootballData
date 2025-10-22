@@ -864,7 +864,7 @@
       "home_score": 1,
       "away_score": 4,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["محمود عبد الهادي"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
