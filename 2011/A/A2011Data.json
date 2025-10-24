@@ -1599,7 +1599,7 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 1,
-      "home_scorers": null,
+      "home_scorers": ["مالك هشام"],
       "away_scorers": ["بلال احمد عبد الرحيم"],
       "home_yc": null,
       "away_yc": null,
