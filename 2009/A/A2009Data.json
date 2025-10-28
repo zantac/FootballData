@@ -807,7 +807,7 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["دانيال تامر"],
       "away_scorers": ["مؤمن شريف","عليان"],
       "home_yc": null,
       "away_yc": null,
