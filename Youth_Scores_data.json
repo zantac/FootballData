@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@ad513ced392be9a04b439e7b5a4a9fc08b3c0ab0/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@d450eded9b986712fe95aa3e8e3a06ca1fd668d1/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@3a94476f54ca8e1130865ce17e31101744f4d443/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@20b8e59bac7c4900f42d3165a621d708e5dc19c6/2007/BB/BB2007UpperEgyptData.json"
                         ],
@@ -163,7 +163,7 @@
                      "age": "2008",
                      "matchesurl": [
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@98cba4453ecca5d3142387b0f2eb05a7fda5d4df/2008/Area/Cairo/Area_Cairo_2008Data.json",
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@f99992fa1f93002366d49f5003dc52ae8e294503/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@5fc99c49d04f19b32c4b7f5cfbb7d8067062075f/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
                                    ],
                      "sector":[
                                 "منطقة القاهرة",
