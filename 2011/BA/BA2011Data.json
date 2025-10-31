@@ -855,7 +855,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": null,
+      "home_scorers": ["سيد عصفورة","فياض"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
