@@ -1792,7 +1792,7 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["محمد فوزي"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
