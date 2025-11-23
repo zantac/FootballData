@@ -15,7 +15,7 @@
                     [
                      {
                       "age": "2005",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@77f49516fe061d1ce6c60def2951f3aa7b710d76/2005/A/A2005Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@672f95f25aa6eba1d9601c1b90a83f12e13f1ce6/2005/A/A2005Data.json",
                       "sector": null
                      },
                      {
@@ -45,7 +45,7 @@
                    [
                      {
                      "age": "2005",
-                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@7ede85ebbac59b30edc9796f3bc5708dbea02600/2005/BA/BA2005Data.json",
+                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@ea06ce578b36dec2bf88945a602edac0a47a3464/2005/BA/BA2005Data.json",
                      "sector": null
                      },
                      {
@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@300924ca19d6055e59049f7640191ed68c77ff65/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@16cf5a8523181dc965cc6a9fd6f8f29f6ae5642a/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@73877bdba7b7f3fde0f34892d81148906a6de351/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@31de710b3fc492361d2dec8be1535b0a2e0dbd88/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
