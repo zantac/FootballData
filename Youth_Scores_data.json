@@ -77,7 +77,7 @@
                       "age": "2005",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@8efe803c2702141e96090a2ca29bafcd7fd07cfc/2005/BB/BB2005Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@ae25587836189e58b528561d4e1c0ab516421a41/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@73877bdba7b7f3fde0f34892d81148906a6de351/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@31de710b3fc492361d2dec8be1535b0a2e0dbd88/2005/BB/BB2005UpperEgyptData.json"
                         ],
