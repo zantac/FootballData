@@ -1,0 +1,290 @@
+{
+  "matches": [
+    {
+      "match_id": "m001",
+      "group": "1",
+      "week": "1",
+      "date": "2025-10-29", 
+      "time": "13:00",
+      "home_team_id": "gat001",
+      "away_team_id": "gat002",
+      "venue": "مركز شباب بيجام",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 1,
+      "away_score": 4,
+      "home_scorers": null,
+      "away_scorers": ["مازن احمد","كريم عمار","محمد اشرف (2)"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null
+    }
+     
+   ],
+ "teams": [
+   {
+      "team_id": "gat001",
+      "group": "1",
+      "name": "بيراميدز",
+      "logo": "https://ia800804.us.archive.org/28/items/20251022_20251022_2100/%D8%A7%D9%84%D8%AD%D8%B1%D9%8A%D8%A9%20%D9%88%20%D8%A7%D9%84%D8%B3%D9%85%D8%A7%D8%B9.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat002",
+      "group": "1",
+      "name": "اتحاد الشرطة",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/b/b4/El_Entag_El_Harby_SC_logo.png?20190223000653",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }, 
+    {
+      "team_id": "gat003",
+      "group": "1",
+      "name": "الشمس",
+      "logo": "https://ia600405.us.archive.org/9/items/20251024_20251024_0522/%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D8%A7%D9%84%D9%8A%D8%A9.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat004",
+      "group": "1",
+      "name": "بتروسبورت",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13881.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat005",
+      "group": "1",
+      "name": "مستقبل سبورت",
+      "logo": "https://ia902801.us.archive.org/20/items/20251024_20251024_0519/%D8%A8%D9%8A%D8%AC%D8%A7%D9%85.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat006",
+      "group": "1",
+      "name": "وادي دجلة",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/12758.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat007",
+      "group": "1",
+      "name": "التجمع هايتس",
+      "logo": "https://ia600402.us.archive.org/17/items/20251024_20251024_0516/%D8%A8%D8%A7%D8%B3%D9%88%D8%B3.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gat008",
+      "group": "1",
+      "name": "المقاولون العرب",
+      "logo": "https://ia600402.us.archive.org/17/items/20251024_20251024_0516/%D8%A8%D8%A7%D8%B3%D9%88%D8%B3.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt001",
+      "group": "2",
+      "name": "انبي",
+      "logo": "https://ia801008.us.archive.org/29/items/20251024_20251024_0513/%D8%B3%D8%A8%D9%88%D8%B1%D8%AA%20%D8%B3%D9%8A%D8%AA%D9%8A.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt002",
+      "group": "2",
+      "name": "الاتصالات",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/620.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt003",
+      "group": "2",
+      "name": "الزهور",
+      "logo": "https://ia801005.us.archive.org/1/items/20251022_20251022_2055/falcons2.PNG",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt004",
+      "group": "2",
+      "name": "اكاديمية اوازيس",
+      "logo": "https://ia902807.us.archive.org/24/items/20251024_20251024_0510/%D8%A7%D8%A8%D9%88%20%D8%B2%D8%B9%D8%A8%D9%84.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt005",
+      "group": "2",
+      "name": "الجزيرة الرياضي",
+      "logo": "https://ia600200.us.archive.org/8/items/20251024_20251024_0507/%D9%85%D9%8A%D8%AA%20%D8%B9%D8%A7%D8%B5%D9%85.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt006",
+      "group": "2",
+      "name": "الجونة",
+      "logo": "https://ia600605.us.archive.org/26/items/20251024_20251024_0505/%D8%A7%D9%84%D8%A7%D8%AA%D8%AD%D8%A7%D8%AF%20%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86%D9%8A.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt007",
+      "group": "2",
+      "name": "اسكو",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/1054.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gbt008",
+      "group": "2",
+      "name": "مودرن سبورت",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/1054.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }  
+  ]
+
+
+}
