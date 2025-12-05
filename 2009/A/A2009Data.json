@@ -3399,7 +3399,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["حسين محمد","عمر ابراهيم"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
