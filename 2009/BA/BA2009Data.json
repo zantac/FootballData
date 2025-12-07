@@ -1608,7 +1608,7 @@
       "home_score": 2,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["بيبو","محمد شريف"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
