@@ -1780,42 +1780,5 @@
     }
     }
   ]
-  ,
-  "scorrers": [
-    {
-      "position": 1,
-      "name": "عصام أبو جبل",
-      "team_id": "الداخلية",
-      "goals": 2
-    },
-    {
-      "position": 2,
-      "name": "عبد الرحمن الكاس",
-      "team_id": "بتروجت",
-      "goals": 2
-    }
-  ],
-  "assists": null,
-  "cleansheets": [
-    {
-      "position": 1,
-      "name": "احمد الشناوي",
-      "team_id": "الداخلية",
-      "cleansheet": 1
-    },
-    {
-      "position": 2,
-      "name": "أحمد فتوح",
-      "team_id": "المصرية للاتصالات",
-      "cleansheet": 1
-    },
-    {
-      "position": 3,
-      "name": "يوسف ياسر",
-      "team_id": "بتروجت",
-      "cleansheet": 1
-    }
-  ],
-  "penalityblocks": null
 
 }
