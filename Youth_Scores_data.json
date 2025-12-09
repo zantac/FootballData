@@ -265,7 +265,7 @@
     {
       "venue_id": "v016",
       "name": "نادي الشعب - المنصورة",
-      "url": "https://www.google.com/maps/place/%D9%86%D8%A7%D8%AF%D9%8A+%D8%A7%D9%84%D8%B4%D8%B9%D8%A8%E2%80%AD/@31.040607,31.3826055,931m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14f79d78bee37f9f:0xb04b2709cbd64e03!8m2!3d31.040607!4d31.3826055!16s%2Fg%2F11p5t3_y4d?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+      "url": "https://www.google.com/maps/place/31%C2%B002'20.4%22N+31%C2%B022'56.6%22E/@31.0398251,31.3817558,406m/data=!3m1!1e3!4m4!3m3!8m2!3d31.0389938!4d31.382391?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
     },
     {
       "venue_id": "v017",
@@ -361,6 +361,11 @@
       "venue_id": "v035",
       "name": "حرس الحدود الرئيسي",
       "url" : "https://www.google.com/maps/place/Al+Max+stadium/@31.149127,29.8468272,553m/data=!3m1!1e3!4m6!3m5!1s0x14f5c1daaede185b:0xe31d7b9ef4064cfa!8m2!3d31.1509127!4d29.84845!16s%2Fg%2F1tjq_t5v?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v036",
+      "name": "مركز شباب ابو حماد",
+      "url" : "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D8%A3%D8%A8%D9%88+%D8%AD%D9%85%D8%A7%D8%AF+-+%D8%A7%D9%84%D8%B3%D8%A7%D8%AD%D8%A9+%D8%A7%D9%84%D8%B4%D8%B9%D8%A8%D9%8A%D8%A9+%D8%A3%D8%A8%D9%88+%D8%AD%D9%85%D8%A7%D8%AF%E2%80%AD/@30.5343264,31.6846891,1373m/data=!3m1!1e3!4m6!3m5!1s0x14f81d8fdabe7e55:0x7047f6ad18a065a7!8m2!3d30.5348856!4d31.6842267!16s%2Fg%2F11nmcz6y1r?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
     }
   ],
   "news": 
