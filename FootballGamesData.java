@@ -1,7 +1,7 @@
 package com.waellotfy.footballdata;
 
 import android.app.Activity;import android.content.Context;import android.content.Intent;import android.graphics.Color;import android.graphics.Typeface;import android.graphics.drawable.GradientDrawable;import android.net.Uri;import android.os.Build;import android.text.Editable;import android.text.TextWatcher;import android.view.Gravity;import android.view.View;import android.view.ViewGroup;import android.widget.EditText;import android.widget.HorizontalScrollView;import android.widget.ImageView;import android.widget.LinearLayout;import android.widget.ScrollView;import android.widget.TextView;import com.google.appinventor.components.annotations.*;import com.google.appinventor.components.common.ComponentCategory;import com.google.appinventor.components.runtime.*;import com.google.appinventor.components.runtime.util.YailList;import com.koushikdutta.async.http.AsyncHttpClient;import com.koushikdutta.async.http.AsyncHttpGet;import com.koushikdutta.async.http.AsyncHttpResponse;import com.squareup.picasso.Picasso;import org.json.JSONArray;import org.json.JSONException;import org.json.JSONObject;import java.text.ParseException;import java.text.SimpleDateFormat;import java.util.*;import java.util.regex.Matcher;import java.util.regex.Pattern;
-@DesignerComponent(version = 87, description = "Ultra-compressed version to pass build server limits.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
+@DesignerComponent(version = 96, description = "Final version with multi-stage standings logic.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 @UsesLibraries(libraries = "androidasync-2.1.1.jar, gson-2.8.2.jar, picasso-2.5.2.jar")
@@ -41,18 +41,54 @@ ml.addView(createMatchItemView(matchObject, jsonData.getJSONArray("teams"), lang
 @SimpleFunction public void CreateMatchRedCards(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "red_cards", "home_rc", "away_rc"); }
 @SimpleFunction public void CreateMatchSubstitutes(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "substitutions", "home_sub", "away_sub"); }
 @SimpleFunction public YailList GetGroupList() {if (jsonData == null) return YailList.makeEmptyList();return YailList.makeList(getJavaGroupList());}
-@SimpleFunction public void CalculateAndShowStandings(HVArrangement c, String gId, final String lang) {
-if (jsonData == null) return;try {java.util.List<TeamStats> standings = calculateStandingsForGroup(gId); if (standings == null || standings.isEmpty()) return;
-ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();View table = buildStandingsTable(standings, lang); vg.addView(table, new ViewGroup.LayoutParams(-1,-1));
-if ("ar".equalsIgnoreCase(lang) && table instanceof ScrollView) {final HorizontalScrollView hsv = (HorizontalScrollView)((ScrollView)table).getChildAt(0);
-hsv.post(new Runnable() { @Override public void run() { hsv.fullScroll(View.FOCUS_RIGHT); } });
-}} catch (Exception e) { AfterParsingFail("Error displaying standings: " + e.getMessage()); }
+
+// --- MODIFIED BLOCK ---
+@SimpleFunction(description="Calculates standings for a group and/or stage. Use empty strings to ignore a filter.")
+public void CalculateAndShowStandings(HVArrangement c, String groupId, String stageId, final String lang) {
+    if (jsonData == null) return;
+    try {
+        java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
+        if (standings == null || standings.isEmpty()) return;
+        ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();
+        View table = buildStandingsTable(standings, lang);
+        vg.addView(table, new ViewGroup.LayoutParams(-1,-1));
+        if ("ar".equalsIgnoreCase(lang) && table instanceof ScrollView) {
+            final HorizontalScrollView hsv = (HorizontalScrollView)((ScrollView)table).getChildAt(0);
+            hsv.post(new Runnable() { @Override public void run() { hsv.fullScroll(View.FOCUS_RIGHT); } });
+        }
+    } catch (Exception e) { AfterParsingFail("Error displaying standings: " + e.getMessage()); }
 }
+
+// --- NEW BLOCK ---
+@SimpleFunction(description = "Returns standings data as a list of lists without displaying it.")
+public YailList GetStandingsData(String groupId, String stageId, String lang) {
+    if (jsonData == null) return YailList.makeEmptyList();
+    try {
+        java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
+        if (standings == null || standings.isEmpty()) return YailList.makeEmptyList();
+        java.util.List<YailList> resultList = new java.util.ArrayList<>();
+        JSONArray teams = jsonData.getJSONArray("teams");
+        for (TeamStats stats : standings) {
+            JSONObject teamInfo = getTeamInfoById(stats.teamId, teams);
+            String teamName = getLocalizedText(teamInfo, "name", lang);
+            java.util.List<Object> row = new java.util.ArrayList<>();
+            row.add(stats.position); row.add(stats.teamId); row.add(teamName);
+            row.add(stats.points); row.add(stats.matchesPlayed);
+            row.add(stats.wins); row.add(stats.draws); row.add(stats.losses);
+            row.add(stats.goalsFor); row.add(stats.goalsAgainst);
+            row.add(stats.getGoalDifference()); row.add(stats.penaltyPoints);
+            resultList.add(YailList.makeList(row));
+        }
+        return YailList.makeList(resultList);
+    } catch (Exception e) { AfterParsingFail("Error getting standings data: " + e.getMessage()); return YailList.makeEmptyList(); }
+}
+
+
 @SimpleFunction public void CreateAllGroupsStandings(HVArrangement c, final String lang) {
 if (jsonData == null) return;try {ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();ScrollView sv = new ScrollView(context);
 LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);java.util.List<String> groups = getJavaGroupList(); if (groups.isEmpty()) groups.add("");
 for (String gid : groups) {if (gid != null && !gid.isEmpty()) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + gid, lang));
-java.util.List<TeamStats> standings = calculateStandingsForGroup(gid);if (standings != null && !standings.isEmpty()) {View table = buildStandingsTable(standings, lang); ml.addView(table);
+java.util.List<TeamStats> standings = calculateStandingsForGroup(gid, "");if (standings != null && !standings.isEmpty()) {View table = buildStandingsTable(standings, lang); ml.addView(table);
 if ("ar".equalsIgnoreCase(lang) && table instanceof ScrollView) {final HorizontalScrollView hsv = (HorizontalScrollView)((ScrollView)table).getChildAt(0);
 hsv.post(new Runnable() { @Override public void run() { hsv.fullScroll(View.FOCUS_RIGHT); } });
 }}}sv.addView(ml); vg.addView(sv);
@@ -173,7 +209,7 @@ if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.uti
 boolean hasAnyGroups = getJavaGroupList().size() > 1;ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();ScrollView sv = new ScrollView(context); LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);
 for(java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()){String groupName = entry.getKey(); java.util.List<PlayerStat> groupStats = entry.getValue();
 Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals); else return Integer.valueOf(o2.assists).compareTo(o1.assists); } });
-if (hasAnyGroups) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
+if (hasAnyGroups && !groupName.equals("_no_group_")) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
 ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang))); ml.addView(createDivider());
 for (PlayerStat stat : groupStats) {int count = "goals".equals(statType) ? stat.goals : stat.assists;
 if (count > 0) { ml.addView(createTournamentStatRow(stat, count, lang)); ml.addView(createDivider()); }}}
@@ -253,27 +289,77 @@ JSONArray teams = jsonData.getJSONArray("teams");for (int i = 0; i < teams.lengt
 if (item.has("group") && !item.isNull("group") && !item.getString("group").isEmpty()) {String group = item.getString("group"); if (!gl.contains(group)) gl.add(group);}}
 } catch (Exception e) {}Collections.sort(gl); return gl;
 }
-private java.util.List<TeamStats> calculateStandingsForGroup(String gId) throws JSONException {
-final JSONArray teams = jsonData.getJSONArray("teams"); java.util.Map<String, TeamStats> statsMap = new java.util.HashMap<>();
-boolean isSingle = gId == null || gId.isEmpty();
-for (int i = 0; i < teams.length(); i++) {JSONObject team = teams.getJSONObject(i); String teamGroup = team.optString("group");
-if (isSingle ? (teamGroup == null || teamGroup.isEmpty()) : gId.equals(teamGroup)) statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));}
-JSONArray matches = jsonData.optJSONArray("matches");
-if (matches != null) {for (int i = 0; i < matches.length(); i++) {JSONObject match = matches.getJSONObject(i); if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
-String homeId = match.getString("home_team_id"); if (!statsMap.containsKey(homeId)) continue; String awayId = match.getString("away_team_id");
-int hs = match.getInt("home_score"), as = match.getInt("away_score"); TeamStats homeStats = statsMap.get(homeId), awayStats = statsMap.get(awayId);
-homeStats.matchesPlayed++; awayStats.matchesPlayed++; homeStats.goalsFor += hs; homeStats.goalsAgainst += as; awayStats.goalsFor += as; awayStats.goalsAgainst += hs;
-if (hs > as) { homeStats.wins++; homeStats.points += 3; awayStats.losses++; } else if (as > hs) { awayStats.wins++; awayStats.points += 3; homeStats.losses++; }
-else {homeStats.draws++; homeStats.points++; awayStats.draws++; awayStats.points++;
-String pWinner = match.optString("penalty_winner_team_id");
-if (pWinner != null && !pWinner.isEmpty() && !pWinner.equals("null")) {if (pWinner.equals(homeId)) { homeStats.points++; homeStats.penaltyPoints++; } else if (pWinner.equals(awayId)) { awayStats.points++; awayStats.penaltyPoints++; }}}}}
-if (statsMap.isEmpty()) return null;java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
-Collections.sort(sorted, new Comparator<TeamStats>() {
-@Override public int compare(TeamStats t1, TeamStats t2) {int pc=Integer.valueOf(t2.points).compareTo(t1.points); if(pc!=0)return pc;
-int gdc=Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference()); if(gdc!=0)return gdc;int gfc=Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor); if(gfc!=0)return gfc;
-try { return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en")); } catch (JSONException e) { return 0; }}});
-for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;return sorted;
+
+// --- MODIFIED HELPER METHOD FOR STAGES ---
+private java.util.List<TeamStats> calculateStandingsForGroup(String gId, String stageId) throws JSONException {
+    final JSONArray teams = jsonData.getJSONArray("teams");
+    java.util.Map<String, TeamStats> statsMap = new java.util.HashMap<>();
+    boolean hasGroupFilter = gId != null && !gId.isEmpty();
+    boolean hasStageFilter = stageId != null && !stageId.isEmpty();
+
+    // 1. Populate the statsMap with only the teams we care about for the final table.
+    for (int i = 0; i < teams.length(); i++) {
+        JSONObject team = teams.getJSONObject(i);
+        if (!hasGroupFilter || gId.equals(team.optString("group"))) {
+            statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));
+        }
+    }
+
+    JSONArray matches = jsonData.optJSONArray("matches");
+    if (matches != null) {
+        for (int i = 0; i < matches.length(); i++) {
+            JSONObject match = matches.getJSONObject(i);
+
+            // 2. If filtering by stage, skip matches not in that stage.
+            if (hasStageFilter && !stageId.equals(match.optString("stage"))) {
+                continue;
+            }
+            if (!"completed".equalsIgnoreCase(match.optString("status"))) {
+                continue;
+            }
+
+            String homeId = match.getString("home_team_id");
+            String awayId = match.getString("away_team_id");
+            int hs = match.getInt("home_score");
+            int as = match.getInt("away_score");
+
+            // 3. Check if home/away teams are in our target group and update stats.
+            if (statsMap.containsKey(homeId)) {
+                TeamStats homeStats = statsMap.get(homeId);
+                homeStats.matchesPlayed++;
+                homeStats.goalsFor += hs;
+                homeStats.goalsAgainst += as;
+                if (hs > as) { homeStats.wins++; homeStats.points += 3; }
+                else if (as > hs) { homeStats.losses++; }
+                else { homeStats.draws++; homeStats.points++; }
+            }
+
+            if (statsMap.containsKey(awayId)) {
+                TeamStats awayStats = statsMap.get(awayId);
+                awayStats.matchesPlayed++;
+                awayStats.goalsFor += as;
+                awayStats.goalsAgainst += hs;
+                if (as > hs) { awayStats.wins++; awayStats.points += 3; }
+                else if (hs > as) { awayStats.losses++; }
+                else { awayStats.draws++; awayStats.points++; }
+            }
+        }
+    }
+    if (statsMap.isEmpty()) return null;
+    java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
+    Collections.sort(sorted, new Comparator<TeamStats>() {
+        @Override public int compare(TeamStats t1, TeamStats t2) {
+            int pc=Integer.valueOf(t2.points).compareTo(t1.points); if(pc!=0)return pc;
+            int gdc=Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference()); if(gdc!=0)return gdc;
+            int gfc=Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor); if(gfc!=0)return gfc;
+            try { return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en")); } catch (JSONException e) { return 0; }
+        }
+    });
+    for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;
+    return sorted;
 }
+
+
 private View buildStandingsTable(java.util.List<TeamStats> sorted, String lang) throws JSONException {
 JSONArray teams = jsonData.getJSONArray("teams"); ScrollView vsv = new ScrollView(context); HorizontalScrollView hsv = new HorizontalScrollView(context);
 LinearLayout tl = new LinearLayout(context); tl.setOrientation(LinearLayout.VERTICAL); tl.setPadding(0,0,16,0);tl.addView(createHeaderRow(lang)); tl.addView(createDivider());
