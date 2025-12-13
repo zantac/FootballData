@@ -36,7 +36,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@DesignerComponent(version = 103, description = "Final version with all features and a fix for matches played count.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
+@DesignerComponent(version = 106, description = "Final version with all features and UI fixes.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
 @SimpleObject(external = true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
 @UsesLibraries(libraries = "androidasync-2.1.1.jar, gson-2.8.2.jar, picasso-2.5.2.jar")
@@ -89,6 +89,7 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     public void CreateTeamAssistsList(HVArrangement c, String teamId, String lang) {
         calculateAndDisplayTeamStats(c, teamId, lang, "assists");
     }
+    
     @SimpleFunction public void CreateMatchDetailHeader(HVArrangement c, String mId, String lang) {
         if (jsonData == null) return;
         try {
@@ -254,8 +255,34 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     private int dpToPx(int dp) { return (int) (dp * context.getResources().getDisplayMetrics().density); }
     private JSONObject findMatchById(String mId) throws JSONException { JSONArray matches = jsonData.optJSONArray("matches"); if (matches == null) return null; for (int i = 0; i < matches.length(); i++) { JSONObject match = matches.getJSONObject(i); if (match.getString("match_id").equals(mId)) return match; } return null; }
     private JSONArray getLocalizedArray(JSONObject source, String key, String lang) {if(source==null||!source.has(key)||source.isNull(key))return null;try{Object data=source.get(key);if(data instanceof JSONArray)return(JSONArray)data;if(data instanceof JSONObject){JSONObject lObj=(JSONObject)data;if(lObj.has(lang)&&!lObj.isNull(lang))return lObj.getJSONArray(lang);if(lObj.has("en")&&!lObj.isNull("en"))return lObj.getJSONArray("en");if(lObj.has("ar")&&!lObj.isNull("ar"))return lObj.getJSONArray("ar");}}catch(JSONException e){return null;} return null;}
-    private void createTwoColumnDetailView(HVArrangement c, String mId, String lang, String titleKey, String homeKey, String awayKey) {if (jsonData == null) return;try {ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();JSONObject match = findMatchById(mId); if (match == null) return;JSONArray homeData = getLocalizedArray(match, homeKey, lang);JSONArray awayData = getLocalizedArray(match, awayKey, lang);if ((homeData == null || homeData.length() == 0) && (awayData == null || awayData.length() == 0)) return;boolean isRTL = "ar".equalsIgnoreCase(lang);LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);TextView title = createTextView(getLocalizedText(null, titleKey, lang), -1, 0, true);title.setTextSize(16); title.setPadding(32, 24, 32, 16); title.setGravity(Gravity.CENTER); title.setBackgroundColor(Color.parseColor("#F5F5F5"));ml.addView(title);LinearLayout columns = new LinearLayout(context); columns.setOrientation(LinearLayout.HORIZONTAL); columns.setPadding(16, 16, 16, 16);LinearLayout homeCol = new LinearLayout(context); homeCol.setOrientation(LinearLayout.VERTICAL); homeCol.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1)); homeCol.setGravity(Gravity.CENTER_HORIZONTAL);LinearLayout awayCol = new LinearLayout(context); awayCol.setOrientation(LinearLayout.VERTICAL); awayCol.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1)); awayCol.setGravity(Gravity.CENTER_HORIZONTAL);JSONObject homeTInfo = getTeamInfoById(match.getString("home_team_id"), jsonData.getJSONArray("teams"));TextView homeHeader = createTextView(getLocalizedText(homeTInfo, "name", lang), -1, 0, true); homeHeader.setPadding(8, 8, 8, 16); homeCol.addView(homeHeader);JSONObject awayTInfo = getTeamInfoById(match.getString("away_team_id"), jsonData.getJSONArray("teams"));TextView awayHeader = createTextView(getLocalizedText(awayTInfo, "name", lang), -1, 0, true); awayHeader.setPadding(8, 8, 8, 16); awayCol.addView(awayHeader);populateDetailColumn(homeCol, homeData); populateDetailColumn(awayCol, awayData);View separator = new View(context); separator.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(1), -1)); separator.setBackgroundColor(Color.parseColor("#CCCCCC"));if (isRTL) { columns.addView(awayCol); columns.addView(separator); columns.addView(homeCol); }else { columns.addView(homeCol); columns.addView(separator); columns.addView(awayCol); }ml.addView(columns); vg.addView(ml);} catch (Exception e) { AfterParsingFail("Error creating detail view: " + e.getMessage()); }}
-    private void populateDetailColumn(LinearLayout col, JSONArray data) throws JSONException {if (data == null || data.length() == 0) return;for (int i = 0; i < data.length(); i++) {String item = data.getString(i);if (item.isEmpty()) { View spacer = new View(context); spacer.setLayoutParams(new LinearLayout.LayoutParams(-1, 16)); col.addView(spacer); }else { boolean isBold = item.equalsIgnoreCase("البدلاء") || item.equalsIgnoreCase("substitutes"); TextView tv = createTextView(item, -2, 0, isBold); tv.setGravity(Gravity.CENTER_HORIZONTAL); tv.setPadding(8, 8, 8, 8); col.addView(tv); }}}
+    private void createTwoColumnDetailView(HVArrangement c, String mId, String lang, String titleKey, String homeKey, String awayKey) {if (jsonData == null) return;try {ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();JSONObject match = findMatchById(mId); if (match == null) return;JSONArray homeData = getLocalizedArray(match, homeKey, lang);JSONArray awayData = getLocalizedArray(match, awayKey, lang);if ((homeData == null || homeData.length() == 0) && (awayData == null || awayData.length() == 0)) return;boolean isRTL = "ar".equalsIgnoreCase(lang);LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);TextView title = createTextView(getLocalizedText(null, titleKey, lang), -1, 0, true);title.setTextSize(16); title.setPadding(32, 24, 32, 16); title.setGravity(Gravity.CENTER); title.setBackgroundColor(Color.parseColor("#F5F5F5"));ml.addView(title);LinearLayout columns = new LinearLayout(context); columns.setOrientation(LinearLayout.HORIZONTAL); columns.setPadding(16, 16, 16, 16);LinearLayout homeCol = new LinearLayout(context); homeCol.setOrientation(LinearLayout.VERTICAL); homeCol.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1)); homeCol.setGravity(Gravity.CENTER_HORIZONTAL);LinearLayout awayCol = new LinearLayout(context); awayCol.setOrientation(LinearLayout.VERTICAL); awayCol.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1)); awayCol.setGravity(Gravity.CENTER_HORIZONTAL);JSONObject homeTInfo = getTeamInfoById(match.getString("home_team_id"), jsonData.getJSONArray("teams"));TextView homeHeader = createTextView(getLocalizedText(homeTInfo, "name", lang), -1, 0, true); homeHeader.setPadding(8, 8, 8, 16); homeCol.addView(homeHeader);JSONObject awayTInfo = getTeamInfoById(match.getString("away_team_id"), jsonData.getJSONArray("teams"));TextView awayHeader = createTextView(getLocalizedText(awayTInfo, "name", lang), -1, 0, true); awayHeader.setPadding(8, 8, 8, 16); awayCol.addView(awayHeader);populateDetailColumn(homeCol, homeData, lang); populateDetailColumn(awayCol, awayData, lang);View separator = new View(context); separator.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(1), -1)); separator.setBackgroundColor(Color.parseColor("#CCCCCC"));if (isRTL) { columns.addView(awayCol); columns.addView(separator); columns.addView(homeCol); }else { columns.addView(homeCol); columns.addView(separator); columns.addView(awayCol); }ml.addView(columns); vg.addView(ml);} catch (Exception e) { AfterParsingFail("Error creating detail view: " + e.getMessage()); }}
+    
+    // --- MODIFIED: populateDetailColumn for Assists Header ---
+    private void populateDetailColumn(LinearLayout col, JSONArray data, String lang) throws JSONException {
+        if (data == null || data.length() == 0) return;
+        boolean goalsHeaderAdded = false;
+        for (int i = 0; i < data.length(); i++) {
+            String item = data.getString(i);
+            if (item.isEmpty()) {
+                View spacer = new View(context);
+                spacer.setLayoutParams(new LinearLayout.LayoutParams(-1, 16));
+                col.addView(spacer);
+            } else if (item.equals(getLocalizedText(null, "assists_delimiter", lang))) {
+                col.addView(createEventHeader(getLocalizedText(null, "assists", lang), "https://img.icons8.com/color/48/000000/goal.png", lang));
+            } else {
+                if (!goalsHeaderAdded && col.getChildCount() > 1) { // Check if headers are already added
+                    col.addView(createEventHeader(getLocalizedText(null, "goals", lang), "https://img.icons8.com/color/48/000000/soccer-ball.png", lang), 1);
+                    goalsHeaderAdded = true;
+                }
+                boolean isBold = item.equalsIgnoreCase("البدلاء") || item.equalsIgnoreCase("substitutes");
+                TextView tv = createTextView(item, -2, 0, isBold);
+                tv.setGravity(Gravity.CENTER_HORIZONTAL);
+                tv.setPadding(8, 8, 8, 8);
+                col.addView(tv);
+            }
+        }
+    }
+
     private void calculateAndDisplayTournamentStats(HVArrangement c, String lang, final String statType) {if (jsonData == null) return;try {java.util.Map<String, PlayerStat> playerStats = new java.util.HashMap<>();JSONArray matches = jsonData.optJSONArray("matches"); if (matches == null) return;JSONArray teams = jsonData.getJSONArray("teams");for (int i = 0; i < matches.length(); i++) {JSONObject match = matches.getJSONObject(i); if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;JSONObject homeTInfo = getTeamInfoById(match.getString("home_team_id"), teams);JSONObject awayTInfo = getTeamInfoById(match.getString("away_team_id"), teams);processTeamEvents(playerStats, match, "home_scorers", homeTInfo, lang);processTeamEvents(playerStats, match, "away_scorers", awayTInfo, lang);}java.util.Map<String, java.util.List<PlayerStat>> statsByGroup = new java.util.LinkedHashMap<>();for(PlayerStat stat : playerStats.values()){JSONObject teamInfo = getTeamInfoById(stat.teamId, teams);String groupKey = (teamInfo != null && teamInfo.has("group")) ? teamInfo.getString("group") : "_no_group_";if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.util.ArrayList<PlayerStat>());statsByGroup.get(groupKey).add(stat);}boolean hasAnyGroups = getJavaGroupList().size() > 1;ViewGroup vg = (ViewGroup) c.getView(); vg.removeAllViews();ScrollView sv = new ScrollView(context); LinearLayout ml = new LinearLayout(context); ml.setOrientation(LinearLayout.VERTICAL);for(java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()){String groupName = entry.getKey(); java.util.List<PlayerStat> groupStats = entry.getValue();Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals); else return Integer.valueOf(o2.assists).compareTo(o1.assists); } });if (hasAnyGroups && !groupName.equals("_no_group_")) ml.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang))); ml.addView(createDivider());for (PlayerStat stat : groupStats) {int count = "goals".equals(statType) ? stat.goals : stat.assists;if (count > 0) { ml.addView(createTournamentStatRow(stat, count, lang)); ml.addView(createDivider()); }}}sv.addView(ml); vg.addView(sv);} catch(Exception e) { AfterParsingFail("Error calculating tournament stats: " + e.getMessage()); }}
     private String[] parsePlayerEventString(String raw) {Pattern p = Pattern.compile("(.*?) *\\((\\d+)\\)"); Matcher m = p.matcher(raw);if (m.find()) return new String[]{m.group(1).trim(), m.group(2)};return new String[]{raw.trim(), "1"};}
     private void processTeamEvents(java.util.Map<String, PlayerStat> stats, JSONObject match, String key, JSONObject tInfo, String lang) throws JSONException {JSONArray events = getLocalizedArray(match, key, lang); if (events == null || tInfo == null) return;boolean isParsingAssists = false;String teamId = tInfo.getString("team_id"); String teamName = getLocalizedText(tInfo, "name", lang);for (int i = 0; i < events.length(); i++) {String eventString = events.getString(i);if (eventString.equals(getLocalizedText(null, "assists_delimiter", lang))) { isParsingAssists = true; continue; }String[] parsed = parsePlayerEventString(eventString);String pName = parsed[0];if(pName.equals("لا يوجد بيانات")) continue;int count = Integer.parseInt(parsed[1]); String uniqueKey = pName + "_" + teamId;PlayerStat pStat = stats.get(uniqueKey);if (pStat == null) { pStat = new PlayerStat(pName, teamId, teamName); stats.put(uniqueKey, pStat); }if (isParsingAssists) pStat.assists += count; else pStat.goals += count;}}
@@ -267,180 +294,11 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     private void buildTeamListView(LinearLayout c, java.util.List<JSONObject> teamList, final String lang) throws JSONException {c.removeAllViews(); java.util.List<String> groups = getJavaGroupList();if (groups.isEmpty()) { for (JSONObject team : teamList) { c.addView(createTeamItemView(team, lang)); c.addView(createDivider()); } } else {for (String group : groups) {boolean headerAdded = false;for (JSONObject team : teamList) {if (group.equals(team.optString("group"))) {if (!headerAdded) { c.addView(createGroupHeaderView(getLocalizedText(null, "group", lang) + " " + group, lang)); headerAdded = true; }c.addView(createTeamItemView(team, lang)); c.addView(createDivider());}}}}}
     private View createTeamItemView(final JSONObject team, String lang) throws JSONException {final boolean isRTL = "ar".equalsIgnoreCase(lang); final String teamId = team.getString("team_id");LinearLayout r = new LinearLayout(context); r.setOrientation(LinearLayout.HORIZONTAL); r.setGravity(Gravity.CENTER_VERTICAL); r.setPadding(32, 24, 32, 24);if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) r.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);r.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { TeamClicked(teamId); } });ImageView logo = new ImageView(context); logo.setLayoutParams(new LinearLayout.LayoutParams(100, 100)); Picasso.with(context).load(team.optString("logo")).into(logo);TextView name = createTextView(getLocalizedText(team, "name", lang), 0, 1, true); name.setTextSize(16); name.setGravity(Gravity.START | Gravity.CENTER_VERTICAL); name.setPadding(16, 0, 16, 0);r.addView(logo); r.addView(name); return r;}
     private java.util.List<String> getJavaGroupList() {java.util.List<String> gl = new java.util.ArrayList<>();try {if (jsonData == null || !jsonData.has("teams")) return gl;JSONArray teams = jsonData.getJSONArray("teams");for (int i = 0; i < teams.length(); i++) {JSONObject item = teams.getJSONObject(i);if (item.has("group") && !item.isNull("group") && !item.getString("group").isEmpty()) {String group = item.getString("group"); if (!gl.contains(group)) gl.add(group);}}} catch (Exception e) {}Collections.sort(gl); return gl;}
-    
-    // --- NEW HELPER METHOD FOR TEAM STATS ---
-    private void calculateAndDisplayTeamStats(HVArrangement c, String teamId, String lang, final String statType) {
-        if (jsonData == null || teamId == null || teamId.isEmpty()) return;
-        try {
-            java.util.Map<String, PlayerStat> playerStats = new java.util.HashMap<>();
-            JSONArray matches = jsonData.optJSONArray("matches");
-            if (matches == null) return;
-            JSONArray teams = jsonData.getJSONArray("teams");
-
-            for (int i = 0; i < matches.length(); i++) {
-                JSONObject match = matches.getJSONObject(i);
-                if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
-
-                if (teamId.equals(match.getString("home_team_id"))) {
-                    JSONObject teamInfo = getTeamInfoById(teamId, teams);
-                    processTeamEvents(playerStats, match, "home_scorers", teamInfo, lang);
-                }
-                if (teamId.equals(match.getString("away_team_id"))) {
-                    JSONObject teamInfo = getTeamInfoById(teamId, teams);
-                    processTeamEvents(playerStats, match, "away_scorers", teamInfo, lang);
-                }
-            }
-            
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            ScrollView sv = new ScrollView(context);
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            
-            java.util.List<PlayerStat> sortedStats = new ArrayList<>(playerStats.values());
-            Collections.sort(sortedStats, new Comparator<PlayerStat>() {
-                @Override
-                public int compare(PlayerStat o1, PlayerStat o2) {
-                    if ("goals".equals(statType)) {
-                        return Integer.valueOf(o2.goals).compareTo(o1.goals);
-                    } else { // assists
-                        return Integer.valueOf(o2.assists).compareTo(o1.assists);
-                    }
-                }
-            });
-            
-            ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));
-            ml.addView(createDivider());
-
-            for (PlayerStat stat : sortedStats) {
-                int count = "goals".equals(statType) ? stat.goals : stat.assists;
-                if (count > 0) {
-                    ml.addView(createTournamentStatRow(stat, count, lang));
-                    ml.addView(createDivider());
-                }
-            }
-            sv.addView(ml);
-            vg.addView(sv);
-        } catch(Exception e) {
-            AfterParsingFail("Error calculating team stats: " + e.getMessage());
-        }
-    }
-    
-    // --- REPLACED STANDINGS LOGIC WITH CORRECT VERSION ---
-    private java.util.List<TeamStats> calculateStandingsForGroup(String gId, String stageId) throws JSONException {
-        final JSONArray teams = jsonData.getJSONArray("teams");
-        final JSONArray matches = jsonData.optJSONArray("matches");
-        java.util.Map<String, TeamStats> statsMap = new java.util.HashMap<>();
-        boolean hasGroupFilter = gId != null && !gId.isEmpty();
-        boolean hasStageFilter = stageId != null && !stageId.isEmpty();
-
-        for (int i = 0; i < teams.length(); i++) {
-            JSONObject team = teams.getJSONObject(i);
-            if (!hasGroupFilter || gId.equals(team.optString("group"))) {
-                statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));
-            }
-        }
-        
-        if (matches != null) {
-            for (int i = 0; i < matches.length(); i++) {
-                JSONObject match = matches.getJSONObject(i);
-                if (hasStageFilter && !stageId.equals(match.optString("stage"))) { continue; }
-                if (!"completed".equalsIgnoreCase(match.optString("status"))) { continue; }
-                String homeId = match.getString("home_team_id");
-                String awayId = match.getString("away_team_id");
-                
-                boolean homeInMap = statsMap.containsKey(homeId);
-                boolean awayInMap = statsMap.containsKey(awayId);
-
-                if (homeInMap || awayInMap) {
-                    int hs = match.getInt("home_score");
-                    int as = match.getInt("away_score");
-                    String pWinner = match.optString("penalty_winner_team_id");
-
-                    if (homeInMap) {
-                        TeamStats homeStats = statsMap.get(homeId);
-                        homeStats.matchesPlayed++;
-                        homeStats.goalsFor += hs;
-                        homeStats.goalsAgainst += as;
-                        if (hs > as) { homeStats.wins++; homeStats.points += 3; }
-                        else if (as > hs) { homeStats.losses++; }
-                        else {
-                            homeStats.draws++; homeStats.points++;
-                            if(pWinner.equals(homeId)) { homeStats.points++; homeStats.penaltyPoints++; }
-                        }
-                    }
-                    if (awayInMap) {
-                        TeamStats awayStats = statsMap.get(awayId);
-                        awayStats.matchesPlayed++;
-                        awayStats.goalsFor += as;
-                        awayStats.goalsAgainst += hs;
-                        if (as > hs) { awayStats.wins++; awayStats.points += 3; }
-                        else if (hs > as) { awayStats.losses++; }
-                        else {
-                            awayStats.draws++; awayStats.points++;
-                            if(pWinner.equals(awayId)) { awayStats.points++; awayStats.penaltyPoints++; }
-                        }
-                    }
-                }
-            }
-        }
-        
-        if (statsMap.isEmpty()) return null;
-        java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
-        Collections.sort(sorted, new Comparator<TeamStats>() {
-            @Override public int compare(TeamStats t1, TeamStats t2) {
-                int pointsCompare = Integer.valueOf(t2.points).compareTo(t1.points);
-                if (pointsCompare != 0) return pointsCompare;
-
-                int h2hPoints1 = 0, h2hPoints2 = 0;
-                int h2hGF1 = 0, h2hGA1 = 0;
-                try {
-                    if (matches != null) {
-                        for (int i = 0; i < matches.length(); i++) {
-                            JSONObject match = matches.getJSONObject(i);
-                            if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
-                            String homeId = match.getString("home_team_id");
-                            String awayId = match.getString("away_team_id");
-
-                            if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {
-                                int hs = match.getInt("home_score");
-                                int as = match.getInt("away_score");
-                                if (homeId.equals(t1.teamId)) { // t1 is home, t2 is away
-                                    h2hGF1 += hs; h2hGA1 += as;
-                                    if (hs > as) { h2hPoints1 += 3; } else if (as > hs) { h2hPoints2 += 3; } else { h2hPoints1++; h2hPoints2++; }
-                                } else { // t2 is home, t1 is away
-                                    h2hGF1 += as; h2hGA1 += hs;
-                                    if (as > hs) { h2hPoints1 += 3; } else if (hs > as) { h2hPoints2 += 3; } else { h2hPoints1++; h2hPoints2++; }
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) { /* ignore */ }
-                
-                int h2hPointsCompare = Integer.valueOf(h2hPoints2).compareTo(h2hPoints1);
-                if (h2hPointsCompare != 0) return h2hPointsCompare;
-
-                int h2hGd1 = h2hGF1 - h2hGA1;
-                int h2hGd2 = (h2hGF1 - h2hGA1) * -1; // Head-to-head GD is inverse for the other team
-                int h2hGdCompare = Integer.valueOf(h2hGd2).compareTo(h2hGd1);
-                if (h2hGdCompare != 0) return h2hGdCompare;
-
-                int gdc=Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference()); 
-                if(gdc!=0)return gdc;
-                
-                int gfc=Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor); 
-                if(gfc!=0)return gfc;
-                
-                try { return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en")); } catch (JSONException e) { return 0; }
-            }
-        });
-        for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;
-        return sorted;
-    }
-    
+    private void calculateAndDisplayTeamStats(HVArrangement c, String teamId, String lang, final String statType) {if (jsonData == null || teamId == null || teamId.isEmpty()) return;try {java.util.Map<String, PlayerStat> playerStats = new java.util.HashMap<>();JSONArray matches = jsonData.optJSONArray("matches");if (matches == null) return;JSONArray teams = jsonData.getJSONArray("teams");for (int i = 0; i < matches.length(); i++) {JSONObject match = matches.getJSONObject(i);if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;if (teamId.equals(match.getString("home_team_id"))) {JSONObject teamInfo = getTeamInfoById(teamId, teams);processTeamEvents(playerStats, match, "home_scorers", teamInfo, lang);}if (teamId.equals(match.getString("away_team_id"))) {JSONObject teamInfo = getTeamInfoById(teamId, teams);processTeamEvents(playerStats, match, "away_scorers", teamInfo, lang);}}ViewGroup vg = (ViewGroup) c.getView();vg.removeAllViews();ScrollView sv = new ScrollView(context);LinearLayout ml = new LinearLayout(context);ml.setOrientation(LinearLayout.VERTICAL);java.util.List<PlayerStat> sortedStats = new ArrayList<>(playerStats.values());Collections.sort(sortedStats, new Comparator<PlayerStat>() {@Override public int compare(PlayerStat o1, PlayerStat o2) {if ("goals".equals(statType)) {return Integer.valueOf(o2.goals).compareTo(o1.goals);} else {return Integer.valueOf(o2.assists).compareTo(o1.assists);}}});ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));ml.addView(createDivider());for (PlayerStat stat : sortedStats) {int count = "goals".equals(statType) ? stat.goals : stat.assists;if (count > 0) {ml.addView(createTournamentStatRow(stat, count, lang));ml.addView(createDivider());}}sv.addView(ml);vg.addView(sv);} catch(Exception e) {AfterParsingFail("Error calculating team stats: " + e.getMessage());}}
+    private java.util.List<TeamStats> calculateStandingsForGroup(String gId, String stageId) throws JSONException {final JSONArray teams = jsonData.getJSONArray("teams");final JSONArray matches = jsonData.optJSONArray("matches");java.util.Map<String, TeamStats> statsMap = new java.util.HashMap<>();boolean hasGroupFilter = gId != null && !gId.isEmpty();boolean hasStageFilter = stageId != null && !stageId.isEmpty();for (int i = 0; i < teams.length(); i++) {JSONObject team = teams.getJSONObject(i);if (!hasGroupFilter || gId.equals(team.optString("group"))) {statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));}}if (matches != null) {for (int i = 0; i < matches.length(); i++) {JSONObject match = matches.getJSONObject(i);if (hasStageFilter && !stageId.equals(match.optString("stage"))) { continue; }if (!"completed".equalsIgnoreCase(match.optString("status"))) { continue; }String homeId = match.getString("home_team_id");String awayId = match.getString("away_team_id");boolean homeInMap = statsMap.containsKey(homeId);boolean awayInMap = statsMap.containsKey(awayId);if (homeInMap || awayInMap) {int hs = match.getInt("home_score");int as = match.getInt("away_score");String pWinner = match.optString("penalty_winner_team_id");if (homeInMap) {TeamStats homeStats = statsMap.get(homeId);homeStats.matchesPlayed++; homeStats.goalsFor += hs; homeStats.goalsAgainst += as;if (hs > as) { homeStats.wins++; homeStats.points += 3; }else if (as > hs) { homeStats.losses++; }else {homeStats.draws++; homeStats.points++;if(pWinner.equals(homeId)) { homeStats.points++; homeStats.penaltyPoints++; }}}if (awayInMap) {TeamStats awayStats = statsMap.get(awayId);awayStats.matchesPlayed++;awayStats.goalsFor += as; awayStats.goalsAgainst += hs;if (as > hs) { awayStats.wins++; awayStats.points += 3; }else if (hs > as) { awayStats.losses++; }else {awayStats.draws++; awayStats.points++;if(pWinner.equals(awayId)) { awayStats.points++; awayStats.penaltyPoints++; }}}}}}if (statsMap.isEmpty()) return null;java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());Collections.sort(sorted, new Comparator<TeamStats>() {@Override public int compare(TeamStats t1, TeamStats t2) {int pointsCompare = Integer.valueOf(t2.points).compareTo(t1.points);if (pointsCompare != 0) return pointsCompare;int h2hPoints1 = 0, h2hPoints2 = 0;int h2hGF1 = 0, h2hGA1 = 0;try {if (matches != null) {for (int i = 0; i < matches.length(); i++) {JSONObject match = matches.getJSONObject(i);if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;String homeId = match.getString("home_team_id");String awayId = match.getString("away_team_id");if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {int hs = match.getInt("home_score");int as = match.getInt("away_score");if (homeId.equals(t1.teamId)) {h2hGF1 += hs; h2hGA1 += as;if (hs > as) { h2hPoints1 += 3; } else if (as > hs) { h2hPoints2 += 3; } else { h2hPoints1++; h2hPoints2++; }} else {h2hGF1 += as; h2hGA1 += hs;if (as > hs) { h2hPoints1 += 3; } else if (hs > as) { h2hPoints2 += 3; } else { h2hPoints1++; h2hPoints2++; }}}}}} catch (JSONException e) {}int h2hPointsCompare = Integer.valueOf(h2hPoints2).compareTo(h2hPoints1);if (h2hPointsCompare != 0) return h2hPointsCompare;int h2hGd1 = h2hGF1 - h2hGA1;int h2hGd2 = (h2hGF1 - h2hGA1) * -1;int h2hGdCompare = Integer.valueOf(h2hGd2).compareTo(h2hGd1);if (h2hGdCompare != 0) return h2hGdCompare;int gdc=Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference()); if(gdc!=0)return gdc;int gfc=Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor); if(gfc!=0)return gfc;try { return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en")); } catch (JSONException e) { return 0; }}});for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;return sorted;}
     private View buildStandingsTable(java.util.List<TeamStats> sorted, String lang) throws JSONException {JSONArray teams = jsonData.getJSONArray("teams"); ScrollView vsv = new ScrollView(context); HorizontalScrollView hsv = new HorizontalScrollView(context);LinearLayout tl = new LinearLayout(context); tl.setOrientation(LinearLayout.VERTICAL); tl.setPadding(0,0,16,0);tl.addView(createHeaderRow(lang)); tl.addView(createDivider());for (TeamStats stats : sorted) { tl.addView(createDataRow(stats, teams, lang)); tl.addView(createDivider()); }hsv.addView(tl); vsv.addView(hsv); return vsv;}
     private View createHeaderRow(String lang) {boolean isRTL = "ar".equalsIgnoreCase(lang); LinearLayout l = new LinearLayout(context); l.setOrientation(LinearLayout.HORIZONTAL);l.setLayoutParams(new LinearLayout.LayoutParams(-2, -2)); l.setPadding(16, 16, 16, 16); l.setGravity(Gravity.CENTER);java.util.List<View> views = new java.util.ArrayList<>();views.add(createTextView("", 80, 0, true)); views.add(createTextView(getLocalizedText(null, "team", lang), 400, 0, true)); views.add(createTextView(getLocalizedText(null, "p", lang), 80, 0, true));views.add(createTextView(getLocalizedText(null, "pts", lang), 90, 0, true)); views.add(createTextView(getLocalizedText(null, "f:a", lang), 100, 0, true)); views.add(createTextView(getLocalizedText(null, "gd", lang), 80, 0, true));views.add(createTextView(getLocalizedText(null, "w", lang), 80, 0, true)); views.add(createTextView(getLocalizedText(null, "d", lang), 80, 0, true)); views.add(createTextView(getLocalizedText(null, "l", lang), 80, 0, true)); views.add(createTextView(getLocalizedText(null, "p.p", lang), 80, 0, true));if (isRTL) Collections.reverse(views); for(View v : views) l.addView(v); return l;}
-    private View createDataRow(TeamStats stats, JSONArray teamsData, String lang) throws JSONException {boolean isRTL = "ar".equalsIgnoreCase(lang); LinearLayout l = new LinearLayout(context); l.setOrientation(LinearLayout.HORIZONTAL);l.setLayoutParams(new LinearLayout.LayoutParams(-2, -2)); l.setPadding(16, 24, 16, 24); l.setGravity(Gravity.CENTER);JSONObject tInfo = getTeamInfoById(stats.teamId, teamsData); ImageView iv = new ImageView(context); iv.setLayoutParams(new LinearLayout.LayoutParams(80, 80));String tName = getLocalizedText(tInfo, "name", lang); if (tInfo != null) Picasso.with(context).load(tInfo.optString("logo")).into(iv);LinearLayout tl = new LinearLayout(context); tl.setOrientation(LinearLayout.HORIZONTAL); tl.setLayoutParams(new LinearLayout.LayoutParams(400, -2)); tl.setGravity((isRTL ? Gravity.END : Gravity.START) | Gravity.CENTER_VERTICAL);TextView tnv = createTextView(tName, -2, 0, true);if (isRTL) { tl.addView(tnv); tl.addView(iv); } else { tl.addView(iv); tl.addView(tnv); }String faScore = isRTL ? String.format(Locale.US, "%d:%d", stats.goalsAgainst, stats.goalsFor) : String.format(Locale.US, "%d:%d", stats.goalsFor, stats.goalsAgainst);java.util.List<View> views = new java.util.ArrayList<>();views.add(createTextView(String.valueOf(stats.position), 80, 0, false)); views.add(tl); views.add(createTextView(String.valueOf(stats.matchesPlayed), 80, 0, false));views.add(createTextView(String.valueOf(stats.points), 90, 0, true)); views.add(createTextView(faScore, 100, 0, false)); views.add(createTextView(String.format(Locale.US, "%+d", stats.getGoalDifference()), 80, 0, false));views.add(createTextView(String.valueOf(stats.wins), 80, 0, false)); views.add(createTextView(String.valueOf(stats.draws), 80, 0, false)); views.add(createTextView(String.valueOf(stats.losses), 80, 0, false)); views.add(createTextView(String.valueOf(stats.penaltyPoints), 80, 0, false));if (isRTL) Collections.reverse(views); for(View v : views) l.addView(v); return l;}
+    private View createDataRow(TeamStats stats, JSONArray teamsData, String lang) throws JSONException {boolean isRTL = "ar".equalsIgnoreCase(lang); LinearLayout l = new LinearLayout(context); l.setOrientation(LinearLayout.HORIZONTAL);l.setLayoutParams(new LinearLayout.LayoutParams(-2, -2)); l.setPadding(16, 24, 16, 24); l.setGravity(Gravity.CENTER);JSONObject tInfo = getTeamInfoById(stats.teamId, teamsData); ImageView iv = new ImageView(context); iv.setLayoutParams(new LinearLayout.LayoutParams(80, 80));String tName = getLocalizedText(tInfo, "name", lang); if (tInfo != null) Picasso.with(context).load(tInfo.optString("logo")).into(iv);LinearLayout tl = new LinearLayout(context); tl.setOrientation(LinearLayout.HORIZONTAL); tl.setLayoutParams(new LinearLayout.LayoutParams(400, -2)); tl.setGravity((isRTL ? Gravity.END : Gravity.START) | Gravity.CENTER_VERTICAL);TextView tnv = createTextView(tName, -2, 0, true);if (isRTL) { tl.addView(tnv); tl.addView(iv); } else { tl.addView(iv); tl.addView(tnv); }String faScore = isRTL ? String.format(Locale.US, "%d:%d", stats.goalsAgainst, stats.goalsFor) : String.format(Locale.US, "%d:%d", stats.goalsFor, stats.goalsAgainst);TextView pointsView = createTextView(String.valueOf(stats.points), 90, 0, true);pointsView.setTextColor(Color.parseColor("#B71C1C"));TextView gdView = createTextView(String.format(Locale.US, "%+d", stats.getGoalDifference()), 80, 0, false);gdView.setTextColor(Color.parseColor("#0D47A1"));java.util.List<View> views = new java.util.ArrayList<>();views.add(createTextView(String.valueOf(stats.position), 80, 0, false)); views.add(tl); views.add(createTextView(String.valueOf(stats.matchesPlayed), 80, 0, false));views.add(pointsView); views.add(createTextView(faScore, 100, 0, false)); views.add(gdView);views.add(createTextView(String.valueOf(stats.wins), 80, 0, false)); views.add(createTextView(String.valueOf(stats.draws), 80, 0, false)); views.add(createTextView(String.valueOf(stats.losses), 80, 0, false)); views.add(createTextView(String.valueOf(stats.penaltyPoints), 80, 0, false));if (isRTL) Collections.reverse(views); for(View v : views) l.addView(v); return l;}
     private View createDateHeaderView(String dateStr, int count, String lang, boolean showWeek, String weekNum) throws JSONException, ParseException {boolean isRTL = "ar".equalsIgnoreCase(lang); LinearLayout h = new LinearLayout(context); h.setOrientation(LinearLayout.HORIZONTAL); h.setPadding(24, 12, 24, 12); h.setGravity(Gravity.CENTER_VERTICAL); h.setBackgroundColor(Color.parseColor("#F5F5F5"));String dateText; SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd", Locale.US); Date matchDate = parser.parse(dateStr);Calendar matchCal = Calendar.getInstance(); matchCal.setTime(matchDate);Calendar today = Calendar.getInstance(); Calendar yesterday = Calendar.getInstance(); yesterday.add(Calendar.DATE, -1); Calendar tomorrow = Calendar.getInstance(); tomorrow.add(Calendar.DATE, 1);today.set(Calendar.HOUR_OF_DAY, 0); today.set(Calendar.MINUTE, 0); today.set(Calendar.SECOND, 0); today.set(Calendar.MILLISECOND, 0);yesterday.set(Calendar.HOUR_OF_DAY, 0); yesterday.set(Calendar.MINUTE, 0); yesterday.set(Calendar.SECOND, 0); yesterday.set(Calendar.MILLISECOND, 0);tomorrow.set(Calendar.HOUR_OF_DAY, 0); tomorrow.set(Calendar.MINUTE, 0); tomorrow.set(Calendar.SECOND, 0); tomorrow.set(Calendar.MILLISECOND, 0);matchCal.set(Calendar.HOUR_OF_DAY, 0); matchCal.set(Calendar.MINUTE, 0); matchCal.set(Calendar.SECOND, 0); matchCal.set(Calendar.MILLISECOND, 0);if(today.getTime().equals(matchCal.getTime())) { dateText = getLocalizedText(null, "today", lang); } else if (yesterday.getTime().equals(matchCal.getTime())) { dateText = getLocalizedText(null, "yesterday", lang); }else if (tomorrow.getTime().equals(matchCal.getTime())) { dateText = getLocalizedText(null, "tomorrow", lang); } else { SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM yyyy", isRTL ? new Locale("ar") : Locale.US); dateText = sdf.format(matchDate); }TextView dl = createTextView(dateText, 0, 2, true); dl.setTextSize(12);String gamesText = (count == 1) ? getLocalizedText(null, "game_one", lang) : count + " " + getLocalizedText(null, "games", lang);TextView cl = createTextView(gamesText, 0, 1, true); cl.setTextSize(12);if(showWeek) {TextView wl = createTextView(getLocalizedText(null, "week", lang) + " " + weekNum, 0, 1, false);wl.setGravity(isRTL ? Gravity.END : Gravity.START);cl.setGravity(isRTL ? Gravity.START : Gravity.END);if (isRTL) { h.addView(cl); h.addView(dl); h.addView(wl); } else { h.addView(wl); h.addView(dl); h.addView(cl); }} else {cl.setGravity(isRTL ? Gravity.START : Gravity.END);TextView datePlaceholder = createTextView("", 0, 1, false);if (isRTL) { h.addView(cl); h.addView(dl); h.addView(datePlaceholder); } else { h.addView(datePlaceholder); h.addView(dl); h.addView(cl); }}return h;}
     private View createWeekHeaderView(String weekNum, String lang){TextView weekLabel = createTextView(getLocalizedText(null, "week", lang) + " " + weekNum, -1, 0, true);weekLabel.setBackgroundColor(Color.parseColor("#FAFAFA")); weekLabel.setPadding(24, 8, 24, 8); weekLabel.setTextSize(14); weekLabel.setGravity(Gravity.CENTER);return weekLabel;}
     private View createGroupHeaderView(String name, String lang) {TextView label = createTextView(name, -1, 0, true); label.setBackgroundColor(Color.parseColor("#EEEEEE")); label.setPadding(24, 8, 24, 8); label.setTextSize(16); label.setTypeface(null, Typeface.BOLD); label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(-1, -2); p.setMargins(0, 8, 0, 8); label.setLayoutParams(p); return label;}
@@ -454,4 +312,6 @@ public class FootballGamesData extends AndroidNonvisibleComponent implements Com
     private void addPlayerSection(LinearLayout c, JSONObject players, String key, String lang) {String title = getLocalizedText(null, key, lang); String pListRaw = getLocalizedText(players, key, lang); if (pListRaw == null || pListRaw.isEmpty() || "null".equalsIgnoreCase(pListRaw)) return;String pList = pListRaw.replaceAll("[\"\\[\\]\\\\]", "").replace(",", "\n"); if (pList.trim().isEmpty()) return;TextView tv = createTextView(title, -1, 0, true); tv.setTextSize(16); tv.setPadding(32, 24, 32, 8); tv.setGravity(Gravity.CENTER); tv.setBackgroundColor(Color.parseColor("#F5F5F5"));TextView pv = createTextView(pList, -1, 0, false); pv.setPadding(32, 16, 32, 24); pv.setGravity(Gravity.CENTER);c.addView(tv); c.addView(pv);}
     private TextView createTextView(String text, int width, float weight, boolean isBold) {TextView tv = new TextView(context); LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(width, -2, weight);if (width == 0) p.width = 0; p.setMargins(8, 0, 8, 0); tv.setLayoutParams(p); tv.setText(text); tv.setTextColor(Color.BLACK); tv.setGravity(Gravity.CENTER);if (isBold) tv.setTypeface(null, Typeface.BOLD); return tv;}
     private View createDivider() {View d = new View(context); d.setLayoutParams(new LinearLayout.LayoutParams(-1, 1)); d.setBackgroundColor(Color.parseColor("#E0E0E0")); return d;}
+    private View createEventHeader(String title, String iconUrl, String lang) {boolean isRTL = "ar".equalsIgnoreCase(lang);LinearLayout headerLayout = new LinearLayout(context);headerLayout.setOrientation(LinearLayout.HORIZONTAL);headerLayout.setGravity(Gravity.CENTER_VERTICAL);if (isRTL && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) headerLayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);params.setMargins(0, dpToPx(16), 0, dpToPx(8));headerLayout.setLayoutParams(params);ImageView icon = new ImageView(context);icon.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(24), dpToPx(24)));Picasso.with(context).load(iconUrl).into(icon);TextView titleView = createTextView(title, ViewGroup.LayoutParams.WRAP_CONTENT, 0, true);titleView.setTextColor(Color.parseColor("#B71C1C"));titleView.setTextSize(16);LinearLayout.LayoutParams titleParams = (LinearLayout.LayoutParams) titleView.getLayoutParams();titleParams.setMargins(dpToPx(8), 0, dpToPx(8), 0);headerLayout.addView(icon);headerLayout.addView(titleView);return headerLayout;}
+    private View createPlayerCardView(String text) {LinearLayout card = new LinearLayout(context);card.setOrientation(LinearLayout.VERTICAL);LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);params.setMargins(dpToPx(8), dpToPx(4), dpToPx(8), dpToPx(4));card.setLayoutParams(params);card.setPadding(dpToPx(16), dpToPx(12), dpToPx(16), dpToPx(12));GradientDrawable bg = new GradientDrawable();bg.setColor(Color.WHITE);bg.setCornerRadius(dpToPx(8));bg.setStroke(dpToPx(1), Color.parseColor("#EEEEEE"));card.setBackground(bg);TextView tv = createTextView(text, -1, 0, false);tv.setGravity(Gravity.CENTER);tv.setTextSize(16);card.addView(tv);return card;}
 }
