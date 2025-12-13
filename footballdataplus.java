@@ -36,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-@DesignerComponent(version = 40, description = "Companion with news, ads, stats, and multi-level season/competition navigation.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
+@DesignerComponent(version = 41, description = "Companion with news, ads, and a new consolidated statistics block.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "images/extension.png")
 @SimpleObject(external = true)
 public class Footballdataplus extends AndroidNonvisibleComponent implements Component {
 
@@ -99,55 +100,98 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
         }
     }
 
-    // --- STATISTICS BLOCKS ---
+    // --- NEW CONSOLIDATED STATISTICS BLOCK ---
+    @SimpleFunction(description = "Creates a full view of all statistics, automatically grouped by competition stage or group.")
+    public void CreateAllStatisticsView(HVArrangement container, String language) {
+        if (this.jsonData == null) { AfterParsingFail("JSON data is not set. Use SetJsonDataFromString first."); return; }
+        try {
+            JSONArray allMatches = this.jsonData.optJSONArray("matches");
+            JSONArray allTeams = this.jsonData.optJSONArray("teams");
+            if (allMatches == null || allTeams == null) { AfterParsingFail("JSON data is missing 'matches' or 'teams' array."); return; }
 
-    @SimpleFunction(description = "1. Total Matches Played. Displays stats per group if multiple groups exist.")
-    public void CreateTotalMatchesPlayedView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "total_matches");
+            Map<String, List<JSONObject>> matchesByBucket = smartGroupCompletedMatches(allMatches, allTeams);
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            
+            ScrollView sv = new ScrollView(context);
+            LinearLayout mainLayout = new LinearLayout(context);
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+
+            if (matchesByBucket.isEmpty()) {
+                mainLayout.addView(createSingleStatView(getStatLocalizedText("no_completed_matches", language), "-"));
+                sv.addView(mainLayout);
+                vg.addView(sv);
+                return;
+            }
+            
+            List<String> sortedBucketNames = new ArrayList<>(matchesByBucket.keySet());
+            Collections.sort(sortedBucketNames);
+
+            for (String bucketName : sortedBucketNames) {
+                if(matchesByBucket.get(bucketName).isEmpty()) continue;
+                
+                // Add the main header for the bucket (e.g., "المرحلة الاولي" or "Group A")
+                mainLayout.addView(createGroupHeaderView(bucketName, language));
+
+                // Create a grid layout for the 9 stats
+                LinearLayout gridLayout = new LinearLayout(context);
+                gridLayout.setOrientation(LinearLayout.VERTICAL);
+                
+                String[] statTypes = {"total_matches", "total_goals", "goal_rate", "winner_matches", "draw_matches", "strongest_attack", "strongest_defense", "weakest_attack", "weakest_defense"};
+                
+                for(int i = 0; i < statTypes.length; i += 2) {
+                    LinearLayout row = new LinearLayout(context);
+                    row.setOrientation(LinearLayout.HORIZONTAL);
+                    row.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                    // First stat in the row
+                    String statType1 = statTypes[i];
+                    String value1 = calculateStatForGroup(matchesByBucket.get(bucketName), allTeams, statType1, language);
+                    row.addView(createSingleStatView(getStatLocalizedText(statType1 + "_title", language), value1), new LinearLayout.LayoutParams(0, -2, 1));
+                    
+                    // Add a vertical divider
+                    View divider = new View(context);
+                    divider.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(1), ViewGroup.LayoutParams.MATCH_PARENT));
+                    divider.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    row.addView(divider);
+
+                    // Second stat in the row (if it exists)
+                    if (i + 1 < statTypes.length) {
+                        String statType2 = statTypes[i+1];
+                        String value2 = calculateStatForGroup(matchesByBucket.get(bucketName), allTeams, statType2, language);
+                        row.addView(createSingleStatView(getStatLocalizedText(statType2 + "_title", language), value2), new LinearLayout.LayoutParams(0, -2, 1));
+                    } else {
+                        // Add an empty view to keep alignment
+                         row.addView(new View(context), new LinearLayout.LayoutParams(0, -2, 1));
+                    }
+                    gridLayout.addView(row);
+                }
+                
+                mainLayout.addView(gridLayout);
+                mainLayout.addView(createDivider());
+            }
+            sv.addView(mainLayout);
+            vg.addView(sv);
+        } catch (JSONException e) {
+            AfterParsingFail("Error creating statistics view: " + e.getMessage());
+        }
     }
 
-    @SimpleFunction(description = "2. Total Goals Scored. Displays stats per group if multiple groups exist.")
-    public void CreateTotalGoalsScoredView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "total_goals");
-    }
 
-    @SimpleFunction(description = "3. Goal Rate Per Match. Displays stats per group if multiple groups exist.")
-    public void CreateGoalRateView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "goal_rate");
-    }
-
-    @SimpleFunction(description = "4. Matches With a Winner. Displays stats per group if multiple groups exist.")
-    public void CreateMatchesWithWinnerView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "winner_matches");
-    }
-
-    @SimpleFunction(description = "5. Matches Ended in a Draw. Displays stats per group if multiple groups exist.")
-    public void CreateDrawMatchesView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "draw_matches");
-    }
-
-    @SimpleFunction(description = "6. Strongest Attack. Displays stats per group if multiple groups exist.")
-    public void CreateStrongestAttackView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "strongest_attack");
-    }
-
-    @SimpleFunction(description = "7. Strongest Defense. Displays stats per group if multiple groups exist.")
-    public void CreateStrongestDefenseView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "strongest_defense");
-    }
-
-    @SimpleFunction(description = "8. Weakest Attack. Displays stats per group if multiple groups exist.")
-    public void CreateWeakestAttackView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "weakest_attack");
-    }
-
-    @SimpleFunction(description = "9. Weakest Defense. Displays stats per group if multiple groups exist.")
-    public void CreateWeakestDefenseView(HVArrangement container, String language) {
-        handleStatCalculation(container, language, "weakest_defense");
-    }
+    // --- DEPRECATED BLOCKS ---
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateTotalMatchesPlayedView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateTotalGoalsScoredView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateGoalRateView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateMatchesWithWinnerView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateDrawMatchesView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateStrongestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateStrongestDefenseView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateWeakestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false) public void CreateWeakestDefenseView(HVArrangement c, String l) {}
 
 
-    // ================== OTHER BLOCKS ==================
+    // ================== OTHER BLOCKS (Unchanged) ==================
     @SimpleFunction(description = "Creates a searchable list of seasons.")
     public void CreateSeasonList(HVArrangement container, final String language) {
         if (jsonData == null) return;
@@ -505,72 +549,36 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
 
     // --- HELPERS FOR STATISTICS BLOCKS ---
 
-    private void handleStatCalculation(HVArrangement container, String language, String statType) {
-        if (this.jsonData == null) { AfterParsingFail("JSON data is not set. Use SetJsonDataFromString first."); return; }
-        try {
-            JSONArray allMatches = this.jsonData.optJSONArray("matches");
-            JSONArray allTeams = this.jsonData.optJSONArray("teams");
-            if (allMatches == null || allTeams == null) { AfterParsingFail("JSON data is missing 'matches' or 'teams' array."); return; }
-
-            Map<String, List<JSONObject>> matchesByGroup = groupCompletedMatches(allMatches, allTeams);
-            ViewGroup vg = (ViewGroup) container.getView();
-            vg.removeAllViews();
-
-            if (matchesByGroup.isEmpty()) {
-                createSingleStatView(vg, getStatLocalizedText(statType + "_title", language), "-");
-                return;
-            }
-
-            boolean isSingleGroup = matchesByGroup.size() == 1 && matchesByGroup.containsKey("_DEFAULT_GROUP_");
-
-            if (isSingleGroup) {
-                String value = calculateStatForGroup(matchesByGroup.get("_DEFAULT_GROUP_"), allTeams, statType, language);
-                createSingleStatView(vg, getStatLocalizedText(statType + "_title", language), value);
-            } else {
-                LinearLayout mainLayout = new LinearLayout(context);
-                mainLayout.setOrientation(LinearLayout.VERTICAL);
-                mainLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                mainLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
-                
-                List<String> sortedGroupNames = new ArrayList<>(matchesByGroup.keySet());
-                Collections.sort(sortedGroupNames);
-
-                TextView titleView = new TextView(context);
-                titleView.setText(getStatLocalizedText(statType + "_title", language));
-                titleView.setTextSize(18);
-                titleView.setTextColor(Color.BLACK);
-                titleView.setGravity(Gravity.CENTER);
-                titleView.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
-                titleView.setBackgroundColor(Color.parseColor("#EEEEEE"));
-                mainLayout.addView(titleView);
-
-                for (String groupName : sortedGroupNames) {
-                    if(matchesByGroup.get(groupName).isEmpty()) continue;
-                    String value = calculateStatForGroup(matchesByGroup.get(groupName), allTeams, statType, language);
-                    
-                    TextView groupNameView = new TextView(context);
-                    groupNameView.setText(getStatLocalizedText("group", language) + " " + groupName);
-                    groupNameView.setTextSize(16);
-                    groupNameView.setTextColor(Color.DKGRAY);
-                    groupNameView.setGravity(Gravity.CENTER);
-                    groupNameView.setPadding(0, dpToPx(12), 0, 0);
-                    groupNameView.setTypeface(null, Typeface.BOLD);
-                    mainLayout.addView(groupNameView);
-                    
-                    TextView groupValueView = new TextView(context);
-                    groupValueView.setText(value);
-                    groupValueView.setTextSize(22);
-                    groupValueView.setTypeface(null, Typeface.BOLD);
-                    groupValueView.setTextColor(Color.BLACK);
-                    groupValueView.setGravity(Gravity.CENTER);
-                    groupValueView.setPadding(0, dpToPx(4), 0, dpToPx(12));
-                    mainLayout.addView(groupValueView);
-                }
-                vg.addView(mainLayout);
-            }
-        } catch (JSONException e) {
-            AfterParsingFail("Error calculating stat '" + statType + "': " + e.getMessage());
+    private Map<String, List<JSONObject>> smartGroupCompletedMatches(JSONArray allMatches, JSONArray allTeams) throws JSONException {
+        Map<String, List<JSONObject>> matchesByBucket = new HashMap<>();
+        Map<String, String> teamIdToGroupMap = new HashMap<>();
+        for (int i = 0; i < allTeams.length(); i++) {
+            JSONObject team = allTeams.getJSONObject(i);
+            teamIdToGroupMap.put(team.getString("team_id"), team.optString("group", null));
         }
+        for (int i = 0; i < allMatches.length(); i++) {
+            JSONObject match = allMatches.getJSONObject(i);
+            if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+            
+            String matchGroup = match.optString("group", null);
+            String homeTeamId = match.getString("home_team_id");
+            String teamGroup = teamIdToGroupMap.get(homeTeamId);
+
+            String bucketKey;
+            if (matchGroup != null && !matchGroup.isEmpty() && !matchGroup.equals("null") && !matchGroup.equals(teamGroup)) {
+                bucketKey = matchGroup; // Stage 1 logic
+            } else if (teamGroup != null && !teamGroup.isEmpty()) {
+                bucketKey = teamGroup; // Stage 2 / Regular Group logic
+            } else {
+                bucketKey = getStatLocalizedText("overall_stats", "en"); // Fallback for single-stage, no-group leagues
+            }
+
+            if (!matchesByBucket.containsKey(bucketKey)) {
+                matchesByBucket.put(bucketKey, new ArrayList<JSONObject>());
+            }
+            matchesByBucket.get(bucketKey).add(match);
+        }
+        return matchesByBucket;
     }
 
     private String calculateStatForGroup(List<JSONObject> groupMatches, JSONArray allTeams, String statType, String language) throws JSONException {
@@ -603,112 +611,70 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
         }
 
         switch (statType) {
-            case "total_matches":
-                return String.valueOf(totalMatches);
-            case "total_goals":
-                return String.valueOf(totalGoals);
-            case "goal_rate":
-                double rate = (totalMatches > 0) ? (double) totalGoals / totalMatches : 0;
-                return String.format(Locale.US, "%.2f", rate);
-            case "winner_matches":
-                double winPercent = (totalMatches > 0) ? (double) winnerMatches / totalMatches * 100 : 0;
-                return String.format(Locale.US, "%d (%.1f%%)", winnerMatches, winPercent);
-            case "draw_matches":
-                double drawPercent = (totalMatches > 0) ? (double) drawMatches / totalMatches * 100 : 0;
-                return String.format(Locale.US, "%d (%.1f%%)", drawMatches, drawPercent);
-            case "strongest_attack":
-            case "weakest_defense":
-            case "strongest_defense":
-            case "weakest_attack":
-                int bestValue;
-                boolean findMax;
-
-                if (statType.equals("strongest_attack") || statType.equals("weakest_defense")) {
-                    bestValue = -1;
-                    findMax = true;
-                } else {
-                    bestValue = Integer.MAX_VALUE;
-                    findMax = false;
-                }
+            case "total_matches": return String.valueOf(totalMatches);
+            case "total_goals": return String.valueOf(totalGoals);
+            case "goal_rate": double rate = (totalMatches > 0) ? (double) totalGoals / totalMatches : 0; return String.format(Locale.US, "%.2f", rate);
+            case "winner_matches": double winPercent = (totalMatches > 0) ? (double) winnerMatches / totalMatches * 100 : 0; return String.format(Locale.US, "%d (%.1f%%)", winnerMatches, winPercent);
+            case "draw_matches": double drawPercent = (totalMatches > 0) ? (double) drawMatches / totalMatches * 100 : 0; return String.format(Locale.US, "%d (%.1f%%)", drawMatches, drawPercent);
+            case "strongest_attack": case "weakest_defense": case "strongest_defense": case "weakest_attack":
+                int bestValue; boolean findMax;
+                if (statType.equals("strongest_attack") || statType.equals("weakest_defense")) { bestValue = -1; findMax = true; } 
+                else { bestValue = Integer.MAX_VALUE; findMax = false; }
                 
                 List<String> bestTeamIds = new ArrayList<>();
                 for (TeamStats stats : statsMap.values()) {
-                    int currentValue;
-                    if (statType.equals("strongest_attack") || statType.equals("weakest_attack")) {
-                        currentValue = stats.goalsFor;
-                    } else {
-                        currentValue = stats.goalsAgainst;
-                    }
-                    
+                    int currentValue = (statType.equals("strongest_attack") || statType.equals("weakest_attack")) ? stats.goalsFor : stats.goalsAgainst;
                     boolean isBetter = findMax ? currentValue > bestValue : currentValue < bestValue;
-
-                    if (isBetter) {
-                        bestValue = currentValue;
-                        bestTeamIds.clear();
-                        bestTeamIds.add(stats.teamId);
-                    } else if (currentValue == bestValue) {
-                        bestTeamIds.add(stats.teamId);
-                    }
+                    if (isBetter) { bestValue = currentValue; bestTeamIds.clear(); bestTeamIds.add(stats.teamId); } 
+                    else if (currentValue == bestValue) { bestTeamIds.add(stats.teamId); }
                 }
                 String teamNames = getTeamNamesByIds(bestTeamIds, allTeams, language);
                 if (bestValue == -1 || bestValue == Integer.MAX_VALUE) return "-";
                 return teamNames.isEmpty() ? "-" : String.format("%s (%d)", teamNames, bestValue);
-            default:
-                return "";
+            default: return "";
         }
     }
 
-    private void createSingleStatView(ViewGroup container, String title, String value) {
+    private LinearLayout createSingleStatView(String title, String value) {
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.CENTER_HORIZONTAL);
-        mainLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+        mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
         
         TextView titleView = new TextView(context);
         titleView.setText(title);
-        titleView.setTextSize(18);
-        titleView.setTextColor(Color.BLACK);
+        titleView.setTextSize(14);
+        titleView.setTextColor(Color.DKGRAY);
         titleView.setGravity(Gravity.CENTER);
-        titleView.setBackgroundColor(Color.parseColor("#EEEEEE"));
-        titleView.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
-        mainLayout.addView(titleView, new LinearLayout.LayoutParams(-1, -2));
+        mainLayout.addView(titleView, new LinearLayout.LayoutParams(-2, -2));
         
         TextView valueView = new TextView(context);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, -2);
-        params.setMargins(0, dpToPx(8), 0, 0);
-        valueView.setLayoutParams(params);
         valueView.setText(value);
-        valueView.setTextSize(28);
+        valueView.setTextSize(20);
         valueView.setTypeface(null, Typeface.BOLD);
         valueView.setTextColor(Color.BLACK);
         valueView.setGravity(Gravity.CENTER);
-        mainLayout.addView(valueView);
-        container.addView(mainLayout);
+        mainLayout.addView(valueView, new LinearLayout.LayoutParams(-2, -2));
+        return mainLayout;
     }
     
-    private Map<String, List<JSONObject>> groupCompletedMatches(JSONArray allMatches, JSONArray allTeams) throws JSONException {
-        Map<String, List<JSONObject>> matchesByGroup = new HashMap<>();
-        for (int i = 0; i < allMatches.length(); i++) {
-            JSONObject match = allMatches.getJSONObject(i);
-            if (!"completed".equalsIgnoreCase(match.optString("status"))) {
-                continue;
-            }
-            String homeTeamId = match.getString("home_team_id");
-            JSONObject homeTeam = findTeamById(homeTeamId, allTeams);
-            String groupKey = "_DEFAULT_GROUP_"; 
-            if (homeTeam != null && homeTeam.has("group") && !homeTeam.isNull("group")) {
-                String teamGroup = homeTeam.getString("group");
-                if (teamGroup != null && !teamGroup.isEmpty()) {
-                    groupKey = teamGroup;
-                }
-            }
-            if (!matchesByGroup.containsKey(groupKey)) {
-                matchesByGroup.put(groupKey, new ArrayList<JSONObject>());
-            }
-            matchesByGroup.get(groupKey).add(match);
+    private View createGroupHeaderView(String name, String lang) {
+        TextView label = new TextView(context);
+        if(name.equals(getStatLocalizedText("overall_stats", "en"))) {
+             label.setText(getStatLocalizedText("overall_stats", lang));
+        } else {
+             label.setText(name);
         }
-        return matchesByGroup;
+        label.setBackgroundColor(Color.parseColor("#DDDDDD")); 
+        label.setPadding(dpToPx(16), dpToPx(8), dpToPx(16), dpToPx(8)); 
+        label.setTextSize(18); 
+        label.setTypeface(null, Typeface.BOLD); 
+        label.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(-1, -2); p.setMargins(0, dpToPx(12), 0, dpToPx(4)); 
+        label.setLayoutParams(p); 
+        return label;
     }
+
     private JSONObject findTeamById(String teamId, JSONArray teams) throws JSONException {
         if (teamId == null || teams == null) return null;
         for (int i = 0; i < teams.length(); i++) {
@@ -734,17 +700,18 @@ public class Footballdataplus extends AndroidNonvisibleComponent implements Comp
     }
     private String getStatLocalizedText(String key, String lang) {
         boolean isAR = "ar".equalsIgnoreCase(lang);
-        if ("total_matches_title".equals(key)) return isAR ? "إجمالي المباريات المكتملة" : "Total Matches Played";
-        if ("total_goals_title".equals(key)) return isAR ? "إجمالي الأهداف المسجلة" : "Total Goals Scored";
-        if ("goal_rate_title".equals(key)) return isAR ? "معدل الأهداف / مباراة" : "Goal Rate / Match";
-        if ("winner_matches_title".equals(key)) return isAR ? "مباريات انتهت بفوز" : "Matches with a Winner";
-        if ("draw_matches_title".equals(key)) return isAR ? "مباريات انتهت بالتعادل" : "Matches Ended in a Draw";
-        if ("strongest_attack_title".equals(key)) return isAR ? "أقوى خط هجوم" : "Strongest Attack";
-        if ("strongest_defense_title".equals(key)) return isAR ? "أقوى خط دفاع" : "Strongest Defense";
-        if ("weakest_attack_title".equals(key)) return isAR ? "أضعف خط هجوم" : "Weakest Attack";
-        if ("weakest_defense_title".equals(key)) return isAR ? "أضعف خط دفاع" : "Weakest Defense";
+        if ("total_matches_title".equals(key)) return isAR ? "المباريات المكتملة" : "Matches Played";
+        if ("total_goals_title".equals(key)) return isAR ? "الأهداف المسجلة" : "Goals Scored";
+        if ("goal_rate_title".equals(key)) return isAR ? "معدل الأهداف" : "Goal Rate";
+        if ("winner_matches_title".equals(key)) return isAR ? "مباريات بفائز" : "Matches With Winner";
+        if ("draw_matches_title".equals(key)) return isAR ? "مباريات بتعادل" : "Draw Matches";
+        if ("strongest_attack_title".equals(key)) return isAR ? "أقوى هجوم" : "Strongest Attack";
+        if ("strongest_defense_title".equals(key)) return isAR ? "أقوى دفاع" : "Strongest Defense";
+        if ("weakest_attack_title".equals(key)) return isAR ? "أضعف هجوم" : "Weakest Attack";
+        if ("weakest_defense_title".equals(key)) return isAR ? "أضعف دفاع" : "Weakest Defense";
         if ("no_completed_matches".equals(key)) return isAR ? "لا توجد مباريات مكتملة" : "No completed matches.";
         if ("group".equals(key)) return isAR ? "المجموعة" : "Group";
+        if ("overall_stats".equals(key)) return isAR ? "إحصائيات عامة" : "Overall Stats";
         return key;
     }
 }
