@@ -47,14 +47,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@DesignerComponent(version = 153, description = "A comprehensive suite for displaying football data, including matches, standings, statistics, news, and more.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "icon.png")
+@DesignerComponent(version = 156, description = "A comprehensive suite for displaying football data, including matches, standings, statistics, news, and more.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "icon.png")
 public class FootballSuite extends AndroidNonvisibleComponent implements Component {
 
     // --- Class Fields ---
@@ -93,174 +95,47 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     }
 
     // --- Events (@SimpleEvent) ---
-    @SimpleEvent public void MatchClicked(String matchId) { EventDispatcher.dispatchEvent(this, "MatchClicked", matchId); }
-    @SimpleEvent public void TeamClicked(String teamId) { EventDispatcher.dispatchEvent(this, "TeamClicked", teamId); }
-    @SimpleEvent public void AfterParsingSuccess() { EventDispatcher.dispatchEvent(this, "AfterParsingSuccess"); }
-    @SimpleEvent public void AfterParsingFail(String error) { EventDispatcher.dispatchEvent(this, "AfterParsingFail", error); }
-    @SimpleEvent public void NewNewsFound(int newCount, String message) { EventDispatcher.dispatchEvent(this, "NewNewsFound", newCount, message); }
-    @SimpleEvent public void SeasonClicked(String seasonName) { EventDispatcher.dispatchEvent(this, "SeasonClicked", seasonName); }
-    @SimpleEvent public void CompetitionClicked(String competitionId, String competitionName, boolean hasAges) { EventDispatcher.dispatchEvent(this, "CompetitionClicked", competitionId, competitionName, hasAges); }
-    @SimpleEvent public void AgeClicked(String competitionId, String age, boolean hasSectors, String matchesUrlOrNull) { EventDispatcher.dispatchEvent(this, "AgeClicked", competitionId, age, hasSectors, matchesUrlOrNull); }
-    @SimpleEvent public void SectorClicked(String sectorName, String matchesUrl) { EventDispatcher.dispatchEvent(this, "SectorClicked", sectorName, matchesUrl); }
-    @SimpleEvent public void AdClosed() { EventDispatcher.dispatchEvent(this, "AdClosed"); }
+
+    @SimpleEvent(description = "Event raised after the ad view is closed by the user.")
+    public void AdClosed() { EventDispatcher.dispatchEvent(this, "AdClosed"); }
+
+    @SimpleEvent(description = "Event raised if there is an error during JSON parsing or data processing.")
+    public void AfterParsingFail(String error) { EventDispatcher.dispatchEvent(this, "AfterParsingFail", error); }
+
+    @SimpleEvent(description = "Event raised after the JSON data has been successfully parsed and is ready to use.")
+    public void AfterParsingSuccess() { EventDispatcher.dispatchEvent(this, "AfterParsingSuccess"); }
+
+    @SimpleEvent(description = "Event raised when an age category is clicked in a list.")
+    public void AgeClicked(String competitionId, String age, boolean hasSectors, String matchesUrlOrNull) { EventDispatcher.dispatchEvent(this, "AgeClicked", competitionId, age, hasSectors, matchesUrlOrNull); }
+
+    @SimpleEvent(description = "Event raised when a competition is clicked in a list.")
+    public void CompetitionClicked(String competitionId, String competitionName, boolean hasAges) { EventDispatcher.dispatchEvent(this, "CompetitionClicked", competitionId, competitionName, hasAges); }
+
+    @SimpleEvent(description = "Event raised when a match item is clicked in a list. Returns the unique ID of the match.")
+    public void MatchClicked(String matchId) { EventDispatcher.dispatchEvent(this, "MatchClicked", matchId); }
+
+    @SimpleEvent(description = "Event raised when new, unread news items are found. Provides the count of new items and a localized message.")
+    public void NewNewsFound(int newCount, String message) { EventDispatcher.dispatchEvent(this, "NewNewsFound", newCount, message); }
+
+    @SimpleEvent(description = "Event raised when a season is clicked in a list.")
+    public void SeasonClicked(String seasonName) { EventDispatcher.dispatchEvent(this, "SeasonClicked", seasonName); }
+
+    @SimpleEvent(description = "Event raised when a sector is clicked in a list.")
+    public void SectorClicked(String sectorName, String matchesUrl) { EventDispatcher.dispatchEvent(this, "SectorClicked", sectorName, matchesUrl); }
+
+    @SimpleEvent(description = "Event raised when a team item is clicked in a list. Returns the unique ID of the team.")
+    public void TeamClicked(String teamId) { EventDispatcher.dispatchEvent(this, "TeamClicked", teamId); }
 
 
-    // --- Public Functions for Data Loading (@SimpleFunction) ---
-    @SimpleFunction
-    public void ParseJsonFromUrl(String url) {
-        AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpGet(url), new AsyncHttpClient.StringCallback() {
-            @Override
-            public void onCompleted(final Exception e, final AsyncHttpResponse source, final String result) {
-                activity.runOnUiThread(() -> {
-                    if (e != null) {
-                        jsonData = null;
-                        AfterParsingFail("Network Error: " + e.getMessage());
-                        return;
-                    }
-                    try {
-                        jsonData = new JSONObject(result);
-                        AfterParsingSuccess();
-                    } catch (JSONException je) {
-                        jsonData = null;
-                        AfterParsingFail("JSON Parsing Error: " + je.getMessage());
-                    }
-                });
-            }
-        });
-    }
+    // --- Public Functions (@SimpleFunction) ---
 
-    @SimpleFunction
-    public void SetJsonDataFromString(String jsonString) {
-        if (jsonString == null || jsonString.isEmpty()) {
-            AfterParsingFail("Input JSON string is empty.");
-            return;
-        }
-        try {
-            this.jsonData = new JSONObject(jsonString);
-            AfterParsingSuccess();
-        } catch (JSONException e) {
-            this.jsonData = null;
-            AfterParsingFail("JSON Parsing Error: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public String GetJsonDataAsString() {
-        return (jsonData != null) ? jsonData.toString() : "{}";
-    }
-
-    // --- Public Functions for Player & Team Statistics (@SimpleFunction) ---
-    @SimpleFunction public void CreateTournamentScorersList(HVArrangement c, String lang) { calculateAndDisplayTournamentStats(c, lang, "goals"); }
-    @SimpleFunction public void CreateTournamentAssistsList(HVArrangement c, String lang) { calculateAndDisplayTournamentStats(c, lang, "assists"); }
-    @SimpleFunction public void CreateTournamentCleanSheetsList(HVArrangement c, String lang) { calculateAndDisplayCleanSheets(c, lang); }
-    @SimpleFunction public void CreateTeamScorersList(HVArrangement c, String teamId, String lang) { calculateAndDisplayTeamStats(c, teamId, lang, "goals"); }
-    @SimpleFunction public void CreateTeamAssistsList(HVArrangement c, String teamId, String lang) { calculateAndDisplayTeamStats(c, teamId, lang, "assists"); }
-
-
-    // --- Public Functions for Match Details (@SimpleFunction) ---
-    @SimpleFunction
-    public void CreateMatchEventsList(HVArrangement c, String matchId, String lang) {
-        if (jsonData == null) return;
-        try {
-            final JSONObject match = findMatchById(matchId);
-            if (match == null) return;
-
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-
-            ScrollView mainScrollView = new ScrollView(context);
-            LinearLayout mainLayout = new LinearLayout(context);
-            mainLayout.setOrientation(LinearLayout.VERTICAL);
-            mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
-
-            final ArrayList<String> allScorers = new ArrayList<>();
-            final ArrayList<String> allAssists = new ArrayList<>();
-
-            new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        JSONArray homeEvents = getLocalizedArray(match, "home_scorers", lang);
-                        if (homeEvents != null) {
-                            boolean isAssistSection = false;
-                            for (int i = 0; i < homeEvents.length(); i++) {
-                                String event = homeEvents.getString(i);
-                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
-                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
-                            }
-                        }
-                        JSONArray awayEvents = getLocalizedArray(match, "away_scorers", lang);
-                        if (awayEvents != null) {
-                            boolean isAssistSection = false;
-                            for (int i = 0; i < awayEvents.length(); i++) {
-                                String event = awayEvents.getString(i);
-                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
-                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
-                            }
-                        }
-                    } catch (Exception e) { /* ignore JSON errors during processing */ }
-                }
-            }.run();
-
-            if (!allScorers.isEmpty()) {
-                mainLayout.addView(createEventHeader(getLocalizedText(null, "goals", lang), "soccer_ball.png", lang));
-                for (String scorer : allScorers) {
-                    mainLayout.addView(createPlayerCardView(scorer));
-                }
-            }
-
-            if (!allAssists.isEmpty()) {
-                mainLayout.addView(createEventHeader(getLocalizedText(null, "assists", lang), "goal_icon.png", lang));
-                for (String assist : allAssists) {
-                    mainLayout.addView(createPlayerCardView(assist));
-                }
-            }
-
-            mainScrollView.addView(mainLayout);
-            vg.addView(mainScrollView);
-
-        } catch (Exception e) {
-            AfterParsingFail("Error creating match events list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public void CreateMatchDetailHeader(HVArrangement c, String mId, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONObject matchObject = findMatchById(mId);
-            if (matchObject == null) return;
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            ml.addView(createDateHeaderView(matchObject.getString("date"), 1, lang, true, matchObject.getString("week")));
-            String groupName = getMatchGroupName(matchObject);
-            if (groupName != null) ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
-            ml.addView(createMatchItemView(matchObject, jsonData.getJSONArray("teams"), lang));
-            vg.addView(ml);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating match header: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction public void CreateMatchLineup(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "lineup", "home_squade", "away_squade"); }
-    @SimpleFunction public void CreateMatchScorers(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "scorers_list", "home_scorers", "away_scorers"); }
-    @SimpleFunction public void CreateMatchYellowCards(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "yellow_cards", "home_yc", "away_yc"); }
-    @SimpleFunction public void CreateMatchRedCards(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "red_cards", "home_rc", "away_rc"); }
-    @SimpleFunction public void CreateMatchSubstitutes(HVArrangement c, String mId, String lang) { createTwoColumnDetailView(c, mId, lang, "substitutions", "home_sub", "away_sub"); }
-
-
-    // --- Public Functions for Standings (@SimpleFunction) ---
-    @SimpleFunction public YailList GetGroupList() { if (jsonData == null) return YailList.makeEmptyList(); return YailList.makeList(getJavaGroupList()); }
-
-    @SimpleFunction
-    public void CalculateAndShowStandings(HVArrangement c, String groupId, String stageId, final String lang) {
+    @SimpleFunction(description = "Calculates and displays a league standings table for a specific group and/or stage. Use empty strings to ignore a filter.")
+    public void CalculateAndShowStandings(HVArrangement container, String groupId, String stageId, final String lang) {
         if (jsonData == null) return;
         try {
             java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
             if (standings == null || standings.isEmpty()) return;
-            ViewGroup vg = (ViewGroup) c.getView();
+            ViewGroup vg = (ViewGroup) container.getView();
             vg.removeAllViews();
             View table = buildStandingsTable(standings, lang);
             vg.addView(table, new ViewGroup.LayoutParams(-1, -1));
@@ -273,44 +148,25 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-    @SimpleFunction
-    public YailList GetStandingsData(String groupId, String stageId, String lang) {
-        if (jsonData == null) return YailList.makeEmptyList();
+    @SimpleFunction(description = "Creates and displays a searchable list of age categories for a given competition.")
+    public void CreateAgeList(HVArrangement container, String competitionId, final String language) {
+        if (jsonData == null) return;
         try {
-            java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
-            if (standings == null || standings.isEmpty()) return YailList.makeEmptyList();
-            java.util.List<YailList> resultList = new java.util.ArrayList<>();
-            JSONArray teams = jsonData.getJSONArray("teams");
-            for (TeamStats stats : standings) {
-                JSONObject teamInfo = getTeamInfoById(stats.teamId, teams);
-                String teamName = getLocalizedText(teamInfo, "name", lang);
-                java.util.List<Object> row = new java.util.ArrayList<>();
-                row.add(stats.position);
-                row.add(stats.teamId);
-                row.add(teamName);
-                row.add(stats.points);
-                row.add(stats.matchesPlayed);
-                row.add(stats.wins);
-                row.add(stats.draws);
-                row.add(stats.losses);
-                row.add(stats.goalsFor);
-                row.add(stats.goalsAgainst);
-                row.add(stats.getGoalDifference());
-                row.add(stats.penaltyPoints);
-                resultList.add(YailList.makeList(row));
-            }
-            return YailList.makeList(resultList);
+            JSONObject competition = findCompetitionById(competitionId);
+            if (competition == null) return;
+            final JSONArray ages = competition.optJSONArray("ages");
+            if (ages == null || ages.length() == 0) return;
+            createSearchableListView(container, language, "age", ages, competitionId, null);
         } catch (Exception e) {
-            AfterParsingFail("Error getting standings data: " + e.getMessage());
-            return YailList.makeEmptyList();
+            AfterParsingFail("Error creating age list: " + e.getMessage());
         }
     }
 
-    @SimpleFunction
-    public void CreateAllGroupsStandings(HVArrangement c, final String lang) {
+    @SimpleFunction(description = "Creates and displays standings tables for all groups found in the data.")
+    public void CreateAllGroupsStandings(HVArrangement container, final String lang) {
         if (jsonData == null) return;
         try {
-            ViewGroup vg = (ViewGroup) c.getView();
+            ViewGroup vg = (ViewGroup) container.getView();
             vg.removeAllViews();
             ScrollView sv = new ScrollView(context);
             LinearLayout ml = new LinearLayout(context);
@@ -333,220 +189,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-
-    // --- Public Functions for Lists (Matches, Teams, etc.) (@SimpleFunction) ---
-    @SimpleFunction
-    public void CreateMatchList(HVArrangement c, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONArray matches = jsonData.optJSONArray("matches");
-            if (matches == null) return;
-            final JSONArray teams = jsonData.getJSONArray("teams");
-            java.util.List<JSONObject> mList = new java.util.ArrayList<>();
-            for (int i = 0; i < matches.length(); i++) mList.add(matches.getJSONObject(i));
-            Collections.sort(mList, (o1, o2) -> { try { int d = o1.getString("date").compareTo(o2.getString("date")); if (d != 0) return d; return o1.optString("time", "").compareTo(o2.optString("time", "")); } catch (JSONException e) { return 0; } });
-            java.util.Map<String, java.util.Map<String, java.util.List<JSONObject>>> byDateAndWeek = new java.util.LinkedHashMap<>();
-            for (JSONObject match : mList) {
-                String date = match.getString("date");
-                String week = match.getString("week");
-                if (!byDateAndWeek.containsKey(date)) byDateAndWeek.put(date, new java.util.LinkedHashMap<>());
-                java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
-                if (byWeek == null) continue;
-                if (!byWeek.containsKey(week)) byWeek.put(week, new java.util.ArrayList<>());
-                java.util.List<JSONObject> weekList = byWeek.get(week);
-                if(weekList != null) weekList.add(match);
-            }
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            lastCreatedMatchListScrollView = new ScrollView(context);
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            firstUpcomingMatchView = null;
-            for (String date : byDateAndWeek.keySet()) {
-                java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
-                int totalDayMatches = 0;
-                if(byWeek == null) continue;
-                for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) totalDayMatches += weekMatchesList.size();
-                boolean multiWeek = byWeek.size() > 1;
-                ml.addView(createDateHeaderView(date, totalDayMatches, lang, !multiWeek, byWeek.keySet().iterator().next()));
-                if (firstUpcomingMatchView == null) {
-                    for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) {
-                        for (JSONObject match : weekMatchesList) {
-                            if (!"completed".equalsIgnoreCase(match.optString("status", "upcoming"))) {
-                                firstUpcomingMatchView = ml.getChildAt(ml.getChildCount() - 1);
-                                break;
-                            }
-                        }
-                        if (firstUpcomingMatchView != null) break;
-                    }
-                }
-                for (String week : byWeek.keySet()) {
-                    java.util.List<JSONObject> weekMatches = byWeek.get(week);
-                    if (weekMatches == null || weekMatches.isEmpty()) continue;
-                    if (multiWeek) ml.addView(createWeekHeaderView(week, lang));
-                    java.util.Map<String, java.util.List<JSONObject>> byGroup = new java.util.LinkedHashMap<>();
-                    for (JSONObject match : weekMatches) {
-                        String group = match.optString("group", null);
-                        if (group == null || group.isEmpty() || group.equals("null")) {
-                            group = "_no_group_";
-                        }
-                        if (!byGroup.containsKey(group)) byGroup.put(group, new java.util.ArrayList<>());
-                        java.util.List<JSONObject> groupList = byGroup.get(group);
-                        if (groupList != null) groupList.add(match);
-                    }
-                    for (String gName : byGroup.keySet()) {
-                        if (gName != null && !gName.equals("_no_group_")) {
-                            ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + gName, lang));
-                        }
-                        java.util.List<JSONObject> groupMatches = byGroup.get(gName);
-                        if (groupMatches != null) {
-                            for (JSONObject match : groupMatches) {
-                                ml.addView(createMatchItemView(match, teams, lang));
-                            }
-                        }
-                    }
-                }
-            }
-            lastCreatedMatchListScrollView.addView(ml);
-            vg.addView(lastCreatedMatchListScrollView);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating match list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction public void ScrollMatchListToUpcoming() { if (lastCreatedMatchListScrollView != null && firstUpcomingMatchView != null) { lastCreatedMatchListScrollView.post(() -> lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop())); } }
-
-    @SimpleFunction
-    public void CreateTeamList(HVArrangement c, final String lang) {
-        if (jsonData == null) return;
-        try {
-            final JSONArray teams = jsonData.getJSONArray("teams");
-            final java.util.List<JSONObject> teamList = new java.util.ArrayList<>();
-            for (int i = 0; i < teams.length(); i++) teamList.add(teams.getJSONObject(i));
-            Collections.sort(teamList, (o1, o2) -> getLocalizedText(o1, "name", lang).compareTo(getLocalizedText(o2, "name", lang)));
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            final LinearLayout content = new LinearLayout(context);
-            content.setOrientation(LinearLayout.VERTICAL);
-            buildTeamListView(content, teamList, lang);
-            EditText search = new EditText(context);
-            search.setHint(getLocalizedText(null, "search", lang));
-            search.setTextColor(Color.BLACK);
-            search.setHintTextColor(Color.GRAY);
-            LinearLayout.LayoutParams sp = new LinearLayout.LayoutParams(-1, -2);
-            sp.setMargins(24, 24, 24, 16);
-            search.setLayoutParams(sp);
-            search.addTextChangedListener(new TextWatcher() {
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    try {
-                        String filter = s.toString().toLowerCase();
-                        java.util.List<JSONObject> filtered = new java.util.ArrayList<>();
-                        for (JSONObject team : teamList) {
-                            if (getLocalizedText(team, "name", lang).toLowerCase().contains(filter))
-                                filtered.add(team);
-                        }
-                        buildTeamListView(content, filtered, lang);
-                    } catch (Exception e) {}
-                }
-                public void afterTextChanged(Editable s) {}
-            });
-            ScrollView sv = new ScrollView(context);
-            sv.addView(content);
-            ml.addView(search);
-            ml.addView(sv);
-            vg.addView(ml);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating team list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public void CreateTeamHeader(HVArrangement c, String tId, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONObject tInfo = getTeamInfoById(tId, jsonData.getJSONArray("teams"));
-            if (tInfo == null) return;
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            LinearLayout header = createTeamLayout(tInfo, lang);
-            header.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            header.setPadding(32, 32, 32, 32);
-            vg.addView(header);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating team header: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public void CreateTeamInfo(HVArrangement c, String tId, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONObject tInfo = getTeamInfoById(tId, jsonData.getJSONArray("teams"));
-            if (tInfo == null) return;
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            LinearLayout il = new LinearLayout(context);
-            il.setOrientation(LinearLayout.VERTICAL);
-            addInfoRow(il, getLocalizedText(null, "city", lang), getLocalizedText(tInfo, "city", lang), null, lang);
-            addInfoRow(il, getLocalizedText(null, "field", lang), getLocalizedText(tInfo, "field", lang), tInfo.optString("fieldurl"), lang);
-            addInfoRow(il, getLocalizedText(null, "information", lang), getLocalizedText(tInfo, "information", lang), null, lang);
-            vg.addView(il);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating team info: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public void CreateTeamPlayers(HVArrangement c, String tId, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONObject tInfo = getTeamInfoById(tId, jsonData.getJSONArray("teams"));
-            if (tInfo == null || !tInfo.has("players")) return;
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            LinearLayout pl = new LinearLayout(context);
-            pl.setOrientation(LinearLayout.VERTICAL);
-            addPlayerSection(pl, tInfo.getJSONObject("players"), "coach", lang);
-            addPlayerSection(pl, tInfo.getJSONObject("players"), "goalkeepers", lang);
-            addPlayerSection(pl, tInfo.getJSONObject("players"), "defenders", lang);
-            addPlayerSection(pl, tInfo.getJSONObject("players"), "midfielders", lang);
-            addPlayerSection(pl, tInfo.getJSONObject("players"), "attackers", lang);
-            vg.addView(pl);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating player list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
-    public void CreateTeamMatchList(HVArrangement c, String tId, String lang) {
-        if (jsonData == null) return;
-        try {
-            JSONArray allMatches = jsonData.optJSONArray("matches");
-            if (allMatches == null) return;
-            JSONArray teamMatches = new JSONArray();
-            for (int i = 0; i < allMatches.length(); i++) {
-                JSONObject match = allMatches.getJSONObject(i);
-                if (tId.equals(match.getString("home_team_id")) || tId.equals(match.getString("away_team_id")))
-                    teamMatches.put(match);
-            }
-            JSONObject tempJson = new JSONObject();
-            tempJson.put("matches", teamMatches);
-            tempJson.put("teams", jsonData.getJSONArray("teams"));
-            JSONObject originalJson = this.jsonData;
-            this.jsonData = tempJson;
-            CreateMatchList(c, lang);
-            this.jsonData = originalJson;
-        } catch (Exception e) {
-            AfterParsingFail("Error creating team match list: " + e.getMessage());
-        }
-    }
-
-
-    // --- Public Functions for Overall Statistics View (@SimpleFunction) ---
-    @SimpleFunction(description = "Creates a full view of all statistics, automatically grouped by competition stage or group.")
+    @SimpleFunction(description = "Creates a view showing comprehensive statistics for all completed matches, such as total goals, goal rates, etc.")
     public void CreateAllStatisticsView(HVArrangement container, String language) {
         if (this.jsonData == null) {
             AfterParsingFail("JSON data is not set.");
@@ -607,42 +250,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-
-    // --- Deprecated Statistics Functions ---
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateTotalMatchesPlayedView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateTotalGoalsScoredView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateGoalRateView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateMatchesWithWinnerView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateDrawMatchesView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateStrongestAttackView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateStrongestDefenseView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateWeakestAttackView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false) public void CreateWeakestDefenseView(HVArrangement c, String l) {}
-
-
-    // --- Public Functions for Hierarchical Navigation (@SimpleFunction) ---
-    @SimpleFunction
-    public void CreateSeasonList(HVArrangement container, final String language) {
-        if (jsonData == null) return;
-        try {
-            JSONArray seasons = null;
-            if (jsonData.has("seasons")) {
-                Object seasonsObj = jsonData.get("seasons");
-                if (seasonsObj instanceof JSONArray) {
-                    seasons = (JSONArray) seasonsObj;
-                } else if (seasonsObj instanceof JSONObject) {
-                    seasons = new JSONArray();
-                    seasons.put(seasonsObj);
-                }
-            }
-            if (seasons == null || seasons.length() == 0) return;
-            createSearchableListView(container, language, "season", seasons, null, null);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating season list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
+    @SimpleFunction(description = "Creates and displays a searchable list of competitions for a given season.")
     public void CreateCompetitionList(HVArrangement container, String seasonName, final String language) {
         if (jsonData == null) return;
         try {
@@ -656,62 +264,187 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-    @SimpleFunction
-    public void CreateAgeList(HVArrangement container, String competitionId, final String language) {
+    @SimpleFunction(description = "Creates a view with the detailed header for a specific match, including teams, logos, and score/time.")
+    public void CreateMatchDetailHeader(HVArrangement container, String matchId, String lang) {
         if (jsonData == null) return;
         try {
-            JSONObject competition = findCompetitionById(competitionId);
-            if (competition == null) return;
-            final JSONArray ages = competition.optJSONArray("ages");
-            if (ages == null || ages.length() == 0) return;
-            createSearchableListView(container, language, "age", ages, competitionId, null);
+            JSONObject matchObject = findMatchById(matchId);
+            if (matchObject == null) return;
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            LinearLayout ml = new LinearLayout(context);
+            ml.setOrientation(LinearLayout.VERTICAL);
+            ml.addView(createDateHeaderView(matchObject.getString("date"), 1, lang, true, matchObject.getString("week")));
+            String groupName = getMatchGroupName(matchObject);
+            if (groupName != null) ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
+            ml.addView(createMatchItemView(matchObject, jsonData.getJSONArray("teams"), lang));
+            vg.addView(ml);
         } catch (Exception e) {
-            AfterParsingFail("Error creating age list: " + e.getMessage());
+            AfterParsingFail("Error creating match header: " + e.getMessage());
         }
     }
 
-    @SimpleFunction
-    public void CreateSectorList(HVArrangement container, String competitionId, String age, final String language) {
+    @SimpleFunction(description = "Creates a view showing all events (goals and assists) for a specific match.")
+    public void CreateMatchEventsList(HVArrangement container, String matchId, String lang) {
         if (jsonData == null) return;
         try {
-            JSONObject competition = findCompetitionById(competitionId);
-            if (competition == null) return;
-            JSONObject ageObject = findObjectById(competition.optJSONArray("ages"), "age", age);
-            if (ageObject == null) return;
-            final JSONArray sectors = getLocalizedArray(ageObject, "sector", language);
-            final JSONArray urls = ageObject.optJSONArray("matchesurl");
-            if (sectors == null || urls == null || sectors.length() == 0 || urls.length() == 0) return;
-            JSONArray customList = new JSONArray();
-            for (int i = 0; i < sectors.length(); i++) {
-                if (i < urls.length()) {
-                    JSONObject item = new JSONObject();
-                    item.put("name", sectors.getString(i));
-                    item.put("url", urls.getString(i));
-                    customList.put(item);
+            final JSONObject match = findMatchById(matchId);
+            if (match == null) return;
+
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+
+            ScrollView mainScrollView = new ScrollView(context);
+            LinearLayout mainLayout = new LinearLayout(context);
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+
+            final ArrayList<String> allScorers = new ArrayList<>();
+            final ArrayList<String> allAssists = new ArrayList<>();
+
+            new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        JSONArray homeEvents = getLocalizedArray(match, "home_scorers", lang);
+                        if (homeEvents != null) {
+                            boolean isAssistSection = false;
+                            for (int i = 0; i < homeEvents.length(); i++) {
+                                String event = homeEvents.getString(i);
+                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
+                            }
+                        }
+                        JSONArray awayEvents = getLocalizedArray(match, "away_scorers", lang);
+                        if (awayEvents != null) {
+                            boolean isAssistSection = false;
+                            for (int i = 0; i < awayEvents.length(); i++) {
+                                String event = awayEvents.getString(i);
+                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
+                            }
+                        }
+                    } catch (Exception e) { /* ignore JSON errors during processing */ }
+                }
+            }.run();
+
+            if (!allScorers.isEmpty()) {
+                mainLayout.addView(createEventHeader(getLocalizedText(null, "goals", lang), "soccer_ball.png", lang));
+                for (String scorer : allScorers) {
+                    mainLayout.addView(createPlayerCardView(scorer));
                 }
             }
-            createSearchableListView(container, language, "sector", customList, competitionId, age);
+
+            if (!allAssists.isEmpty()) {
+                mainLayout.addView(createEventHeader(getLocalizedText(null, "assists", lang), "goal_icon.png", lang));
+                for (String assist : allAssists) {
+                    mainLayout.addView(createPlayerCardView(assist));
+                }
+            }
+
+            mainScrollView.addView(mainLayout);
+            vg.addView(mainScrollView);
+
         } catch (Exception e) {
-            AfterParsingFail("Error creating sector list: " + e.getMessage());
+            AfterParsingFail("Error creating match events list: " + e.getMessage());
         }
     }
 
+    @SimpleFunction(description = "Creates a view showing the starting lineup for both teams in a specific match.")
+    public void CreateMatchLineup(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "lineup", "home_squade", "away_squade"); }
 
-    // --- Public Functions for News, Venues, and Ads (@SimpleFunction) ---
-    @SimpleFunction
-    public void UpdateLastNewsCount() {
-        if (jsonData == null || !jsonData.has("news")) return;
+    @SimpleFunction(description = "Creates a scrollable list of all matches, grouped by date, week, and group.")
+    public void CreateMatchList(HVArrangement container, String lang) {
+        if (jsonData == null) return;
         try {
-            JSONArray newsArray = jsonData.getJSONArray("news");
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt(LAST_NEWS_COUNT_KEY, newsArray.length());
-            editor.apply();
-        } catch (JSONException e) {
-            // Ignore error
+            JSONArray matches = jsonData.optJSONArray("matches");
+            if (matches == null) return;
+            final JSONArray teams = jsonData.getJSONArray("teams");
+            java.util.List<JSONObject> mList = new java.util.ArrayList<>();
+            for (int i = 0; i < matches.length(); i++) mList.add(matches.getJSONObject(i));
+            Collections.sort(mList, (o1, o2) -> { try { int d = o1.getString("date").compareTo(o2.getString("date")); if (d != 0) return d; return o1.optString("time", "").compareTo(o2.optString("time", "")); } catch (JSONException e) { return 0; } });
+            java.util.Map<String, java.util.Map<String, java.util.List<JSONObject>>> byDateAndWeek = new java.util.LinkedHashMap<>();
+            for (JSONObject match : mList) {
+                String date = match.getString("date");
+                String week = match.getString("week");
+                if (!byDateAndWeek.containsKey(date)) byDateAndWeek.put(date, new java.util.LinkedHashMap<>());
+                java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
+                if (byWeek == null) continue;
+                if (!byWeek.containsKey(week)) byWeek.put(week, new java.util.ArrayList<>());
+                java.util.List<JSONObject> weekList = byWeek.get(week);
+                if(weekList != null) weekList.add(match);
+            }
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            lastCreatedMatchListScrollView = new ScrollView(context);
+            LinearLayout ml = new LinearLayout(context);
+            ml.setOrientation(LinearLayout.VERTICAL);
+            firstUpcomingMatchView = null;
+            for (String date : byDateAndWeek.keySet()) {
+                java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
+                int totalDayMatches = 0;
+                if(byWeek == null) continue;
+                for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) totalDayMatches += weekMatchesList.size();
+                boolean multiWeek = byWeek.size() > 1;
+                ml.addView(createDateHeaderView(date, totalDayMatches, lang, !multiWeek, byWeek.keySet().iterator().next()));
+                if (firstUpcomingMatchView == null) {
+                    for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) {
+                        for (JSONObject match : weekMatchesList) {
+                            if (!"completed".equalsIgnoreCase(match.optString("status", "upcoming"))) {
+                                firstUpcomingMatchView = ml.getChildAt(ml.getChildCount() - 1);
+                                break;
+                            }
+                        }
+                        if (firstUpcomingMatchView != null) break;
+                    }
+                }
+                for (String week : byWeek.keySet()) {
+                    java.util.List<JSONObject> weekMatches = byWeek.get(week);
+                    if (weekMatches == null || weekMatches.isEmpty()) continue;
+                    if (multiWeek) ml.addView(createWeekHeaderView(week, lang));
+                    java.util.Map<String, java.util.List<JSONObject>> byGroup = new java.util.LinkedHashMap<>();
+                    for (JSONObject match : weekMatches) {
+                        String group = match.optString("group", null);
+                        if (group == null || group.isEmpty() || group.equals("null")) {
+                            group = "_no_group_";
+                        }
+                        if (!byGroup.containsKey(group)) byGroup.put(group, new java.util.ArrayList<>());
+                        java.util.List<JSONObject> groupList = byGroup.get(group);
+                        if (groupList != null) groupList.add(match);
+                    }
+                    for (String gName : byGroup.keySet()) {
+                        if (gName != null && !gName.equals("_no_group_")) {
+                            ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + gName, lang));
+                        }
+                        java.util.List<JSONObject> groupMatches = byGroup.get(gName);
+                        if (groupMatches != null) {
+                            for (JSONObject match : groupMatches) {
+                                ml.addView(createMatchItemView(match, teams, lang));
+                            }
+                        }
+                    }
+                }
+            }
+            lastCreatedMatchListScrollView.addView(ml);
+            vg.addView(lastCreatedMatchListScrollView);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating match list: " + e.getMessage());
         }
     }
 
-    @SimpleFunction
+    @SimpleFunction(description = "Creates a view showing the red cards for both teams in a specific match.")
+    public void CreateMatchRedCards(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "red_cards", "home_rc", "away_rc"); }
+
+    @SimpleFunction(description = "Creates a view showing the goal scorers for both teams in a specific match.")
+    public void CreateMatchScorers(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "scorers_list", "home_scorers", "away_scorers"); }
+
+    @SimpleFunction(description = "Creates a view showing the substitutions for both teams in a specific match.")
+    public void CreateMatchSubstitutes(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "substitutions", "home_sub", "away_sub"); }
+
+    @SimpleFunction(description = "Creates a view showing the yellow cards for both teams in a specific match.")
+    public void CreateMatchYellowCards(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "yellow_cards", "home_yc", "away_yc"); }
+
+    @SimpleFunction(description = "Creates and displays a scrollable list of news articles from the JSON data.")
     public void CreateNewsList(HVArrangement container, final String language) {
         if (jsonData == null) return;
         ViewGroup vg = (ViewGroup) container.getView();
@@ -747,19 +480,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-    @SimpleFunction
-    public void CreateVenueList(HVArrangement container, final String language) {
-        if (jsonData == null) return;
-        try {
-            final JSONArray venuesArray = jsonData.optJSONArray("venues");
-            if (venuesArray == null || venuesArray.length() == 0) return;
-            createSearchableListView(container, language, "venue", venuesArray, null, null);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating venue list: " + e.getMessage());
-        }
-    }
-
-    @SimpleFunction
+    @SimpleFunction(description = "Creates and displays a random ad from the 'Ads' section of the JSON data.")
     public void CreateRandomAd(HVArrangement container, final long timeInMilliseconds) {
         if (jsonData == null) return;
         final ViewGroup vg = (ViewGroup) container.getView();
@@ -886,6 +607,343 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             AfterParsingFail("Error creating ad view: " + e.getMessage());
         }
     }
+
+    @SimpleFunction(description = "Creates and displays a searchable list of seasons.")
+    public void CreateSeasonList(HVArrangement container, final String language) {
+        if (jsonData == null) return;
+        try {
+            JSONArray seasons = null;
+            if (jsonData.has("seasons")) {
+                Object seasonsObj = jsonData.get("seasons");
+                if (seasonsObj instanceof JSONArray) {
+                    seasons = (JSONArray) seasonsObj;
+                } else if (seasonsObj instanceof JSONObject) {
+                    seasons = new JSONArray();
+                    seasons.put(seasonsObj);
+                }
+            }
+            if (seasons == null || seasons.length() == 0) return;
+            createSearchableListView(container, language, "season", seasons, null, null);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating season list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates and displays a searchable list of sectors for a given competition and age group.")
+    public void CreateSectorList(HVArrangement container, String competitionId, String age, final String language) {
+        if (jsonData == null) return;
+        try {
+            JSONObject competition = findCompetitionById(competitionId);
+            if (competition == null) return;
+            JSONObject ageObject = findObjectById(competition.optJSONArray("ages"), "age", age);
+            if (ageObject == null) return;
+            final JSONArray sectors = getLocalizedArray(ageObject, "sector", language);
+            final JSONArray urls = ageObject.optJSONArray("matchesurl");
+            if (sectors == null || urls == null || sectors.length() == 0 || urls.length() == 0) return;
+            JSONArray customList = new JSONArray();
+            for (int i = 0; i < sectors.length(); i++) {
+                if (i < urls.length()) {
+                    JSONObject item = new JSONObject();
+                    item.put("name", sectors.getString(i));
+                    item.put("url", urls.getString(i));
+                    customList.put(item);
+                }
+            }
+            createSearchableListView(container, language, "sector", customList, competitionId, age);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating sector list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates a list of top assisters for a specific team.")
+    public void CreateTeamAssistsList(HVArrangement container, String teamId, String lang) { calculateAndDisplayTeamStats(container, teamId, lang, "assists"); }
+
+    @SimpleFunction(description = "Creates a view with the detailed header for a specific team, showing its logo and name.")
+    public void CreateTeamHeader(HVArrangement container, String teamId, String lang) {
+        if (jsonData == null) return;
+        try {
+            JSONObject tInfo = getTeamInfoById(teamId, jsonData.getJSONArray("teams"));
+            if (tInfo == null) return;
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            LinearLayout header = createTeamLayout(tInfo, lang);
+            header.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            header.setPadding(32, 32, 32, 32);
+            vg.addView(header);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating team header: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates a view showing a team's information, such as city and field.")
+    public void CreateTeamInfo(HVArrangement container, String teamId, String lang) {
+        if (jsonData == null) return;
+        try {
+            JSONObject tInfo = getTeamInfoById(teamId, jsonData.getJSONArray("teams"));
+            if (tInfo == null) return;
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            LinearLayout il = new LinearLayout(context);
+            il.setOrientation(LinearLayout.VERTICAL);
+            addInfoRow(il, getLocalizedText(null, "city", lang), getLocalizedText(tInfo, "city", lang), null, lang);
+            addInfoRow(il, getLocalizedText(null, "field", lang), getLocalizedText(tInfo, "field", lang), tInfo.optString("fieldurl"), lang);
+            addInfoRow(il, getLocalizedText(null, "information", lang), getLocalizedText(tInfo, "information", lang), null, lang);
+            vg.addView(il);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating team info: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates and displays a searchable, grouped list of all teams.")
+    public void CreateTeamList(HVArrangement container, final String lang) {
+        if (jsonData == null) return;
+        try {
+            final JSONArray teams = jsonData.getJSONArray("teams");
+            final java.util.List<JSONObject> teamList = new java.util.ArrayList<>();
+            for (int i = 0; i < teams.length(); i++) teamList.add(teams.getJSONObject(i));
+            Collections.sort(teamList, (o1, o2) -> getLocalizedText(o1, "name", lang).compareTo(getLocalizedText(o2, "name", lang)));
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            LinearLayout ml = new LinearLayout(context);
+            ml.setOrientation(LinearLayout.VERTICAL);
+            final LinearLayout content = new LinearLayout(context);
+            content.setOrientation(LinearLayout.VERTICAL);
+            buildTeamListView(content, teamList, lang);
+            EditText search = new EditText(context);
+            search.setHint(getLocalizedText(null, "search", lang));
+            search.setTextColor(Color.BLACK);
+            search.setHintTextColor(Color.GRAY);
+            LinearLayout.LayoutParams sp = new LinearLayout.LayoutParams(-1, -2);
+            sp.setMargins(24, 24, 24, 16);
+            search.setLayoutParams(sp);
+            search.addTextChangedListener(new TextWatcher() {
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    try {
+                        String filter = s.toString().toLowerCase();
+                        java.util.List<JSONObject> filtered = new java.util.ArrayList<>();
+                        for (JSONObject team : teamList) {
+                            if (getLocalizedText(team, "name", lang).toLowerCase().contains(filter))
+                                filtered.add(team);
+                        }
+                        buildTeamListView(content, filtered, lang);
+                    } catch (Exception e) {}
+                }
+                public void afterTextChanged(Editable s) {}
+            });
+            ScrollView sv = new ScrollView(context);
+            sv.addView(content);
+            ml.addView(search);
+            ml.addView(sv);
+            vg.addView(ml);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating team list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates a list of all matches for a specific team.")
+    public void CreateTeamMatchList(HVArrangement container, String teamId, String lang) {
+        if (jsonData == null) return;
+        try {
+            JSONArray allMatches = jsonData.optJSONArray("matches");
+            if (allMatches == null) return;
+            JSONArray teamMatches = new JSONArray();
+            for (int i = 0; i < allMatches.length(); i++) {
+                JSONObject match = allMatches.getJSONObject(i);
+                if (teamId.equals(match.getString("home_team_id")) || teamId.equals(match.getString("away_team_id")))
+                    teamMatches.put(match);
+            }
+            JSONObject tempJson = new JSONObject();
+            tempJson.put("matches", teamMatches);
+            tempJson.put("teams", jsonData.getJSONArray("teams"));
+            JSONObject originalJson = this.jsonData;
+            this.jsonData = tempJson;
+            CreateMatchList(container, lang);
+            this.jsonData = originalJson;
+        } catch (Exception e) {
+            AfterParsingFail("Error creating team match list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates a view showing a team's players, grouped by position.")
+    public void CreateTeamPlayers(HVArrangement container, String teamId, String lang) {
+        if (jsonData == null) return;
+        try {
+            JSONObject tInfo = getTeamInfoById(teamId, jsonData.getJSONArray("teams"));
+            if (tInfo == null || !tInfo.has("players")) return;
+            ViewGroup vg = (ViewGroup) container.getView();
+            vg.removeAllViews();
+            LinearLayout pl = new LinearLayout(context);
+            pl.setOrientation(LinearLayout.VERTICAL);
+            addPlayerSection(pl, tInfo.getJSONObject("players"), "coach", lang);
+            addPlayerSection(pl, tInfo.getJSONObject("players"), "goalkeepers", lang);
+            addPlayerSection(pl, tInfo.getJSONObject("players"), "defenders", lang);
+            addPlayerSection(pl, tInfo.getJSONObject("players"), "midfielders", lang);
+            addPlayerSection(pl, tInfo.getJSONObject("players"), "attackers", lang);
+            vg.addView(pl);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating player list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Creates a list of top scorers for a specific team.")
+    public void CreateTeamScorersList(HVArrangement container, String teamId, String lang) { calculateAndDisplayTeamStats(container, teamId, lang, "goals"); }
+
+    @SimpleFunction(description = "Creates a list of players with the most assists in the tournament.")
+    public void CreateTournamentAssistsList(HVArrangement container, String lang) { calculateAndDisplayTournamentStats(container, lang, "assists"); }
+
+    @SimpleFunction(description = "Creates a list of goalkeepers with the most clean sheets in the tournament.")
+    public void CreateTournamentCleanSheetsList(HVArrangement container, String lang) { calculateAndDisplayCleanSheets(container, lang); }
+
+    @SimpleFunction(description = "Creates a list of the top goal scorers in the tournament.")
+    public void CreateTournamentScorersList(HVArrangement container, String lang) { calculateAndDisplayTournamentStats(container, lang, "goals"); }
+
+    @SimpleFunction(description = "Creates and displays a clickable list of venues (stadiums).")
+    public void CreateVenueList(HVArrangement container, final String language) {
+        if (jsonData == null) return;
+        try {
+            final JSONArray venuesArray = jsonData.optJSONArray("venues");
+            if (venuesArray == null || venuesArray.length() == 0) return;
+            createSearchableListView(container, language, "venue", venuesArray, null, null);
+        } catch (Exception e) {
+            AfterParsingFail("Error creating venue list: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Returns the currently loaded JSON data as a raw string.")
+    public String GetJsonDataAsString() {
+        return (jsonData != null) ? jsonData.toString() : "{}";
+    }
+
+    @SimpleFunction(description = "Returns a list of all unique group names found in the data (e.g., 'A', 'B', 'C').")
+    public YailList GetGroupList() {
+        if (jsonData == null) return YailList.makeEmptyList();
+        return YailList.makeList(getJavaGroupList());
+    }
+
+    @SimpleFunction(description = "Returns standings data as a list of lists without displaying it. Can be used for custom displays.")
+    public YailList GetStandingsData(String groupId, String stageId, String lang) {
+        if (jsonData == null) return YailList.makeEmptyList();
+        try {
+            java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
+            if (standings == null || standings.isEmpty()) return YailList.makeEmptyList();
+            java.util.List<YailList> resultList = new java.util.ArrayList<>();
+            JSONArray teams = jsonData.getJSONArray("teams");
+            for (TeamStats stats : standings) {
+                JSONObject teamInfo = getTeamInfoById(stats.teamId, teams);
+                String teamName = getLocalizedText(teamInfo, "name", lang);
+                java.util.List<Object> row = new java.util.ArrayList<>();
+                row.add(stats.position);
+                row.add(stats.teamId);
+                row.add(teamName);
+                row.add(stats.points);
+                row.add(stats.matchesPlayed);
+                row.add(stats.wins);
+                row.add(stats.draws);
+                row.add(stats.losses);
+                row.add(stats.goalsFor);
+                row.add(stats.goalsAgainst);
+                row.add(stats.getGoalDifference());
+                row.add(stats.penaltyPoints);
+                resultList.add(YailList.makeList(row));
+            }
+            return YailList.makeList(resultList);
+        } catch (Exception e) {
+            AfterParsingFail("Error getting standings data: " + e.getMessage());
+            return YailList.makeEmptyList();
+        }
+    }
+    
+    @SimpleFunction(description = "Returns a list of all unique stage IDs found in the match data.")
+    public YailList GetStageList() {
+        if (jsonData == null) return YailList.makeEmptyList();
+        Set<String> stageSet = new HashSet<>();
+        try {
+            JSONArray matches = jsonData.optJSONArray("matches");
+            if (matches == null) return YailList.makeEmptyList();
+
+            for (int i = 0; i < matches.length(); i++) {
+                JSONObject match = matches.getJSONObject(i);
+                String stage = match.optString("stage", null);
+                if (stage != null && !stage.isEmpty() && !stage.equals("null")) {
+                    stageSet.add(stage);
+                }
+            }
+        } catch (JSONException e) {
+            AfterParsingFail("Error getting stage list: " + e.getMessage());
+            return YailList.makeEmptyList();
+        }
+        return YailList.makeList(new ArrayList<>(stageSet));
+    }
+
+    @SimpleFunction(description = "Fetches and parses JSON data from a given URL. Triggers AfterParsingSuccess or AfterParsingFail event.")
+    public void ParseJsonFromUrl(String url) {
+        AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpGet(url), new AsyncHttpClient.StringCallback() {
+            @Override
+            public void onCompleted(final Exception e, final AsyncHttpResponse source, final String result) {
+                activity.runOnUiThread(() -> {
+                    if (e != null) {
+                        jsonData = null;
+                        AfterParsingFail("Network Error: " + e.getMessage());
+                        return;
+                    }
+                    try {
+                        jsonData = new JSONObject(result);
+                        AfterParsingSuccess();
+                    } catch (JSONException je) {
+                        jsonData = null;
+                        AfterParsingFail("JSON Parsing Error: " + je.getMessage());
+                    }
+                });
+            }
+        });
+    }
+
+    @SimpleFunction(description = "Scrolls a previously created match list to the first upcoming match.")
+    public void ScrollMatchListToUpcoming() {
+        if (lastCreatedMatchListScrollView != null && firstUpcomingMatchView != null) {
+            lastCreatedMatchListScrollView.post(() -> lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop()));
+        }
+    }
+
+    @SimpleFunction(description = "Sets the internal JSON data from a provided text string. Triggers AfterParsingSuccess or AfterParsingFail event.")
+    public void SetJsonDataFromString(String jsonString) {
+        if (jsonString == null || jsonString.isEmpty()) {
+            AfterParsingFail("Input JSON string is empty.");
+            return;
+        }
+        try {
+            this.jsonData = new JSONObject(jsonString);
+            AfterParsingSuccess();
+        } catch (JSONException e) {
+            this.jsonData = null;
+            AfterParsingFail("JSON Parsing Error: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Updates the persistent record of the current news count, so the app knows which news items have been seen.")
+    public void UpdateLastNewsCount() {
+        if (jsonData == null || !jsonData.has("news")) return;
+        try {
+            JSONArray newsArray = jsonData.getJSONArray("news");
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt(LAST_NEWS_COUNT_KEY, newsArray.length());
+            editor.apply();
+        } catch (JSONException e) {
+            // Ignore error
+        }
+    }
+    
+    // --- Deprecated Blocks ---
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateDrawMatchesView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateGoalRateView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateMatchesWithWinnerView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateStrongestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateStrongestDefenseView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateTotalGoalsScoredView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateTotalMatchesPlayedView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateWeakestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateWeakestDefenseView(HVArrangement c, String l) {}
 
 
     // --- Private Helper Methods ---
@@ -1422,10 +1480,14 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         if (statsMap.isEmpty()) return null;
         java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
         Collections.sort(sorted, (t1, t2) -> {
+            // 1. Compare by total points
             int pointsCompare = Integer.compare(t2.points, t1.points);
             if (pointsCompare != 0) return pointsCompare;
+
+            // 2. Head-to-head comparison
             int h2hPoints1 = 0, h2hPoints2 = 0;
-            int h2hGF1 = 0, h2hGA1 = 0;
+            int h2hGoalsFor1 = 0, h2hGoalsAgainst1 = 0;
+            boolean h2hMatchesExist = false;
             try {
                 if (matches != null) {
                     for (int i = 0; i < matches.length(); i++) {
@@ -1433,50 +1495,52 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                         if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
                         String homeId = match.getString("home_team_id");
                         String awayId = match.getString("away_team_id");
+
                         if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {
+                            h2hMatchesExist = true;
                             int hs = match.getInt("home_score");
                             int as = match.getInt("away_score");
-                            if (homeId.equals(t1.teamId)) {
-                                h2hGF1 += hs;
-                                h2hGA1 += as;
-                                if (hs > as) {
-                                    h2hPoints1 += 3;
-                                } else if (as > hs) {
-                                    h2hPoints2 += 3;
-                                } else {
-                                    h2hPoints1++;
-                                    h2hPoints2++;
-                                }
-                            } else {
-                                h2hGF1 += as;
-                                h2hGA1 += hs;
-                                if (as > hs) {
-                                    h2hPoints1 += 3;
-                                } else if (hs > as) {
-                                    h2hPoints2 += 3;
-                                } else {
-                                    h2hPoints1++;
-                                    h2hPoints2++;
-                                }
+
+                            if (homeId.equals(t1.teamId)) { // t1 is home, t2 is away
+                                h2hGoalsFor1 += hs;
+                                h2hGoalsAgainst1 += as;
+                                if (hs > as) h2hPoints1 += 3;
+                                else if (as > hs) h2hPoints2 += 3;
+                                else { h2hPoints1++; h2hPoints2++; }
+                            } else { // t2 is home, t1 is away
+                                h2hGoalsFor1 += as;
+                                h2hGoalsAgainst1 += hs;
+                                if (as > hs) h2hPoints1 += 3;
+                                else if (hs > as) { h2hPoints2 += 3; }
+                                else { h2hPoints1++; h2hPoints2++; }
                             }
                         }
                     }
                 }
-            } catch (JSONException e) {
-                // Ignore error
+            } catch (JSONException e) { /* ignore */ }
+
+            if (h2hMatchesExist) {
+                int h2hPointsCompare = Integer.compare(h2hPoints2, h2hPoints1);
+                if (h2hPointsCompare != 0) return h2hPointsCompare;
+
+                int h2hGd1 = h2hGoalsFor1 - h2hGoalsAgainst1;
+                int h2hGd2 = -h2hGd1;
+                int h2hGdCompare = Integer.compare(h2hGd2, h2hGd1);
+                if (h2hGdCompare != 0) return h2hGdCompare;
             }
-            int h2hPointsCompare = Integer.compare(h2hPoints2, h2hPoints1);
-            if (h2hPointsCompare != 0) return h2hPointsCompare;
-            int h2hGd1 = h2hGF1 - h2hGA1;
-            int h2hGd2 = -h2hGd1;
-            int h2hGdCompare = Integer.compare(h2hGd2, h2hGd1);
-            if (h2hGdCompare != 0) return h2hGdCompare;
+
+            // 3. Compare by overall goal difference
             int gdc = Integer.compare(t2.getGoalDifference(), t1.getGoalDifference());
             if (gdc != 0) return gdc;
+
+            // 4. Compare by overall goals for
             int gfc = Integer.compare(t2.goalsFor, t1.goalsFor);
             if (gfc != 0) return gfc;
+
+            // 5. Compare by team name alphabetically
             try {
-                return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
+                return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en")
+                        .compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
             } catch (JSONException e) {
                 return 0;
             }
