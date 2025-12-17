@@ -25,10 +25,20 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import com.google.appinventor.components.annotations.*;
+
+// App Inventor Imports
+import com.google.appinventor.components.annotations.SimpleEvent;
+import com.google.appinventor.components.annotations.SimpleFunction;
 import com.google.appinventor.components.common.ComponentCategory;
-import com.google.appinventor.components.runtime.*;
+import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
+import com.google.appinventor.components.runtime.Component;
+import com.google.appinventor.components.runtime.ComponentContainer;
+import com.google.appinventor.components.runtime.EventDispatcher;
+import com.google.appinventor.components.runtime.Form;
+import com.google.appinventor.components.runtime.HVArrangement;
 import com.google.appinventor.components.runtime.util.YailList;
+
+// External Libraries
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.AsyncHttpGet;
 import com.koushikdutta.async.http.AsyncHttpResponse;
@@ -56,7 +66,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@DesignerComponent(version = 156, description = "A comprehensive suite for displaying football data, including matches, standings, statistics, news, and more.", category = ComponentCategory.EXTENSION, nonVisible = true, iconName = "icon.png")
+
 public class FootballSuite extends AndroidNonvisibleComponent implements Component {
 
     // --- Class Fields ---
@@ -141,7 +151,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             vg.addView(table, new ViewGroup.LayoutParams(-1, -1));
             if ("ar".equalsIgnoreCase(lang) && table instanceof ScrollView) {
                 final HorizontalScrollView hsv = (HorizontalScrollView)((ScrollView)table).getChildAt(0);
-                hsv.post(() -> hsv.fullScroll(View.FOCUS_RIGHT));
+                hsv.post(new Runnable() { @Override public void run() { hsv.fullScroll(View.FOCUS_RIGHT); } });
             }
         } catch (Exception e) {
             AfterParsingFail("Error displaying standings: " + e.getMessage());
@@ -220,12 +230,15 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             }
 
             List<String> sortedBucketNames = new ArrayList<>(matchesByBucket.keySet());
-            Collections.sort(sortedBucketNames, (s1, s2) -> {
-                if (s1.equals("المرحلة الاولي")) return -1;
-                if (s2.equals("المرحلة الاولي")) return 1;
-                if (s1.equals(getStatLocalizedText("overall_stats", "en"))) return -1;
-                if (s2.equals(getStatLocalizedText("overall_stats", "en"))) return 1;
-                return s1.compareTo(s2);
+            Collections.sort(sortedBucketNames, new Comparator<String>() {
+                @Override
+                public int compare(String s1, String s2) {
+                    if (s1.equals("المرحلة الاولي")) return -1;
+                    if (s2.equals("المرحلة الاولي")) return 1;
+                    if (s1.equals(getStatLocalizedText("overall_stats", "en"))) return -1;
+                    if (s2.equals(getStatLocalizedText("overall_stats", "en"))) return 1;
+                    return s1.compareTo(s2);
+                }
             });
 
             for (String bucketName : sortedBucketNames) {
@@ -285,7 +298,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     }
 
     @SimpleFunction(description = "Creates a view showing all events (goals and assists) for a specific match.")
-    public void CreateMatchEventsList(HVArrangement container, String matchId, String lang) {
+    public void CreateMatchEventsList(HVArrangement container, String matchId, final String lang) {
         if (jsonData == null) return;
         try {
             final JSONObject match = findMatchById(matchId);
@@ -295,38 +308,33 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             vg.removeAllViews();
 
             ScrollView mainScrollView = new ScrollView(context);
-            LinearLayout mainLayout = new LinearLayout(context);
+            final LinearLayout mainLayout = new LinearLayout(context);
             mainLayout.setOrientation(LinearLayout.VERTICAL);
             mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
 
             final ArrayList<String> allScorers = new ArrayList<>();
             final ArrayList<String> allAssists = new ArrayList<>();
 
-            new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        JSONArray homeEvents = getLocalizedArray(match, "home_scorers", lang);
-                        if (homeEvents != null) {
-                            boolean isAssistSection = false;
-                            for (int i = 0; i < homeEvents.length(); i++) {
-                                String event = homeEvents.getString(i);
-                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
-                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
-                            }
-                        }
-                        JSONArray awayEvents = getLocalizedArray(match, "away_scorers", lang);
-                        if (awayEvents != null) {
-                            boolean isAssistSection = false;
-                            for (int i = 0; i < awayEvents.length(); i++) {
-                                String event = awayEvents.getString(i);
-                                if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
-                                if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
-                            }
-                        }
-                    } catch (Exception e) { /* ignore JSON errors during processing */ }
+            try {
+                JSONArray homeEvents = getLocalizedArray(match, "home_scorers", lang);
+                if (homeEvents != null) {
+                    boolean isAssistSection = false;
+                    for (int i = 0; i < homeEvents.length(); i++) {
+                        String event = homeEvents.getString(i);
+                        if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                        if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
+                    }
                 }
-            }.run();
+                JSONArray awayEvents = getLocalizedArray(match, "away_scorers", lang);
+                if (awayEvents != null) {
+                    boolean isAssistSection = false;
+                    for (int i = 0; i < awayEvents.length(); i++) {
+                        String event = awayEvents.getString(i);
+                        if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                        if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
+                    }
+                }
+            } catch (Exception e) { /* ignore JSON errors during processing */ }
 
             if (!allScorers.isEmpty()) {
                 mainLayout.addView(createEventHeader(getLocalizedText(null, "goals", lang), "soccer_ball.png", lang));
@@ -354,7 +362,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     public void CreateMatchLineup(HVArrangement container, String matchId, String lang) { createTwoColumnDetailView(container, matchId, lang, "lineup", "home_squade", "away_squade"); }
 
     @SimpleFunction(description = "Creates a scrollable list of all matches, grouped by date, week, and group.")
-    public void CreateMatchList(HVArrangement container, String lang) {
+    public void CreateMatchList(HVArrangement container, final String lang) {
         if (jsonData == null) return;
         try {
             JSONArray matches = jsonData.optJSONArray("matches");
@@ -362,15 +370,15 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             final JSONArray teams = jsonData.getJSONArray("teams");
             java.util.List<JSONObject> mList = new java.util.ArrayList<>();
             for (int i = 0; i < matches.length(); i++) mList.add(matches.getJSONObject(i));
-            Collections.sort(mList, (o1, o2) -> { try { int d = o1.getString("date").compareTo(o2.getString("date")); if (d != 0) return d; return o1.optString("time", "").compareTo(o2.optString("time", "")); } catch (JSONException e) { return 0; } });
+            Collections.sort(mList, new Comparator<JSONObject>() { @Override public int compare(JSONObject o1, JSONObject o2) { try { int d = o1.getString("date").compareTo(o2.getString("date")); if (d != 0) return d; return o1.optString("time", "").compareTo(o2.optString("time", "")); } catch (JSONException e) { return 0; } } });
             java.util.Map<String, java.util.Map<String, java.util.List<JSONObject>>> byDateAndWeek = new java.util.LinkedHashMap<>();
             for (JSONObject match : mList) {
                 String date = match.getString("date");
                 String week = match.getString("week");
-                if (!byDateAndWeek.containsKey(date)) byDateAndWeek.put(date, new java.util.LinkedHashMap<>());
+                if (!byDateAndWeek.containsKey(date)) byDateAndWeek.put(date, new java.util.LinkedHashMap<String, java.util.List<JSONObject>>());
                 java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
                 if (byWeek == null) continue;
-                if (!byWeek.containsKey(week)) byWeek.put(week, new java.util.ArrayList<>());
+                if (!byWeek.containsKey(week)) byWeek.put(week, new java.util.ArrayList<JSONObject>());
                 java.util.List<JSONObject> weekList = byWeek.get(week);
                 if(weekList != null) weekList.add(match);
             }
@@ -408,7 +416,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                         if (group == null || group.isEmpty() || group.equals("null")) {
                             group = "_no_group_";
                         }
-                        if (!byGroup.containsKey(group)) byGroup.put(group, new java.util.ArrayList<>());
+                        if (!byGroup.containsKey(group)) byGroup.put(group, new java.util.ArrayList<JSONObject>());
                         java.util.List<JSONObject> groupList = byGroup.get(group);
                         if (groupList != null) groupList.add(match);
                     }
@@ -473,7 +481,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             vg.addView(sv);
             final View targetView = firstNewItemView;
             if (targetView != null) {
-                sv.post(() -> sv.smoothScrollTo(0, targetView.getTop()));
+                sv.post(new Runnable() { @Override public void run() { sv.smoothScrollTo(0, targetView.getTop()); }});
             }
         } catch (Exception e) {
             AfterParsingFail("Error creating news list: " + e.getMessage());
@@ -517,7 +525,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                 unseenAds = validAds;
             }
             if (unseenAds.isEmpty()) return;
-            JSONObject randomAd = unseenAds.get(new Random().nextInt(unseenAds.size()));
+            final JSONObject randomAd = unseenAds.get(new Random().nextInt(unseenAds.size()));
 
             final RelativeLayout adContainer = createAdCardView(randomAd);
             vg.addView(adContainer);
@@ -560,41 +568,50 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                     public void onTick(long millisUntilFinished) {
                         final int secondsRemaining = (int) Math.ceil((double) millisUntilFinished / 1000.0);
                         final int progress = (int)(timeInMilliseconds - millisUntilFinished);
-                        ((Activity) context).runOnUiThread(() -> {
-                            countdownText.setText(String.valueOf(secondsRemaining));
-                            progressBar.setProgress(progress);
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                countdownText.setText(String.valueOf(secondsRemaining));
+                                progressBar.setProgress(progress);
+                            }
                         });
                     }
                     @Override
                     public void onFinish() {
-                        ((Activity) context).runOnUiThread(() -> {
-                            if (adContainer != null) adContainer.removeView(countdownLayout);
-                            TextView closeButton = new TextView(context);
-                            closeButton.setLayoutParams(countdownParams);
-                            closeButton.setText("X");
-                            closeButton.setTextColor(Color.DKGRAY);
-                            closeButton.setTextSize(20);
-                            closeButton.setTypeface(null, Typeface.BOLD);
-                            closeButton.setGravity(Gravity.CENTER);
-                            GradientDrawable closeBg = new GradientDrawable();
-                            closeBg.setShape(GradientDrawable.OVAL);
-                            closeBg.setColor(Color.parseColor("#B3FFFFFF"));
-                            closeBg.setStroke(dpToPx(2), Color.DKGRAY);
-                            if (Build.VERSION.SDK_INT >= 16) {
-                                closeButton.setBackground(closeBg);
-                            } else {
-                                closeButton.setBackgroundDrawable(closeBg);
-                            }
-
-                            closeButton.setOnClickListener(v -> {
-                                if (vg != null && adContainer.getParent() == vg) {
-                                    vg.removeView(adContainer);
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (adContainer != null) adContainer.removeView(countdownLayout);
+                                TextView closeButton = new TextView(context);
+                                closeButton.setLayoutParams(countdownParams);
+                                closeButton.setText("X");
+                                closeButton.setTextColor(Color.DKGRAY);
+                                closeButton.setTextSize(20);
+                                closeButton.setTypeface(null, Typeface.BOLD);
+                                closeButton.setGravity(Gravity.CENTER);
+                                GradientDrawable closeBg = new GradientDrawable();
+                                closeBg.setShape(GradientDrawable.OVAL);
+                                closeBg.setColor(Color.parseColor("#B3FFFFFF"));
+                                closeBg.setStroke(dpToPx(2), Color.DKGRAY);
+                                if (Build.VERSION.SDK_INT >= 16) {
+                                    closeButton.setBackground(closeBg);
+                                } else {
+                                    closeButton.setBackgroundDrawable(closeBg);
                                 }
-                                AdClosed();
-                            });
 
-                            if (adContainer != null) {
-                                adContainer.addView(closeButton);
+                                closeButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (vg != null && adContainer.getParent() == vg) {
+                                            vg.removeView(adContainer);
+                                        }
+                                        AdClosed();
+                                    }
+                                });
+
+                                if (adContainer != null) {
+                                    adContainer.addView(closeButton);
+                                }
                             }
                         });
                     }
@@ -701,7 +718,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             final JSONArray teams = jsonData.getJSONArray("teams");
             final java.util.List<JSONObject> teamList = new java.util.ArrayList<>();
             for (int i = 0; i < teams.length(); i++) teamList.add(teams.getJSONObject(i));
-            Collections.sort(teamList, (o1, o2) -> getLocalizedText(o1, "name", lang).compareTo(getLocalizedText(o2, "name", lang)));
+            Collections.sort(teamList, new Comparator<JSONObject>() { @Override public int compare(JSONObject o1, JSONObject o2) { return getLocalizedText(o1, "name", lang).compareTo(getLocalizedText(o2, "name", lang)); } });
             ViewGroup vg = (ViewGroup) container.getView();
             vg.removeAllViews();
             LinearLayout ml = new LinearLayout(context);
@@ -773,6 +790,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             if (tInfo == null || !tInfo.has("players")) return;
             ViewGroup vg = (ViewGroup) container.getView();
             vg.removeAllViews();
+            ScrollView sv = new ScrollView(context);
             LinearLayout pl = new LinearLayout(context);
             pl.setOrientation(LinearLayout.VERTICAL);
             addPlayerSection(pl, tInfo.getJSONObject("players"), "coach", lang);
@@ -780,7 +798,8 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             addPlayerSection(pl, tInfo.getJSONObject("players"), "defenders", lang);
             addPlayerSection(pl, tInfo.getJSONObject("players"), "midfielders", lang);
             addPlayerSection(pl, tInfo.getJSONObject("players"), "attackers", lang);
-            vg.addView(pl);
+            sv.addView(pl);
+            vg.addView(sv);
         } catch (Exception e) {
             AfterParsingFail("Error creating player list: " + e.getMessage());
         }
@@ -881,7 +900,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpGet(url), new AsyncHttpClient.StringCallback() {
             @Override
             public void onCompleted(final Exception e, final AsyncHttpResponse source, final String result) {
-                activity.runOnUiThread(() -> {
+                activity.runOnUiThread(new Runnable() { @Override public void run() {
                     if (e != null) {
                         jsonData = null;
                         AfterParsingFail("Network Error: " + e.getMessage());
@@ -894,7 +913,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                         jsonData = null;
                         AfterParsingFail("JSON Parsing Error: " + je.getMessage());
                     }
-                });
+                }});
             }
         });
     }
@@ -902,7 +921,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     @SimpleFunction(description = "Scrolls a previously created match list to the first upcoming match.")
     public void ScrollMatchListToUpcoming() {
         if (lastCreatedMatchListScrollView != null && firstUpcomingMatchView != null) {
-            lastCreatedMatchListScrollView.post(() -> lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop()));
+            lastCreatedMatchListScrollView.post(new Runnable() { @Override public void run() { lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop()); }});
         }
     }
 
@@ -935,15 +954,15 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     }
     
     // --- Deprecated Blocks ---
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateDrawMatchesView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateGoalRateView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateMatchesWithWinnerView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateStrongestAttackView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateStrongestDefenseView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateTotalGoalsScoredView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateTotalMatchesPlayedView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateWeakestAttackView(HVArrangement c, String l) {}
-    @Deprecated @SimpleFunction(userVisible = false, description = "This block is deprecated.") public void CreateWeakestDefenseView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateDrawMatchesView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateGoalRateView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateMatchesWithWinnerView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateStrongestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateStrongestDefenseView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateTotalGoalsScoredView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateTotalMatchesPlayedView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateWeakestAttackView(HVArrangement c, String l) {}
+    @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateWeakestDefenseView(HVArrangement c, String l) {}
 
 
     // --- Private Helper Methods ---
@@ -1110,10 +1129,10 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             for (java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()) {
                 String groupName = entry.getKey();
                 java.util.List<PlayerStat> groupStats = entry.getValue();
-                Collections.sort(groupStats, (o1, o2) -> {
-                    if ("goals".equals(statType)) return Integer.compare(o2.goals, o1.goals);
-                    else return Integer.compare(o2.assists, o1.assists);
-                });
+                Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) {
+                    if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals);
+                    else return Integer.valueOf(o2.assists).compareTo(o1.assists);
+                }});
                 if (hasAnyGroups && !groupName.equals("_no_group_"))
                     ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
                 ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));
@@ -1202,7 +1221,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             for (java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()) {
                 String groupName = entry.getKey();
                 java.util.List<PlayerStat> groupStats = entry.getValue();
-                Collections.sort(groupStats, (o1, o2) -> Integer.compare(o2.cleanSheets, o1.cleanSheets));
+                Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets); }});
                 if (hasAnyGroups && !groupName.equals("_no_group_"))
                     ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
                 ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, "clean_sheets", lang)));
@@ -1327,7 +1346,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         r.setPadding(32, 24, 32, 24);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
             r.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
-        r.setOnClickListener(v -> TeamClicked(teamId));
+        r.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { TeamClicked(teamId); } });
         ImageView logo = new ImageView(context);
         logo.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
         Picasso.with(context).load(team.optString("logo")).into(logo);
@@ -1384,11 +1403,13 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             LinearLayout ml = new LinearLayout(context);
             ml.setOrientation(LinearLayout.VERTICAL);
             java.util.List<PlayerStat> sortedStats = new ArrayList<>(playerStats.values());
-            Collections.sort(sortedStats, (o1, o2) -> {
-                if ("goals".equals(statType)) {
-                    return Integer.compare(o2.goals, o1.goals);
-                } else {
-                    return Integer.compare(o2.assists, o1.assists);
+            Collections.sort(sortedStats, new Comparator<PlayerStat>() {
+                @Override public int compare(PlayerStat o1, PlayerStat o2) {
+                    if ("goals".equals(statType)) {
+                        return Integer.valueOf(o2.goals).compareTo(o1.goals);
+                    } else {
+                        return Integer.valueOf(o2.assists).compareTo(o1.assists);
+                    }
                 }
             });
             ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));
@@ -1479,70 +1500,72 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
         if (statsMap.isEmpty()) return null;
         java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
-        Collections.sort(sorted, (t1, t2) -> {
-            // 1. Compare by total points
-            int pointsCompare = Integer.compare(t2.points, t1.points);
-            if (pointsCompare != 0) return pointsCompare;
+        Collections.sort(sorted, new Comparator<TeamStats>() {
+            @Override public int compare(TeamStats t1, TeamStats t2) {
+                // 1. Compare by total points
+                int pointsCompare = Integer.valueOf(t2.points).compareTo(t1.points);
+                if (pointsCompare != 0) return pointsCompare;
 
-            // 2. Head-to-head comparison
-            int h2hPoints1 = 0, h2hPoints2 = 0;
-            int h2hGoalsFor1 = 0, h2hGoalsAgainst1 = 0;
-            boolean h2hMatchesExist = false;
-            try {
-                if (matches != null) {
-                    for (int i = 0; i < matches.length(); i++) {
-                        JSONObject match = matches.getJSONObject(i);
-                        if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
-                        String homeId = match.getString("home_team_id");
-                        String awayId = match.getString("away_team_id");
+                // 2. Head-to-head comparison
+                int h2hPoints1 = 0, h2hPoints2 = 0;
+                int h2hGoalsFor1 = 0, h2hGoalsAgainst1 = 0;
+                boolean h2hMatchesExist = false;
+                try {
+                    if (matches != null) {
+                        for (int i = 0; i < matches.length(); i++) {
+                            JSONObject match = matches.getJSONObject(i);
+                            if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+                            String homeId = match.getString("home_team_id");
+                            String awayId = match.getString("away_team_id");
 
-                        if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {
-                            h2hMatchesExist = true;
-                            int hs = match.getInt("home_score");
-                            int as = match.getInt("away_score");
+                            if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {
+                                h2hMatchesExist = true;
+                                int hs = match.getInt("home_score");
+                                int as = match.getInt("away_score");
 
-                            if (homeId.equals(t1.teamId)) { // t1 is home, t2 is away
-                                h2hGoalsFor1 += hs;
-                                h2hGoalsAgainst1 += as;
-                                if (hs > as) h2hPoints1 += 3;
-                                else if (as > hs) h2hPoints2 += 3;
-                                else { h2hPoints1++; h2hPoints2++; }
-                            } else { // t2 is home, t1 is away
-                                h2hGoalsFor1 += as;
-                                h2hGoalsAgainst1 += hs;
-                                if (as > hs) h2hPoints1 += 3;
-                                else if (hs > as) { h2hPoints2 += 3; }
-                                else { h2hPoints1++; h2hPoints2++; }
+                                if (homeId.equals(t1.teamId)) { // t1 is home, t2 is away
+                                    h2hGoalsFor1 += hs;
+                                    h2hGoalsAgainst1 += as;
+                                    if (hs > as) h2hPoints1 += 3;
+                                    else if (as > hs) h2hPoints2 += 3;
+                                    else { h2hPoints1++; h2hPoints2++; }
+                                } else { // t2 is home, t1 is away
+                                    h2hGoalsFor1 += as;
+                                    h2hGoalsAgainst1 += hs;
+                                    if (as > hs) h2hPoints1 += 3;
+                                    else if (hs > as) { h2hPoints2 += 3; }
+                                    else { h2hPoints1++; h2hPoints2++; }
+                                }
                             }
                         }
                     }
+                } catch (JSONException e) { /* ignore */ }
+
+                if (h2hMatchesExist) {
+                    int h2hPointsCompare = Integer.valueOf(h2hPoints2).compareTo(h2hPoints1);
+                    if (h2hPointsCompare != 0) return h2hPointsCompare;
+
+                    int h2hGd1 = h2hGoalsFor1 - h2hGoalsAgainst1;
+                    int h2hGd2 = -h2hGd1;
+                    int h2hGdCompare = Integer.valueOf(h2hGd2).compareTo(h2hGd1);
+                    if (h2hGdCompare != 0) return h2hGdCompare;
                 }
-            } catch (JSONException e) { /* ignore */ }
 
-            if (h2hMatchesExist) {
-                int h2hPointsCompare = Integer.compare(h2hPoints2, h2hPoints1);
-                if (h2hPointsCompare != 0) return h2hPointsCompare;
+                // 3. Compare by overall goal difference
+                int gdc = Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference());
+                if (gdc != 0) return gdc;
 
-                int h2hGd1 = h2hGoalsFor1 - h2hGoalsAgainst1;
-                int h2hGd2 = -h2hGd1;
-                int h2hGdCompare = Integer.compare(h2hGd2, h2hGd1);
-                if (h2hGdCompare != 0) return h2hGdCompare;
-            }
+                // 4. Compare by overall goals for
+                int gfc = Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor);
+                if (gfc != 0) return gfc;
 
-            // 3. Compare by overall goal difference
-            int gdc = Integer.compare(t2.getGoalDifference(), t1.getGoalDifference());
-            if (gdc != 0) return gdc;
-
-            // 4. Compare by overall goals for
-            int gfc = Integer.compare(t2.goalsFor, t1.goalsFor);
-            if (gfc != 0) return gfc;
-
-            // 5. Compare by team name alphabetically
-            try {
-                return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en")
-                        .compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
-            } catch (JSONException e) {
-                return 0;
+                // 5. Compare by team name alphabetically
+                try {
+                    return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en")
+                            .compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
+                } catch (JSONException e) {
+                    return 0;
+                }
             }
         });
         for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;
@@ -1750,7 +1773,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
         else card.setBackgroundDrawable(bg);
         if (Build.VERSION.SDK_INT >= 21) card.setElevation(4);
-        card.setOnClickListener(v -> MatchClicked(matchId));
+        card.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { MatchClicked(matchId); } });
         TextView top = createTextView("", -1, 0, false);
         top.setTextSize(12);
         top.setTextColor(Color.GRAY);
@@ -1930,13 +1953,13 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             vv.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
             if (url != null && !url.isEmpty() && !"null".equalsIgnoreCase(url)) {
                 vv.setTextColor(Color.BLUE);
-                r.setOnClickListener(v -> {
+                r.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) {
                     try {
                         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                     } catch (Exception e) {
                         // Ignore error
                     }
-                });
+                }});
             }
             r.addView(tv);
             r.addView(vv);
@@ -1947,10 +1970,28 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     private void addPlayerSection(LinearLayout c, JSONObject players, String key, String lang) {
         String title = getLocalizedText(null, key, lang);
-        String pListRaw = getLocalizedText(players, key, lang);
-        if (pListRaw == null || pListRaw.isEmpty() || "null".equalsIgnoreCase(pListRaw)) return;
-        String pList = pListRaw.replaceAll("[\"\\[\\]\\\\]", "").replace(",", "\n");
+        if (!players.has(key) || players.isNull(key)) return;
+
+        StringBuilder playerListBuilder = new StringBuilder();
+        Object rawData = players.opt(key);
+
+        if (rawData instanceof JSONArray) {
+            JSONArray arr = (JSONArray) rawData;
+            for (int i = 0; i < arr.length(); i++) {
+                String pName = arr.optString(i);
+                if (!pName.isEmpty()) {
+                    if (playerListBuilder.length() > 0) playerListBuilder.append("\n");
+                    playerListBuilder.append(pName);
+                }
+            }
+        } else {
+            String s = getLocalizedText(players, key, lang);
+            playerListBuilder.append(s.replaceAll("[\"\\[\\]\\\\]", "").replace(",", "\n"));
+        }
+
+        String pList = playerListBuilder.toString();
         if (pList.trim().isEmpty()) return;
+
         TextView tv = createTextView(title, -1, 0, true);
         tv.setTextSize(16);
         tv.setPadding(32, 24, 32, 8);
@@ -2134,13 +2175,13 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     }
 
     private View.OnClickListener createLinkClickListener(final String url) {
-        return v -> {
+        return new View.OnClickListener() { @Override public void onClick(View v) {
             try {
                 context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             } catch (Exception e) {
                 // Ignore error
             }
-        };
+        }};
     }
 
     private ImageView createIcon(String assetName) {
@@ -2207,7 +2248,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                     itemView.setGravity(Gravity.CENTER);
                     itemView.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
                     itemView.setTypeface(null, Typeface.BOLD);
-                    itemView.setOnClickListener(v -> {
+                    itemView.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) {
                         try {
                             if (type.equals("season")) {
                                 SeasonClicked(name);
@@ -2231,7 +2272,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                         } catch (Exception e) {
                             // Ignore error
                         }
-                    });
+                    }});
                     container.addView(itemView);
                     container.addView(createDivider());
                 }
