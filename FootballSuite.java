@@ -46,6 +46,8 @@ import com.google.appinventor.components.runtime.util.YailList;
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.AsyncHttpGet;
 import com.koushikdutta.async.http.AsyncHttpResponse;
+import com.koushikdutta.async.ByteBufferList;
+import java.nio.charset.Charset;
 import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,6 +85,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private static final String PREFS_NAME = "FootballDataPlusPrefs";
     private static final String LAST_NEWS_COUNT_KEY = "lastNewsCount";
     private static final String SHOWN_ADS_KEY = "shownAds";
+    private int groupHeaderTextColor = Color.BLACK;
 
     // --- UI Customization Fields (Defaults) ---
     private int primaryTextColor = Color.BLACK;
@@ -181,6 +184,16 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     @SimpleProperty
     public int AccentColor() {
         return this.accentColor;
+    }
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFF000000")
+    @SimpleProperty(description = "Sets the text color for group/section headers (e.g. Group A, Week 1).")
+    public void GroupHeaderTextColor(int color) {
+        this.groupHeaderTextColor = color;
+    }
+
+    @SimpleProperty
+    public int GroupHeaderTextColor() {
+        return this.groupHeaderTextColor;
     }
 
     // --- Events (@SimpleEvent) ---
@@ -976,23 +989,35 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     @SimpleFunction(description = "Fetches and parses JSON data from a given URL. Triggers AfterParsingSuccess or AfterParsingFail event.")
     public void ParseJsonFromUrl(String url) {
-        AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpGet(url), new AsyncHttpClient.StringCallback() {
+        // We use executeByteBufferList instead of executeString to get raw bytes
+        AsyncHttpClient.getDefaultInstance().executeByteBufferList(new AsyncHttpGet(url), new AsyncHttpClient.DownloadCallback() {
             @Override
-            public void onCompleted(final Exception e, final AsyncHttpResponse source, final String result) {
-                activity.runOnUiThread(new Runnable() { @Override public void run() {
-                    if (e != null) {
-                        jsonData = null;
-                        AfterParsingFail("Network Error: " + e.getMessage());
-                        return;
+            public void onCompleted(final Exception e, final AsyncHttpResponse source, final ByteBufferList result) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (e != null) {
+                            jsonData = null;
+                            AfterParsingFail("Network Error: " + e.getMessage());
+                            return;
+                        }
+                        try {
+                            // FIX: Manually convert the raw bytes to a UTF-8 String
+                            String jsonString = "";
+                            if (result != null) {
+                                // getAllByteArray() consumes the list and returns the data
+                                byte[] bytes = result.getAllByteArray();
+                                jsonString = new String(bytes, "UTF-8");
+                            }
+                            
+                            jsonData = new JSONObject(jsonString);
+                            AfterParsingSuccess();
+                        } catch (Exception je) {
+                            jsonData = null;
+                            AfterParsingFail("JSON Parsing Error: " + je.getMessage());
+                        }
                     }
-                    try {
-                        jsonData = new JSONObject(result);
-                        AfterParsingSuccess();
-                    } catch (JSONException je) {
-                        jsonData = null;
-                        AfterParsingFail("JSON Parsing Error: " + je.getMessage());
-                    }
-                }});
+                });
             }
         });
     }
@@ -1651,10 +1676,16 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         return sorted;
     }
 
-    private View buildStandingsTable(java.util.List<TeamStats> sorted, String lang) throws JSONException {
+    private View buildStandingsTable(java.util.List<TeamStats> sorted, final String lang) throws JSONException {
         JSONArray teams = jsonData.getJSONArray("teams");
         ScrollView vsv = new ScrollView(context);
-        HorizontalScrollView hsv = new HorizontalScrollView(context);
+        final HorizontalScrollView hsv = new HorizontalScrollView(context);
+
+        // CHANGE: Force RTL layout direction if language is Arabic
+        if ("ar".equalsIgnoreCase(lang) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            hsv.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
+
         LinearLayout tl = new LinearLayout(context);
         tl.setOrientation(LinearLayout.VERTICAL);
         tl.setPadding(0, 0, 16, 0);
@@ -1666,6 +1697,16 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
         hsv.addView(tl);
         vsv.addView(hsv);
+
+        // CHANGE: Scroll to the far right if language is Arabic
+        if ("ar".equalsIgnoreCase(lang)) {
+            hsv.post(new Runnable() {
+                @Override
+                public void run() {
+                    hsv.fullScroll(View.FOCUS_RIGHT);
+                }
+            });
+        }
         return vsv;
     }
 
@@ -1826,6 +1867,8 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private View createListGroupHeaderView(String name, String lang) {
         TextView label = createTextView(name, -1, 0, true);
         label.setBackgroundColor(this.headerBackgroundColor);
+        // CHANGE: Use the new property variable
+        label.setTextColor(this.groupHeaderTextColor); 
         label.setPadding(24, 8, 24, 8);
         label.setTextSize(16);
         label.setTypeface(null, Typeface.BOLD);
@@ -2364,11 +2407,20 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private View createNewsCardView(JSONObject newsItem, String lang) throws JSONException {
         boolean isRTL = "ar".equalsIgnoreCase(lang);
         LinearLayout card = new LinearLayout(context);
+        
+        // Card Layout Params: Width = Match Parent, Height = Wrap Content
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
         params.setMargins(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
         card.setLayoutParams(params);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+        
+        // Force Layout Direction for the container
+        if (Build.VERSION.SDK_INT >= 17) {
+            card.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+        }
+
+        // Card Styling
         GradientDrawable bg = new GradientDrawable();
         bg.setColor(this.cardBackgroundColor);
         bg.setCornerRadius(dpToPx(8));
@@ -2376,6 +2428,8 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
         else card.setBackgroundDrawable(bg);
         if (Build.VERSION.SDK_INT >= 21) card.setElevation(dpToPx(2));
+
+        // Image Handling
         String imageUrl = newsItem.optString("image", null);
         if (isValid(imageUrl)) {
             ImageView imageView = new ImageView(context);
@@ -2387,24 +2441,38 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             Picasso.with(context).load(imageUrl).into(imageView);
             card.addView(imageView);
         }
+
+        // --- IMPORTANT FIX: Text Layout Params ---
+        // Setting width to MATCH_PARENT (-1) ensures the text can align to the far right.
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        // Title
         TextView titleView = new TextView(context);
+        titleView.setLayoutParams(textParams); 
         titleView.setText(getLocalizedText(newsItem, "title", lang));
         titleView.setTextSize(18);
         titleView.setTypeface(null, Typeface.BOLD);
         titleView.setTextColor(this.primaryTextColor);
-        titleView.setGravity(isRTL ? Gravity.END : Gravity.START);
+        titleView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT); 
+
+        // Date
         TextView dateView = new TextView(context);
+        dateView.setLayoutParams(textParams);
         dateView.setText(getLocalizedText(newsItem, "date", lang));
         dateView.setTextSize(12);
         dateView.setTextColor(this.secondaryTextColor);
         dateView.setPadding(0, dpToPx(4), 0, dpToPx(8));
-        dateView.setGravity(isRTL ? Gravity.END : Gravity.START);
+        dateView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+
+        // Details
         TextView detailsView = new TextView(context);
+        detailsView.setLayoutParams(textParams);
         detailsView.setText(getLocalizedText(newsItem, "details", lang).trim());
         detailsView.setTextSize(14);
         detailsView.setTextColor(this.secondaryTextColor);
         detailsView.setLineSpacing(0, 1.2f);
-        detailsView.setGravity(isRTL ? Gravity.END : Gravity.START);
+        detailsView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+
         card.addView(titleView);
         card.addView(dateView);
         card.addView(detailsView);
@@ -2550,7 +2618,9 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             headerText = getStatLocalizedText("group", lang) + " " + name.substring(6);
         }
         label.setText(headerText);
-        label.setBackgroundColor(Color.parseColor("#DDDDDD"));
+        label.setBackgroundColor(this.headerBackgroundColor);
+        // CHANGE: Use the new property variable
+        label.setTextColor(this.groupHeaderTextColor);
         label.setPadding(dpToPx(16), dpToPx(8), dpToPx(16), dpToPx(8));
         label.setTextSize(18);
         label.setTypeface(null, Typeface.BOLD);
@@ -2601,5 +2671,40 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         if ("group".equals(key)) return isAR ? "المجموعة" : "Group";
         if ("overall_stats".equals(key)) return isAR ? "إحصائيات عامة" : "Overall Stats";
         return key;
+    }
+    
+    @SimpleFunction(description = "Scrolls all standings tables inside the container to the far right. Useful for RTL languages.")
+    public void ScrollStandingsToRight(HVArrangement container) {
+        if (container == null) return;
+        View view = container.getView();
+        
+        // List to hold all found scroll views
+        final java.util.List<HorizontalScrollView> allScrollViews = new java.util.ArrayList<>();
+        
+        // Find ALL tables, not just the first one
+        findAllHorizontalScrollViews(view, allScrollViews);
+        
+        // Scroll every table found
+        for (final HorizontalScrollView hsv : allScrollViews) {
+            hsv.post(new Runnable() {
+                @Override
+                public void run() {
+                    hsv.fullScroll(View.FOCUS_RIGHT);
+                }
+            });
+        }
+    }
+
+    // Helper method to recursively find ALL HorizontalScrollViews
+    private void findAllHorizontalScrollViews(View v, java.util.List<HorizontalScrollView> list) {
+        if (v instanceof HorizontalScrollView) {
+            list.add((HorizontalScrollView) v);
+        }
+        if (v instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) v;
+            for (int i = 0; i < vg.getChildCount(); i++) {
+                findAllHorizontalScrollViews(vg.getChildAt(i), list);
+            }
+        }
     }
 }
