@@ -231,23 +231,38 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     // --- Public Functions (@SimpleFunction) ---
 
-    @SimpleFunction(description = "Calculates and displays a league standings table for a specific group and/or stage. Use empty strings to ignore a filter.")
-    public void CalculateAndShowStandings(HVArrangement container, String groupId, String stageId, final String lang) {
+    @SimpleFunction(description = "Calculates and displays a league standings table.")
+    public void CalculateAndShowStandings(final HVArrangement container, final String groupId, final String stageId, final String lang) {
         if (jsonData == null) return;
-        try {
-            java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
-            if (standings == null || standings.isEmpty()) return;
-            ViewGroup vg = (ViewGroup) container.getView();
-            vg.removeAllViews();
-            View table = buildStandingsTable(standings, lang);
-            vg.addView(table, new ViewGroup.LayoutParams(-1, -1));
-            if ("ar".equalsIgnoreCase(lang) && table instanceof ScrollView) {
-                final HorizontalScrollView hsv = (HorizontalScrollView)((ScrollView)table).getChildAt(0);
-                hsv.post(new Runnable() { @Override public void run() { hsv.fullScroll(View.FOCUS_RIGHT); } });
+        
+        // Start background thread for calculation
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // 1. Heavy Calculation & Sorting
+                    final java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, stageId);
+
+                    // 2. Update UI on Main Thread
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (standings == null || standings.isEmpty()) return;
+                            ViewGroup vg = (ViewGroup) container.getView();
+                            vg.removeAllViews();
+                            try {
+                                View table = buildStandingsTable(standings, lang);
+                                vg.addView(table, new ViewGroup.LayoutParams(-1, -1));
+                            } catch (JSONException e) {
+                                AfterParsingFail("Error building table: " + e.getMessage());
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error: " + e.getMessage()); }});
+                }
             }
-        } catch (Exception e) {
-            AfterParsingFail("Error displaying standings: " + e.getMessage());
-        }
+        }).start();
     }
 
     @SimpleFunction(description = "Creates and displays a searchable list of age categories for a given competition.")
@@ -291,68 +306,83 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
     }
 
-    @SimpleFunction(description = "Creates a view showing comprehensive statistics for all completed matches, such as total goals, goal rates, etc.")
-    public void CreateAllStatisticsView(HVArrangement container, String language) {
-        if (this.jsonData == null) {
-            AfterParsingFail("JSON data is not set.");
-            return;
-        }
-        try {
-            JSONArray allMatches = this.jsonData.optJSONArray("matches");
-            JSONArray allTeams = this.jsonData.optJSONArray("teams");
-            if (allMatches == null || allTeams == null) {
-                AfterParsingFail("JSON missing 'matches' or 'teams'.");
-                return;
-            }
+    @SimpleFunction(description = "Creates a view showing comprehensive statistics.")
+    public void CreateAllStatisticsView(final HVArrangement container, final String language) {
+        if (this.jsonData == null) { AfterParsingFail("JSON data is not set."); return; }
+        
+        // Start background thread
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final JSONArray allMatches = jsonData.optJSONArray("matches");
+                    final JSONArray allTeams = jsonData.optJSONArray("teams");
+                    if (allMatches == null || allTeams == null) { 
+                        activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("JSON missing matches/teams."); }});
+                        return; 
+                    }
 
-            java.util.Map<String, List<JSONObject>> matchesByBucket = smartGroupCompletedMatches(allMatches, allTeams);
-            ViewGroup vg = (ViewGroup) container.getView();
-            vg.removeAllViews();
+                    // 1. Heavy Logic: Grouping and Sorting
+                    final java.util.Map<String, List<JSONObject>> matchesByBucket = smartGroupCompletedMatches(allMatches, allTeams);
+                    
+                    final List<String> sortedBucketNames = new ArrayList<>(matchesByBucket.keySet());
+                    Collections.sort(sortedBucketNames, new Comparator<String>() {
+                        @Override public int compare(String s1, String s2) {
+                            if (s1.equals("المرحلة الاولي")) return -1;
+                            if (s2.equals("المرحلة الاولي")) return 1;
+                            if (s1.equals(getStatLocalizedText("overall_stats", "en"))) return -1;
+                            if (s2.equals(getStatLocalizedText("overall_stats", "en"))) return 1;
+                            return s1.compareTo(s2);
+                        }
+                    });
 
-            ScrollView sv = new ScrollView(context);
-            LinearLayout mainLayout = new LinearLayout(context);
-            mainLayout.setOrientation(LinearLayout.VERTICAL);
-            mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+                    // 2. Build UI on Main Thread
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                ViewGroup vg = (ViewGroup) container.getView();
+                                vg.removeAllViews();
+                                ScrollView sv = new ScrollView(context);
+                                LinearLayout mainLayout = new LinearLayout(context);
+                                mainLayout.setOrientation(LinearLayout.VERTICAL);
+                                mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
 
-            if (matchesByBucket.isEmpty()) {
-                mainLayout.addView(createSingleStatCard(getStatLocalizedText("no_completed_matches", language), "-", language));
-                sv.addView(mainLayout);
-                vg.addView(sv);
-                return;
-            }
+                                if (matchesByBucket.isEmpty()) {
+                                    mainLayout.addView(createSingleStatCard(getStatLocalizedText("no_completed_matches", language), "-", language));
+                                    sv.addView(mainLayout);
+                                    vg.addView(sv);
+                                    return;
+                                }
 
-            List<String> sortedBucketNames = new ArrayList<>(matchesByBucket.keySet());
-            Collections.sort(sortedBucketNames, new Comparator<String>() {
-                @Override
-                public int compare(String s1, String s2) {
-                    if (s1.equals("المرحلة الاولي")) return -1;
-                    if (s2.equals("المرحلة الاولي")) return 1;
-                    if (s1.equals(getStatLocalizedText("overall_stats", "en"))) return -1;
-                    if (s2.equals(getStatLocalizedText("overall_stats", "en"))) return 1;
-                    return s1.compareTo(s2);
+                                for (String bucketName : sortedBucketNames) {
+                                    List<JSONObject> bucketMatches = matchesByBucket.get(bucketName);
+                                    if (bucketMatches == null || bucketMatches.isEmpty()) continue;
+
+                                    if (!bucketName.equals(getStatLocalizedText("overall_stats", "en"))) {
+                                        mainLayout.addView(createStatsGroupHeaderView(bucketName, language));
+                                    }
+
+                                    String[] statTypes = {"total_matches", "total_goals", "goal_rate", "winner_matches", "draw_matches", "strongest_attack", "strongest_defense", "weakest_attack", "weakest_defense"};
+                                    for (String statType : statTypes) {
+                                        String value = calculateStatForGroup(bucketMatches, allTeams, statType, language);
+                                        mainLayout.addView(createSingleStatCard(getStatLocalizedText(statType + "_title", language), value, language));
+                                    }
+                                    mainLayout.addView(createDivider());
+                                }
+                                sv.addView(mainLayout);
+                                vg.addView(sv);
+                            } catch (Exception e) {
+                                AfterParsingFail("Error building UI: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                } catch (final Exception e) {
+                    activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error: " + e.getMessage()); }});
                 }
-            });
-
-            for (String bucketName : sortedBucketNames) {
-                List<JSONObject> bucketMatches = matchesByBucket.get(bucketName);
-                if (bucketMatches == null || bucketMatches.isEmpty()) continue;
-
-                if (!bucketName.equals(getStatLocalizedText("overall_stats", "en"))) {
-                    mainLayout.addView(createStatsGroupHeaderView(bucketName, language));
-                }
-
-                String[] statTypes = {"total_matches", "total_goals", "goal_rate", "winner_matches", "draw_matches", "strongest_attack", "strongest_defense", "weakest_attack", "weakest_defense"};
-                for (String statType : statTypes) {
-                    String value = calculateStatForGroup(bucketMatches, allTeams, statType, language);
-                    mainLayout.addView(createSingleStatCard(getStatLocalizedText(statType + "_title", language), value, language));
-                }
-                mainLayout.addView(createDivider());
             }
-            sv.addView(mainLayout);
-            vg.addView(sv);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating statistics view: " + e.getMessage());
-        }
+        }).start();
     }
 
     @SimpleFunction(description = "Creates and displays a searchable list of competitions for a given season.")
@@ -989,35 +1019,46 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     @SimpleFunction(description = "Fetches and parses JSON data from a given URL. Triggers AfterParsingSuccess or AfterParsingFail event.")
     public void ParseJsonFromUrl(String url) {
-        // We use executeByteBufferList instead of executeString to get raw bytes
         AsyncHttpClient.getDefaultInstance().executeByteBufferList(new AsyncHttpGet(url), new AsyncHttpClient.DownloadCallback() {
             @Override
-            public void onCompleted(final Exception e, final AsyncHttpResponse source, final ByteBufferList result) {
-                activity.runOnUiThread(new Runnable() {
+            public void onCompleted(final Exception e, final AsyncHttpResponse source, final com.koushikdutta.async.ByteBufferList result) {
+                // Run heavy processing in a background thread
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
                         if (e != null) {
-                            jsonData = null;
-                            AfterParsingFail("Network Error: " + e.getMessage());
+                            activity.runOnUiThread(new Runnable() { public void run() { 
+                                jsonData = null;
+                                AfterParsingFail("Network Error: " + e.getMessage()); 
+                            }});
                             return;
                         }
                         try {
-                            // FIX: Manually convert the raw bytes to a UTF-8 String
+                            // 1. Convert bytes to UTF-8 String (Heavy operation)
                             String jsonString = "";
                             if (result != null) {
-                                // getAllByteArray() consumes the list and returns the data
                                 byte[] bytes = result.getAllByteArray();
                                 jsonString = new String(bytes, "UTF-8");
                             }
                             
-                            jsonData = new JSONObject(jsonString);
-                            AfterParsingSuccess();
-                        } catch (Exception je) {
-                            jsonData = null;
-                            AfterParsingFail("JSON Parsing Error: " + je.getMessage());
+                            // 2. Parse JSON (Heavy operation)
+                            final JSONObject parsedData = new JSONObject(jsonString);
+
+                            // 3. Update UI / Fire Event on Main Thread
+                            activity.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    jsonData = parsedData;
+                                    AfterParsingSuccess();
+                                }
+                            });
+                        } catch (final Exception je) {
+                            activity.runOnUiThread(new Runnable() { public void run() { 
+                                jsonData = null;
+                                AfterParsingFail("JSON Parsing Error: " + je.getMessage()); 
+                            }});
                         }
                     }
-                });
+                }).start();
             }
         });
     }
