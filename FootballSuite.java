@@ -27,9 +27,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 // App Inventor Imports
+import com.google.appinventor.components.annotations.DesignerProperty;
+import com.google.appinventor.components.annotations.PropertyCategory;
 import com.google.appinventor.components.annotations.SimpleEvent;
 import com.google.appinventor.components.annotations.SimpleFunction;
+import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.ComponentCategory;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
 import com.google.appinventor.components.runtime.Component;
 import com.google.appinventor.components.runtime.ComponentContainer;
@@ -66,7 +70,6 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class FootballSuite extends AndroidNonvisibleComponent implements Component {
 
     // --- Class Fields ---
@@ -80,6 +83,14 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private static final String PREFS_NAME = "FootballDataPlusPrefs";
     private static final String LAST_NEWS_COUNT_KEY = "lastNewsCount";
     private static final String SHOWN_ADS_KEY = "shownAds";
+
+    // --- UI Customization Fields (Defaults) ---
+    private int primaryTextColor = Color.BLACK;
+    private int secondaryTextColor = Color.DKGRAY;
+    private int cardBackgroundColor = Color.WHITE;
+    private int headerBackgroundColor = Color.parseColor("#F5F5F5");
+    private int dividerColor = Color.parseColor("#E0E0E0");
+    private int accentColor = Color.parseColor("#B71C1C"); // For highlights/points
 
     // --- Inner Helper Classes ---
     private class TeamStats {
@@ -102,6 +113,74 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         this.activity = container.$context();
         this.form = container.$form();
         this.prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+    }
+
+    // --- UI Properties (@SimpleProperty) ---
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFF000000")
+    @SimpleProperty(description = "Sets the color for main titles, team names, and primary info.")
+    public void PrimaryTextColor(int color) {
+        this.primaryTextColor = color;
+    }
+
+    @SimpleProperty(description = "Returns the primary text color.")
+    public int PrimaryTextColor() {
+        return this.primaryTextColor;
+    }
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFF444444")
+    @SimpleProperty(description = "Sets the color for secondary text like dates, venues, and notes.")
+    public void SecondaryTextColor(int color) {
+        this.secondaryTextColor = color;
+    }
+
+    @SimpleProperty
+    public int SecondaryTextColor() {
+        return this.secondaryTextColor;
+    }
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFFFFFFFF")
+    @SimpleProperty(description = "Sets the background color for match cards and news items.")
+    public void CardBackgroundColor(int color) {
+        this.cardBackgroundColor = color;
+    }
+
+    @SimpleProperty
+    public int CardBackgroundColor() {
+        return this.cardBackgroundColor;
+    }
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFFF5F5F5")
+    @SimpleProperty(description = "Sets the background color for group headers and date strips.")
+    public void HeaderBackgroundColor(int color) {
+        this.headerBackgroundColor = color;
+    }
+
+    @SimpleProperty
+    public int HeaderBackgroundColor() {
+        return this.headerBackgroundColor;
+    }
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFFE0E0E0")
+    @SimpleProperty(description = "Sets the color of the divider lines.")
+    public void DividerColor(int color) {
+        this.dividerColor = color;
+    }
+
+    @SimpleProperty
+    public int DividerColor() {
+        return this.dividerColor;
+    }
+
+    @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COLOR, defaultValue = "&HFFB71C1C")
+    @SimpleProperty(description = "Sets the accent color used for points, high scores, or special highlights.")
+    public void AccentColor(int color) {
+        this.accentColor = color;
+    }
+
+    @SimpleProperty
+    public int AccentColor() {
+        return this.accentColor;
     }
 
     // --- Events (@SimpleEvent) ---
@@ -728,8 +807,8 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             buildTeamListView(content, teamList, lang);
             EditText search = new EditText(context);
             search.setHint(getLocalizedText(null, "search", lang));
-            search.setTextColor(Color.BLACK);
-            search.setHintTextColor(Color.GRAY);
+            search.setTextColor(this.primaryTextColor);
+            search.setHintTextColor(this.secondaryTextColor);
             LinearLayout.LayoutParams sp = new LinearLayout.LayoutParams(-1, -2);
             sp.setMargins(24, 24, 24, 16);
             search.setLayoutParams(sp);
@@ -974,7 +1053,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private View createDivider() {
         View d = new View(context);
         d.setLayoutParams(new LinearLayout.LayoutParams(-1, dpToPx(1)));
-        d.setBackgroundColor(Color.parseColor("#E0E0E0"));
+        d.setBackgroundColor(this.dividerColor);
         return d;
     }
 
@@ -1271,7 +1350,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         r.setOrientation(LinearLayout.HORIZONTAL);
         r.setPadding(24, 16, 24, 16);
         r.setGravity(Gravity.CENTER_VERTICAL);
-        r.setBackgroundColor(Color.parseColor("#F5F5F5"));
+        r.setBackgroundColor(this.headerBackgroundColor);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
             r.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
         TextView pth = createTextView(getLocalizedText(null, "player", lang) + " / " + getLocalizedText(null, "team", lang), 0, 1, true);
@@ -1299,7 +1378,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         pName.setTextSize(16);
         TextView tName = createTextView(stat.teamName, -1, 0, false);
         tName.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
-        tName.setTextColor(Color.GRAY);
+        tName.setTextColor(this.secondaryTextColor);
         tName.setTextSize(12);
         ptl.addView(pName);
         ptl.addView(tName);
@@ -1639,9 +1718,9 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         }
         String faScore = isRTL ? String.format(Locale.US, "%d:%d", stats.goalsAgainst, stats.goalsFor) : String.format(Locale.US, "%d:%d", stats.goalsFor, stats.goalsAgainst);
         TextView pointsView = createTextView(String.valueOf(stats.points), 90, 0, true);
-        pointsView.setTextColor(Color.parseColor("#B71C1C"));
+        pointsView.setTextColor(this.accentColor);
         TextView gdView = createTextView(String.format(Locale.US, "%+d", stats.getGoalDifference()), 80, 0, true);
-        gdView.setTextColor(Color.parseColor("#0D47A1"));
+        gdView.setTextColor(this.primaryTextColor);
         java.util.List<View> views = new java.util.ArrayList<>();
         views.add(createTextView(String.valueOf(stats.position), 80, 0, false));
         views.add(tl);
@@ -1664,7 +1743,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         h.setOrientation(LinearLayout.HORIZONTAL);
         h.setPadding(24, 12, 24, 12);
         h.setGravity(Gravity.CENTER_VERTICAL);
-        h.setBackgroundColor(Color.parseColor("#F5F5F5"));
+        h.setBackgroundColor(this.headerBackgroundColor);
         String dateText;
         SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         Date matchDate = parser.parse(dateStr);
@@ -1737,7 +1816,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     private View createWeekHeaderView(String weekNum, String lang) {
         TextView weekLabel = createTextView(getLocalizedText(null, "week", lang) + " " + weekNum, -1, 0, true);
-        weekLabel.setBackgroundColor(Color.parseColor("#FAFAFA"));
+        weekLabel.setBackgroundColor(this.headerBackgroundColor);
         weekLabel.setPadding(24, 8, 24, 8);
         weekLabel.setTextSize(14);
         weekLabel.setGravity(Gravity.CENTER);
@@ -1746,7 +1825,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     private View createListGroupHeaderView(String name, String lang) {
         TextView label = createTextView(name, -1, 0, true);
-        label.setBackgroundColor(Color.parseColor("#EEEEEE"));
+        label.setBackgroundColor(this.headerBackgroundColor);
         label.setPadding(24, 8, 24, 8);
         label.setTextSize(16);
         label.setTypeface(null, Typeface.BOLD);
@@ -1767,16 +1846,16 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(16, 16, 16, 16);
         GradientDrawable bg = new GradientDrawable();
-        bg.setColor(Color.WHITE);
+        bg.setColor(this.cardBackgroundColor);
         bg.setCornerRadius(24);
-        bg.setStroke(2, Color.parseColor("#F0F0F0"));
+        bg.setStroke(2, this.dividerColor);
         if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
         else card.setBackgroundDrawable(bg);
         if (Build.VERSION.SDK_INT >= 21) card.setElevation(4);
         card.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { MatchClicked(matchId); } });
         TextView top = createTextView("", -1, 0, false);
         top.setTextSize(12);
-        top.setTextColor(Color.GRAY);
+        top.setTextColor(this.secondaryTextColor);
         top.setGravity(Gravity.CENTER);
         LinearLayout mid = new LinearLayout(context);
         mid.setOrientation(LinearLayout.HORIZONTAL);
@@ -1787,7 +1866,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         center.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
         TextView bottom = createTextView("", -1, 0, false);
         bottom.setTextSize(12);
-        bottom.setTextColor(Color.GRAY);
+        bottom.setTextColor(this.secondaryTextColor);
         bottom.setGravity(Gravity.CENTER);
         LinearLayout homeLayout = createTeamLayout(getTeamInfoById(match.getString("home_team_id"), teams), lang);
         LinearLayout awayLayout = createTeamLayout(getTeamInfoById(match.getString("away_team_id"), teams), lang);
@@ -1996,7 +2075,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         tv.setTextSize(16);
         tv.setPadding(32, 24, 32, 8);
         tv.setGravity(Gravity.CENTER);
-        tv.setBackgroundColor(Color.parseColor("#F5F5F5"));
+        tv.setBackgroundColor(this.headerBackgroundColor);
         TextView pv = createTextView(pList, -1, 0, false);
         pv.setPadding(32, 16, 32, 24);
         pv.setGravity(Gravity.CENTER);
@@ -2011,7 +2090,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         p.setMargins(8, 0, 8, 0);
         tv.setLayoutParams(p);
         tv.setText(text);
-        tv.setTextColor(Color.BLACK);
+        tv.setTextColor(this.primaryTextColor);
         tv.setGravity(Gravity.CENTER);
         if (isBold) tv.setTypeface(null, Typeface.BOLD);
         return tv;
@@ -2034,7 +2113,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             // Ignore error
         }
         TextView titleView = createTextView(title, ViewGroup.LayoutParams.WRAP_CONTENT, 0, true);
-        titleView.setTextColor(Color.parseColor("#B71C1C"));
+        titleView.setTextColor(this.accentColor);
         titleView.setTextSize(16);
         LinearLayout.LayoutParams titleParams = (LinearLayout.LayoutParams) titleView.getLayoutParams();
         titleParams.setMargins(dpToPx(8), 0, dpToPx(8), 0);
@@ -2051,9 +2130,9 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         card.setLayoutParams(params);
         card.setPadding(dpToPx(16), dpToPx(12), dpToPx(16), dpToPx(12));
         GradientDrawable bg = new GradientDrawable();
-        bg.setColor(Color.WHITE);
+        bg.setColor(this.cardBackgroundColor);
         bg.setCornerRadius(dpToPx(8));
-        bg.setStroke(dpToPx(1), Color.parseColor("#EEEEEE"));
+        bg.setStroke(dpToPx(1), this.dividerColor);
         card.setBackground(bg);
         TextView tv = createTextView(text, -1, 0, false);
         tv.setGravity(Gravity.CENTER);
@@ -2208,7 +2287,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         buildClickableListView(listContent, dataArray, language, "", type, competitionId, age);
         EditText searchBar = new EditText(context);
         searchBar.setHint("...");
-        searchBar.setTextColor(Color.BLACK);
+        searchBar.setTextColor(this.primaryTextColor);
         LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(-1, -2);
         searchParams.setMargins(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(8));
         searchBar.setLayoutParams(searchParams);
@@ -2243,7 +2322,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                 if (name.toLowerCase().contains(filterLower)) {
                     TextView itemView = new TextView(context);
                     itemView.setText(name);
-                    itemView.setTextColor(Color.BLACK);
+                    itemView.setTextColor(this.primaryTextColor);
                     itemView.setTextSize(16);
                     itemView.setGravity(Gravity.CENTER);
                     itemView.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
@@ -2291,9 +2370,9 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
         GradientDrawable bg = new GradientDrawable();
-        bg.setColor(Color.WHITE);
+        bg.setColor(this.cardBackgroundColor);
         bg.setCornerRadius(dpToPx(8));
-        bg.setStroke(dpToPx(1), Color.parseColor("#F0F0F0"));
+        bg.setStroke(dpToPx(1), this.dividerColor);
         if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
         else card.setBackgroundDrawable(bg);
         if (Build.VERSION.SDK_INT >= 21) card.setElevation(dpToPx(2));
@@ -2312,18 +2391,18 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         titleView.setText(getLocalizedText(newsItem, "title", lang));
         titleView.setTextSize(18);
         titleView.setTypeface(null, Typeface.BOLD);
-        titleView.setTextColor(Color.BLACK);
+        titleView.setTextColor(this.primaryTextColor);
         titleView.setGravity(isRTL ? Gravity.END : Gravity.START);
         TextView dateView = new TextView(context);
         dateView.setText(getLocalizedText(newsItem, "date", lang));
         dateView.setTextSize(12);
-        dateView.setTextColor(Color.GRAY);
+        dateView.setTextColor(this.secondaryTextColor);
         dateView.setPadding(0, dpToPx(4), 0, dpToPx(8));
         dateView.setGravity(isRTL ? Gravity.END : Gravity.START);
         TextView detailsView = new TextView(context);
         detailsView.setText(getLocalizedText(newsItem, "details", lang).trim());
         detailsView.setTextSize(14);
-        detailsView.setTextColor(Color.DKGRAY);
+        detailsView.setTextColor(this.secondaryTextColor);
         detailsView.setLineSpacing(0, 1.2f);
         detailsView.setGravity(isRTL ? Gravity.END : Gravity.START);
         card.addView(titleView);
