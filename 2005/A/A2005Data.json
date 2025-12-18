@@ -5255,7 +5255,7 @@
  "teams": [
     {
       "team_id": "t001",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "الاهلي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
       "field": null,
@@ -5271,7 +5271,7 @@
     },
     {
       "team_id": "t002",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "الزمالك",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
       "field": null,
@@ -5287,7 +5287,7 @@
     },
     {
       "team_id": "t003",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "بيراميدز",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
       "field": null,
@@ -5303,7 +5303,7 @@
     },
     {
       "team_id": "t004",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "المصري",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8303",
       "field": null,
@@ -5319,7 +5319,7 @@
     },
     {
       "team_id": "t005",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "البنك الاهلي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50527",
       "field": null,
@@ -5335,7 +5335,7 @@
     },
     {
       "team_id": "t006",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "سيراميكا كليوباترا",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50882",
       "field": null,
@@ -5351,7 +5351,7 @@
     },
     {
       "team_id": "t007",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "فاركو",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/46242",
       "field": null,
@@ -5367,7 +5367,7 @@
     },
     {
       "team_id": "t008",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "بتروجت",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
       "field": null,
@@ -5383,7 +5383,7 @@
     },
     {
       "team_id": "t009",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "حرس الحدود",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8307",
       "field": null,
@@ -5399,7 +5399,7 @@
     },
     {
       "team_id": "t010",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "زد",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/29732",
       "field": null,
@@ -5415,7 +5415,7 @@
     },
     {
       "team_id": "t011",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "طلائع الجيش",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8306",
       "field": null,
@@ -5431,7 +5431,7 @@
     },
     {
       "team_id": "t012",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "سموحة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8309",
       "field": null,
@@ -5447,7 +5447,7 @@
     },
     {
       "team_id": "t013",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "الاسماعيلي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8299",
       "field": null,
@@ -5463,7 +5463,7 @@
     },
     {
       "team_id": "t014",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "الاتحاد السكندري",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
       "field": null,
@@ -5479,7 +5479,7 @@
     },
     {
       "team_id": "t015",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "الجونة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
       "field": null,
@@ -5495,7 +5495,7 @@
     },
     {
       "team_id": "t016",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "غزل المحلة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8610",
       "field": null,
@@ -5511,7 +5511,7 @@
     },
     {
       "team_id": "t017",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "انبي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
       "field": null,
@@ -5527,7 +5527,7 @@
     },
     {
       "team_id": "t018",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "مودرن سبورت",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
       "field": null,
@@ -5543,7 +5543,7 @@
     },
     {
       "team_id": "t019",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "وادي دجلة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
       "field": null,
@@ -5559,7 +5559,7 @@
     },
     {
       "team_id": "t020",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "المقاولون العرب",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
       "field": null,
@@ -5575,7 +5575,7 @@
     },
     {
       "team_id": "t021",
-      "group": "المرحلة الاولي",
+      "group": null,
       "name": "كهرباء الاسماعيلية",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/19506",
       "field": null,
