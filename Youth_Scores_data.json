@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@a80af4535377e0566c0a7a5ec9509fbe75c58ca6/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@36410ef2a0d9c6b56e3845497b3641e3d5c5f4c4/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@060421865288446a8a20f08ae377b62e60d0f99a/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@6977e444a40da7c983d96411d9bc6e6c0e9156bb/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
@@ -96,7 +96,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@175903849eb9224833caf070486a38cf008fd277/2007/BB/BB2007Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@bd29939600225e4c621ffc03b52e123bf6aecfaf/2007/BB/BB2007Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@48990becbc2bab8e79c5481e99270c770833d9d1/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8964aef66fdd20cfc5f9079acfe155656a6a0644/2007/BB/BB2007UpperEgyptData.json"
                         ],
                       "sector": {
@@ -114,7 +114,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@a80af4535377e0566c0a7a5ec9509fbe75c58ca6/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@c5c2a1f8dad405c2a7ea16a65395a0151e8a1d6a/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@38aa6cd1b5dd590845526d990c388983fafc6ce6/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@cc04b058cd567b73b92975cbd2c6b8ad4b08e788/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
