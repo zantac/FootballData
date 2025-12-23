@@ -162,7 +162,7 @@
                     {
                      "age": "2008",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@7df8dd61d55d97ac6a81adfb597f36277d0853de/2008/Area/Cairo/Area_Cairo_2008Data.json",
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@d22355193d680a4351d42d2c2e9b0e0b5f77b33f/2008/Area/Cairo/Area_Cairo_2008Data.json",
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@2ef05d50d4e252174276ebf76668fbe12aafe7aa/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
                                    ],
                      "sector":[
@@ -173,7 +173,7 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@374bafe4f704eed7db0c290c2e30484f62cae607/2010/Area/Cairo/Area_Cairo_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@ecc223b25d53a93b53a1e2b683f9b077fcd746de/2010/Area/Cairo/Area_Cairo_2010Data.json"
                                      
                                    ],
                      "sector":[
