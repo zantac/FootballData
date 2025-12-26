@@ -79,7 +79,7 @@
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@5975b0a11e93479049d1b93425cb622d70bd65a1/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@0df9e615c6eb3ad484863aa82f590b69a632a7f4/2005/BB/BB2005Delta1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@6977e444a40da7c983d96411d9bc6e6c0e9156bb/2005/BB/BB2005UpperEgyptData.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@4f996e3065f31e9bdebac0ad024b587572333830/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
                                  "ar":
@@ -115,7 +115,7 @@
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@4647bd0bcc7087bc6c93a2d08cc6e705d3d03c24/2009/BB/BB2009Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7ce91b8aa7f31e0232d047372dce31ef8320c8c9/2009/BB/BB2009Delta1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@cc04b058cd567b73b92975cbd2c6b8ad4b08e788/2009/BB/BB2009UpperEgyptData.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@8316ec264ba2900ec7b6531b2f41edee19ff983c/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
                                  "ar":
@@ -131,8 +131,8 @@
                       "age": "2011",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@b7ef5554da0a7d2125ba95c472992d41ac00ddf5/2011/BB/BB2011Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@701167dc8416dc74c849860188c46401abf058eb/2011/BB/BB2011Delta1Data.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@35e499c0a58162734ebad7059dbfe720bd7fe070/2011/BB/BB2011Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@6ec539c6ba33a0490f84b7e87fe1de1d98c92729/2011/BB/BB2011Delta1Data.json"
                         ],
                       "sector": 
                         [
