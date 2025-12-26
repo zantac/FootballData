@@ -2198,7 +2198,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 3,
-      "home_scorers": null,
+      "home_scorers": ["احمد محمود كالوشا","محمد حسن"],
       "away_scorers": ["عمرو محمد (2)","مهاب يسري"],
       "home_yc": null,
       "away_yc": null,
