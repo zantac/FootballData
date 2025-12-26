@@ -4287,7 +4287,7 @@
       "away_squade": null,
       "home_score": 6,
       "away_score": 2,
-      "home_scorers": ["ياسين ابو زيد (3)","عادل","ياسين تامر","مازن وائل"],
+      "home_scorers": ["ياسين ابو زيد (3)","عادل صبري","ياسين تامر","مازن وائل"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -5356,7 +5356,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": ["المدير الفني ك/ سامح يوسف"],
+        "coach": ["المدير الفني ك/ سامح يوسف","مدرب ك / محمد فوزي","مدرب حراس ك / محمد سلامة","مخطط احمال ك/ كريم مجدي","اداري ك / سعيد صابر","اخصائي اصابات ك / منصور عبد المعين"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
