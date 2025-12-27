@@ -114,7 +114,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@47c16eae29e8b694123bd2421144ff9f5ae4ac69/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@23834329b5c46cbfb88227b24d3ec361bf9485f1/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@163c06b541b7c0d7d7baceb07a58f3779d172a6d/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8316ec264ba2900ec7b6531b2f41edee19ff983c/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
@@ -173,7 +173,7 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@4f6bf9e2293b7b67d04505a0c40351b2884c14f8/2010/Area/Cairo/Area_Cairo_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@07bc5b952f933314162bdf5b6f3a8a11aa4da4ba/2010/Area/Cairo/Area_Cairo_2010Data.json"
                                      
                                    ],
                      "sector":[
