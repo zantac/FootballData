@@ -2944,7 +2944,7 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["حسن السيد","محمد عاطف"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5309,7 +5309,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / محمد عبد المجيد","مدرب ك / محمد صلاح","مدرب حراس ك / مصطفي حمد","اداري ك / عبد الفتاح الديب","مدير قطاع الناشئين ك / احمد السيسي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
