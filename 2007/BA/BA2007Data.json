@@ -2,7 +2,7 @@
   "matches": [
     {
       "match_id": "m001",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02", 
       "time": "16:00",
@@ -22,11 +22,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
       },
     {
       "match_id": "m002",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "16:00",
@@ -46,11 +47,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m003",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "16:00",
@@ -70,11 +72,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m004",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "15:00",
@@ -94,11 +97,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
 	   },
      {
       "match_id": "m005",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "16:00",
@@ -118,11 +122,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m006",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "16:00",
@@ -142,11 +147,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m007",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "1",
       "date": "2025-09-02",
       "time": "16:00",
@@ -166,11 +172,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m008",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -190,11 +197,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m009",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -214,11 +222,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
 	   },
      {
       "match_id": "m010",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -238,11 +247,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m011",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -262,11 +272,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m012",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -286,11 +297,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m013",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09", 
       "time": "16:00",
@@ -311,11 +323,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m014",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "2",
       "date": "2025-09-09",
       "time": "16:00",
@@ -335,11 +348,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m015",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "16:00",
@@ -359,11 +373,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m016",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "14:30",
@@ -383,11 +398,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
 	   },
      {
       "match_id": "m017",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "16:00",
@@ -407,11 +423,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m018",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "16:00",
@@ -431,11 +448,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m019",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "16:00",
@@ -455,11 +473,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m020",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16", 
       "time": "15:00",
@@ -479,11 +498,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m021",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "3",
       "date": "2025-09-16",
       "time": "16:00",
@@ -503,11 +523,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
      {
       "match_id": "m022",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -527,11 +548,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m023",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -551,11 +573,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m024",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -575,11 +598,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m025",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -599,11 +623,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m026",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -623,11 +648,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m027",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -647,11 +673,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m028",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "4",
       "date": "2025-09-23",
       "time": "16:00",
@@ -671,11 +698,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m029",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "15:00",
@@ -695,11 +723,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m030",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -719,11 +748,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m031",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -743,11 +773,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m032",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -767,11 +798,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m033",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -791,11 +823,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m034",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -815,11 +848,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m035",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "5",
       "date": "2025-09-30",
       "time": "16:00",
@@ -839,11 +873,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m036",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -863,11 +898,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m037",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -887,11 +923,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m038",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -911,11 +948,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m039",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -935,11 +973,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m040",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -959,11 +998,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m041",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -983,11 +1023,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m042",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "6",
       "date": "2025-10-07",
       "time": "15:30",
@@ -1007,11 +1048,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
      {
       "match_id": "m043",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1031,11 +1073,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m044",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1055,11 +1098,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m045",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1079,11 +1123,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m046",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1103,11 +1148,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m047",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1127,11 +1173,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m048",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1151,11 +1198,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m049",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "7",
       "date": "2025-10-14",
       "time": "15:30",
@@ -1175,11 +1223,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m050",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1199,11 +1248,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m051",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1223,11 +1273,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m052",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1247,11 +1298,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m053",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1271,11 +1323,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m054",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1295,11 +1348,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m055",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1319,11 +1373,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m056",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "8",
       "date": "2025-10-21",
       "time": "15:30",
@@ -1343,11 +1398,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m057",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1367,11 +1423,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m058",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1391,11 +1448,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m059",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1415,11 +1473,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m060",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1439,11 +1498,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m061",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1463,11 +1523,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m062",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1487,11 +1548,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m063",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "9",
       "date": "2025-10-28",
       "time": "15:30",
@@ -1511,11 +1573,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m064",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1535,11 +1598,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m065",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1559,11 +1623,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m066",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1583,11 +1648,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m067",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1607,11 +1673,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m068",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1631,11 +1698,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m069",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1655,11 +1723,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m070",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "10",
       "date": "2025-11-04",
       "time": "14:30",
@@ -1679,11 +1748,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m071",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1703,11 +1773,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m072",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1727,11 +1798,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m073",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1751,11 +1823,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m074",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1775,11 +1848,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m075",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1799,11 +1873,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m076",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1823,11 +1898,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m077",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "11",
       "date": "2025-11-11",
       "time": "14:30",
@@ -1847,11 +1923,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m078",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1871,11 +1948,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m079",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1895,11 +1973,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m080",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1919,11 +1998,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m081",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1943,11 +2023,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m082",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1967,11 +2048,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m083",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -1991,11 +2073,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m084",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "12",
       "date": "2025-11-18",
       "time": "14:30",
@@ -2015,11 +2098,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m085",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2039,11 +2123,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m086",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2063,11 +2148,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m087",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2087,11 +2173,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m088",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2111,11 +2198,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m089",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2135,11 +2223,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m090",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2159,11 +2248,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m091",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "13",
       "date": "2025-11-25",
       "time": "14:30",
@@ -2183,11 +2273,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m092",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2207,11 +2298,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m093",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2231,11 +2323,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m094",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2255,11 +2348,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m095",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-03",
       "time": "14:30",
@@ -2279,11 +2373,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m096",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2303,11 +2398,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m097",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2327,11 +2423,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m098",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "14",
       "date": "2025-12-02",
       "time": "14:30",
@@ -2351,11 +2448,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m099",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2375,11 +2473,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m100",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2399,11 +2498,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m101",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2423,11 +2523,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m102",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2447,11 +2548,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m103",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2471,11 +2573,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m104",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2495,11 +2598,12 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     },
     {
       "match_id": "m105",
-      "group": null,
+      "group": "المرحلة الاولي",
       "week": "15",
       "date": "2025-12-16",
       "time": "14:30",
@@ -2519,7 +2623,8 @@
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null
+      "away_sub": null,
+      "stage": "1"
     }
     
    ],
