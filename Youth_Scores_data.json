@@ -30,7 +30,7 @@
                      },
                      {
                       "age": "2011",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@a100d3e8459c402e1a2dc312bcb4c5571e2e961c/2011/A/A2011Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@a5354d7a2e56c361a60a71070a1aef12b9af73d1/2011/A/A2011Data.json",
                       "sector": null
                      }
                    ]
@@ -131,8 +131,8 @@
                       "age": "2011",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@8f0fb1a9f9f4a77d7415d091fd81ebcf50cc9445/2011/BB/BB2011Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@e34d89e54afef27e2299da695f9595b715944885/2011/BB/BB2011Delta1Data.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@f25023c76393747d17e6e4bfcdf81298b16becc9/2011/BB/BB2011Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@9987ac949ceee2e537879278c673af32792a26af/2011/BB/BB2011Delta1Data.json"
                         ],
                       "sector": 
                         [
