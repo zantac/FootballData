@@ -448,7 +448,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["زياد امان","ماندو","صناعة الاهداف","ماندو","ابو الشيخ"],
+      "home_scorers": ["زياد امان","احمد ايهاب","صناعة الاهداف","احمد ايهاب","ابو الشيخ"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -614,7 +614,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / حسام حسن"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
