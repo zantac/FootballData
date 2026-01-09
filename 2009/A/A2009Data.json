@@ -4623,7 +4623,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["سيف كريم","ادم يوسف"],
       "away_scorers": ["خالد مختار (2)"],
       "home_yc": null,
       "away_yc": null,
