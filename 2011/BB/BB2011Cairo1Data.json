@@ -5999,7 +5999,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني  ك / عمر الجرجاوي","مدرب عام ك / ابراهيم سكر","مدرب ك / كريم زكريا","مدرب حراس ك / مدحت رزق","اداري ك / مصطفي بكر","اخصائي اصابات ك / مدحت محمد"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
