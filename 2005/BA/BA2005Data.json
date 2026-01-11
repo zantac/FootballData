@@ -3572,8 +3572,8 @@
     },
     {
       "team_id": "t002",
-      "group": null,
-      "name": "الاوائل",
+      "group": "الاوائل",
+      "name": "الداخلية",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
       "field": null,
       "fieldurl": null,
