@@ -1579,138 +1579,124 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         java.util.Map<String, TeamStats> statsMap = new java.util.HashMap<>();
         boolean hasGroupFilter = gId != null && !gId.isEmpty();
         boolean hasStageFilter = stageId != null && !stageId.isEmpty();
+
+        // 1. Initialize Teams
         for (int i = 0; i < teams.length(); i++) {
             JSONObject team = teams.getJSONObject(i);
             if (!hasGroupFilter || gId.equals(team.optString("group"))) {
                 statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));
             }
         }
+
+        // 2. Process Matches
         if (matches != null) {
             for (int i = 0; i < matches.length(); i++) {
                 JSONObject match = matches.getJSONObject(i);
-                if (hasStageFilter && !stageId.equals(match.optString("stage"))) {
-                    continue;
-                }
-                if (!"completed".equalsIgnoreCase(match.optString("status"))) {
-                    continue;
-                }
+
+                // Ignore knockout matches for standings
+                if ("knockout".equalsIgnoreCase(match.optString("stage"))) continue;
+
+                if (hasStageFilter && !stageId.equals(match.optString("stage"))) continue;
+                if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+
                 String homeId = match.getString("home_team_id");
                 String awayId = match.getString("away_team_id");
                 boolean homeInMap = statsMap.containsKey(homeId);
                 boolean awayInMap = statsMap.containsKey(awayId);
+
                 if (homeInMap || awayInMap) {
                     int hs = match.getInt("home_score");
                     int as = match.getInt("away_score");
                     String pWinner = match.optString("penalty_winner_team_id");
+
                     if (homeInMap) {
                         TeamStats homeStats = statsMap.get(homeId);
-                        homeStats.matchesPlayed++;
-                        homeStats.goalsFor += hs;
-                        homeStats.goalsAgainst += as;
-                        if (hs > as) {
-                            homeStats.wins++;
-                            homeStats.points += 3;
-                        } else if (as > hs) {
-                            homeStats.losses++;
-                        } else {
-                            homeStats.draws++;
-                            homeStats.points++;
-                            if (pWinner.equals(homeId)) {
-                                homeStats.points++;
-                                homeStats.penaltyPoints++;
-                            }
+                        homeStats.matchesPlayed++; homeStats.goalsFor += hs; homeStats.goalsAgainst += as;
+                        if (hs > as) { homeStats.wins++; homeStats.points += 3; }
+                        else if (as > hs) { homeStats.losses++; }
+                        else {
+                            homeStats.draws++; homeStats.points++;
+                            if (pWinner.equals(homeId)) { homeStats.points++; homeStats.penaltyPoints++; }
                         }
                     }
                     if (awayInMap) {
                         TeamStats awayStats = statsMap.get(awayId);
-                        awayStats.matchesPlayed++;
-                        awayStats.goalsFor += as;
-                        awayStats.goalsAgainst += hs;
-                        if (as > hs) {
-                            awayStats.wins++;
-                            awayStats.points += 3;
-                        } else if (hs > as) {
-                            awayStats.losses++;
-                        } else {
-                            awayStats.draws++;
-                            awayStats.points++;
-                            if (pWinner.equals(awayId)) {
-                                awayStats.points++;
-                                awayStats.penaltyPoints++;
-                            }
+                        awayStats.matchesPlayed++; awayStats.goalsFor += as; awayStats.goalsAgainst += hs;
+                        if (as > hs) { awayStats.wins++; awayStats.points += 3; }
+                        else if (hs > as) { awayStats.losses++; }
+                        else {
+                            awayStats.draws++; awayStats.points++;
+                            if (pWinner.equals(awayId)) { awayStats.points++; awayStats.penaltyPoints++; }
                         }
                     }
                 }
             }
         }
         if (statsMap.isEmpty()) return null;
+
         java.util.List<TeamStats> sorted = new java.util.ArrayList<>(statsMap.values());
         Collections.sort(sorted, new Comparator<TeamStats>() {
             @Override public int compare(TeamStats t1, TeamStats t2) {
-                // 1. Compare by total points
+                // 1. Total Points
                 int pointsCompare = Integer.valueOf(t2.points).compareTo(t1.points);
                 if (pointsCompare != 0) return pointsCompare;
 
-                // 2. Head-to-head comparison
+                // 2. Head-to-Head (Only if BOTH matches played)
                 int h2hPoints1 = 0, h2hPoints2 = 0;
                 int h2hGoalsFor1 = 0, h2hGoalsAgainst1 = 0;
-                boolean h2hMatchesExist = false;
+                int h2hMatchesPlayed = 0; // Changed from boolean to counter
+
                 try {
                     if (matches != null) {
                         for (int i = 0; i < matches.length(); i++) {
                             JSONObject match = matches.getJSONObject(i);
                             if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+                            if ("knockout".equalsIgnoreCase(match.optString("stage"))) continue; // Skip KO matches in H2H
+
                             String homeId = match.getString("home_team_id");
                             String awayId = match.getString("away_team_id");
 
                             if ((homeId.equals(t1.teamId) && awayId.equals(t2.teamId)) || (homeId.equals(t2.teamId) && awayId.equals(t1.teamId))) {
-                                h2hMatchesExist = true;
+                                h2hMatchesPlayed++; // Count the match
                                 int hs = match.getInt("home_score");
                                 int as = match.getInt("away_score");
 
-                                if (homeId.equals(t1.teamId)) { // t1 is home, t2 is away
-                                    h2hGoalsFor1 += hs;
-                                    h2hGoalsAgainst1 += as;
-                                    if (hs > as) h2hPoints1 += 3;
-                                    else if (as > hs) h2hPoints2 += 3;
-                                    else { h2hPoints1++; h2hPoints2++; }
-                                } else { // t2 is home, t1 is away
-                                    h2hGoalsFor1 += as;
-                                    h2hGoalsAgainst1 += hs;
-                                    if (as > hs) h2hPoints1 += 3;
-                                    else if (hs > as) { h2hPoints2 += 3; }
-                                    else { h2hPoints1++; h2hPoints2++; }
+                                if (homeId.equals(t1.teamId)) {
+                                    h2hGoalsFor1 += hs; h2hGoalsAgainst1 += as;
+                                    if (hs > as) h2hPoints1 += 3; else if (as > hs) h2hPoints2 += 3; else { h2hPoints1++; h2hPoints2++; }
+                                } else {
+                                    h2hGoalsFor1 += as; h2hGoalsAgainst1 += hs;
+                                    if (as > hs) h2hPoints1 += 3; else if (hs > as) { h2hPoints2 += 3; } else { h2hPoints1++; h2hPoints2++; }
                                 }
                             }
                         }
                     }
                 } catch (JSONException e) { /* ignore */ }
 
-                if (h2hMatchesExist) {
+                // LOGIC CHANGE: Only apply H2H if 2 or more matches played
+                if (h2hMatchesPlayed >= 2) {
                     int h2hPointsCompare = Integer.valueOf(h2hPoints2).compareTo(h2hPoints1);
                     if (h2hPointsCompare != 0) return h2hPointsCompare;
 
                     int h2hGd1 = h2hGoalsFor1 - h2hGoalsAgainst1;
-                    int h2hGd2 = -h2hGd1;
+                    int h2hGd2 = -h2hGd1; // Reverse for t2
                     int h2hGdCompare = Integer.valueOf(h2hGd2).compareTo(h2hGd1);
                     if (h2hGdCompare != 0) return h2hGdCompare;
+                    
+                    // If points and GD are equal in H2H, move to away goals rule (optional) or general rules
                 }
 
-                // 3. Compare by overall goal difference
+                // 3. Goal Difference (General)
                 int gdc = Integer.valueOf(t2.getGoalDifference()).compareTo(t1.getGoalDifference());
                 if (gdc != 0) return gdc;
 
-                // 4. Compare by overall goals for
+                // 4. Goals Scored (General)
                 int gfc = Integer.valueOf(t2.goalsFor).compareTo(t1.goalsFor);
                 if (gfc != 0) return gfc;
 
-                // 5. Compare by team name alphabetically
-                try {
-                    return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en")
-                            .compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
-                } catch (JSONException e) {
-                    return 0;
-                }
+                // 5. Alphabetical
+                try { return getLocalizedText(getTeamInfoById(t1.teamId, teams), "name", "en").compareTo(getLocalizedText(getTeamInfoById(t2.teamId, teams), "name", "en"));
+                } catch (JSONException e) { return 0; }
             }
         });
         for (int i = 0; i < sorted.size(); i++) sorted.get(i).position = i + 1;
