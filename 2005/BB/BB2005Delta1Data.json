@@ -6128,7 +6128,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / حماده جادو","مدرب ك / عمر يسري","مدرب حراس ك / محمود ابو النجا","مدير الكرة ك / رضا زرير","اداري ك / اسماعيل خضر"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
