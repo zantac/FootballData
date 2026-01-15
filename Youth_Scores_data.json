@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@4e60ed8e9d18efda0a9b044b0deedbecd8abb78c/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@7dba359bff7c5eebd3b4bdd5443bdfe85ca6087d/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@6cd4b4228712dc7113a7edc45c2de236a018e7e9/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@4f996e3065f31e9bdebac0ad024b587572333830/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@8c28d7927cd08458f2999311f874741a68457f6b/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@baa9fe5a1d7b08ae1c4c3ecce118499df4e21e9b/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@4af7758e14751e4788bdae2dd2503d5c61412c0d/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@a25dae3747ee757a8160d6ee3850252ec9ae0fa6/2007/BB/BB2007UpperEgyptData.json"
                         ],
@@ -163,7 +163,7 @@
                      "age": "2008",
                      "matchesurl": [
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@8ba2584a214a976f9bfce95913667975e4963009/2008/Area/Cairo/Area_Cairo_2008Data.json",
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@85d101d1e4c323d4bac3a41884a9d482c862dbb4/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@a925ff5e950c4cc41a265c7c3660aa15bb1c26db/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
                                    ],
                      "sector":[
                                 "منطقة القاهرة",
