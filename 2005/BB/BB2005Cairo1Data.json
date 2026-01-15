@@ -6766,7 +6766,7 @@
     "home_score": 1,
     "away_score": 3,
     "home_scorers": null,
-    "away_scorers": null,
+    "away_scorers": ["محمد احمد مسعد","حسام صلاح","احمد عصام"],
     "home_yc": null,
     "away_yc": null,
     "home_rc": null,
