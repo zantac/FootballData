@@ -3855,7 +3855,7 @@
       "away_squade": null,
       "home_score": 4,
       "away_score": 0,
-      "home_scorers": null,
+      "home_scorers": ["يوسف عادل (2)","احمد يونس","عبد الرحمن محمد"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -5099,6 +5099,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين ك / محمد عبد المنعم\nمدير فني مدربي حراس المرمي ك / خضر هاشم\nالمدير الاداري ك / شريف عوض",
        "players": { 
         "coach": ["المدير الفني ك / يسري عز","مدرب عام ك / احمد محسن","مدرب ك / محمد عيد","مدرب حراس ك / جمال حنفي","اداري ك / طارق سعد","مهمات / اشرف"],
         "goalkeepers": null,
