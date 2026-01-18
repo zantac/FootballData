@@ -366,6 +366,22 @@
       "venue_id": "v036",
       "name": "مركز شباب ابو حماد",
       "url" : "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D8%A3%D8%A8%D9%88+%D8%AD%D9%85%D8%A7%D8%AF+-+%D8%A7%D9%84%D8%B3%D8%A7%D8%AD%D8%A9+%D8%A7%D9%84%D8%B4%D8%B9%D8%A8%D9%8A%D8%A9+%D8%A3%D8%A8%D9%88+%D8%AD%D9%85%D8%A7%D8%AF%E2%80%AD/@30.5343264,31.6846891,1373m/data=!3m1!1e3!4m6!3m5!1s0x14f81d8fdabe7e55:0x7047f6ad18a065a7!8m2!3d30.5348856!4d31.6842267!16s%2Fg%2F11nmcz6y1r?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "venue_id": "v037",
+      "name": "نادي غزل شبين",
+      "url" : "https://www.google.com/maps/place/%D9%86%D8%A7%D8%AF%D9%8A+%D8%BA%D8%B2%D9%84+%D8%B4%D8%A8%D9%8A%D9%86%E2%80%AD/@30.5763166,30.9981578,686m/data=!3m1!1e3!4m6!3m5!1s0x14f7d7229256ff2f:0x958851ab44cf0aa5!8m2!3d30.5763883!4d30.997985!16s%2Fg%2F11lkjrzxxx?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+
+    },
+    {
+      "venue_id": "v038",
+      "name": "ملعب ميت خلف",
+      "url" : "https://www.google.com/maps/place/30%C2%B032'35.8%22N+31%C2%B002'41.0%22E/@30.543287,31.04471,971m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.543287!4d31.04471?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+    },
+    {
+      "venue_id": "v039",
+      "name": "ملعب ميت راضي",
+      "url" : "https://www.google.com/maps/place/30%C2%B029'48.6%22N+31%C2%B012'28.8%22E/@30.4970901,31.207303,243m/data=!3m1!1e3!4m4!3m3!8m2!3d30.496837!4d31.208009?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
     }
   ],
   "news": 
@@ -469,7 +485,7 @@
       "whatsapp_number": "201002441392",
       "location": "بنها",
       "location_url": "https://www.google.com/maps/place/%D9%85%D9%84%D8%A7%D8%B9%D8%A8+%D9%83%D9%84%D9%8A%D8%A9+%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9+%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A9,+Kafr+Saad,+Banha,+Al-Qalyubia+Governorate+6487060%E2%80%AD/@30.475864,31.2015132,394m/data=!3m1!1e3!4m14!1m7!3m6!1s0x14f7df6dd968720d:0x993ea5953b895f41!2z2YXZhNin2LnYqCDZg9mE2YrYqSDYp9mE2KrYsdio2YrYqSDYp9mE2LHZitin2LbZitip!8m2!3d30.4775961!4d31.1997151!16s%2Fg%2F11pzlp_zc_!3m5!1s0x14f7df6c5f81519d:0xb95cdcd91c1af9a8!8m2!3d30.4759138!4d31.2013706!16s%2Fg%2F11bw4kgkq2?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D",
-      "expire_date": "11-01-2026"
+      "expire_date": "11-10-2026"
     }
   ]
 }
