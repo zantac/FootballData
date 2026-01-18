@@ -1189,7 +1189,7 @@
       "note" : null,
       "home_squade": null,
       "away_squade": null,
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 0,
       "home_scorers": null,
       "away_scorers": null,
@@ -2044,6 +2044,7 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين ك / عمر جمال\nالمشرف العام ك / ياسر المحمدي",
        "players": { 
         "coach": ["المدير الفني ك/ تامر توتي","مدرب ك / محمود القط","مدرب حراس ك / عبد السلام","اداري ك / عمرو سعد","مهمات / محمود"],
         "goalkeepers": null,
