@@ -3259,7 +3259,7 @@
       "home_team_id": "t007",
       "away_team_id": "t006",
       "venue": "افريكانا - برج العرب",
-      "status": "upcoming",
+      "status": "completed",
       "note" : null,
       "home_squade": null,
       "away_squade": null,
@@ -5358,7 +5358,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
        "players": { 
-        "coach": ["المدير الفني ك/ هاني سامي"],
+        "coach": ["المدير الفني ك / محمود خليل","مدرب ك / ممدوح حامد","مدرب حراس ك / اسلام زكريا","محلل اداء ك / محمد عبد الفتاح","اداري ك / وائل شعبان","مهمات / اسماعيل محمود","مهمات / عمر محمود"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
