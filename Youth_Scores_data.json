@@ -77,7 +77,7 @@
                       "age": "2005",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@b2a188f256b63dc3fd2d873a6e7d4b70e111475c/2005/BB/BB2005Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@aa1445d95db2f12e1b6f0426adf0a7a91762e291/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@868257d10ef70811bf56d047d290657889cef4e6/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@1b734c54c64f0c351edab862533a630dd4236f0f/2005/BB/BB2005UpperEgyptData.json"
                         ],
@@ -382,6 +382,11 @@
       "venue_id": "v039",
       "name": "ملعب ميت راضي",
       "url" : "https://www.google.com/maps/place/30%C2%B029'48.6%22N+31%C2%B012'28.8%22E/@30.4970901,31.207303,243m/data=!3m1!1e3!4m4!3m3!8m2!3d30.496837!4d31.208009?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+    },
+    {
+      "venue_id": "v040",
+      "name": "الاعلاميين",
+      "url" : "https://www.google.com/maps/place/%D9%86%D8%A7%D8%AF%D9%8A+%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%85%D9%8A%D9%8A%D9%86+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%E2%80%AD/@29.9674626,31.012505,977m/data=!3m1!1e3!4m6!3m5!1s0x145850e05c2a1d4b:0x9f6e2bfea7b419bb!8m2!3d29.9674626!4d31.012505!16s%2Fg%2F11dxnv42hr?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
     }
   ],
   "news": 
