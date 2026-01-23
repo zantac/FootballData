@@ -2083,37 +2083,61 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         boolean isRTL = "ar".equalsIgnoreCase(lang);
         LinearLayout r = new LinearLayout(context);
         r.setPadding(32, 24, 32, 24);
+        
+        // Define exact alignment based on language
+        // In Arabic, we want text to align to the RIGHT side of the screen
+        int textAlignment = isRTL ? Gravity.RIGHT : Gravity.LEFT;
+
+        // Check if this is the "Information" (long text) section
         if ("information".equals(getEnglishKeyFor(title, lang))) {
             r.setOrientation(LinearLayout.VERTICAL);
+            
             TextView tv = createTextView(title, -1, 0, true);
             tv.setGravity(Gravity.CENTER);
+            
             TextView vv = createTextView(value, -1, 0, false);
-            vv.setGravity(isRTL ? Gravity.END : Gravity.START);
+            // Force text to the Right side for Arabic
+            vv.setGravity(textAlignment);
             vv.setPadding(0, 16, 0, 0);
-            r.addView(tv);
+            
+            r.addView(tv); 
             r.addView(vv);
         } else {
+            // This is for single rows like "City" or "Field"
             r.setOrientation(LinearLayout.HORIZONTAL);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-                r.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+            
+            // 1. The Label (e.g. "City")
             TextView tv = createTextView(title, 0, 1, true);
-            tv.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+            tv.setGravity(textAlignment | Gravity.CENTER_VERTICAL);
+            
+            // 2. The Value (e.g. "Cairo")
             TextView vv = createTextView(value, 0, 2, false);
-            vv.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+            vv.setGravity(textAlignment | Gravity.CENTER_VERTICAL);
+            
             if (url != null && !url.isEmpty() && !"null".equalsIgnoreCase(url)) {
                 vv.setTextColor(Color.BLUE);
-                r.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) {
-                    try {
-                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-                    } catch (Exception e) {
-                        // Ignore error
-                    }
-                }});
+                r.setOnClickListener(new View.OnClickListener() { 
+                    @Override 
+                    public void onClick(View v) { 
+                        try { 
+                            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url))); 
+                        } catch (Exception e) { /* ignore */ } 
+                    } 
+                });
             }
-            r.addView(tv);
-            r.addView(vv);
+
+            // --- THE FIX ---
+            // If Arabic, add Value first (Left), then Label (Right).
+            // Visual Result: [ Value ........ Label ]
+            if (isRTL) {
+                r.addView(vv); // Value on the left side
+                r.addView(tv); // Label on the right side
+            } else {
+                r.addView(tv); // Label on the left side
+                r.addView(vv); // Value on the right side
+            }
         }
-        c.addView(r);
+        c.addView(r); 
         c.addView(createDivider());
     }
 
