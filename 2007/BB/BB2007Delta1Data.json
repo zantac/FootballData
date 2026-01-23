@@ -2152,7 +2152,7 @@
       "home_score": 0,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["يوسف عبده","محمد رضا"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -4925,6 +4925,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "مدير قطاع الناشئين ك / ايمن الحكيم\nالمدير الاداري للقطاع ك / فادي متولي",
        "players": { 
         "coach": null,
         "goalkeepers": null,
