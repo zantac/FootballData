@@ -205,7 +205,7 @@
     {
       "venue_id": "v004",
       "name": "النادي الاهلي - مدينه نصر",
-      "url": "https://www.google.com/maps/place/Al-Ahly+Sporting+Club+Nasr+City/@30.0706402,31.3558022,941m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14583de1ee424913:0x610afe48d7767c88!8m2!3d30.0706402!4d31.3558022!16s%2Fg%2F1thh50gy?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+      "url": "https://www.google.com/maps/place/Al+Ahly+club/@30.0701619,31.3601973,976m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14583d2f6aebfc4d:0x6626a1e6d8be19e7!8m2!3d30.0701619!4d31.3601973!16s%2Fg%2F11l68tvw0w?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
     },
     {
       "venue_id": "v005",
@@ -387,6 +387,21 @@
       "venue_id": "v040",
       "name": "الاعلاميين",
       "url" : "https://www.google.com/maps/place/%D9%86%D8%A7%D8%AF%D9%8A+%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%85%D9%8A%D9%8A%D9%86+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%E2%80%AD/@29.9674626,31.012505,977m/data=!3m1!1e3!4m6!3m5!1s0x145850e05c2a1d4b:0x9f6e2bfea7b419bb!8m2!3d29.9674626!4d31.012505!16s%2Fg%2F11dxnv42hr?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+    },
+    {
+      "venue_id": "v041",
+      "name": "البتروكيماويات",
+      "url" : "https://www.google.com/maps/place/31%C2%B001'15.1%22N+29%C2%B050'34.1%22E/@31.020859,29.8402161,966m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d31.020859!4d29.842791?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+    },
+    {
+      "venue_id": "v042",
+      "name": "مركز شباب النصر بامبروزو",
+      "url" : "https://www.google.com/maps/place/31%C2%B011'35.3%22N+29%C2%B055'41.6%22E/@31.192937,29.9272925,811m/data=!3m1!1e3!4m4!3m3!8m2!3d31.193134!4d29.928213?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+    },
+    {
+      "venue_id": "v043",
+      "name": "نادي الفروسية بمدينة نصر",
+      "url" : "https://www.google.com/maps/place/30%C2%B004'29.9%22N+31%C2%B021'27.9%22E/@30.074968,31.3551671,976m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.074968!4d31.357742?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
     }
   ],
   "news": 
