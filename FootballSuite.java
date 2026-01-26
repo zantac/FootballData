@@ -25,6 +25,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 // App Inventor Imports
 import com.google.appinventor.components.annotations.DesignerProperty;
@@ -227,6 +229,16 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     @SimpleEvent(description = "Event raised when a team item is clicked in a list. Returns the unique ID of the team.")
     public void TeamClicked(String teamId) { EventDispatcher.dispatchEvent(this, "TeamClicked", teamId); }
+
+    @SimpleEvent(description = "Event raised when the JSON version code is higher than the installed app version.")
+    public void UpdateRequired(String newVersionName, String newVersionCode) { 
+        EventDispatcher.dispatchEvent(this, "UpdateRequired", newVersionName, newVersionCode); 
+    }
+    
+    @SimpleEvent(description = "Event raised when the app is up to date.")
+    public void AppIsUpToDate() { 
+        EventDispatcher.dispatchEvent(this, "AppIsUpToDate"); 
+    }
 
 
     // --- Public Functions (@SimpleFunction) ---
@@ -443,7 +455,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                     boolean isAssistSection = false;
                     for (int i = 0; i < homeEvents.length(); i++) {
                         String event = homeEvents.getString(i);
-                        if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                        if (event.equals("صناعة الاهداف") || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
                         if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
                     }
                 }
@@ -452,7 +464,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                     boolean isAssistSection = false;
                     for (int i = 0; i < awayEvents.length(); i++) {
                         String event = awayEvents.getString(i);
-                        if (event.equals(getLocalizedText(null, "assists_delimiter", lang)) || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
+                        if (event.equals("صناعة الاهداف") || event.equalsIgnoreCase("Assists")) { isAssistSection = true; continue; }
                         if (!event.isEmpty()) { if (isAssistSection) allAssists.add(event); else allScorers.add(event); }
                     }
                 }
@@ -1097,6 +1109,191 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             // Ignore error
         }
     }
+
+    @SimpleFunction(description = "Checks if the installed app version matches the version in the JSON file. Triggers 'UpdateRequired' if JSON version is higher.")
+    public void CheckAppVersion() {
+        if (jsonData == null) {
+            AfterParsingFail("JSON data is not loaded.");
+            return;
+        }
+
+        try {
+            // 1. Get Local App Version
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pInfo = pm.getPackageInfo(context.getPackageName(), 0);
+            int installedVersionCode = pInfo.versionCode; // e.g., 7
+
+            // 2. Get Remote JSON Version
+            JSONObject appVersionObj = jsonData.optJSONObject("app_version");
+            if (appVersionObj == null) {
+                // Fail silently or log if key is missing, or assume up to date
+                return; 
+            }
+            
+            // Parse as integer (handles if it's "7" string or 7 number in JSON)
+            int remoteVersionCode = Integer.parseInt(appVersionObj.optString("version_code", "0"));
+            String remoteVersionName = appVersionObj.optString("version_name", "Unknown");
+
+            // 3. Compare
+            if (remoteVersionCode > installedVersionCode) {
+                // An update is available
+                UpdateRequired(remoteVersionName, String.valueOf(remoteVersionCode));
+            } else {
+                // App is up to date
+                AppIsUpToDate();
+            }
+
+        } catch (Exception e) {
+            AfterParsingFail("Error checking app version: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Opens the Google Play Store page for this application to download the update.")
+    public void OpenGooglePlay() {
+        try {
+            // This creates a dynamic link based on the installed package name (com.waellotfy.youthscores)
+            String appId = context.getPackageName();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appId));
+            
+            // Flags to ensure it opens in a new task (standard for extensions)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            
+            context.startActivity(intent);
+        } catch (Exception e) {
+            AfterParsingFail("Could not open Google Play: " + e.getMessage());
+        }
+    }
+
+    @SimpleFunction(description = "Calculates statistics for a specific team. filterType accepts: 'all', 'home', or 'away'.")
+    public void CreateTeamAllStatistics(HVArrangement container, final String teamId, String filterType, final String lang) {
+        if (jsonData == null || teamId == null || teamId.isEmpty()) return;
+
+        // Sanitize input (handle casing: "Home" -> "home")
+        final String mode = (filterType != null) ? filterType.toLowerCase().trim() : "all";
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONArray matches = jsonData.optJSONArray("matches");
+                    if (matches == null) return;
+
+                    int played = 0;
+                    int wins = 0;
+                    int draws = 0;
+                    int losses = 0;
+                    int goalsFor = 0;
+                    int goalsAgainst = 0;
+
+                    for (int i = 0; i < matches.length(); i++) {
+                        JSONObject match = matches.getJSONObject(i);
+                        
+                        // 1. Check Status
+                        if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+
+                        String homeId = match.getString("home_team_id");
+                        String awayId = match.getString("away_team_id");
+
+                        boolean isHomeTeam = teamId.equals(homeId);
+                        boolean isAwayTeam = teamId.equals(awayId);
+
+                        // 2. Logic: Home Matches
+                        // Process if we are the Home Team AND user wanted "all" or "home"
+                        if (isHomeTeam && (mode.equals("all") || mode.equals("home"))) {
+                            played++;
+                            int hScore = match.getInt("home_score");
+                            int aScore = match.getInt("away_score");
+                            
+                            goalsFor += hScore;
+                            goalsAgainst += aScore;
+
+                            if (hScore > aScore) wins++;
+                            else if (hScore < aScore) losses++;
+                            else draws++;
+                        } 
+                        // 3. Logic: Away Matches
+                        // Process if we are the Away Team AND user wanted "all" or "away"
+                        else if (isAwayTeam && (mode.equals("all") || mode.equals("away"))) {
+                            played++;
+                            int hScore = match.getInt("home_score");
+                            int aScore = match.getInt("away_score");
+                            
+                            // Note: For Away team, Goals For = Away Score
+                            goalsFor += aScore;
+                            goalsAgainst += hScore;
+
+                            if (aScore > hScore) wins++;
+                            else if (aScore < hScore) losses++;
+                            else draws++;
+                        }
+                    }
+
+                    // Prepare final variables for UI
+                    final int fPlayed = played;
+                    final int fWins = wins;
+                    final int fDraws = draws;
+                    final int fLosses = losses;
+                    final int fGF = goalsFor;
+                    final int fGA = goalsAgainst;
+
+                    // 4. Build UI on Main Thread
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                ViewGroup vg = (ViewGroup) container.getView();
+                                vg.removeAllViews();
+                                ScrollView sv = new ScrollView(context);
+                                LinearLayout mainLayout = new LinearLayout(context);
+                                mainLayout.setOrientation(LinearLayout.VERTICAL);
+                                mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+
+                                if (fPlayed == 0) {
+                                    mainLayout.addView(createSingleStatCard(getStatLocalizedText("no_completed_matches", lang), "-", lang));
+                                    sv.addView(mainLayout);
+                                    vg.addView(sv);
+                                    return;
+                                }
+
+                                String playedStr = String.valueOf(fPlayed);
+                                
+                                double winPct = (double) fWins / fPlayed * 100.0;
+                                String winsStr = String.format(Locale.US, "%d (%.1f%%)", fWins, winPct);
+
+                                double drawPct = (double) fDraws / fPlayed * 100.0;
+                                String drawsStr = String.format(Locale.US, "%d (%.1f%%)", fDraws, drawPct);
+
+                                double lossPct = (double) fLosses / fPlayed * 100.0;
+                                String lossStr = String.format(Locale.US, "%d (%.1f%%)", fLosses, lossPct);
+
+                                double gfRate = (double) fGF / fPlayed;
+                                String gfStr = String.format(Locale.US, "%d (%.2f / %s)", fGF, gfRate, getLocalizedText(null, "game_short", lang));
+
+                                double gaRate = (double) fGA / fPlayed;
+                                String gaStr = String.format(Locale.US, "%d (%.2f / %s)", fGA, gaRate, getLocalizedText(null, "game_short", lang));
+
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("total_matches_title", lang), playedStr, lang));
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("wins_stat_title", lang), winsStr, lang));
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("draws_stat_title", lang), drawsStr, lang));
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("losses_stat_title", lang), lossStr, lang));
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("total_goals_title", lang), gfStr, lang));
+                                mainLayout.addView(createSingleStatCard(getStatLocalizedText("total_goals_conceded_title", lang), gaStr, lang));
+
+                                sv.addView(mainLayout);
+                                vg.addView(sv);
+
+                            } catch (Exception e) {
+                                AfterParsingFail("Error building team stats UI: " + e.getMessage());
+                            }
+                        }
+                    });
+
+                } catch (Exception e) {
+                    activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error calculating team stats: " + e.getMessage()); }});
+                }
+            }
+        }).start();
+    }
     
     // --- Deprecated Blocks ---
     @Deprecated @SimpleFunction(description = "This block is deprecated.") public void CreateDrawMatchesView(HVArrangement c, String l) {}
@@ -1271,9 +1468,13 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             ScrollView sv = new ScrollView(context);
             LinearLayout ml = new LinearLayout(context);
             ml.setOrientation(LinearLayout.VERTICAL);
-            for (java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()) {
-                String groupName = entry.getKey();
-                java.util.List<PlayerStat> groupStats = entry.getValue();
+            // --- NEW: Sort groups alphabetically ---
+            List<String> sortedGroupKeys = new ArrayList<>(statsByGroup.keySet());
+            Collections.sort(sortedGroupKeys);
+
+            for (String groupName : sortedGroupKeys) {
+                java.util.List<PlayerStat> groupStats = statsByGroup.get(groupName);
+            // ---------------------------------------
                 Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) {
                     if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals);
                     else return Integer.valueOf(o2.assists).compareTo(o1.assists);
@@ -1282,13 +1483,20 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
                     ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
                 ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));
                 ml.addView(createDivider());
+                // New Code with Limit:
+                int limitCounter = 0; // 1. Initialize counter
+                int MAX_ITEMS_TO_SHOW = 15; // 2. Set your limit here
+
                 for (PlayerStat stat : groupStats) {
+                    if (limitCounter >= MAX_ITEMS_TO_SHOW) break; // 3. Stop if limit reached
+
                     int count = "goals".equals(statType) ? stat.goals : stat.assists;
                     if (count > 0) {
-                        ml.addView(createTournamentStatRow(stat, count, lang));
-                        ml.addView(createDivider());
-                    }
-                }
+                       ml.addView(createTournamentStatRow(stat, count, lang));
+                       ml.addView(createDivider());
+                       limitCounter++; // 4. Increment counter
+                 }
+               }
             }
             sv.addView(ml);
             vg.addView(sv);
@@ -1312,7 +1520,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         String teamName = getLocalizedText(tInfo, "name", lang);
         for (int i = 0; i < events.length(); i++) {
             String eventString = events.getString(i);
-            if (eventString.equals(getLocalizedText(null, "assists_delimiter", lang)) || eventString.equalsIgnoreCase("Assists")) {
+            if (eventString.equals("صناعة الاهداف") || eventString.equalsIgnoreCase("Assists")) {
                 isParsingAssists = true;
                 continue;
             }
@@ -1363,9 +1571,13 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             ScrollView sv = new ScrollView(context);
             LinearLayout ml = new LinearLayout(context);
             ml.setOrientation(LinearLayout.VERTICAL);
-            for (java.util.Map.Entry<String, java.util.List<PlayerStat>> entry : statsByGroup.entrySet()) {
-                String groupName = entry.getKey();
-                java.util.List<PlayerStat> groupStats = entry.getValue();
+            // --- NEW: Sort groups alphabetically ---
+            List<String> sortedGroupKeys = new ArrayList<>(statsByGroup.keySet());
+            Collections.sort(sortedGroupKeys);
+
+            for (String groupName : sortedGroupKeys) {
+                java.util.List<PlayerStat> groupStats = statsByGroup.get(groupName);
+            // ---------------------------------------
                 Collections.sort(groupStats, new Comparator<PlayerStat>() { @Override public int compare(PlayerStat o1, PlayerStat o2) { return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets); }});
                 if (hasAnyGroups && !groupName.equals("_no_group_"))
                     ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
@@ -1581,12 +1793,27 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         boolean hasStageFilter = stageId != null && !stageId.isEmpty();
 
         // 1. Initialize Teams
-        for (int i = 0; i < teams.length(); i++) {
-            JSONObject team = teams.getJSONObject(i);
-            if (!hasGroupFilter || gId.equals(team.optString("group"))) {
-                statsMap.put(team.getString("team_id"), new TeamStats(team.getString("team_id")));
+    for (int i = 0; i < teams.length(); i++) {
+        JSONObject team = teams.getJSONObject(i);
+        if (!hasGroupFilter || gId.equals(team.optString("group"))) {
+            TeamStats stats = new TeamStats(team.getString("team_id"));
+
+            // --- NEW: Check for Point Deduction ---
+            // We parse the string "3" into an integer and subtract it from points
+            String deductionStr = team.optString("point_deduction", "0");
+            try {
+                if (deductionStr != null && !deductionStr.isEmpty()) {
+                    int deduction = Integer.parseInt(deductionStr);
+                    stats.points -= deduction; 
+                }
+            } catch (NumberFormatException e) {
+                // Ignore if value is not a number
             }
+            // --------------------------------------
+
+            statsMap.put(team.getString("team_id"), stats);
         }
+    }
 
         // 2. Process Matches
         if (matches != null) {
@@ -2030,6 +2257,7 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             if ("red_cards".equals(key)) return isAR ? "البطاقات الحمراء" : "Red Cards";
             if ("substitutions".equals(key)) return isAR ? "التبديلات" : "Substitutions";
             if ("assists_delimiter".equals(key)) return isAR ? "صناعة الاهداف" : "Assists";
+            if ("game_short".equals(key)) return isAR ? "م" : "M"; // 'M' for Match, 'م' for مباراة
             return key;
         }
         if (!o.has(key) || o.isNull(key)) return "";
@@ -2709,8 +2937,10 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
 
     private String getStatLocalizedText(String key, String lang) {
         boolean isAR = "ar".equalsIgnoreCase(lang);
-        if ("total_matches_title".equals(key)) return isAR ? "إجمالي المباريات المكتملة" : "Matches Played";
-        if ("total_goals_title".equals(key)) return isAR ? "إجمالي الأهداف المسجلة" : "Goals Scored";
+        
+        // Existing Keys
+        if ("total_matches_title".equals(key)) return isAR ? "إجمالي المباريات" : "Matches Played";
+        if ("total_goals_title".equals(key)) return isAR ? "الأهداف المسجلة (المعدل)" : "Goals Scored (Rate)";
         if ("goal_rate_title".equals(key)) return isAR ? "معدل الأهداف / مباراة" : "Goal Rate / Match";
         if ("winner_matches_title".equals(key)) return isAR ? "مباريات انتهت بفوز" : "Matches With Winner";
         if ("draw_matches_title".equals(key)) return isAR ? "مباريات انتهت بالتعادل" : "Draw Matches";
@@ -2721,6 +2951,14 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
         if ("no_completed_matches".equals(key)) return isAR ? "لا توجد مباريات مكتملة" : "No completed matches.";
         if ("group".equals(key)) return isAR ? "المجموعة" : "Group";
         if ("overall_stats".equals(key)) return isAR ? "إحصائيات عامة" : "Overall Stats";
+
+        // --- NEW KEYS FOR TEAM STATISTICS ---
+        if ("wins_stat_title".equals(key)) return isAR ? "مرات الفوز (النسبة)" : "Wins (Percentage)";
+        if ("draws_stat_title".equals(key)) return isAR ? "التعادلات (النسبة)" : "Draws (Percentage)";
+        if ("losses_stat_title".equals(key)) return isAR ? "الخسائر (النسبة)" : "Losses (Percentage)";
+        if ("total_goals_conceded_title".equals(key)) return isAR ? "الأهداف المستقبلة (المعدل)" : "Goals Conceded (Rate)";
+        // ------------------------------------
+
         return key;
     }
     
