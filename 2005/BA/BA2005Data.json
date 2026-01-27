@@ -5215,7 +5215,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / احمد مختار","مدرب ك / عاطف","مدرب حراس ك / سامح البسطويسي","اداري ك / هيثم","مخطط احمال د / هشام"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
