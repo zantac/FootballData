@@ -1786,7 +1786,7 @@
       "away_team_id": "gbt003",
       "venue": "مركز شباب بيجام",
       "status": "completed",
-      "note" : "احتساب المباراة لصالح فريق فالكونز و خصم 3 نقاط اضافية غير نقاط المباراة من فريق شباب مسطرد",
+      "note" : "احتساب المباراة لصالح فريق فالكونز بسبب عدم حضور فريق شباب مسطرد و خصم 3 نقاط اضافية غير نقاط المباراة من فريق شباب مسطرد",
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -2238,6 +2238,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "point_deduction": "3",
        "players": { 
         "coach": null,
         "goalkeepers": null,
