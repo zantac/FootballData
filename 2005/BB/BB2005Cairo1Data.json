@@ -4410,7 +4410,7 @@
     "away_team_id": "gat007",
     "venue": "نادي 63 الحربي بحلوان",
     "status": "completed",
-    "note": null,
+    "note": "قرار اداري باحتساب المباراة لصالح نادي حلوان العام بسبب انسحاب فريق كسكادا بالاضافة الي خصم 3 نقاط اضافية من فريق كسكادا بخلاف نقاط المباراة",
     "home_squade": null,
     "away_squade": null,
     "home_score": 2,
@@ -7592,6 +7592,7 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
+      "point_deduction": "3",
        "players": { 
         "coach": null,
         "goalkeepers": null,
