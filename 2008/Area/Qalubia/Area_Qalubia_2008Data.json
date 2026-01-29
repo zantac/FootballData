@@ -1840,7 +1840,7 @@
       "home_score": 2,
       "away_score": 4,
       "home_scorers": ["محمود محمد","عبد الرحمن عماد"],
-      "away_scorers": null,
+      "away_scorers": ["عبد العليم","محمد رمضان","حمو","زيدان"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2169,7 +2169,7 @@
     {
       "team_id": "gbt003",
       "group": "2",
-      "name": "فالكونز اف سي",
+      "name": "فالكونز اف سي\n(سنديون)",
       "logo": "https://ia801005.us.archive.org/1/items/20251022_20251022_2055/falcons2.PNG",
       "field": null,
       "fieldurl": null,
@@ -2201,13 +2201,13 @@
     {
       "team_id": "gbt005",
       "group": "2",
-      "name": "ميت عاصم",
+      "name": "نادي النجوم الرياضي\n(ميت عاصم)",
       "logo": "https://ia600200.us.archive.org/8/items/20251024_20251024_0507/%D9%85%D9%8A%D8%AA%20%D8%B9%D8%A7%D8%B5%D9%85.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / محمد حمدي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
