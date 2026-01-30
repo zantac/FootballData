@@ -1161,7 +1161,7 @@
     "home_team_id": "gat004",
     "away_team_id": "gat003",
     "venue": "بتروسبورت",
-    "status": "upcoming",
+    "status": "completed",
     "note": null,
     "home_squade": null,
     "away_squade": null,
@@ -4078,7 +4078,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / ايهاب الصباحي","مدرب ك / زيزو","مدرب الحراس ك / ديدا","اداري ك / حمدي فراج","طبيب الفريق د / اسلام خالد الدين"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -4205,8 +4205,9 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+       "information": "مدير قطاع الناشئين ك / اسلام عادل",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / محمد حمص","مدرب ك / سيد احمد","مدرب حراس ك / احمد زين","اداري ك / مصطفي الجارحي","رئيس الجهاز الطبي د / محمد البحيري"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
