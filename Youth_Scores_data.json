@@ -50,7 +50,7 @@
                      },
                      {
                       "age": "2007",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f7bd007c2ff73b01fd40d81d3ec5fec4ce2bd027/2007/BA/BA2007Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@45e4fcf103d52659a13b179dba70a28e054dcab2/2007/BA/BA2007Data.json",
                       "sector": null
                      },
                      {
@@ -96,7 +96,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@5214063722f259f56779c982b644b437801d13fb/2007/BB/BB2007Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@98bff2369b5513e9aa6567f1ab74e71ceeea58dd/2007/BB/BB2007Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@517296ea2ccac313de163cb670af97c61b38621f/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8eff8be33bc749de7b0e7c70586bd387614d5b41/2007/BB/BB2007UpperEgyptData.json"
                         ],
                       "sector": {
@@ -376,7 +376,7 @@
     {
       "venue_id": "v038",
       "name": "ملعب ميت خلف",
-      "url" : "https://www.google.com/maps/place/30%C2%B032'35.8%22N+31%C2%B002'41.0%22E/@30.543287,31.04471,971m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d30.543287!4d31.04471?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+      "url" : "https://www.google.com/maps/place/Club+is+dead+Khalafariyady/@30.5432109,31.0450104,140m/data=!3m1!1e3!4m12!1m5!3m4!2zMzDCsDMyJzM1LjgiTiAzMcKwMDInNDEuMCJF!8m2!3d30.5432778!4d31.0447222!3m5!1s0x14f7d70709bf39b9:0xa2232035040b7831!8m2!3d30.5433664!4d31.0448018!16s%2Fg%2F11c6ptmhmt?entry=ttu&g_ep=EgoyMDI2MDEyNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
     },
     {
       "venue_id": "v039",
