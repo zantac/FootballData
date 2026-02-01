@@ -4166,7 +4166,7 @@
       "home_score": 2,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["محمد عبد الناصر (2)","محمد وليد"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5567,7 +5567,7 @@
       "fieldurl": null,
       "city": "القاهرة",
        "players": { 
-        "coach": ["المدير الفني ك/ محمد سعد"],
+        "coach": ["المدير الفني ك/ محمد سعد","مدرب  ك / سعد عبد الباقي","مدرب حراس تونسي ابو الليل","مخطط احمال ك / احمد طنطاوي","اداري ك / هاني عدلي","اخصائي اصابات ك / اسامة الاطرش"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
