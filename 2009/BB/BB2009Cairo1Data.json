@@ -5945,7 +5945,7 @@
       "away_squade": null,
       "home_score": 5,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["اياد ايمن (2)","ادهم محمد","محمد اسامة","زين بركات"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -9736,7 +9736,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / وليد عبد النبي","مدرب  ك / محمود عاشور","مدرب حراس ك / محمد عادل","اعداد بدني و تأهيل ك / مصطفي عبده","مدير اداري ك / وليد عثمان"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
