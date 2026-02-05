@@ -15,7 +15,7 @@
                     [
                      {
                       "age": "2005",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@fc12fa2c7c91bca6cb1d8025c3becada7c1d8b97/2005/A/A2005Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@6110441e9b509fbce08880845eb9f5a3f9d0f881/2005/A/A2005Data.json",
                       "sector": null
                      },
                      {
@@ -50,7 +50,7 @@
                      },
                      {
                       "age": "2007",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@744c88858c70139c4045d3f73aff31a53238361a/2007/BA/BA2007Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@3c2ea4dbe78a725e69dc93cf90bb448064ce10f4/2007/BA/BA2007Data.json",
                       "sector": null
                      },
                      {
@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@47b9fd9bf69462c8ded4cba2e331ec4862dd33e5/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@463e72d881ae0bd7d2646d9cd77c0fb7b3a35e29/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@cc11ca55e3087826159896bf083fc85c531aface/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@8eff8be33bc749de7b0e7c70586bd387614d5b41/2007/BB/BB2007UpperEgyptData.json"
                         ],
@@ -173,7 +173,7 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@936dbf6e6616e4dda851d24ac5d0c7fc2de3f503/2010/Area/Cairo/Area_Cairo_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@e28d9debbf117606fe15b915dd44b09def2127bc/2010/Area/Cairo/Area_Cairo_2010Data.json"
                                      
                                    ],
                      "sector":[
