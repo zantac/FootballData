@@ -2171,8 +2171,9 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع البراعم و الناشئين ك / اشرف عبد الحليم\nنائب رئيس القطاع ك / حماده جوجو",
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / اسلام مانجا","مدرب ك / محمود الشهاوي","مدرب حراس ك / طارق ابراهيم"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
