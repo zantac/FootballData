@@ -1768,7 +1768,7 @@
       "home_score": 0,
       "away_score": 4,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["محمود شرف","عبد الرحمن بونو","عبد الرحمن اشرف (2)"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2220,7 +2220,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / مصطفي حسن","مدرب ك / مدثر","مدرب حراس ك / محمود","ادراي ك / ممدوح","طبيب الفريق د / محمد عرفة"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
@@ -2324,11 +2324,7 @@
         "attackers": null
     }
     }
-  ],
-  "scorrers": null,
-  "assists": null,
-  "cleansheets": null,
-  "penalityblocks": null
+  ]
 
 
 }
