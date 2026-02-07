@@ -20,7 +20,7 @@
                      },
                      {
                       "age": "2007",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@747ba42ded214ab86e62739fa0207ddf4ab7ed11/2007/A/A2007Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@0b7c98660037939d353f8f21fe995d8723cba10a/2007/A/A2007Data.json",
                       "sector": null
                      },
                      {
@@ -173,7 +173,7 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@339e0e2fa19465e4c2f6a16477ab01cd773ba791/2010/Area/Cairo/Area_Cairo_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@3d62c46b11c933158264dddab6e40d9e7d9280fd/2010/Area/Cairo/Area_Cairo_2010Data.json"
                                      
                                    ],
                      "sector":[
