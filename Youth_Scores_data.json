@@ -30,7 +30,7 @@
                      },
                      {
                       "age": "2011",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@c8063654320ea5719001f762ec56afefd0d91782/2011/A/A2011Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@754d5bc0b21f0acca570002c8d6573e70441bc96/2011/A/A2011Data.json",
                       "sector": null
                      }
                    ]
@@ -60,7 +60,7 @@
                      },
                      {
                       "age": "2011",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@7d12f1b03689f74aad2e55e8c3414dc9ddbeec7d/2011/BA/BA2011Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f452864a62eb43a5173dcaa2210fc8215bf6b73f/2011/BA/BA2011Data.json",
                       "sector": null
                      }
                    ]
