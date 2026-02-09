@@ -4287,7 +4287,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": null,
+      "home_scorers": ["محمد مبروك","جابر محمد"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -5086,7 +5086,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / عصام الحناوي","مدرب ك / مصطفي عيسي","مدرب حراس ك / نادر زغلول","اداري  ك / حسن العباسي","طبيب الفريق د / اسراء حسن"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
