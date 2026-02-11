@@ -1982,7 +1982,73 @@
         "midfielders": null,
         "attackers": null
     }
-    } 
+    },
+    {
+      "team_id": "gct001",
+      "group": "تحديد البطل",
+      "name": "فالكونز اف سي\n(سنديون)",
+      "logo": "https://ia801005.us.archive.org/1/items/20251022_20251022_2055/falcons2.PNG",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": ["المدير الفني ك / محمد كمونة","مدرب حراس ك / احمد عواد","رئيس القطاع ك / محمد العطار"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gct002",
+      "group": "تحديد البطل",
+      "name": "بنها",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/620.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": ["المدير الفني ك / خالد مكي","مدرب ك / احمد الكأس","مدرب حراس ك / سامح السيد","اداري ك / سيد مرغني","اصابات ملاعب ك / عبد الرحمن اشرف"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gct003",
+      "group": "تحديد البطل",
+      "name": "رع",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13881.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "gct004",
+      "group": "تحديد البطل",
+      "name": "العبور",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/12758.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+      "information": "رئيس قطاع الناشئين ك / ايمن رجب\nنائب رئيس قطاع الناشئين ك احمد رجب\nالمدير الاداري ك / شريف عبد الرحمن",
+       "players": { 
+        "coach": ["المدير الفني  ك / محمود دراكولا","مدرب ك / عبد الرزاق عظيمة","مدرب حراس ك / سيد الدجوي","اداري ك / عمرو امين","طبيب د / علاء الدين ذو الفقار","محلل الاداء ك / معاذ حمادة"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }
+
   ]
 
 
