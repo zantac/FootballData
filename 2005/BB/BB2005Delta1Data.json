@@ -5291,7 +5291,7 @@
       "away_squade": null,
       "home_score": 5,
       "away_score": 0,
-      "home_scorers": null,
+      "home_scorers": ["محمود الصفطاوي","عبدالله حسن","محمد ممدوح (2)","محمد عبد النبي"],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -6272,7 +6272,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / طارق فتحي","معد بدني ك / محمد جمال","مدرب حراس ك / محمد رشوان","اداري ك / ابراهيم عزب"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
