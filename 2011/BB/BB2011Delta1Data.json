@@ -1841,7 +1841,7 @@
       "home_score": 5,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["احمد بلبول"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
