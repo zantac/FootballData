@@ -3791,7 +3791,7 @@
       "home_score": 0,
       "away_score": 5,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["مازن سالم (2)","امين علاء (2)","نور حشيش"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5038,7 +5038,7 @@
       "fieldurl": null,
       "city": null,
       "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / وليد عبد الخالق","مدرب ك / ايمن العشري","مدرب حراس ك / احمد الوكيل"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
