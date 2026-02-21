@@ -7040,7 +7040,7 @@
     "away_squade": null,
     "home_score": 2,
     "away_score": 1,
-    "home_scorers": null,
+    "home_scorers": ["محمود بن لحاج","علي عبد الحليم"],
     "away_scorers": null,
     "home_yc": null,
     "away_yc": null,
@@ -7774,7 +7774,7 @@
       "fieldurl": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني ك / جابر حسن","مدرب ك / علي عوض","اخصائي الاصابات و التأهيل ك / يوسف بدرية"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
