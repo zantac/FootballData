@@ -6616,7 +6616,7 @@
     "home_score": 2,
     "away_score": 4,
     "home_scorers": null,
-    "away_scorers": null,
+    "away_scorers": ["محمد فخري","محمد شحاتة","زياد سرحان","سمير الحلواني"],
     "home_yc": null,
     "away_yc": null,
     "home_rc": null,
