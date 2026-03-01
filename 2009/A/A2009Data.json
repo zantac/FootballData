@@ -5690,7 +5690,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 4,
-      "home_scorers": null,
+      "home_scorers": ["ادم سامح","عمرو شعبان"],
       "away_scorers": ["عبد العزيز خالد","عمر عبد الرحيم","يحيي وائل","محمد ايمن"],
       "home_yc": null,
       "away_yc": null,
