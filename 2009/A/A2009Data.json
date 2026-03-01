@@ -3940,7 +3940,7 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["احمد ابو الحسن"],
       "away_scorers": ["دانيال تامر","علي السبع","صناعة الاهداف","مصطفي عصام"],
       "home_yc": null,
       "away_yc": null,
