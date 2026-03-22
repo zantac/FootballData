@@ -1,0 +1,597 @@
+{
+  "matches": [
+    {
+      "match_id": "m002",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t001",
+      "away_team_id": "t002",
+      "venue": "الاتصالات القديم",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 3,
+      "away_score": 2,
+      "home_scorers": ["خالد حسن (2)","ياسين فرحات"],
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m004",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t003",
+      "away_team_id": "t004",
+      "venue": "مصر للتأمين",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 4,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m006",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t005",
+      "away_team_id": "t006",
+      "venue": "ملعب المحروسة",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 5,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m008",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t007",
+      "away_team_id": "t008",
+      "venue": "ملعب الشرطة بالدراسة",
+      "status": "completed",
+      "note" : "انسحاب فريق التجمع هايتس في الشوط الثاني",
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 3,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m010",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t009",
+      "away_team_id": "t010",
+      "venue": "مركز شباب السلام ثالث",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 2,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m012",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t011",
+      "away_team_id": "t012",
+      "venue": "مركز شباب الاميرية ",
+      "status": "upcoming",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m014",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t013",
+      "away_team_id": "t014",
+      "venue": "مركز شباب الهايكستب ",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 4,
+      "away_score": 2,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    },
+    {
+      "match_id": "m016",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
+      "week": "1",
+      "date": "2026-03-22", 
+      "time": "13:00",
+      "home_team_id": "t015",
+      "away_team_id": "t016",
+      "venue": "ملعب الشمس",
+      "status": "completed",
+      "note" : "فوز اوازيس بركلات الترجيح بنتيجة 5-4",
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 2,
+      "away_score": 2,
+      "home_scorers": null,
+      "away_scorers": ["يوسف بازيد","ادهم محمد"],
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
+    }
+  
+     
+   ],
+ "teams": [
+   {
+      "team_id": "t017",
+      "group": null,
+      "name": "بيراميدز",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t007",
+      "group": null,
+      "name": "اتحاد الشرطة",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/699.png",
+      "field": null,
+      "fieldurl": null,
+      "coach": null,
+      "city": null,
+       "players": { 
+        "coach": ["المدير الفني ك / احمد جمال","مدرب ك / محمد ممدوح","مدرب حراس ك / عبد الناصر ممدوح","ادراي ك / عماد جاد","اخصائي علاج طبيعي د / مؤمن عبد الراضي"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }, 
+    {
+      "team_id": "t015",
+      "group": null,
+      "name": "الشمس",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/621.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": ["المدير الفني ك / ايهاب الصباحي","مدرب ك / زيزو","مدرب الحراس ك / ديدا","اداري ك / حمدي فراج","طبيب الفريق د / اسلام خالد الدين"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t002",
+      "group": null,
+      "name": "بتروسبورت",
+      "logo": "https://i0.wp.com/www.ksc-club.com/wp-content/uploads/2024/08/KSC-4.png?resize=81%2C78&ssl=1",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t011",
+      "group": null,
+      "name": "مستقبل سبورت",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13002.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t020",
+      "group": null,
+      "name": "وادي دجلة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t008",
+      "group": null,
+      "name": "التجمع هايتس",
+      "logo": "https://ia801703.us.archive.org/18/items/20251219_20251219_0902/%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D8%B9%20%D9%87%D8%A7%D9%8A%D8%AA%D8%B3.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t022",
+      "group": null,
+      "name": "المقاولون العرب",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": ["المدير الفني ك / هيثم حسين","مدرب ك / محمد السيد","مدرب حراس ك / مصطفي سعد","معد بدني ك / عمرو عبد الفتاح","اداري ك / عبد الغني حسين","اخصائي اصابات ملاعب ك / عمر اشرف"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t018",
+      "group": null,
+      "name": "انبي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t001",
+      "group": null,
+      "name": "المصرية للاتصالات\nKickstart\nFootball Academy",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/54377",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t014",
+      "group": null,
+      "name": "الزهور",
+      "logo": "https://zohourclub.net/images/zlogo(1).png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "information": "مدير قطاع الناشئين ك / اسلام عادل",
+       "players": { 
+        "coach": ["المدير الفني ك / محمد حمص","مدرب ك / سيد احمد","مدرب حراس ك / احمد زين","اداري ك / مصطفي الجارحي","رئيس الجهاز الطبي د / محمد البحيري"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t016",
+      "group": null,
+      "name": "اكاديمية اوازيس",
+      "logo": "https://ia601701.us.archive.org/14/items/20251219_20251219_0858/%D8%A7%D9%88%D8%A7%D8%B2%D9%8A%D8%B3.jpeg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t004",
+      "group": null,
+      "name": "الجزيرة الرياضي",
+      "logo": "https://services.gsc.eg/assets/images/logo.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t021",
+      "group": null,
+      "name": "الجونة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t010",
+      "group": null,
+      "name": "اسكو",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/695.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t024",
+      "group": null,
+      "name": "مودرن سبورت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t012",
+      "group": null,
+      "name": "م.ش الجزيرة",
+      "logo": "https://egytennis.com/wp-content/uploads/listing-uploads/logo/2022/12/egytennis-Gezira-Youth-Center-courts-logo.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t009",
+      "group": null,
+      "name": "ليفيلز",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/14093.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t005",
+      "group": null,
+      "name": "السكة الحديد",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/19463",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": ["مدير فني ك / احمد شنجولا","مدرب ك / جمال نجم","مدرب حراس ك / علاء علي يوسف","اداري ك / محمد مصطفي","اخصائي العلاج الطبيعي ك/ عبد اللطيف علي"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t023",
+      "group": null,
+      "name": "بتروجت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t003",
+      "group": null,
+      "name": "مصر للتأمين",
+      "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13833.png",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+      "information": "المشرف العام ك / نصار جاد\nالمدير الاداري ك / احمد عادل",
+       "players": { 
+        "coach": ["المدير الفني ك / احمد ميسي","مدرب ك / محمد عادل","مدرب حراس ك / احمد اسماعيل"],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t019",
+      "group": null,
+      "name": "الاهلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t006",
+      "group": null,
+      "name": "م.ش التجمع الاول",
+      "logo": "https://dn710108.ca.archive.org/0/items/20251219_20251219_0907/%D8%A7%D9%84%D8%AA%D8%AC%D9%85%D8%B9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    },
+    {
+      "team_id": "t013",
+      "group": null,
+      "name": "الداخلية",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
+      "field": null,
+      "fieldurl": null,
+      "city": null,
+       "players": { 
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+    }
+    }  
+  ]
+
+
+}
