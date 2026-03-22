@@ -173,11 +173,13 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@89ab43bc9807dc36cdf438b61ae580f9a4829f26/2010/Area/Cairo/Area_Cairo_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@89ab43bc9807dc36cdf438b61ae580f9a4829f26/2010/Area/Cairo/Area_Cairo_2010Data.json",
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@b86c704aea0b9c64f65338815d11a0b904c8936f/2010/Area/Cairo/Cairo_Cup_2010Data.json"
                                      
                                    ],
                      "sector":[
-                                "منطقة القاهرة المرحلة الثانية"
+                                "منطقة القاهرة المرحلة الثانية",
+                                "تصفية الصعود لقطاع القاهرة الكبري"
                               ]
                     }
                    ]
