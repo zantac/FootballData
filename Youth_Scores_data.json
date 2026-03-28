@@ -114,7 +114,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@e9a922b5fb3cd1127ff63d811697d2c81119c9ae/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@99771c0f6a685fe53892a6d195416304c4adccea/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@63a80b100bf96f804dc90d1be8f5d69c05d58e65/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7de5b75d6b697f377e53b664f926ef8b4ed8202c/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
@@ -132,7 +132,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@6eafb3ab7e2163ad80b14cb79e5220b4a4eaf05b/2011/BB/BB2011Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@8f539fe245decbc622ab3c41e2d7580373cd96b8/2011/BB/BB2011Delta1Data.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@1e4ba4205378185b5d00cd91715917ccd35a5c6f/2011/BB/BB2011Delta1Data.json"
                         ],
                       "sector": 
                         [
