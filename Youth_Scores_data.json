@@ -174,7 +174,7 @@
                      "age": "2010",
                      "matchesurl": [
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@42c7860a27160f8fe66922acee77992c6d865862/2010/Area/Cairo/Area_Cairo_2010Data.json",
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@cf53883bb444d13b1462c5562bf991fdac569833/2010/Area/Cairo/Cairo_Cup_2010Data.json"
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@04242b3f09f998066d1b27c59e012c8fa5006cd1/2010/Area/Cairo/Cairo_Cup_2010Data.json"
                                      
                                    ],
                      "sector":[
@@ -483,6 +483,12 @@
   "date": "2026-03-29",
   "title": "تصفية الصعود لقطاع القاهرة الكبري دور ال 8 مواليد 2009",
   "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1774798910/661442570_122298063182024400_6808979376956293198_n.jpg_q8ggp5.jpg",
+  "details": null
+    },
+    {
+  "date": "2026-03-29",
+  "title": "تصفية الصعود لقطاع القاهرة الكبري دور ال 8 مواليد 2010",
+  "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1774815946/659054760_122298063542024400_5477722774757122964_n.jpg_sbhmmr.jpg",
   "details": null
     }
     
