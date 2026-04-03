@@ -30,6 +30,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -38,9 +39,9 @@ import androidx.core.content.FileProvider;
 import android.provider.MediaStore;
 import android.content.ContentValues;
 import android.content.ContentResolver;
-import android.net.Uri;
-import android.os.Build;
 import android.webkit.MimeTypeMap;
+import android.util.Log;
+import android.os.Environment;
 
 import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.SimpleEvent;
@@ -86,6 +87,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -105,12 +107,29 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     private static final String LAST_NEWS_COUNT_KEY = "lastNewsCount";
     private static final String SHOWN_ADS_KEY = "shownAds";
     private static final String CACHE_TIMESTAMP_KEY = "cacheTimestamp";
+    private static final int MAX_ITEMS_TO_SHOW = 15;
+    
     
     // Performance Constants
     private static final int MAX_CACHED_VIEWS = 30;
     private static final int MAX_RETRIES = 3;
     private static final int RETRY_DELAY_MS = 1000;
     private static final int THREAD_POOL_SIZE = 3;
+
+    // Cache keys for frequently accessed JSON fields
+    private static final Set<String> MATCH_FIELDS = new HashSet<>(Arrays.asList(
+        "match_id", "date", "time", "status", "home_team_id", "away_team_id"
+    ));
+    
+    // Team fields cache
+    private static final Set<String> TEAM_FIELDS = new HashSet<>(Arrays.asList(
+        "team_id", "name", "logo", "group", "city", "field", "information"
+    ));
+    
+    // Player fields cache
+    private static final Set<String> PLAYER_FIELDS = new HashSet<>(Arrays.asList(
+        "players", "coach", "goalkeepers", "defenders", "midfielders", "attackers"
+    ));
     
     // --- Class Fields ---
     private final Activity activity;
@@ -129,10 +148,10 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     
     // Thread Pool
     private ExecutorService backgroundExecutor;
-    private ExecutorService imageLoaderExecutor;
     
-    // View Cache
-    private Map<String, WeakReference<View>> viewCache;
+    
+    
+    private Map<String, WeakReference<View>> viewCache = new ConcurrentHashMap<>();
     
     // --- UI Customization Fields ---
     private int primaryTextColor = Color.BLACK;
@@ -179,16 +198,10 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
             }
         });
         
-        imageLoaderExecutor = Executors.newFixedThreadPool(2, new ThreadFactory() {
-            private final AtomicInteger count = new AtomicInteger(1);
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r, "ImageLoader-" + count.getAndIncrement());
-            }
-        });
+        
         
         // Initialize caches
-        viewCache = new HashMap<>();
+        
         cachedTeamsById = new HashMap<>();
         cachedMatchesList = new ArrayList<>();
         
@@ -269,9 +282,14 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     EventDispatcher.dispatchEvent(this, "ImageShared", imageUrl);
     }
     @SimpleEvent(description = "Event raised when a player name is clicked. Returns player name, team ID, team name, and stat type (goals/assists/clean sheets).")
-public void PlayerClicked(String playerName, String teamId, String teamName, String statType) {
+    public void PlayerClicked(String playerName, String teamId, String teamName, String statType) {
     EventDispatcher.dispatchEvent(this, "PlayerClicked", playerName, teamId, teamName, statType);
-}
+    }
+    @SimpleEvent(description = "Event raised when an image download is complete. Returns the file path.")
+    public void ImageDownloadComplete(String filePath) {
+    EventDispatcher.dispatchEvent(this, "ImageDownloadComplete", filePath);
+    }
+    
     
 
 
@@ -290,6 +308,12 @@ public void PlayerClicked(String playerName, String teamId, String teamName, Str
     
     showFullScreenImageDialog(imageUrl);
     }
+
+  
+
+
+
+
     // --- Main Public Functions ---
     
     @SimpleFunction(description = "Clears all cached data to ensure fresh data is shown when loading new competition")
@@ -324,12 +348,18 @@ public void PlayerClicked(String playerName, String teamId, String teamName, Str
         firstUpcomingMatchView = null;
     }
 
-    @SimpleFunction(description = "Fetches and parses JSON data from a URL with retry logic.")
-    public void ParseJsonFromUrl(String url) {
-        // Clear cache before loading new data
-        ClearCache();
-        parseJsonFromUrlWithRetry(url, 0);
+    @SimpleFunction
+public void ParseJsonFromUrl(String url) {
+    if (useCache && isDataCached && cachedMatchesList != null) {
+        // Use cached data if available and not expired
+        long cacheAge = System.currentTimeMillis() - prefs.getLong(CACHE_TIMESTAMP_KEY, 0);
+        if (cacheAge < 3600000) { // 1 hour cache
+            AfterParsingSuccess();
+            return;
+        }
     }
+    parseJsonFromUrlWithRetry(url, 0);
+}
     
     @SimpleFunction(description = "Sets the internal JSON data from a provided text string.")
     public void SetJsonDataFromString(String jsonString) {
@@ -351,7 +381,21 @@ public void PlayerClicked(String playerName, String teamId, String teamName, Str
 
     @SimpleFunction(description = "Calculates and displays a league standings table.")
     public void CalculateAndShowStandings(final HVArrangement container, final String groupId, final String stageId, final String lang) {
-        if (jsonData == null) return;
+        // Add null checks
+    if (jsonData == null) {
+        AfterParsingFail("JSON data is not loaded");
+        return;
+    }
+    
+    if (container == null) {
+        AfterParsingFail("Container is null");
+        return;
+    }
+    
+    if (container.getView() == null) {
+        AfterParsingFail("Container view is null");
+        return;
+    }
         
         backgroundExecutor.submit(new Runnable() {
             @Override
@@ -1565,15 +1609,59 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
         return d;
     }
 
-    private JSONObject findMatchById(String mId) throws JSONException {
-        JSONArray matches = jsonData.optJSONArray("matches");
-        if (matches == null) return null;
-        for (int i = 0; i < matches.length(); i++) {
-            JSONObject match = matches.getJSONObject(i);
-            if (match.getString("match_id").equals(mId)) return match;
+    // For list views - uses optimized fields
+private JSONObject findMatchByIdOptimized(String mId) throws JSONException {
+    JSONArray matches = jsonData.optJSONArray("matches");
+    if (matches == null) return null;
+    for (int i = 0; i < matches.length(); i++) {
+        JSONObject match = matches.getJSONObject(i);
+        if (mId.equals(match.optString("match_id"))) {
+            if (useCache) {
+                JSONObject optimizedMatch = new JSONObject();
+                for (String field : MATCH_FIELDS) {
+                    if (match.has(field)) {
+                        optimizedMatch.put(field, match.get(field));
+                    }
+                }
+                return optimizedMatch;
+            }
+            return match;
         }
-        return null;
     }
+    return null;
+}
+
+// For detail views - returns complete match object
+private JSONObject findMatchById(String mId) throws JSONException {
+    JSONArray matches = jsonData.optJSONArray("matches");
+    if (matches == null) return null;
+    for (int i = 0; i < matches.length(); i++) {
+        JSONObject match = matches.getJSONObject(i);
+        if (mId.equals(match.optString("match_id"))) {
+            return match; // Return FULL match object
+        }
+    }
+    return null;
+}
+
+
+/**
+ * Extracts only the essential fields from a JSON object for better performance.
+ */
+private JSONObject extractEssentialFields(JSONObject source, Set<String> fields) {
+    if (source == null || fields == null) return source;
+    try {
+        JSONObject result = new JSONObject();
+        for (String field : fields) {
+            if (source.has(field) && !source.isNull(field)) {
+                result.put(field, source.get(field));
+            }
+        }
+        return result;
+    } catch (JSONException e) {
+        return source; // Return original on error
+    }
+}
 
     private JSONArray getLocalizedArray(JSONObject source, String key, String lang) {
         if (source == null || !source.has(key) || source.isNull(key)) return null;
@@ -1638,13 +1726,28 @@ private void parseScorersFromMatchForStats(JSONObject match, JSONArray scorers, 
 // Create the full-screen image dialog
 private void showFullScreenImageDialog(String imageUrl) {
     final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+    
+    // Create the ImageView first
+    final ImageView fullScreenImage = new ImageView(context);
+    fullScreenImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+    
+    // Add on dismiss cleanup with the final variable
+    dialog.setOnDismissListener(new android.content.DialogInterface.OnDismissListener() {
+    @Override
+    public void onDismiss(android.content.DialogInterface dialogInterface) {
+        fullScreenImage.setImageDrawable(null);
+    }
+});
+    
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
     dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
     
     RelativeLayout layout = new RelativeLayout(context);
     layout.setBackgroundColor(Color.BLACK);
     
-    ImageView fullScreenImage = new ImageView(context);
+    
+    final ImageView finalFullScreenImage = fullScreenImage; 
+    
     fullScreenImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
     RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(
         RelativeLayout.LayoutParams.MATCH_PARENT,
@@ -1764,7 +1867,7 @@ private void showFullScreenImageDialog(String imageUrl) {
     downloadBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            downloadImage(imageUrl);
+            DownloadImage(imageUrl);
         }
     });
     
@@ -1905,6 +2008,8 @@ private void shareImageWithMediaStore(String imageUrl, Dialog dialog) {
     });
 }
 
+
+
 // Keep this as fallback
 private void shareImageSimple(String imageUrl) {
     try {
@@ -1923,50 +2028,115 @@ private void shareImageSimple(String imageUrl) {
     }
 }
 
-// Download image to device
-private void downloadImage(String imageUrl) {
-    backgroundExecutor.submit(new Runnable() {
+// Download image to device with permission check
+@SimpleFunction(description = "Downloads an image to the Pictures folder.")
+public void DownloadImage(String imageUrl) {
+    if (imageUrl == null || imageUrl.isEmpty()) {
+        AfterParsingFail("Image URL is empty");
+        return;
+    }
+    
+    new Thread(new Runnable() {
         @Override
         public void run() {
+            InputStream input = null;
+            OutputStream output = null;
+            HttpURLConnection connection = null;
+            
             try {
-                // Request permission for Android 6+ (handled by App Inventor)
                 URL url = new URL(imageUrl);
-                java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
+                connection = (HttpURLConnection) url.openConnection();
                 connection.setDoInput(true);
+                connection.setConnectTimeout(15000);
+                connection.setReadTimeout(15000);
                 connection.connect();
-                InputStream input = connection.getInputStream();
                 
-                // Save to Downloads folder
-                File downloadsDir = android.os.Environment.getExternalStoragePublicDirectory(
-                    android.os.Environment.DIRECTORY_DOWNLOADS);
-                File imageFile = new File(downloadsDir, "football_image_" + System.currentTimeMillis() + ".jpg");
-                FileOutputStream output = new FileOutputStream(imageFile);
+                if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                    final String errorMsg = "Failed to download: HTTP " + connection.getResponseCode();
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            AfterParsingFail(errorMsg);
+                        }
+                    });
+                    return;
+                }
                 
-                byte[] buffer = new byte[1024];
+                input = connection.getInputStream();
+                
+                ContentValues contentValues = new ContentValues();
+                final String fileName = "football_" + System.currentTimeMillis() + ".jpg";
+                contentValues.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
+                contentValues.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+                
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    // Save to Pictures/FootballApp folder
+                    contentValues.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/FootballApp");
+                } else {
+                    String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
+                    File footballDir = new File(path, "FootballApp");
+                    if (!footballDir.exists()) {
+                        footballDir.mkdirs();
+                    }
+                    contentValues.put(MediaStore.Images.Media.DATA, footballDir.getAbsolutePath() + "/" + fileName);
+                }
+                
+                ContentResolver resolver = context.getContentResolver();
+                final Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+                
+                if (imageUri == null) {
+                    throw new Exception("Failed to create file");
+                }
+                
+                output = resolver.openOutputStream(imageUri);
+                
+                if (output == null) {
+                    throw new Exception("Failed to open output stream");
+                }
+                
+                byte[] buffer = new byte[8192];
                 int bytesRead;
+                long totalBytes = 0;
+                
                 while ((bytesRead = input.read(buffer)) != -1) {
                     output.write(buffer, 0, bytesRead);
+                    totalBytes += bytesRead;
                 }
-                output.close();
-                input.close();
+                
+                final long finalFileSize = totalBytes;
                 
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(context, "Image saved to Downloads", Toast.LENGTH_LONG).show();
+                        String successMessage = "Image saved to Pictures/FootballApp/";
+                        Toast.makeText(context, successMessage + fileName + " (" + (finalFileSize / 1024) + " KB)", Toast.LENGTH_LONG).show();
+                        ImageDownloadComplete(imageUri.toString());
+                        AfterParsingSuccess();
                     }
                 });
                 
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(context, "Failed to save image", Toast.LENGTH_SHORT).show();
+                        AfterParsingFail("Download failed: " + e.getMessage());
                     }
                 });
+            } finally {
+                try {
+                    if (output != null) output.close();
+                    if (input != null) input.close();
+                } catch (Exception ignored) {}
+                if (connection != null) connection.disconnect();
             }
         }
-    });
+    }).start();
+}
+
+// Keep the old private method for internal use (renamed)
+private void downloadImageInternal(String imageUrl) {
+    // This is now handled by the public method above
+    DownloadImage(imageUrl);
 }
 
 
@@ -2062,7 +2232,7 @@ if (awayScorers != null) {
             int totalGoals = 0;
             for (MatchGoalInfo goal : playerGoals) {
                 totalGoals += goal.goalCount;
-                matchesContainer.addView(createMatchGoalCard(goal, lang));
+                matchesContainer.addView(createMatchGoalCard(goal, lang, dialog));
                 matchesContainer.addView(createDivider());
             }
             
@@ -2185,7 +2355,7 @@ private void parseScorersFromMatch(JSONObject match, JSONArray scorers, boolean 
 }
 
 // Create match goal card view
-private View createMatchGoalCard(MatchGoalInfo goal, String lang) {
+private View createMatchGoalCard(MatchGoalInfo goal, String lang, final Dialog parentDialog) {
     boolean isRTL = "ar".equalsIgnoreCase(lang);
     LinearLayout card = new LinearLayout(context);
     card.setOrientation(LinearLayout.VERTICAL);
@@ -2251,11 +2421,16 @@ private View createMatchGoalCard(MatchGoalInfo goal, String lang) {
     card.addView(topRow);
     card.addView(bottomRow);
     
-    // Make card clickable to show match details
+    /// Make card clickable to show match details AND dismiss the popup dialog
     final String matchId = goal.matchId;
     card.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            // Dismiss the parent dialog first
+            if (parentDialog != null && parentDialog.isShowing()) {
+                parentDialog.dismiss();
+            }
+            // Then fire the match clicked event
             MatchClicked(matchId);
         }
     });
@@ -2265,13 +2440,15 @@ private View createMatchGoalCard(MatchGoalInfo goal, String lang) {
 
 // Format date for display
 private String formatDate(String dateStr, String lang) {
+    if (dateStr == null || dateStr.isEmpty()) return "";
     try {
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         Date date = inputFormat.parse(dateStr);
         boolean isRTL = "ar".equalsIgnoreCase(lang);
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy", isRTL ? new Locale("ar") : Locale.US);
-        return outputFormat.format(date);
+        return outputFormat.format(date); // ← ADD THIS LINE
     } catch (ParseException e) {
+        Log.e("FootballSuite", "Date parse error: " + dateStr, e);
         return dateStr;
     }
 }
@@ -2848,7 +3025,10 @@ private View createTournamentStatRowWithType(PlayerStat stat, int count, String 
     }
 
     private void calculateAndDisplayTeamStats(HVArrangement c, String teamId, String lang, final String statType) {
-    if (jsonData == null || teamId == null || teamId.isEmpty()) return;
+    if (jsonData == null || teamId == null || teamId.isEmpty()) {
+        AfterParsingFail("Invalid data or team ID");
+        return;
+    }
     
     backgroundExecutor.submit(new Runnable() {
         @Override
@@ -3200,7 +3380,7 @@ private void showPlayerStatsPopup(String playerName, String teamId, String teamN
             int totalCount = 0;
             for (MatchStatInfo stat : playerStats) {
                 totalCount += stat.count;
-                matchesContainer.addView(createMatchStatCard(stat, statType, lang));
+                matchesContainer.addView(createMatchStatCard(stat, statType, lang, dialog));
                 matchesContainer.addView(createDivider());
             }
             
@@ -3351,79 +3531,143 @@ private void parseCleanSheetsFromMatch(JSONObject match, String teamId, String p
     }
 }
 
-// Create match stat card view
-private View createMatchStatCard(MatchStatInfo stat, String statType, String lang) {
+// Create match stat card view - NEW DESIGN
+private View createMatchStatCard(MatchStatInfo stat, String statType, String lang, final Dialog parentDialog) {
     boolean isRTL = "ar".equalsIgnoreCase(lang);
     LinearLayout card = new LinearLayout(context);
     card.setOrientation(LinearLayout.VERTICAL);
     card.setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12));
+    card.setBackgroundColor(this.cardBackgroundColor);
     
-    // Date and opponent row
-    LinearLayout topRow = new LinearLayout(context);
-    topRow.setOrientation(LinearLayout.HORIZONTAL);
-    topRow.setGravity(Gravity.CENTER_VERTICAL);
-    
+    // Date row
     TextView dateView = new TextView(context);
     dateView.setText(formatDate(stat.matchDate, lang));
     dateView.setTextSize(12);
     dateView.setTextColor(this.secondaryTextColor);
-    dateView.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1));
+    dateView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+    dateView.setPadding(0, 0, 0, dpToPx(8));
+    card.addView(dateView);
     
-    TextView opponentView = new TextView(context);
-    String vsText = getLocalizedText(null, "vs", lang);
-    opponentView.setText(vsText + " " + stat.opponentTeam);
-    opponentView.setTextSize(12);
-    opponentView.setTextColor(this.secondaryTextColor);
-    opponentView.setGravity(isRTL ? Gravity.START : Gravity.END);
-    opponentView.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1));
+    // Teams logos row
+    LinearLayout logosRow = new LinearLayout(context);
+    logosRow.setOrientation(LinearLayout.HORIZONTAL);
+    logosRow.setGravity(Gravity.CENTER);
+    logosRow.setPadding(0, dpToPx(8), 0, dpToPx(8));
     
-    if (isRTL) {
-        topRow.addView(opponentView);
-        topRow.addView(dateView);
-    } else {
-        topRow.addView(dateView);
-        topRow.addView(opponentView);
+    // Get team IDs from stat (you'll need to pass team IDs or get from match)
+    // For now, we'll extract from the match data
+    try {
+        JSONObject match = findMatchById(stat.matchId);
+        if (match != null) {
+            JSONArray teams = jsonData.getJSONArray("teams");
+            JSONObject homeTeam = getTeamInfoById(match.getString("home_team_id"), teams);
+            JSONObject awayTeam = getTeamInfoById(match.getString("away_team_id"), teams);
+            
+            // Home team logo
+            ImageView homeLogo = new ImageView(context);
+            LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(0, dpToPx(60), 1);
+            homeLogo.setLayoutParams(logoParams);
+            homeLogo.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            if (homeTeam != null) {
+                String homeLogoUrl = homeTeam.optString("logo");
+                if (!homeLogoUrl.isEmpty()) {
+                    Picasso.with(context).load(homeLogoUrl).into(homeLogo);
+                }
+            }
+            
+            // VS text or score
+            TextView vsText = new TextView(context);
+            vsText.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(40), -2));
+            vsText.setText(stat.score);
+            vsText.setTextSize(14);
+            vsText.setTypeface(null, Typeface.BOLD);
+            vsText.setTextColor(this.primaryTextColor);
+            vsText.setGravity(Gravity.CENTER);
+            
+            // Away team logo
+            ImageView awayLogo = new ImageView(context);
+            awayLogo.setLayoutParams(logoParams);
+            awayLogo.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            if (awayTeam != null) {
+                String awayLogoUrl = awayTeam.optString("logo");
+                if (!awayLogoUrl.isEmpty()) {
+                    Picasso.with(context).load(awayLogoUrl).into(awayLogo);
+                }
+            }
+            
+            if (isRTL) {
+                logosRow.addView(awayLogo);
+                logosRow.addView(vsText);
+                logosRow.addView(homeLogo);
+            } else {
+                logosRow.addView(homeLogo);
+                logosRow.addView(vsText);
+                logosRow.addView(awayLogo);
+            }
+        }
+    } catch (JSONException e) {
+        // If can't get teams, just show score
+        TextView scoreOnly = new TextView(context);
+        scoreOnly.setText(stat.score);
+        scoreOnly.setTextSize(16);
+        scoreOnly.setTypeface(null, Typeface.BOLD);
+        scoreOnly.setTextColor(this.primaryTextColor);
+        scoreOnly.setGravity(Gravity.CENTER);
+        logosRow.addView(scoreOnly);
     }
     
-    // Score and stat row
-    LinearLayout bottomRow = new LinearLayout(context);
-    bottomRow.setOrientation(LinearLayout.HORIZONTAL);
-    bottomRow.setGravity(Gravity.CENTER_VERTICAL);
-    bottomRow.setPadding(0, dpToPx(8), 0, 0);
+    card.addView(logosRow);
     
-    TextView scoreView = new TextView(context);
-    scoreView.setText(stat.score);
-    scoreView.setTextSize(16);
-    scoreView.setTypeface(null, Typeface.BOLD);
-    scoreView.setTextColor(this.primaryTextColor);
-    scoreView.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1));
+    // Stats row - with icon and number
+    LinearLayout statsRow = new LinearLayout(context);
+    statsRow.setOrientation(LinearLayout.HORIZONTAL);
+    statsRow.setGravity(Gravity.CENTER);
+    statsRow.setPadding(0, dpToPx(12), 0, dpToPx(4));
     
-    String statIcon = "goals".equals(statType) ? "⚽ " : ("assists".equals(statType) ? "🎯 " : "🧤 ");
-    String statText = statIcon + stat.count + " " + getLocalizedText(null, statType, lang);
-    TextView statView = new TextView(context);
-    statView.setText(statText);
-    statView.setTextSize(14);
-    statView.setTextColor(this.accentColor);
-    statView.setTypeface(null, Typeface.BOLD);
-    statView.setGravity(isRTL ? Gravity.START : Gravity.END);
-    statView.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1));
-    
-    if (isRTL) {
-        bottomRow.addView(statView);
-        bottomRow.addView(scoreView);
-    } else {
-        bottomRow.addView(scoreView);
-        bottomRow.addView(statView);
+    String statIcon = "";
+    String statTitle = "";
+    if ("goals".equals(statType)) {
+        statIcon = "⚽";
+        statTitle = getLocalizedText(null, "goals", lang);
+    } else if ("assists".equals(statType)) {
+        statIcon = "🎯";
+        statTitle = getLocalizedText(null, "assists", lang);
+    } else if ("clean_sheets".equals(statType)) {
+        statIcon = "🧤";
+        statTitle = getLocalizedText(null, "clean_sheets", lang);
     }
     
-    card.addView(topRow);
-    card.addView(bottomRow);
+    TextView statIconView = new TextView(context);
+    statIconView.setText(statIcon);
+    statIconView.setTextSize(18);
+    statIconView.setPadding(0, 0, dpToPx(8), 0);
+    
+    TextView statCountView = new TextView(context);
+    statCountView.setText(String.valueOf(stat.count));
+    statCountView.setTextSize(18);
+    statCountView.setTypeface(null, Typeface.BOLD);
+    statCountView.setTextColor(this.accentColor);
+    
+    TextView statTitleView = new TextView(context);
+    statTitleView.setText(statTitle);
+    statTitleView.setTextSize(14);
+    statTitleView.setTextColor(this.secondaryTextColor);
+    statTitleView.setPadding(dpToPx(8), 0, 0, 0);
+    
+    statsRow.addView(statIconView);
+    statsRow.addView(statCountView);
+    statsRow.addView(statTitleView);
+    
+    card.addView(statsRow);
     
     // Make card clickable to show match details
     final String matchId = stat.matchId;
     card.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            if (parentDialog != null && parentDialog.isShowing()) {
+                parentDialog.dismiss();
+            }
             MatchClicked(matchId);
         }
     });
@@ -3648,6 +3892,20 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
     }
 
     private View createMatchItemView(JSONObject match, JSONArray teams, final String lang) throws JSONException, ParseException {
+    // Add null checks
+    if (match == null) {
+        TextView errorView = new TextView(context);
+        errorView.setText("Match data unavailable");
+        return errorView;
+    }
+    
+    if (teams == null || teams.length() == 0) {
+        TextView errorView = new TextView(context);
+        errorView.setText("Team data unavailable");
+        return errorView;
+    }
+    
+    
     final boolean isRTL = "ar".equalsIgnoreCase(lang);
     final String matchId = match.getString("match_id");
     
@@ -3811,6 +4069,32 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
 }
 
 private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, final String lang) throws JSONException, ParseException {
+    // ✅ ADD NULL CHECKS HERE - at the very top
+    if (match == null) {
+        android.util.Log.e("FootballSuite", "createMatchDetailHeaderView: match is null");
+        TextView errorView = new TextView(context);
+        errorView.setText("Error: Match data not available");
+        errorView.setTextColor(this.secondaryTextColor);
+        errorView.setGravity(Gravity.CENTER);
+        errorView.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+        return errorView;
+    }
+    
+    if (teams == null) {
+        android.util.Log.e("FootballSuite", "createMatchDetailHeaderView: teams array is null");
+        TextView errorView = new TextView(context);
+        errorView.setText("Error: Team data not available");
+        errorView.setTextColor(this.secondaryTextColor);
+        errorView.setGravity(Gravity.CENTER);
+        errorView.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+        return errorView;
+    }
+    
+    if (lang == null) {
+        android.util.Log.e("FootballSuite", "createMatchDetailHeaderView: language is null, using English");
+        // Continue with English as fallback
+    }
+    
     final boolean isRTL = "ar".equalsIgnoreCase(lang);
     final String matchId = match.getString("match_id");
     final String homeTeamId = match.getString("home_team_id");
@@ -4019,6 +4303,12 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
 }
 
     private String getLocalizedText(JSONObject o, String key, String lang) {
+        // Add null check for key
+    if (key == null || key.isEmpty()) {
+        return "";
+    }
+        
+        
         if (o == null) {
             boolean isAR = "ar".equalsIgnoreCase(lang);
              if ("venue_not_available".equals(key)) return isAR ? "الملعب غير محدد" : "Venue not available";
@@ -4066,7 +4356,7 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
             if ("vs".equals(key)) return isAR ? "ضد" : "vs";
             if ("no_goals_found".equals(key)) return isAR ? "لم يتم تسجيل أهداف" : "No goals found";
             if ("no_stats_found".equals(key)) return isAR ? "لا توجد إحصائيات" : "No statistics found";
-            return key;
+            return (key != null) ? key : "";
         }
         if (!o.has(key) || o.isNull(key)) return "";
         try {
@@ -4097,10 +4387,21 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
     }
 
     private JSONObject getTeamInfoById(String id, JSONArray data) throws JSONException {
-        // Check cache first
-        if (cachedTeamsById.containsKey(id)) {
-            return cachedTeamsById.get(id);
-        }
+        // Add null checks
+    if (id == null || id.isEmpty()) {
+        android.util.Log.e("FootballSuite", "getTeamInfoById: team ID is null or empty");
+        return null;
+    }
+    
+    if (data == null || data.length() == 0) {
+        android.util.Log.e("FootballSuite", "getTeamInfoById: teams data is null or empty");
+        return null;
+    }
+    
+    // Check cache first
+    if (cachedTeamsById.containsKey(id)) {
+        return cachedTeamsById.get(id);
+    }
         
         for (int i = 0; i < data.length(); i++) {
             if (data.getJSONObject(i).getString("team_id").equals(id)) {
@@ -4525,7 +4826,9 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         
         // Load image with Picasso
-        Picasso.with(context).load(imageUrl).into(imageView);
+        Picasso.with(context).load(imageUrl)
+            .error(android.R.drawable.ic_menu_gallery)
+            .into(imageView);
         
         // Make image clickable
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -4879,15 +5182,19 @@ private View createTeamStatRow(PlayerStat stat, int count, String lang, final St
                         }
                     }
                     
-                    if (jsonData.has("matches")) {
-                        JSONArray matches = jsonData.optJSONArray("matches");
-                        if (matches != null) {
-                            cachedMatchesList.clear();
-                            for (int i = 0; i < matches.length(); i++) {
-                                cachedMatchesList.add(matches.getJSONObject(i));
-                            }
-                        }
-                    }
+                    // In preCacheData method:
+if (jsonData.has("matches")) {
+    JSONArray matches = jsonData.optJSONArray("matches");
+    if (matches != null) {
+        cachedMatchesList.clear();
+        for (int i = 0; i < matches.length(); i++) {
+            JSONObject match = matches.getJSONObject(i);
+            // Store optimized version with only needed fields
+            JSONObject optimizedMatch = extractEssentialFields(match, MATCH_FIELDS);
+            cachedMatchesList.add(optimizedMatch);
+        }
+    }
+}
                     
                     isDataCached = true;
                 } catch (JSONException e) {
@@ -4910,77 +5217,153 @@ private View createTeamStatRow(PlayerStat stat, int count, String lang, final St
     }
     
     private void parseJsonFromUrlWithRetry(final String url, final int retryCount) {
-        AsyncHttpClient.getDefaultInstance().executeByteBufferList(new AsyncHttpGet(url), 
-            new AsyncHttpClient.DownloadCallback() {
-                @Override
-                public void onCompleted(final Exception e, final AsyncHttpResponse source, 
-                                       final ByteBufferList result) {
-                    backgroundExecutor.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (e != null) {
-                                if (retryCount < MAX_RETRIES) {
-                                    try {
-                                        Thread.sleep(RETRY_DELAY_MS);
-                                    } catch (InterruptedException ie) {}
-                                    parseJsonFromUrlWithRetry(url, retryCount + 1);
-                                } else {
-                                    activity.runOnUiThread(new Runnable() {
-                                        public void run() {
-                                            jsonData = null;
-                                            AfterParsingFail("Network Error: " + e.getMessage());
-                                        }
-                                    });
+     if (retryCount > MAX_RETRIES) {  // ← Add this check at the beginning
+        activity.runOnUiThread(new Runnable() {
+    @Override
+    public void run() {
+        AfterParsingFail("Max retries exceeded");
+    }
+});
+        return;
+    }
+
+    final AsyncHttpClient client = AsyncHttpClient.getDefaultInstance();
+    final AsyncHttpGet request = new AsyncHttpGet(url);
+    
+    client.executeByteBufferList(request, new AsyncHttpClient.DownloadCallback() {
+        @Override
+        public void onCompleted(final Exception e, final AsyncHttpResponse source, 
+                               final ByteBufferList result) {
+            try {
+                // IMPORTANT: Close the response to prevent connection leaks
+                if (source != null) {
+                    source.close();
+                }
+                
+                backgroundExecutor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (e != null) {
+                            if (retryCount < MAX_RETRIES) {
+                                try {
+                                    Thread.sleep(RETRY_DELAY_MS);
+                                } catch (InterruptedException ie) {
+                                    Thread.currentThread().interrupt();
                                 }
-                                return;
-                            }
-                            
-                            try {
-                                String jsonString = "";
-                                if (result != null) {
-                                    byte[] bytes = result.getAllByteArray();
-                                    jsonString = new String(bytes, "UTF-8");
-                                }
-                                
-                                final JSONObject parsedData = new JSONObject(jsonString);
-                                
-                                activity.runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        jsonData = parsedData;
-                                        preCacheData();
-                                        AfterParsingSuccess();
-                                    }
-                                });
-                            } catch (final Exception je) {
+                                parseJsonFromUrlWithRetry(url, retryCount + 1);
+                            } else {
                                 activity.runOnUiThread(new Runnable() {
                                     public void run() {
                                         jsonData = null;
-                                        AfterParsingFail("JSON Parsing Error: " + je.getMessage());
+                                        AfterParsingFail("Network Error: " + e.getMessage());
                                     }
                                 });
                             }
+                            return;
                         }
-                    });
-                }
-            });
+                        
+                        try {
+                            String jsonString = "";
+                            if (result != null) {
+                                byte[] bytes = result.getAllByteArray();
+                                jsonString = new String(bytes, "UTF-8");
+                                result.recycle(); // Recycle the ByteBufferList
+                            }
+                            
+                            final JSONObject parsedData = new JSONObject(jsonString);
+                            
+                            activity.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    jsonData = parsedData;
+                                    preCacheData();
+                                    AfterParsingSuccess();
+                                }
+                            });
+                        } catch (final Exception je) {
+                            activity.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    jsonData = null;
+                                    AfterParsingFail("JSON Parsing Error: " + je.getMessage());
+                                }
+                            });
+                        } finally {
+                            // Additional cleanup if needed
+                            if (result != null) {
+                                result.recycle();
+                            }
+                        }
+                    }
+                });
+            } catch (Exception cleanupError) {
+                // Log cleanup error but don't crash
+                android.util.Log.e("FootballSuite", "Error during cleanup", cleanupError);
+            }
+        }
+        
+        @Override
+        public void onConnect(AsyncHttpResponse response) {
+            // Optional: Called when connection is established
+        }
+        
+        
+        public void onDataAvailable(AsyncHttpResponse response, ByteBufferList data) {
+            // Optional: Called as data arrives
+        }
+    });
+}
+    
+
+    public void onDestroy() {
+    if (backgroundExecutor != null) {
+        backgroundExecutor.shutdown();
     }
     
-    // Cleanup method
-    public void onDestroy() {
-        if (backgroundExecutor != null) {
-            backgroundExecutor.shutdown();
+    if (viewCache != null) {
+        viewCache.clear();
+    }
+    if (cachedTeamsById != null) {
+        cachedTeamsById.clear();
+    }
+    if (cachedMatchesList != null) {
+        cachedMatchesList.clear();
+    }
+    
+    // ADD THIS SECTION:
+    // Shutdown AsyncHttpClient to prevent lingering connections
+    try {
+        AsyncHttpClient.getDefaultInstance().getServer().stop();
+    } catch (Exception e) {
+        // Ignore shutdown errors
+    }
+}
+// ✅ ADD THE SAFE TEXT VIEW CREATOR HERE - before the final closing brace
+    /**
+     * Creates a TextView with null safety protection.
+     * @param text The text to display (can be null)
+     * @param fallback The fallback text to show if primary text is null or empty
+     * @return A properly configured TextView
+     */
+    private TextView createSafeTextView(String text, String fallback) {
+        TextView tv = new TextView(context);
+        String displayText = (text != null && !text.isEmpty()) ? text : fallback;
+        tv.setText(displayText);
+        tv.setTextColor(this.primaryTextColor);
+        tv.setPadding(dpToPx(8), dpToPx(4), dpToPx(8), dpToPx(4));
+        return tv;
+    }
+    
+    /**
+     * Creates a TextView with null safety and custom styling.
+     * @param text The text to display (can be null)
+     * @param fallback The fallback text if primary is null
+     * @param isBold Whether to make the text bold
+     * @return A properly configured TextView
+     */
+    private TextView createSafeTextViewWithStyle(String text, String fallback, boolean isBold) {
+        TextView tv = createSafeTextView(text, fallback);
+        if (isBold) {
+            tv.setTypeface(null, Typeface.BOLD);
         }
-        if (imageLoaderExecutor != null) {
-            imageLoaderExecutor.shutdown();
-        }
-        if (viewCache != null) {
-            viewCache.clear();
-        }
-        if (cachedTeamsById != null) {
-            cachedTeamsById.clear();
-        }
-        if (cachedMatchesList != null) {
-            cachedMatchesList.clear();
-        }
+        return tv;
     }
 }
