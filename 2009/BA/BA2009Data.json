@@ -2903,7 +2903,7 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
-      "home_scorers": null,
+      "home_scorers": ["محمد فيروز","محمود عبد الهادي"],
       "away_scorers": ["الشيمي","اسلام هاني"],
       "home_yc": null,
       "away_yc": null,
