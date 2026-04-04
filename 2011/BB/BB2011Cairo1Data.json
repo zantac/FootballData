@@ -3617,7 +3617,7 @@
       "home_score": 2,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["محمد ناصر","زياد مجدي (2)"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5489,8 +5489,14 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين و البراعم كابتن السيد أبو الحمد\nنائب رئيس القطاع كابتن شريف كراوية\nمشرف القطاع كابتن هاني الصاروخ ",
        "players": { 
-        "coach": null,
+        "coach": [
+    "المدير الفني كابتن مودي الجمل",
+    "المدرب كابتن عماد رمضان",
+    "مدرب حراس المرمى كابتن إسلام الفار",
+    "إداري كابتن محمد مرسي "
+  ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
