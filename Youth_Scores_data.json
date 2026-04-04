@@ -78,7 +78,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@02c6d9de3c5cd9ecc1554d90741cdba1ac1f5773/2005/BB/BB2005Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@f8726514d055a60987c3441bccbb2ac60fd25dc9/2005/BB/BB2005Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@937d31fe000e6568153f30ad7c1b5449ae410d55/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7f192200944973108277c3156034e9f76f6abad3/2005/BB/BB2005UpperEgyptData.json"
                         ],
                       "sector": {
@@ -96,7 +96,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b565dac33ee48b25d052e1723fc9eb1a919c31f7/2007/BB/BB2007Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@a43ed3d6d9d7e55cae2ea9d41dcd98819e54c49a/2007/BB/BB2007Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@3dc328d8847cb8d67e2774ca524a601ef1b945fd/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b0fdf5e635566215c584b3bf61c1c977fa8ed4ee/2007/BB/BB2007UpperEgyptData.json"
                         ],
                       "sector": {
@@ -114,7 +114,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@e2555e7df5fa558dbe4604440f431b88119fcaa7/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@d8ea3bacb3dd332ede061d2a9581b1e1ac6e61cd/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@fccb710fb68a4d19e9645e1d45664d3f7f20ae34/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7de5b75d6b697f377e53b664f926ef8b4ed8202c/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
@@ -132,7 +132,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@54c17a3dc68d5e0fcd6794f6ce73d8504f736ad1/2011/BB/BB2011Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@234c69e9d951ba216578c895bfbd6050ee965455/2011/BB/BB2011Delta1Data.json"
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@2e21a1e1ee2c0c384c680e9658d8f80f223ef7d2/2011/BB/BB2011Delta1Data.json"
                         ],
                       "sector": 
                         [
@@ -163,7 +163,7 @@
                      "age": "2008",
                      "matchesurl": [
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@32910666a8cbf50f75cc8eb087a4e528e058e872/2008/Area/Cairo/Area_Cairo_2008Data.json",
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@de4f4ea911e9e8170a32206bc9994a03fbf3e9d3/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@a0f95f2cce6d30dfd5f916a168e262ef419825ae/2008/Area/Qalubia/Area_Qalubia_2008Data.json" 
                                    ],
                      "sector":[
                                 "منطقة القاهرة",
@@ -509,7 +509,19 @@
   "title": "نادي زد بطلا لكأس سوبر منطقة الجيزة مواليد 2008",
   "image": null,
   "details": "المباراة النهائية لكأس سوبر منطقه الجيزه \nأمام نادي مركز شباب وردان انتهت المباراة بفوز زد 0/8\nأحرز الأهداف:\nمصطفى عصام ⚽⚽⚽\nعلي السبع ⚽⚽\nاحمد رجب ابو غالي ⚽ \nمروان توفيق ⚽\nكاراس جورج ⚽\nالجهاز الفني والإداري والطبي للفريق 👇\nالمدير الفني ك/ Cairg Gordon\nمدرب عام ك/ احمد كمال \nمدرب عام ك/ علي عياد \nمدرب حراس ك/ محمد ابراهيم \nمدرب أحمال ك/ محمد عبدالجواد \\\"زيكا\\\"\nمحلل أداء/ زياد ابو الليل \nإدارى ك/ محمد عبدالمجيد ( جيدا )\nإدارى ك / هادى محمد عمارة \nإداري عام ومسؤول فرق الناشئين ا/ احمد وجيه \nاخصائي د/ عمرو العربي \nطبيب عظام د/ محمد اسامه  \nمسؤول المهمات/ محمد سعد \\\"تتح\\\"\nمسؤول مهمات/ محمد بطل"
-   }
+   },
+   {
+  "date": "2026-04-04",
+  "title": "اختبارات نادي دلفي",
+  "image": null,
+  "details": "يعلن نادي دلفي عن إقامة اختبارات مجانية (بدون اي مقابل ) علي ملعب مدرسة بايونيرز الدولية وذلك للمواليد من (٢٠٠٩) وحتي مواليد (٢٠١٨) وذلك علي النحو التالي :\n👈الخميس الموافق ٤/٩ تبدأ الساعة ١٢ ظهرا وتنتهي الساعة ٤ عصرا\nالجمعة الموافق ٤/١٠ تبدأ بعد صلاة الجمعة مباشرة وتنتهي الساعة ٤ عصرا\nالسبت الموافق ٤/١١ تبدأ الساعة ١٢ ظهرا وتنتهي الساعة ٤ عصرا \nالعنوان : مدرسة بايونيرز الدولية بجوار مطافي الملاحة (مندرة قبلي)"
+   },
+    {
+      "date": "2026-04-02",
+      "title": "الشروط المنظمة لبطولات دوري القطاعات",
+      "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1775329722/658849744_1393857256110132_3856465424111815034_n.jpg_wdqyg3.jpg",
+      "details": null
+    }
     
   ],
   "Ads": 
