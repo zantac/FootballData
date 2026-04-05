@@ -15,7 +15,7 @@
                     [
                      {
                       "age": "2005",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@9c4217be7957a1d3732623131e5a167797a21c2c/2005/A/A2005Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@a0b8b95dc19f6ff1c936477bda35e0f544d2ff9d/2005/A/A2005Data.json",
                       "sector": null
                      },
                      {
@@ -45,7 +45,7 @@
                    [
                      {
                      "age": "2005",
-                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f8dff008521ec0536628724b0629c647e36f5119/2005/BA/BA2005Data.json",
+                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@7d8d481cfacdc38ad5c275e61f725c8a43012936/2005/BA/BA2005Data.json",
                      "sector": null
                      },
                      {
