@@ -3897,7 +3897,7 @@
       "coach": null,
       "city": null,
        "players": { 
-        "coach": null,
+        "coach": ["المدير الفني كابتن / سامح مدحت","المدير الاداري كابتن / موسي غباشي","اداري كابتن / محمد الخلاوي"],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
