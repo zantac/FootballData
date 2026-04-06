@@ -3688,7 +3688,7 @@
       "home_score": 0,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": ["عبد الرحمن قابيل","العدوي طارق","كريم عطية"],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5406,8 +5406,16 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين ك / طلعت عبد الرحمن",
        "players": { 
-        "coach": null,
+        "coach": [
+    "ك/ وائل رمزي — المدير الفني",
+    "ك/ محمد إسماعيل — مدرب عام",
+    "ك/ أحمد ناجح — مدرب حراس المرمى",
+    "ك/ عوض باولو — المدير الإداري",
+    "د/ عبد الرحمن فاضل — طبيب الفريق",
+    "ك/ أشرف خالد — مسئول مهمات"
+  ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
