@@ -549,6 +549,31 @@
       "home_sub": null,
       "away_sub": null,
       "stage": "knockout"
+    },
+    {
+      "match_id": "m030",
+      "group": "تصفية الصعود لقطاع القاهرة الكبري نصف النهائي",
+      "week": "4",
+      "date": "2026-04-06", 
+      "time": "14:00",
+      "home_team_id": "t022",
+      "away_team_id": "t018",
+      "venue": "المقاولون العرب",
+      "status": "completed",
+      "note" : null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_score": 0,
+      "away_score": 1,
+      "home_scorers": null,
+      "away_scorers": null,
+      "home_yc": null,
+      "away_yc": null,
+      "home_rc": null,
+      "away_rc": null,
+      "home_sub": null,
+      "away_sub": null,
+      "stage": "knockout"
     }
   
      
