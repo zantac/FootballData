@@ -6,6 +6,47 @@ from datetime import datetime
 
 # ---------------------- Custom Widgets ----------------------
 
+class ComboboxSearchable(ttk.Combobox):
+    """
+    A Combobox that filters its values based on user typing.
+    """
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+        
+        # Store the full list of values
+        self._full_list = list(self['values'])
+        
+        # Bind the KeyRelease event to filter the list
+        self.bind('<KeyRelease>', self._filter_list)
+        # Bind FocusOut to restore the list if the user clicks away
+        self.bind('<FocusOut>', self._restore_list)
+
+    def _filter_list(self, event=None):
+        """Filter the dropdown values based on current text."""
+        search_term = self.get().lower()
+        
+        # Filter the full list
+        filtered_values = [val for val in self._full_list if search_term in val.lower()]
+        
+        # Update the combobox values
+        self['values'] = filtered_values
+        
+        # Auto-open the list if there are matches and it's not just deleting
+        if filtered_values and event and event.keysym not in ('BackSpace', 'Delete'):
+            # Only open if we have text
+            if self.get():
+                self.event_generate('<Button-1>') # Simulate click to open dropdown
+
+    def _restore_list(self, event=None):
+        """Restore the full list when focus is lost."""
+        self['values'] = self._full_list
+    
+    def update_values(self, new_values):
+        """Public method to update the master list of values."""
+        self._full_list = list(new_values)
+        self['values'] = self._full_list
+
+
 class ArrayFieldEditor(ttk.Frame):
     """Dynamic list editor for simple arrays (strings)."""
     def __init__(self, parent, field_name, initial_list=None, **kwargs):
@@ -147,22 +188,35 @@ class MatchEditorTab(ttk.Frame):
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
-        # Mouse Wheel Fix for Windows/Mac
-        self._on_mousewheel = lambda event: canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", self._on_mousewheel)
-        # Mouse Wheel Fix for Linux
-        canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))
-        canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))
-        
+        # --- Mouse Wheel & Focus Fixes ---
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
+
+        # Mouse wheel events for Windows/MacOS and Linux
+        # We bind to the canvas, not all, to prevent conflicts
+        def _on_mousewheel(event):
+            # Windows/MacOS
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         
-        # Click Focus Fix
+        def _on_mousewheel_linux(event):
+            # Linux (Button 4 is up, 5 is down)
+            if event.num == 4:
+                canvas.yview_scroll(-1, "units")
+            elif event.num == 5:
+                canvas.yview_scroll(1, "units")
+
+        canvas.bind("<MouseWheel>", _on_mousewheel) # Windows & MacOS
+        canvas.bind("<Button-4>", _on_mousewheel_linux) # Linux scroll up
+        canvas.bind("<Button-5>", _on_mousewheel_linux) # Linux scroll down
+        
+        # Focus fix: clicking anywhere on canvas ensures focus is there for scrolling
         canvas.bind("<Button-1>", lambda e: canvas.focus_set())
+        # Also ensure scrollable_frame passes focus to canvas
+        scrollable_frame.bind("<Button-1>", lambda e: canvas.focus_set())
 
         self.widgets = {}
         
@@ -200,11 +254,13 @@ class MatchEditorTab(ttk.Frame):
                 widget.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = widget
             elif ftype == "team_dropdown":
-                cb = ttk.Combobox(scrollable_frame, values=list(self.team_map.keys()), width=40)
+                # Use Searchable Combobox
+                cb = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=40)
                 cb.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = cb
             elif ftype == "venue_dropdown":
-                cb = ttk.Combobox(scrollable_frame, values=self.venue_list, width=40)
+                # Use Searchable Combobox
+                cb = ComboboxSearchable(scrollable_frame, values=self.venue_list, width=40)
                 cb.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = cb
             elif ftype == "status_dropdown":
@@ -348,7 +404,9 @@ class MatchEditorTab(ttk.Frame):
                 if value and value not in self.venue_list:
                     self.venue_list.append(value)
                     self.data["venues"] = sorted(self.venue_list)
-                    self.widgets['venue']['values'] = self.venue_list
+                    # Update the venue dropdown widget specifically
+                    if "venue" in self.widgets:
+                         self.widgets["venue"].update_values(self.venue_list)
             elif field in ("home_score", "away_score"):
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
@@ -433,21 +491,26 @@ class TeamEditorTab(ttk.Frame):
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
-        # Mouse Wheel Fix
-        self._on_mousewheel = lambda event: canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", self._on_mousewheel)
-        canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))
-        canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))
-        
+        # --- Mouse Wheel & Focus Fixes ---
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
-        
-        # Click Focus Fix
+
+        # Mouse wheel events
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        def _on_mousewheel_linux(event):
+            if event.num == 4: canvas.yview_scroll(-1, "units")
+            elif event.num == 5: canvas.yview_scroll(1, "units")
+
+        canvas.bind("<MouseWheel>", _on_mousewheel)
+        canvas.bind("<Button-4>", _on_mousewheel_linux)
+        canvas.bind("<Button-5>", _on_mousewheel_linux)
         canvas.bind("<Button-1>", lambda e: canvas.focus_set())
+        scrollable_frame.bind("<Button-1>", lambda e: canvas.focus_set())
 
         self.widgets = {}
         
@@ -595,6 +658,18 @@ class MainApp:
         self.root.title("Football Data Manager")
         self.root.geometry("1300x800")
         
+        # Enable Copy/Paste shortcuts globally for standard text widgets
+        # This helps with tk.Text and ttk.Entry (mostly Entry needs less help, but Text does)
+        self.root.bind_class("Entry", "<Control-c>", lambda e: e.widget.event_generate("<<Copy>>"))
+        self.root.bind_class("Entry", "<Control-v>", lambda e: e.widget.event_generate("<<Paste>>"))
+        self.root.bind_class("Entry", "<Control-x>", lambda e: e.widget.event_generate("<<Cut>>"))
+        self.root.bind_class("Entry", "<Control-a>", lambda e: e.widget.select_range(0, "end"))
+        
+        self.root.bind_class("Text", "<Control-c>", lambda e: e.widget.event_generate("<<Copy>>"))
+        self.root.bind_class("Text", "<Control-v>", lambda e: e.widget.event_generate("<<Paste>>"))
+        self.root.bind_class("Text", "<Control-x>", lambda e: e.widget.event_generate("<<Cut>>"))
+        self.root.bind_class("Text", "<Control-a>", lambda e: e.widget.tag_add("sel", "1.0", "end"))
+        
         self.data = None
         self.file_path = None
         
@@ -654,13 +729,16 @@ class MainApp:
         if hasattr(self, 'match_tab'):
             for field in ["home_team_id", "away_team_id"]:
                 if field in self.match_tab.widgets:
-                    self.match_tab.widgets[field]['values'] = list(self.team_map.keys())
+                    # Use update_values for searchable comboboxes
+                    widget = self.match_tab.widgets[field]
+                    if isinstance(widget, ComboboxSearchable):
+                        widget.update_values(list(self.team_map.keys()))
+                    else:
+                        widget['values'] = list(self.team_map.keys())
             self.match_tab.refresh_match_tree()
 
     def save_to_file(self):
         try:
-            # Close file if open (though we opened in 'r' and closed, keeping file_path)
-            # We just reopen in 'w'
             with open(self.file_path, 'w', encoding='utf-8') as f:
                 json.dump(self.data, f, indent=2, ensure_ascii=False)
         except Exception as e:
