@@ -3551,21 +3551,21 @@
     },
     {
       "team_id": "t002",
-      "group": null,
       "name": "بتروجت",
+      "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_68,h_68,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/8302",
       "field": "دار الوقود",
       "fieldurl": "https://www.google.com/maps/place/%D8%AF%D8%A7%D8%B1+%D8%B6%D8%A8%D8%A7%D8%B7+%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%E2%80%AD/@30.0230991,31.3642221,18.75z/data=!4m6!3m5!1s0x14583df88e8382a3:0xa644b234c41c08ff!8m2!3d30.0234136!4d31.3642338!16s%2Fg%2F11t1rlkyh2?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
-      "information": "كابتن ياسر رجب رئيس قطاع الناشئين\nكابتن عمر خطاب نائب رئيس قطاع الناشئين \nكابتن هشام النوبى مدير شئون اللاعبين \nكابتن احمد دغش المدير الإدارى للقطاع\nدكتور ياسر الجوهرى مخطط أحمال القطاع\nدكتور محمد مجدى طبيب القطاع\n",
+      "information": "كابتن ياسر رجب رئيس قطاع الناشئين\nكابتن عمر خطاب نائب رئيس قطاع الناشئين \nكابتن هشام النوبى مدير شئون اللاعبين \nكابتن احمد دغش المدير الإدارى للقطاع\nدكتور ياسر الجوهرى مخطط أحمال القطاع\nدكتور محمد مجدى طبيب القطاع",
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك/ أحمد شعبان",
           "مدرب عام ك/ متولي طلبه",
           "مدرب الحراس ك/ جابر السماحي",
           "أخصائي اصابات د/ حسام الجداوي",
-          "الاداري ك/ خالد رمضان",
-          ""
+          "الاداري ك/ خالد رمضان"
         ],
         "goalkeepers": [
           "يوسف ياسر"
@@ -3682,12 +3682,14 @@
     },
     {
       "team_id": "t007",
-      "group": null,
       "name": "المستقبل سبورت",
+      "group": null,
       "logo": "https://ia801003.us.archive.org/35/items/20250822_20250822_1314/clubs%20logo/%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84%20%D8%B3%D8%A8%D9%88%D8%B1%D8%AA.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك/ كريم السيد",
@@ -3695,8 +3697,7 @@
           "مدرب ك/ زيكا",
           "مدرب الحراس ك/ محمد كالابالا",
           "المعد النفسي ك/ محمد شعبان",
-          "طبيب القطاع د/ اسلام حلمي",
-          ""
+          "طبيب القطاع د/ اسلام حلمي"
         ],
         "goalkeepers": null,
         "defenders": null,
@@ -3708,20 +3709,21 @@
     },
     {
       "team_id": "t008",
-      "group": null,
       "name": "الداخلية",
+      "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_68,h_68,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
       "field": "مركز شباب الهايكستب",
       "fieldurl": "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D8%A7%D9%84%D9%87%D8%A7%D9%8A%D9%83%D8%B3%D8%AA%D8%A8%E2%80%AD/@30.139701,31.4229388,235m/data=!3m1!1e3!4m6!3m5!1s0x14581709c1b216f7:0xe7f18b60f2efbe0f!8m2!3d30.1399225!4d31.4230651!16s%2Fg%2F11qpwk5l64?entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك/ أحمد هيلاوي",
           "مدرب عام ك/ محمود حسنين",
           "مدرب الحراس ك/ بوكس",
           "الاداري ك/ جمال سعد",
-          "دكتور عبد الرحمن رفيق",
-          ""
+          "دكتور عبد الرحمن رفيق"
         ],
         "goalkeepers": [
           "أحمد الشناوي",
@@ -3780,12 +3782,14 @@
     },
     {
       "team_id": "t010",
-      "group": null,
       "name": "ليفيلز",
+      "group": null,
       "logo": "https://ia601001.us.archive.org/12/items/20250822_20250822_1330/%D9%84%D9%8A%D9%81%D9%8A%D9%84%D8%B2.jpg",
       "field": "مركز شباب السلام ثالث",
       "fieldurl": "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%B4%D8%A8%D8%A7%D8%A8+%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%AB%D8%A7%D9%84%D8%AB%E2%80%AD/@30.172868,31.4118994,470m/data=!3m1!1e3!4m6!3m5!1s0x1458119bc064e135:0x9bad7f9a2e4bbaa3!8m2!3d30.1735101!4d31.4131851!16s%2Fg%2F11tcjs7pn1?entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك/ محمد ممدوح"
@@ -3798,21 +3802,21 @@
     },
     {
       "team_id": "t011",
-      "group": null,
       "name": "السكة الحديد",
+      "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/19463",
       "field": "استاد السكة الحديد",
       "fieldurl": "https://www.google.com/maps/place/%D8%A7%D8%B3%D8%AA%D8%A7%D8%AF+%D9%86%D8%A7%D8%AF%D9%89+%D8%A7%D9%84%D8%B3%D9%83%D8%A9+%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%E2%80%AD/@30.0555556,31.3042002,19z/data=!3m1!4b1!4m6!3m5!1s0x14583f87e782bfff:0x8d73534df8a9ca4!8m2!3d30.0555556!4d31.3042002!16s%2Fg%2F11ql6c96s6?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
       "information": "د. حاتم حسن – عضو مجلس الإدارة والمشرف العام على الكرة\nم. عبد الوهاب اشرف – عضو مجلس الإدارة ورئيس المنظومة الإعلامية \nك. صلاح أبو الفتوح – رئيس قطاع الناشئين\nد.ياسر حسين –  نائب رئيس قطاع الناشئين\nك.  محمد  ابو خنجر– نائب رئيس قطاع الناشئين\nك. محمد  جمال– مدير إداري القطاع\nك. نبيل كمال – مدير فنى القطاع \nك. محمد السيد – مدير فنى حراس المرمى \nك. اشرف طنطاوي –  رئيس الجهاز الطبي \nك. بليه– المشرف على الفريق",
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك/ امين زيد",
           "مدرب عام ك/ حسام أمين",
           "مدرب الحراس ك/ محمد علي",
           "الاداري ك/ أحمد منصور",
-          "علاج طبيعي ك/ محمود ابراهيم",
-          ""
+          "علاج طبيعي ك/ محمود ابراهيم"
         ],
         "goalkeepers": null,
         "defenders": null,
@@ -3842,21 +3846,21 @@
     }
   ],
   "venues": [
-    "الاهلي بمدينة نصر",
-    "دار الوقود",
-    "ملعب دايموند القطامية",
-    "الغابة",
     "الاتصالات القديم",
-    "كهرباء شمال",
-    "مركز شباب الاميرية",
-    "ستاد السكة الحديد",
-    "مركز شباب السلام ثالث",
-    "ملعب المحروسة",
-    "مركز شباب الجزيرة 2 ب 6 أكتوبر",
-    "المقاولون العرب",
+    "الاهلي بمدينة نصر",
     "الشرطة بالدراسة",
+    "الغابة",
+    "المقاولون العرب",
+    "انبي الكيلو 17",
+    "دار الوقود",
+    "ستاد السكة الحديد",
+    "كهرباء شمال",
     "م.ش السلام ثالث",
+    "مركز شباب الاميرية",
+    "مركز شباب الجزيرة 2 ب 6 أكتوبر",
+    "مركز شباب السلام ثالث",
     "مركز شباب الهايكستب",
-    "انبي الكيلو 17"
+    "ملعب المحروسة",
+    "ملعب دايموند القطامية"
   ]
 }
