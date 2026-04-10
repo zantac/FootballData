@@ -63,9 +63,7 @@ class DictFieldEditor(ttk.Frame):
     def __init__(self, parent, field_name, initial_dict=None, **kwargs):
         super().__init__(parent, **kwargs)
         self.field_name = field_name
-        self.editors = {} # Map: sub_key -> ArrayFieldEditor
-        
-        # We define the expected keys based on the JSON structure
+        self.editors = {} 
         self.sub_keys = ["coach", "goalkeepers", "defenders", "midfielders", "attackers"]
         
         if initial_dict is None:
@@ -78,7 +76,6 @@ class DictFieldEditor(ttk.Frame):
             lbl = ttk.Label(frame, text=key.title() + ":", width=12, anchor="w")
             lbl.pack(side=tk.TOP, anchor="w")
             
-            # The value for this key is a list
             val_list = initial_dict.get(key)
             if val_list is None:
                 val_list = []
@@ -88,7 +85,6 @@ class DictFieldEditor(ttk.Frame):
             self.editors[key] = editor
 
     def get_value(self):
-        """Reconstruct the dictionary."""
         result = {}
         has_data = False
         for key, editor in self.editors.items():
@@ -96,8 +92,6 @@ class DictFieldEditor(ttk.Frame):
             result[key] = val
             if val:
                 has_data = True
-        
-        # If completely empty, return None to match ideal structure
         return result if has_data else None
 
     def set_value(self, value_dict):
@@ -145,13 +139,20 @@ class MatchEditorTab(ttk.Frame):
         ttk.Button(btn_frame, text="Delete Match", command=self.delete_match).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Collapse All", command=self.collapse_all_dates).pack(side=tk.LEFT, padx=5)
 
-        # Right panel
+        # Right panel (Scrollable)
         right_frame = ttk.Frame(self)
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         canvas = tk.Canvas(right_frame)
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
+        
+        # Mouse Wheel Fix for Windows/Mac
+        self._on_mousewheel = lambda event: canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", self._on_mousewheel)
+        # Mouse Wheel Fix for Linux
+        canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))
+        canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))
         
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
@@ -160,6 +161,9 @@ class MatchEditorTab(ttk.Frame):
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
         
+        # Click Focus Fix
+        canvas.bind("<Button-1>", lambda e: canvas.focus_set())
+
         self.widgets = {}
         
         status_options = ["upcoming", "completed", "delayed"]
@@ -344,7 +348,6 @@ class MatchEditorTab(ttk.Frame):
                 if value and value not in self.venue_list:
                     self.venue_list.append(value)
                     self.data["venues"] = sorted(self.venue_list)
-                    # Update match venue dropdown
                     self.widgets['venue']['values'] = self.venue_list
             elif field in ("home_score", "away_score"):
                 txt = widget.get().strip()
@@ -357,10 +360,8 @@ class MatchEditorTab(ttk.Frame):
             
             updated[field] = value
         
-        # Preserve Match ID
         updated["match_id"] = self.current_match.get("match_id", "")
         
-        # Update or Insert
         matches = self.data.get("matches", [])
         found = False
         for i, m in enumerate(matches):
@@ -424,13 +425,19 @@ class TeamEditorTab(ttk.Frame):
         ttk.Button(btn_frame, text="New Team", command=self.new_team).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Delete Team", command=self.delete_team).pack(side=tk.LEFT, padx=5)
 
-        # Right Panel: Form
+        # Right Panel: Form (Scrollable)
         right_frame = ttk.Frame(self)
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         canvas = tk.Canvas(right_frame)
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
+        
+        # Mouse Wheel Fix
+        self._on_mousewheel = lambda event: canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", self._on_mousewheel)
+        canvas.bind_all("<Button-4>", lambda event: canvas.yview_scroll(-1, "units"))
+        canvas.bind_all("<Button-5>", lambda event: canvas.yview_scroll(1, "units"))
         
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
@@ -439,9 +446,11 @@ class TeamEditorTab(ttk.Frame):
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
         
+        # Click Focus Fix
+        canvas.bind("<Button-1>", lambda e: canvas.focus_set())
+
         self.widgets = {}
         
-        # Simple Fields
         fields = [
             ("team_id", "Team ID:", "text"),
             ("name", "Name:", "text"),
@@ -472,7 +481,6 @@ class TeamEditorTab(ttk.Frame):
                 self.widgets[field] = entry
             row += 1
             
-        # Complex Field: Players Dictionary
         ttk.Label(scrollable_frame, text="Players Squad:", font=("Arial", 10, "bold")).grid(row=row, column=0, columnspan=2, sticky="w", pady=(10, 5))
         row += 1
         
@@ -485,7 +493,6 @@ class TeamEditorTab(ttk.Frame):
     def refresh_team_list(self):
         self.team_listbox.delete(0, tk.END)
         teams = self.data.get("teams", [])
-        # Sort by name
         teams = sorted(teams, key=lambda x: x.get("name", ""))
         for team in teams:
             self.team_listbox.insert(tk.END, f"{team.get('team_id', '')} - {team.get('name', '')}")
@@ -494,10 +501,6 @@ class TeamEditorTab(ttk.Frame):
         selection = self.team_listbox.curselection()
         if not selection: return
         index = selection[0]
-        
-        # Since we sorted the list for display, we need to find the correct team object
-        # A simpler way is to store the team_id in the listbox or map index.
-        # For this implementation, let's assume the order in listbox matches sorted data.
         teams = sorted(self.data.get("teams", []), key=lambda x: x.get("name", ""))
         self.current_team = teams[index]
         self.populate_form(self.current_team)
@@ -525,7 +528,6 @@ class TeamEditorTab(ttk.Frame):
         }
         self.current_team = new_team
         self.populate_form(new_team)
-        # Don't add to list yet, wait for save
 
     def save_current_team(self):
         if not self.current_team:
@@ -542,7 +544,6 @@ class TeamEditorTab(ttk.Frame):
             else:
                 value = widget.get().strip()
             
-            # Handle empty strings as None for certain fields if desired
             if field in ["field", "fieldurl", "city", "information", "logo", "group"]:
                 if value == "": value = None
             
@@ -550,11 +551,9 @@ class TeamEditorTab(ttk.Frame):
         
         updated["players"] = self.players_editor.get_value()
         
-        # Use existing ID if not changed
         if not updated.get("team_id"):
              updated["team_id"] = self.current_team.get("team_id", "")
         
-        # Update or Insert
         teams = self.data.get("teams", [])
         team_id = updated["team_id"]
         found = False
@@ -570,7 +569,6 @@ class TeamEditorTab(ttk.Frame):
         self.current_team = updated
         
         self.refresh_team_list()
-        # Callback to update team_map in Match Tab
         self.refresh_team_map_callback()
         self.save_callback()
         messagebox.showinfo("Success", "Team saved successfully.")
@@ -584,7 +582,6 @@ class TeamEditorTab(ttk.Frame):
             self.refresh_team_list()
             self.refresh_team_map_callback()
             self.save_callback()
-            # Clear form
             for w in self.widgets.values(): 
                 if isinstance(w, tk.Text): w.delete(1.0, tk.END)
                 else: w.delete(0, tk.END)
@@ -604,16 +601,13 @@ class MainApp:
         self.load_json_file()
         if not self.data: return
 
-        # Setup Notebook
         self.notebook = ttk.Notebook(root)
         self.notebook.pack(fill=tk.BOTH, expand=True)
         
-        # Initialize data helpers
         self.team_map = {}
         self.venue_list = []
         self.update_data_helpers()
         
-        # Create Tabs
         self.match_tab = MatchEditorTab(self.notebook, self.data, self.team_map, self.venue_list, self.save_to_file)
         self.team_tab = TeamEditorTab(self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui)
         
@@ -631,8 +625,8 @@ class MainApp:
             return
 
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                self.data = json.load(f)
+            with open(file_path, 'r', encoding='utf-8') as self.f:
+                self.data = json.load(self.f)
             self.file_path = file_path
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load file:\n{e}")
@@ -644,7 +638,6 @@ class MainApp:
         if "venues" not in self.data: self.data["venues"] = []
 
     def update_data_helpers(self):
-        """Rebuild team_map and venue_list from self.data"""
         self.team_map = {}
         for team in self.data.get("teams", []):
             name = team.get("name", "Unknown")
@@ -657,19 +650,17 @@ class MainApp:
         self.data["venues"] = list(self.venue_list)
 
     def refresh_helpers_and_ui(self):
-        """Callback for when teams change"""
         self.update_data_helpers()
-        # Update Match Tab widgets with new team names
         if hasattr(self, 'match_tab'):
-            # Re-populate team dropdowns in Match Tab
             for field in ["home_team_id", "away_team_id"]:
                 if field in self.match_tab.widgets:
                     self.match_tab.widgets[field]['values'] = list(self.team_map.keys())
-            # Refresh tree to show new team names
             self.match_tab.refresh_match_tree()
 
     def save_to_file(self):
         try:
+            # Close file if open (though we opened in 'r' and closed, keeping file_path)
+            # We just reopen in 'w'
             with open(self.file_path, 'w', encoding='utf-8') as f:
                 json.dump(self.data, f, indent=2, ensure_ascii=False)
         except Exception as e:
