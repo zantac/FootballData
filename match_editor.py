@@ -1,3 +1,4 @@
+
 import json
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
@@ -7,42 +8,26 @@ from datetime import datetime
 # ---------------------- Custom Widgets ----------------------
 
 class ComboboxSearchable(ttk.Combobox):
-    """
-    A Combobox that filters its values based on user typing.
-    """
+    """A Combobox that filters its values based on user typing."""
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
-        
-        # Store the full list of values
         self._full_list = list(self['values'])
-        
-        # Bind the KeyRelease event to filter the list
         self.bind('<KeyRelease>', self._filter_list)
-        # Bind FocusOut to restore the list if the user clicks away
         self.bind('<FocusOut>', self._restore_list)
 
     def _filter_list(self, event=None):
-        """Filter the dropdown values based on current text."""
         search_term = self.get().lower()
-        
-        # Filter the full list
         filtered_values = [val for val in self._full_list if search_term in val.lower()]
-        
-        # Update the combobox values
         self['values'] = filtered_values
         
-        # Auto-open the list if there are matches and it's not just deleting
         if filtered_values and event and event.keysym not in ('BackSpace', 'Delete'):
-            # Only open if we have text
             if self.get():
-                self.event_generate('<Button-1>') # Simulate click to open dropdown
+                self.event_generate('<Button-1>')
 
     def _restore_list(self, event=None):
-        """Restore the full list when focus is lost."""
         self['values'] = self._full_list
     
     def update_values(self, new_values):
-        """Public method to update the master list of values."""
         self._full_list = list(new_values)
         self['values'] = self._full_list
 
@@ -157,7 +142,6 @@ class MatchEditorTab(ttk.Frame):
         self.refresh_match_tree()
 
     def create_widgets(self):
-        # Left panel
         left_frame = ttk.Frame(self, width=400)
         left_frame.pack(side=tk.LEFT, fill=tk.BOTH, padx=5, pady=5, expand=False)
         
@@ -180,7 +164,6 @@ class MatchEditorTab(ttk.Frame):
         ttk.Button(btn_frame, text="Delete Match", command=self.delete_match).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Collapse All", command=self.collapse_all_dates).pack(side=tk.LEFT, padx=5)
 
-        # Right panel (Scrollable)
         right_frame = ttk.Frame(self)
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
@@ -188,7 +171,6 @@ class MatchEditorTab(ttk.Frame):
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
-        # --- Mouse Wheel & Focus Fixes ---
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
@@ -196,26 +178,18 @@ class MatchEditorTab(ttk.Frame):
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-        # Mouse wheel events for Windows/MacOS and Linux
-        # We bind to the canvas, not all, to prevent conflicts
         def _on_mousewheel(event):
-            # Windows/MacOS
             canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         
         def _on_mousewheel_linux(event):
-            # Linux (Button 4 is up, 5 is down)
-            if event.num == 4:
-                canvas.yview_scroll(-1, "units")
-            elif event.num == 5:
-                canvas.yview_scroll(1, "units")
+            if event.num == 4: canvas.yview_scroll(-1, "units")
+            elif event.num == 5: canvas.yview_scroll(1, "units")
 
-        canvas.bind("<MouseWheel>", _on_mousewheel) # Windows & MacOS
-        canvas.bind("<Button-4>", _on_mousewheel_linux) # Linux scroll up
-        canvas.bind("<Button-5>", _on_mousewheel_linux) # Linux scroll down
+        canvas.bind("<MouseWheel>", _on_mousewheel) 
+        canvas.bind("<Button-4>", _on_mousewheel_linux) 
+        canvas.bind("<Button-5>", _on_mousewheel_linux) 
         
-        # Focus fix: clicking anywhere on canvas ensures focus is there for scrolling
         canvas.bind("<Button-1>", lambda e: canvas.focus_set())
-        # Also ensure scrollable_frame passes focus to canvas
         scrollable_frame.bind("<Button-1>", lambda e: canvas.focus_set())
 
         self.widgets = {}
@@ -254,12 +228,10 @@ class MatchEditorTab(ttk.Frame):
                 widget.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = widget
             elif ftype == "team_dropdown":
-                # Use Searchable Combobox
                 cb = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=40)
                 cb.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = cb
             elif ftype == "venue_dropdown":
-                # Use Searchable Combobox
                 cb = ComboboxSearchable(scrollable_frame, values=self.venue_list, width=40)
                 cb.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = cb
@@ -275,7 +247,7 @@ class MatchEditorTab(ttk.Frame):
                 entry = ttk.Entry(scrollable_frame, width=42)
                 entry.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = entry
-            else:  # text
+            else:
                 entry = ttk.Entry(scrollable_frame, width=42)
                 entry.grid(row=row, column=1, padx=5, pady=3, sticky="w")
                 self.widgets[field] = entry
@@ -293,7 +265,6 @@ class MatchEditorTab(ttk.Frame):
         
         ttk.Button(scrollable_frame, text="Save Current Match", command=self.save_current_match).grid(row=row, column=0, columnspan=2, pady=20)
 
-    # --- Tree Management ---
     def refresh_match_tree(self):
         self.match_tree.delete(*self.match_tree.get_children())
         matches_by_date = {}
@@ -364,7 +335,7 @@ class MatchEditorTab(ttk.Frame):
                 widget.insert(0, str(value) if value not in (None, "") else "")
             elif isinstance(widget, ArrayFieldEditor):
                 widget.set_value(value if value else [])
-            else: # Text fields
+            else: 
                 widget.delete(0, tk.END)
                 widget.insert(0, str(value) if value not in (None, "") else "")
 
@@ -404,7 +375,6 @@ class MatchEditorTab(ttk.Frame):
                 if value and value not in self.venue_list:
                     self.venue_list.append(value)
                     self.data["venues"] = sorted(self.venue_list)
-                    # Update the venue dropdown widget specifically
                     if "venue" in self.widgets:
                          self.widgets["venue"].update_values(self.venue_list)
             elif field in ("home_score", "away_score"):
@@ -461,7 +431,6 @@ class TeamEditorTab(ttk.Frame):
         self.refresh_team_list()
 
     def create_widgets(self):
-        # Left Panel: Team List
         left_frame = ttk.Frame(self, width=300)
         left_frame.pack(side=tk.LEFT, fill=tk.Y, padx=5, pady=5)
         
@@ -483,7 +452,6 @@ class TeamEditorTab(ttk.Frame):
         ttk.Button(btn_frame, text="New Team", command=self.new_team).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Delete Team", command=self.delete_team).pack(side=tk.LEFT, padx=5)
 
-        # Right Panel: Form (Scrollable)
         right_frame = ttk.Frame(self)
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
@@ -491,7 +459,6 @@ class TeamEditorTab(ttk.Frame):
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
-        # --- Mouse Wheel & Focus Fixes ---
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
@@ -499,7 +466,6 @@ class TeamEditorTab(ttk.Frame):
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-        # Mouse wheel events
         def _on_mousewheel(event):
             canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         def _on_mousewheel_linux(event):
@@ -658,8 +624,7 @@ class MainApp:
         self.root.title("Football Data Manager")
         self.root.geometry("1300x800")
         
-        # Enable Copy/Paste shortcuts globally for standard text widgets
-        # This helps with tk.Text and ttk.Entry (mostly Entry needs less help, but Text does)
+        # Enable Copy/Paste shortcuts globally
         self.root.bind_class("Entry", "<Control-c>", lambda e: e.widget.event_generate("<<Copy>>"))
         self.root.bind_class("Entry", "<Control-v>", lambda e: e.widget.event_generate("<<Paste>>"))
         self.root.bind_class("Entry", "<Control-x>", lambda e: e.widget.event_generate("<<Cut>>"))
@@ -673,23 +638,26 @@ class MainApp:
         self.data = None
         self.file_path = None
         
-        self.load_json_file()
-        if not self.data: return
-
-        self.notebook = ttk.Notebook(root)
+        # Create UI Structure (Notebook) FIRST
+        self.content_frame = ttk.Frame(root)
+        self.content_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        
+        self.notebook = ttk.Notebook(self.content_frame)
         self.notebook.pack(fill=tk.BOTH, expand=True)
         
-        self.team_map = {}
-        self.venue_list = []
-        self.update_data_helpers()
+        # Top Toolbar
+        self.toolbar = ttk.Frame(root, padding=5)
+        self.toolbar.pack(side=tk.TOP, fill=tk.X)
         
-        self.match_tab = MatchEditorTab(self.notebook, self.data, self.team_map, self.venue_list, self.save_to_file)
-        self.team_tab = TeamEditorTab(self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui)
+        self.btn_open = ttk.Button(self.toolbar, text="Open New File", command=self.open_new_file)
+        self.btn_open.pack(side=tk.LEFT, padx=5)
         
-        self.notebook.add(self.match_tab, text="Matches")
-        self.notebook.add(self.team_tab, text="Teams")
+        # Load Initial Data
+        if not self.load_initial_file():
+            return
 
-    def load_json_file(self):
+    def load_initial_file(self):
+        """Load file at startup. Returns False if failed/cancelled."""
         file_path = filedialog.askopenfilename(
             title="Select JSON file",
             filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
@@ -697,20 +665,61 @@ class MainApp:
         if not file_path:
             messagebox.showerror("Error", "No file selected. Exiting.")
             self.root.destroy()
+            return False
+
+        if not self._load_file_data(file_path):
+            self.root.destroy()
+            return False
+            
+        self.rebuild_ui()
+        return True
+
+    def open_new_file(self):
+        """Handle button click to open a new file."""
+        file_path = filedialog.askopenfilename(
+            title="Select JSON file",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+        )
+        if not file_path:
             return
 
+        if self._load_file_data(file_path):
+            self.rebuild_ui()
+
+    def _load_file_data(self, file_path):
+        """Internal helper to read and validate JSON."""
         try:
-            with open(file_path, 'r', encoding='utf-8') as self.f:
-                self.data = json.load(self.f)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                self.data = json.load(f)
             self.file_path = file_path
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load file:\n{e}")
-            self.root.destroy()
-            return
+            return False
 
+        # Validate structure
         if "matches" not in self.data: self.data["matches"] = []
         if "teams" not in self.data: self.data["teams"] = []
         if "venues" not in self.data: self.data["venues"] = []
+        
+        return True
+
+    def rebuild_ui(self):
+        """Clear and rebuild tabs."""
+        # Clear existing tabs
+        for tab in self.notebook.tabs():
+            self.notebook.forget(tab)
+            
+        # Update helpers
+        self.team_map = {}
+        self.venue_list = []
+        self.update_data_helpers()
+        
+        # Create new tabs
+        self.match_tab = MatchEditorTab(self.notebook, self.data, self.team_map, self.venue_list, self.save_to_file)
+        self.team_tab = TeamEditorTab(self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui)
+        
+        self.notebook.add(self.match_tab, text="Matches")
+        self.notebook.add(self.team_tab, text="Teams")
 
     def update_data_helpers(self):
         self.team_map = {}
@@ -729,7 +738,6 @@ class MainApp:
         if hasattr(self, 'match_tab'):
             for field in ["home_team_id", "away_team_id"]:
                 if field in self.match_tab.widgets:
-                    # Use update_values for searchable comboboxes
                     widget = self.match_tab.widgets[field]
                     if isinstance(widget, ComboboxSearchable):
                         widget.update_values(list(self.team_map.keys()))
