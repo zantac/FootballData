@@ -5148,7 +5148,11 @@
       "away_score": 3,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "عبد الرحمن",
+        "احمد يونس",
+        "عبدالله درباله"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -5546,13 +5550,14 @@
     },
     {
       "team_id": "gbt004",
-      "group": "3B",
       "name": "الاوليمبي",
+      "group": "3B",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/438.png",
       "field": null,
       "fieldurl": null,
       "city": null,
       "information": "رئيس قطاع الناشئين ك / محمد عبد المنعم\nمدير فني مدربي حراس المرمي ك / خضر هاشم\nالمدير الاداري ك / شريف عوض",
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك / يسري عز",
