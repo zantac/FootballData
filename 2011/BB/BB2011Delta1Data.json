@@ -3161,14 +3161,24 @@
     },
     {
       "team_id": "gbt002",
-      "group": "3B",
       "name": "دلفي",
+      "group": "3B",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/13526.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع البراعم و الناشئين ك / حمدي السيد",
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / موسي منصور",
+          "مدرب ك / ايهاب حسين",
+          "مدرب ك / روان",
+          "مدرب ك / مصطفي السيد",
+          "مدرب حراس ك / ممدوح طه",
+          "تأهيل اصابات ك / محمد طارق",
+          "مدير اداري ك / عبدالله السيد"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
