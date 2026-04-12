@@ -4,18 +4,21 @@
       "match_id": "m002",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t001",
       "away_team_id": "t002",
       "venue": "الاتصالات القديم",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["خالد حسن (2)","ياسين فرحات"],
+      "home_scorers": [
+        "خالد حسن (2)",
+        "ياسين فرحات"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -29,18 +32,23 @@
       "match_id": "m004",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t003",
       "away_team_id": "t004",
       "venue": "مصر للتأمين",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 5,
       "away_score": 0,
-      "home_scorers": ["بطيخة","سوري","عمر نوفل","بشار (2)"],
+      "home_scorers": [
+        "بطيخة",
+        "سوري",
+        "عمر نوفل",
+        "بشار (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -54,18 +62,29 @@
       "match_id": "m006",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "17:00",
       "home_team_id": "t005",
       "away_team_id": "t006",
       "venue": "ملعب المحروسة",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 5,
       "away_score": 0,
-      "home_scorers": ["عمار ابراهيم","عبد الرحمن صادق","يوسف ابو الليل","سعد احمد","محمد صلاح","صناعة الاهداف","عمار ابراهيم","عبد الرحمن صادق","عبد الرحمن علي","فارس محمد"],
+      "home_scorers": [
+        "عمار ابراهيم",
+        "عبد الرحمن صادق",
+        "يوسف ابو الليل",
+        "سعد احمد",
+        "محمد صلاح",
+        "صناعة الاهداف",
+        "عمار ابراهيم",
+        "عبد الرحمن صادق",
+        "عبد الرحمن علي",
+        "فارس محمد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -79,13 +98,13 @@
       "match_id": "m008",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t007",
       "away_team_id": "t008",
       "venue": "ملعب الشرطة بالدراسة",
       "status": "completed",
-      "note" : "انسحاب فريق التجمع هايتس في الشوط الثاني",
+      "note": "انسحاب فريق التجمع هايتس في الشوط الثاني",
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
@@ -104,13 +123,13 @@
       "match_id": "m010",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t009",
       "away_team_id": "t010",
       "venue": "مركز شباب السلام ثالث",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -129,13 +148,13 @@
       "match_id": "m012",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t011",
       "away_team_id": "t012",
       "venue": "مركز شباب الاميرية ",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -154,18 +173,22 @@
       "match_id": "m014",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t013",
       "away_team_id": "t014",
       "venue": "مركز شباب الهايكستب ",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 4,
       "away_score": 2,
-      "home_scorers": ["كهربا","عمر عبد السلام","عبدالله سيد (2)"],
+      "home_scorers": [
+        "كهربا",
+        "عمر عبد السلام",
+        "عبدالله سيد (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -179,19 +202,22 @@
       "match_id": "m016",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 32",
       "week": "1",
-      "date": "2026-03-22", 
+      "date": "2026-03-22",
       "time": "13:00",
       "home_team_id": "t015",
       "away_team_id": "t016",
       "venue": "ملعب الشمس",
       "status": "completed",
-      "note" : "فوز اوازيس بركلات الترجيح بنتيجة 5-4",
+      "note": "فوز اوازيس بركلات الترجيح بنتيجة 5-4",
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["يوسف بازيد","ادهم محمد"],
+      "away_scorers": [
+        "يوسف بازيد",
+        "ادهم محمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -204,13 +230,13 @@
       "match_id": "m017",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "13:00",
       "home_team_id": "t017",
       "away_team_id": "t001",
       "venue": "الدفاع الجوي",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -229,18 +255,23 @@
       "match_id": "m018",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "12:00",
       "home_team_id": "t018",
       "away_team_id": "t003",
       "venue": "انبي الكيلو 17 طريق السويس",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 4,
       "away_score": 1,
-      "home_scorers": ["حسام حسن","محمد خالد","احمد نادر","محمد هيثم"],
+      "home_scorers": [
+        "حسام حسن",
+        "محمد خالد",
+        "احمد نادر",
+        "محمد هيثم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -254,18 +285,24 @@
       "match_id": "m019",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "12:00",
       "home_team_id": "t019",
       "away_team_id": "t005",
       "venue": "الاهلي بمدينة نصر",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 6,
       "away_score": 0,
-      "home_scorers": ["ياسين تامر (2)","مالك محمد","محمد يوسف","محمد الصاوي","فتح الله عماد"],
+      "home_scorers": [
+        "ياسين تامر (2)",
+        "مالك محمد",
+        "محمد يوسف",
+        "محمد الصاوي",
+        "فتح الله عماد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -279,13 +316,13 @@
       "match_id": "m020",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "13:00",
       "home_team_id": "t020",
       "away_team_id": "t007",
       "venue": "وادي دجلة التجمع",
       "status": "completed",
-      "note" : "فوز وادي دجلة بركلات الترجيح",
+      "note": "فوز وادي دجلة بركلات الترجيح",
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
@@ -304,18 +341,21 @@
       "match_id": "m021",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "11:00",
       "home_team_id": "t021",
       "away_team_id": "t009",
       "venue": "ملعب دايموند خلق نادي الصيد بالقطامية",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["اسماعيل كريم","عمر قناوي"],
+      "home_scorers": [
+        "اسماعيل كريم",
+        "عمر قناوي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -329,18 +369,23 @@
       "match_id": "m022",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "12:00",
       "home_team_id": "t022",
       "away_team_id": "t012",
       "venue": "المقاولون العرب",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 9,
       "away_score": 0,
-      "home_scorers": ["مازن خالد (2)","انس ناصر (3)","حسن عجور (3)","محمد فهمي"],
+      "home_scorers": [
+        "مازن خالد (2)",
+        "انس ناصر (3)",
+        "حسن عجور (3)",
+        "محمد فهمي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -354,43 +399,53 @@
       "match_id": "m023",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "12:00",
       "home_team_id": "t023",
       "away_team_id": "t013",
       "venue": "دار الوقود",
       "status": "completed",
-      "note" : null,
-      "home_squade": null,
-      "away_squade": null,
+      "stage": "knockout",
+      "note": null,
       "home_score": 2,
       "away_score": 1,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "كهربا"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null,
-      "stage": "knockout"
+      "away_sub": null
     },
     {
       "match_id": "m024",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 16",
       "week": "2",
-      "date": "2026-03-28", 
+      "date": "2026-03-28",
       "time": "13:00",
       "home_team_id": "t024",
       "away_team_id": "t016",
       "venue": "ملعب الجامعة بالمقطم",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["محمد صديق","بلال ماجد","احمد علي","صناعة الاهداف","مالك وائل","عمر جمال","مروان خالد"],
+      "home_scorers": [
+        "محمد صديق",
+        "بلال ماجد",
+        "احمد علي",
+        "صناعة الاهداف",
+        "مالك وائل",
+        "عمر جمال",
+        "مروان خالد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -404,13 +459,13 @@
       "match_id": "m025",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 8",
       "week": "3",
-      "date": "2026-03-31", 
+      "date": "2026-03-31",
       "time": "14:00",
       "home_team_id": "t017",
       "away_team_id": "t018",
       "venue": "الدفاع الجوي",
       "status": "completed",
-      "note" : "فوز انبي بركلات الترجيح",
+      "note": "فوز انبي بركلات الترجيح",
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -429,18 +484,24 @@
       "match_id": "m026",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 8",
       "week": "3",
-      "date": "2026-03-31", 
+      "date": "2026-03-31",
       "time": "14:00",
       "home_team_id": "t019",
       "away_team_id": "t020",
       "venue": "الاهلي بمدينة نصر",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 6,
       "away_score": 0,
-      "home_scorers": ["عمر شريف (2)","ياسين تامر","كريم اشرف","محمود محمد","محمد يوسف"],
+      "home_scorers": [
+        "عمر شريف (2)",
+        "ياسين تامر",
+        "كريم اشرف",
+        "محمود محمد",
+        "محمد يوسف"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -454,18 +515,24 @@
       "match_id": "m027",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 8",
       "week": "3",
-      "date": "2026-03-31", 
+      "date": "2026-03-31",
       "time": "14:00",
       "home_team_id": "t022",
       "away_team_id": "t021",
       "venue": "المقاولون العرب",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 5,
       "away_score": 1,
-      "home_scorers": ["محمود محفوظ","ياسين محمد","عامر احمد","حسن عجور","مازن خالد"],
+      "home_scorers": [
+        "محمود محفوظ",
+        "ياسين محمد",
+        "عامر احمد",
+        "حسن عجور",
+        "مازن خالد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -479,13 +546,13 @@
       "match_id": "m028",
       "group": "تصفية الصعود لقطاع القاهرة الكبري دور 8",
       "week": "3",
-      "date": "2026-03-31", 
+      "date": "2026-03-31",
       "time": "14:00",
       "home_team_id": "t024",
       "away_team_id": "t023",
       "venue": "ملعب الجامعة بالمقطم",
       "status": "completed",
-      "note" : "فوز مودرن سبورت بركلات الترجيح",
+      "note": "فوز مودرن سبورت بركلات الترجيح",
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -504,19 +571,22 @@
       "match_id": "m029",
       "group": "تصفية الصعود لقطاع القاهرة الكبري نصف النهائي",
       "week": "4",
-      "date": "2026-04-03", 
+      "date": "2026-04-03",
       "time": "14:00",
       "home_team_id": "t019",
       "away_team_id": "t018",
       "venue": "الاهلي بمدينة نصر",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["احمد خالد","محمد خالد (2)"],
+      "away_scorers": [
+        "احمد خالد",
+        "محمد خالد (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -529,18 +599,21 @@
       "match_id": "m030",
       "group": "تصفية الصعود لقطاع القاهرة الكبري نصف النهائي",
       "week": "4",
-      "date": "2026-04-03", 
+      "date": "2026-04-03",
       "time": "14:00",
       "home_team_id": "t022",
       "away_team_id": "t024",
       "venue": "المقاولون العرب",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["مازن خالد (2)","محمود محفوظ"],
+      "home_scorers": [
+        "مازن خالد (2)",
+        "محمود محفوظ"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -554,13 +627,13 @@
       "match_id": "m030",
       "group": "تصفية الصعود لقطاع القاهرة الكبري نصف النهائي",
       "week": "4",
-      "date": "2026-04-06", 
+      "date": "2026-04-06",
       "time": "14:00",
       "home_team_id": "t022",
       "away_team_id": "t018",
       "venue": "المقاولون العرب",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -575,11 +648,9 @@
       "away_sub": null,
       "stage": "knockout"
     }
-  
-     
-   ],
- "teams": [
-   {
+  ],
+  "teams": [
+    {
       "team_id": "t017",
       "group": null,
       "name": "بيراميدز",
@@ -587,13 +658,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t007",
@@ -604,14 +675,20 @@
       "fieldurl": null,
       "coach": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك / احمد جمال","مدرب ك / محمد ممدوح","مدرب حراس ك / عبد الناصر ممدوح","ادراي ك / عماد جاد","اخصائي علاج طبيعي د / مؤمن عبد الراضي"],
+      "players": {
+        "coach": [
+          "المدير الفني ك / احمد جمال",
+          "مدرب ك / محمد ممدوح",
+          "مدرب حراس ك / عبد الناصر ممدوح",
+          "ادراي ك / عماد جاد",
+          "اخصائي علاج طبيعي د / مؤمن عبد الراضي"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
-    }, 
+      }
+    },
     {
       "team_id": "t015",
       "group": null,
@@ -620,13 +697,19 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك / ايهاب الصباحي","مدرب ك / زيزو","مدرب الحراس ك / ديدا","اداري ك / حمدي فراج","طبيب الفريق د / اسلام خالد الدين"],
+      "players": {
+        "coach": [
+          "المدير الفني ك / ايهاب الصباحي",
+          "مدرب ك / زيزو",
+          "مدرب الحراس ك / ديدا",
+          "اداري ك / حمدي فراج",
+          "طبيب الفريق د / اسلام خالد الدين"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t002",
@@ -636,13 +719,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t011",
@@ -652,13 +735,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t020",
@@ -668,13 +751,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t008",
@@ -684,13 +767,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t022",
@@ -700,13 +783,20 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك / هيثم حسين","مدرب ك / محمد السيد","مدرب حراس ك / مصطفي سعد","معد بدني ك / عمرو عبد الفتاح","اداري ك / عبد الغني حسين","اخصائي اصابات ملاعب ك / عمر اشرف"],
+      "players": {
+        "coach": [
+          "المدير الفني ك / هيثم حسين",
+          "مدرب ك / محمد السيد",
+          "مدرب حراس ك / مصطفي سعد",
+          "معد بدني ك / عمرو عبد الفتاح",
+          "اداري ك / عبد الغني حسين",
+          "اخصائي اصابات ملاعب ك / عمر اشرف"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t018",
@@ -716,13 +806,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t001",
@@ -732,13 +822,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t014",
@@ -748,14 +838,20 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "information": "مدير قطاع الناشئين ك / اسلام عادل",
-       "players": { 
-        "coach": ["المدير الفني ك / محمد حمص","مدرب ك / سيد احمد","مدرب حراس ك / احمد زين","اداري ك / مصطفي الجارحي","رئيس الجهاز الطبي د / محمد البحيري"],
+      "information": "مدير قطاع الناشئين ك / اسلام عادل",
+      "players": {
+        "coach": [
+          "المدير الفني ك / محمد حمص",
+          "مدرب ك / سيد احمد",
+          "مدرب حراس ك / احمد زين",
+          "اداري ك / مصطفي الجارحي",
+          "رئيس الجهاز الطبي د / محمد البحيري"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t016",
@@ -765,13 +861,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t004",
@@ -781,13 +877,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t021",
@@ -797,13 +893,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t010",
@@ -813,13 +909,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t024",
@@ -829,13 +925,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t012",
@@ -845,13 +941,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t009",
@@ -861,13 +957,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t005",
@@ -877,13 +973,19 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["مدير فني ك / احمد شنجولا","مدرب ك / جمال نجم","مدرب حراس ك / علاء علي يوسف","اداري ك / محمد مصطفي","اخصائي العلاج الطبيعي ك/ عبد اللطيف علي"],
+      "players": {
+        "coach": [
+          "مدير فني ك / احمد شنجولا",
+          "مدرب ك / جمال نجم",
+          "مدرب حراس ك / علاء علي يوسف",
+          "اداري ك / محمد مصطفي",
+          "اخصائي العلاج الطبيعي ك/ عبد اللطيف علي"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t023",
@@ -893,13 +995,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t003",
@@ -910,13 +1012,17 @@
       "fieldurl": null,
       "city": null,
       "information": "المشرف العام ك / نصار جاد\nالمدير الاداري ك / احمد عادل",
-       "players": { 
-        "coach": ["المدير الفني ك / احمد ميسي","مدرب ك / محمد عادل","مدرب حراس ك / احمد اسماعيل"],
+      "players": {
+        "coach": [
+          "المدير الفني ك / احمد ميسي",
+          "مدرب ك / محمد عادل",
+          "مدرب حراس ك / احمد اسماعيل"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t019",
@@ -926,13 +1032,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t006",
@@ -942,13 +1048,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t013",
@@ -958,15 +1064,31 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
+      }
     }
-    }  
+  ],
+  "venues": [
+    "الاتصالات القديم",
+    "الاهلي بمدينة نصر",
+    "الدفاع الجوي",
+    "المقاولون العرب",
+    "انبي الكيلو 17 طريق السويس",
+    "دار الوقود",
+    "مركز شباب الاميرية ",
+    "مركز شباب السلام ثالث",
+    "مركز شباب الهايكستب ",
+    "مصر للتأمين",
+    "ملعب الجامعة بالمقطم",
+    "ملعب الشرطة بالدراسة",
+    "ملعب الشمس",
+    "ملعب المحروسة",
+    "ملعب دايموند خلق نادي الصيد بالقطامية",
+    "وادي دجلة التجمع"
   ]
-
-
 }
