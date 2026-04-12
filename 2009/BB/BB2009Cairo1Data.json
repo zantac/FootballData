@@ -8601,7 +8601,14 @@
       "away_score": 3,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "احمد مصطفي (2)",
+        "ابراهيم",
+        "هالاند",
+        "صناعة الاهداف",
+        "محمد جابر حمودي (2)",
+        "معاذ السيد (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
