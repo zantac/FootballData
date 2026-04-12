@@ -4136,7 +4136,9 @@
         "معاذ ابراهيم",
         "مازن وليد"
       ],
-      "away_scorers": null,
+      "away_scorers": [
+        "فتحي احمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -4244,14 +4246,14 @@
       "status": "completed",
       "stage": "",
       "note": null,
-      "home_score": 1,
-      "away_score": 0,
+      "home_score": 0,
+      "away_score": 1,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": [
+      "home_scorers": null,
+      "away_scorers": [
         "عمرو عصام"
       ],
-      "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
