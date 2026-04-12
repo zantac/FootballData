@@ -4,13 +4,13 @@
       "match_id": "m001",
       "group": "المرحلة الاولي",
       "week": "1",
-      "date": "2025-09-02", 
+      "date": "2025-09-02",
       "time": "16:00",
       "home_team_id": "t002",
       "away_team_id": "t001",
       "venue": "مركز شباب الهايكستب",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
@@ -24,7 +24,7 @@
       "home_sub": null,
       "away_sub": null,
       "stage": "1"
-      },
+    },
     {
       "match_id": "m002",
       "group": "المرحلة الاولي",
@@ -35,13 +35,17 @@
       "away_team_id": "t010",
       "venue": "نادي الشعب بالدقهلية",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["محمد عز","صناعة الاهداف","زيزو"],
+      "away_scorers": [
+        "محمد عز",
+        "صناعة الاهداف",
+        "زيزو"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -60,12 +64,17 @@
       "away_team_id": "t011",
       "venue": "مركز شباب محلة مرحوم",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["فارس رشاد","محمد الوكيل","صناعة الاهداف","عيسي ابراهيم"],
+      "home_scorers": [
+        "فارس رشاد",
+        "محمد الوكيل",
+        "صناعة الاهداف",
+        "عيسي ابراهيم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -85,12 +94,16 @@
       "away_team_id": "t012",
       "venue": "الامن المركزي 6 أكتوبر",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["عمر عبد الهادي","ابراهيم فتحي","ابراهيم هاني"],
+      "home_scorers": [
+        "عمر عبد الهادي",
+        "ابراهيم فتحي",
+        "ابراهيم هاني"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -99,8 +112,8 @@
       "home_sub": null,
       "away_sub": null,
       "stage": "1"
-	   },
-     {
+    },
+    {
       "match_id": "m005",
       "group": "المرحلة الاولي",
       "week": "1",
@@ -110,12 +123,15 @@
       "away_team_id": "t013",
       "venue": "السكة الحديد الرئيسي",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["مصطفي فتحي","نور محمد"],
+      "home_scorers": [
+        "مصطفي فتحي",
+        "نور محمد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -135,13 +151,15 @@
       "away_team_id": "t014",
       "venue": "الترسانة الفرعي",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["فارس الزناتي"],
+      "away_scorers": [
+        "فارس الزناتي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -160,13 +178,18 @@
       "away_team_id": "t015",
       "venue": "نادي الغابة",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 4,
       "home_scorers": null,
-      "away_scorers": ["محمد اكرامي","احمد هيثم","احمد فاروق","مصطفي شوقي"],
+      "away_scorers": [
+        "محمد اكرامي",
+        "احمد هيثم",
+        "احمد فاروق",
+        "مصطفي شوقي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -185,7 +208,7 @@
       "away_team_id": "t003",
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 4,
@@ -210,12 +233,14 @@
       "away_team_id": "t004",
       "venue": "نادي راية بالبحيرة",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["احمد هيثم"],
+      "home_scorers": [
+        "احمد هيثم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -224,8 +249,8 @@
       "home_sub": null,
       "away_sub": null,
       "stage": "1"
-	   },
-     {
+    },
+    {
       "match_id": "m010",
       "group": "المرحلة الاولي",
       "week": "2",
@@ -235,13 +260,23 @@
       "away_team_id": "t005",
       "venue": "مركز شباب ابو المطامير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["فارس الزناتي","عبد الرحمن بودا","محمد عماد ديانج","صناعة الاهداف","فارس الزناتي","محمد نصر (2)"],
-      "away_scorers": ["محمد مسعد","سيد محمد"],
+      "home_scorers": [
+        "فارس الزناتي",
+        "عبد الرحمن بودا",
+        "محمد عماد ديانج",
+        "صناعة الاهداف",
+        "فارس الزناتي",
+        "محمد نصر (2)"
+      ],
+      "away_scorers": [
+        "محمد مسعد",
+        "سيد محمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -260,7 +295,7 @@
       "away_team_id": "t006",
       "venue": "مركز شباب كفر الزيات",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -285,13 +320,18 @@
       "away_team_id": "t007",
       "venue": "المدينة الشبابية بابو قير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["بلال عادل (2)","صناعة الاهداف","كريم جاد","محمود ابو سمك"],
+      "away_scorers": [
+        "بلال عادل (2)",
+        "صناعة الاهداف",
+        "كريم جاد",
+        "محمود ابو سمك"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -304,20 +344,44 @@
       "match_id": "m013",
       "group": "المرحلة الاولي",
       "week": "2",
-      "date": "2025-09-09", 
+      "date": "2025-09-09",
       "time": "16:00",
       "home_team_id": "t011",
       "away_team_id": "t008",
       "venue": "فرعي استاد السلام",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
-      "away_squade": ["مصطفي مليجي","عبد الحميد السيد","صلاح احمد","كريم شريف","عبد الفتاح تاج","يوسف محمود","بلال عرفان","محمد أكرم العشماوي","خالد سامح","عمر اسلام","عبد الرحمن بودي","",
-                      "البدلاء","نور عبد الفتاح","احمد شكري","عمر شابون","احمد هشام","ياسين مصطفي","ادهم جابر","فكري خالد","محمد هاني","محمد مسعد"],
+      "away_squade": [
+        "مصطفي مليجي",
+        "عبد الحميد السيد",
+        "صلاح احمد",
+        "كريم شريف",
+        "عبد الفتاح تاج",
+        "يوسف محمود",
+        "بلال عرفان",
+        "محمد أكرم العشماوي",
+        "خالد سامح",
+        "عمر اسلام",
+        "عبد الرحمن بودي",
+        "",
+        "البدلاء",
+        "نور عبد الفتاح",
+        "احمد شكري",
+        "عمر شابون",
+        "احمد هشام",
+        "ياسين مصطفي",
+        "ادهم جابر",
+        "فكري خالد",
+        "محمد هاني",
+        "محمد مسعد"
+      ],
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["فكري خالد"],
+      "away_scorers": [
+        "فكري خالد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -336,12 +400,14 @@
       "away_team_id": "t009",
       "venue": "مركز شباب الساحل بشبرا",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
-      "home_scorers": ["زياد رضا"],
+      "home_scorers": [
+        "زياد رضا"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -361,12 +427,15 @@
       "away_team_id": "t001",
       "venue": "الترسانة الفرعي",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["عمرو عبد الخالق","محمود مانجا"],
+      "home_scorers": [
+        "عمرو عبد الخالق",
+        "محمود مانجا"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -386,7 +455,7 @@
       "away_team_id": "t002",
       "venue": "نادي الغابة",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -400,8 +469,8 @@
       "home_sub": null,
       "away_sub": null,
       "stage": "1"
-	   },
-     {
+    },
+    {
       "match_id": "m017",
       "group": "المرحلة الاولي",
       "week": "3",
@@ -411,12 +480,15 @@
       "away_team_id": "t011",
       "venue": "الاتصالات القديم",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["يوسف فاروق","حلمي"],
+      "home_scorers": [
+        "يوسف فاروق",
+        "حلمي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -436,12 +508,14 @@
       "away_team_id": "t012",
       "venue": "نادي الشعب بالدقهلية",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["عمر شابون"],
+      "home_scorers": [
+        "عمر شابون"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -461,12 +535,18 @@
       "away_team_id": "t013",
       "venue": "مركز شباب محلة مرحوم",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["خالد كريم","كريم عادل","محمود ابو سمك","صناعة الاهداف","كريم جاد"],
+      "home_scorers": [
+        "خالد كريم",
+        "كريم عادل",
+        "محمود ابو سمك",
+        "صناعة الاهداف",
+        "كريم جاد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -480,19 +560,28 @@
       "match_id": "m020",
       "group": "المرحلة الاولي",
       "week": "3",
-      "date": "2025-09-16", 
+      "date": "2025-09-16",
       "time": "15:00",
       "home_team_id": "t006",
       "away_team_id": "t014",
       "venue": "الامن المركزي 6 أكتوبر",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 4,
-      "home_scorers": ["كريم وليد"],
-      "away_scorers": ["عمار مصطفي","فارس الزناتي (2)","عبد الرحمن بودا","صناعة الاهداف","فارس الزناتي","حمدي محروس"],
+      "home_scorers": [
+        "كريم وليد"
+      ],
+      "away_scorers": [
+        "عمار مصطفي",
+        "فارس الزناتي (2)",
+        "عبد الرحمن بودا",
+        "صناعة الاهداف",
+        "فارس الزناتي",
+        "حمدي محروس"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -511,13 +600,17 @@
       "away_team_id": "t015",
       "venue": "السكة الحديد الرئيسي",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 1,
-      "home_scorers": ["نور محمد"],
-      "away_scorers": ["احمد شوقي"],
+      "home_scorers": [
+        "نور محمد"
+      ],
+      "away_scorers": [
+        "احمد شوقي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -526,7 +619,7 @@
       "away_sub": null,
       "stage": "1"
     },
-     {
+    {
       "match_id": "m022",
       "group": "المرحلة الاولي",
       "week": "4",
@@ -536,7 +629,7 @@
       "away_team_id": "t004",
       "venue": "مركز شباب الهايكستب",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
@@ -561,12 +654,37 @@
       "away_team_id": "t005",
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "completed",
-       "note" : null,
-      "home_squade": ["عوض بدوي (ح.م)","مصطفي اسماعيل","يوسف ابراهيم","محمد يسري","يوسف ابو خضير","عمرو الفيومي","محمد رمزي","احمد سمير","محمد السيد","عبد الرحمن هاني","السيد محمد احمد","","البدلاء","محمد عبد الرحمن","احمد حسني","مصطفي سلمي","ادم عمرو","محمد بدوي"],
+      "note": null,
+      "home_squade": [
+        "عوض بدوي (ح.م)",
+        "مصطفي اسماعيل",
+        "يوسف ابراهيم",
+        "محمد يسري",
+        "يوسف ابو خضير",
+        "عمرو الفيومي",
+        "محمد رمزي",
+        "احمد سمير",
+        "محمد السيد",
+        "عبد الرحمن هاني",
+        "السيد محمد احمد",
+        "",
+        "البدلاء",
+        "محمد عبد الرحمن",
+        "احمد حسني",
+        "مصطفي سلمي",
+        "ادم عمرو",
+        "محمد بدوي"
+      ],
       "away_squade": null,
       "home_score": 7,
       "away_score": 0,
-      "home_scorers": ["احمد سمير (2)","السيد محمد (2)","محمد السيد","عبد الرحمن هاني","يوسف ابو خضير"],
+      "home_scorers": [
+        "احمد سمير (2)",
+        "السيد محمد (2)",
+        "محمد السيد",
+        "عبد الرحمن هاني",
+        "يوسف ابو خضير"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -586,12 +704,16 @@
       "away_team_id": "t006",
       "venue": "نادي راية بالبحيرة",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["احمد زوغيب","ميدو","احمد هيثم"],
+      "home_scorers": [
+        "احمد زوغيب",
+        "ميدو",
+        "احمد هيثم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -611,13 +733,19 @@
       "away_team_id": "t007",
       "venue": "مركز شباب ابو المطامير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 1,
-      "home_scorers": ["فارس الزناتي"],
-      "away_scorers": ["السيد الوقاد","صناعة الاهداف","محمود ابو سمك"],
+      "home_scorers": [
+        "فارس الزناتي"
+      ],
+      "away_scorers": [
+        "السيد الوقاد",
+        "صناعة الاهداف",
+        "محمود ابو سمك"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -636,7 +764,7 @@
       "away_team_id": "t008",
       "venue": "مركز شباب كفر الزيات",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -661,7 +789,7 @@
       "away_team_id": "t009",
       "venue": "المدينة الشبابية بابو قير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 5,
@@ -686,13 +814,15 @@
       "away_team_id": "t010",
       "venue": "فرعي استاد السلام",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 4,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["زيزو"],
+      "away_scorers": [
+        "زيزو"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -711,7 +841,7 @@
       "away_team_id": "t001",
       "venue": "الامن المركزي 6 أكتوبر",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -736,12 +866,14 @@
       "away_team_id": "t002",
       "venue": "السكة الحديد الرئيسي",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["نور محمد"],
+      "home_scorers": [
+        "نور محمد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -761,12 +893,15 @@
       "away_team_id": "t003",
       "venue": "الترسانة الفرعي",
       "status": "completed",
-      "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["احمد ابو الفتوح (2)","عمرو عبد الخالق"],
+      "home_scorers": [
+        "احمد ابو الفتوح (2)",
+        "عمرو عبد الخالق"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -786,13 +921,19 @@
       "away_team_id": "t012",
       "venue": "مركز شباب الساحل بشبرا",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["احمد مصطفي ذكي","محمد كرم","محمد شعبان","صناعة الاهداف","احمد مصطفي ذكي"],
+      "away_scorers": [
+        "احمد مصطفي ذكي",
+        "محمد كرم",
+        "محمد شعبان",
+        "صناعة الاهداف",
+        "احمد مصطفي ذكي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -811,7 +952,7 @@
       "away_team_id": "t013",
       "venue": "الاتصالات القديم",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 2,
@@ -836,13 +977,19 @@
       "away_team_id": "t014",
       "venue": "نادي الشعب بالدقهلية",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["اسامة سعيد","عمر شريف","صناعة الاهداف","حمدي محروس","عبد الرحمن بودا"],
+      "away_scorers": [
+        "اسامة سعيد",
+        "عمر شريف",
+        "صناعة الاهداف",
+        "حمدي محروس",
+        "عبد الرحمن بودا"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -861,7 +1008,7 @@
       "away_team_id": "t015",
       "venue": "مركز شباب محلة مرحوم",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -886,7 +1033,7 @@
       "away_team_id": "t005",
       "venue": "نادي الغابة",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
@@ -911,13 +1058,15 @@
       "away_team_id": "t006",
       "venue": "مركز شباب الهايكستب",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["كريم وليد"],
+      "away_scorers": [
+        "كريم وليد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -936,7 +1085,7 @@
       "away_team_id": "t007",
       "venue": "فرعي القناة الجديد رقم 2",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -961,12 +1110,14 @@
       "away_team_id": "t008",
       "venue": "نادي راية بالبحيرة",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["احمد هيثم"],
+      "home_scorers": [
+        "احمد هيثم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -986,12 +1137,19 @@
       "away_team_id": "t009",
       "venue": "مركز شباب ابو المطامير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["اسامة سعيد","حمدي محروس","احمد سعد","صناعة الاهداف","عبد الرحمن بودا","فارس الزناتي"],
+      "home_scorers": [
+        "اسامة سعيد",
+        "حمدي محروس",
+        "احمد سعد",
+        "صناعة الاهداف",
+        "عبد الرحمن بودا",
+        "فارس الزناتي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -1011,7 +1169,7 @@
       "away_team_id": "t010",
       "venue": "مركز شباب كفر الزيات",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 1,
@@ -1036,7 +1194,7 @@
       "away_team_id": "t011",
       "venue": "المدينة الشبابية بابو قير",
       "status": "completed",
-       "note" : null,
+      "note": null,
       "home_squade": null,
       "away_squade": null,
       "home_score": 0,
@@ -1051,7 +1209,7 @@
       "away_sub": null,
       "stage": "1"
     },
-     {
+    {
       "match_id": "m043",
       "group": "المرحلة الاولي",
       "week": "7",
@@ -1091,7 +1249,14 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["بلال عادل","كريم عادل","محمد طارق","صناعة الاهداف","فارس رشاد","محمود ابو سمك"],
+      "home_scorers": [
+        "بلال عادل",
+        "كريم عادل",
+        "محمد طارق",
+        "صناعة الاهداف",
+        "فارس رشاد",
+        "محمود ابو سمك"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -1116,8 +1281,14 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 3,
-      "home_scorers": ["كريم وليد"],
-      "away_scorers": ["محمد شحاتة","اسر كريم","ياسين مصطفي"],
+      "home_scorers": [
+        "كريم وليد"
+      ],
+      "away_scorers": [
+        "محمد شحاتة",
+        "اسر كريم",
+        "ياسين مصطفي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1192,7 +1363,16 @@
       "home_score": 0,
       "away_score": 6,
       "home_scorers": null,
-      "away_scorers": ["فارس الزناتي (3)","حمدي محروس","محمد عماد ديانج","زيزو دياب","صناعة الاهداف","فارس الزناتي (2)","عبد الرحمن بودا","محمد نصر"],
+      "away_scorers": [
+        "فارس الزناتي (3)",
+        "حمدي محروس",
+        "محمد عماد ديانج",
+        "زيزو دياب",
+        "صناعة الاهداف",
+        "فارس الزناتي (2)",
+        "عبد الرحمن بودا",
+        "محمد نصر"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1217,7 +1397,10 @@
       "home_score": 2,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["روقه (2)","ريعو"],
+      "away_scorers": [
+        "روقه (2)",
+        "ريعو"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1266,8 +1449,15 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["ريعو (2)","محمد عصام","صناعة الاهداف","محمود مانجا"],
-      "away_scorers": ["كريم وليد"],
+      "home_scorers": [
+        "ريعو (2)",
+        "محمد عصام",
+        "صناعة الاهداف",
+        "محمود مانجا"
+      ],
+      "away_scorers": [
+        "كريم وليد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1291,8 +1481,15 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
-      "home_scorers": ["مهند عبد النبي","عدنان يوسف"],
-      "away_scorers": ["بلال عادل (2)","صناعة الاهداف","محمد طارق (2)"],
+      "home_scorers": [
+        "مهند عبد النبي",
+        "عدنان يوسف"
+      ],
+      "away_scorers": [
+        "بلال عادل (2)",
+        "صناعة الاهداف",
+        "محمد طارق (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1391,7 +1588,14 @@
       "away_squade": null,
       "home_score": 4,
       "away_score": 1,
-      "home_scorers": ["حمدي محروس","اسامة سعيد (2)","علي محمد","صناعة الاهداف","حمدي محروس","محمد نصر (2)"],
+      "home_scorers": [
+        "حمدي محروس",
+        "اسامة سعيد (2)",
+        "علي محمد",
+        "صناعة الاهداف",
+        "حمدي محروس",
+        "محمد نصر (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -1517,7 +1721,10 @@
       "home_score": 0,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["زياد احمد","نور محمد ابو النور"],
+      "away_scorers": [
+        "زياد احمد",
+        "نور محمد ابو النور"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1542,7 +1749,13 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["فارس الزناتي","محمد نصر","صناعة الاهداف","معتز سعيد","فارس الزناتي"],
+      "away_scorers": [
+        "فارس الزناتي",
+        "محمد نصر",
+        "صناعة الاهداف",
+        "معتز سعيد",
+        "فارس الزناتي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1667,7 +1880,13 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["فكري خالد","عمر شابون","صناعة الاهداف","فكري خالد","رحيم علي"],
+      "away_scorers": [
+        "فكري خالد",
+        "عمر شابون",
+        "صناعة الاهداف",
+        "فكري خالد",
+        "رحيم علي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1692,7 +1911,11 @@
       "home_score": 0,
       "away_score": 4,
       "home_scorers": null,
-      "away_scorers": ["احمد كاسونجو (2)","بلال عادل","فارس رشاد"],
+      "away_scorers": [
+        "احمد كاسونجو (2)",
+        "بلال عادل",
+        "فارس رشاد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1716,7 +1939,9 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["حمدي محروس (2)"],
+      "home_scorers": [
+        "حمدي محروس (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -1741,7 +1966,11 @@
       "away_squade": null,
       "home_score": 4,
       "away_score": 0,
-      "home_scorers": ["ريعو (2)","عبدالله","وجدي مصطفي"],
+      "home_scorers": [
+        "ريعو (2)",
+        "عبدالله",
+        "وجدي مصطفي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -1817,7 +2046,10 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["محمد وائل","السيد احمد"],
+      "away_scorers": [
+        "محمد وائل",
+        "السيد احمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1867,7 +2099,10 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["عبد الرحمن عصام","مصطفي فتحي"],
+      "away_scorers": [
+        "عبد الرحمن عصام",
+        "مصطفي فتحي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -1891,7 +2126,12 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["خالد كريم","احمد كاسنجو","صناعة الاهداف","كريم جاد"],
+      "home_scorers": [
+        "خالد كريم",
+        "احمد كاسنجو",
+        "صناعة الاهداف",
+        "كريم جاد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2066,7 +2306,11 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["يوسف اسماعيل","عبدالله جبريل","مروان حسام"],
+      "home_scorers": [
+        "يوسف اسماعيل",
+        "عبدالله جبريل",
+        "مروان حسام"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2091,7 +2335,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["عبد الرحمن هاني","مصطفي سلمي"],
+      "home_scorers": [
+        "عبد الرحمن هاني",
+        "مصطفي سلمي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2116,7 +2363,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["فارس الزناتي"],
+      "home_scorers": [
+        "فارس الزناتي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2142,7 +2391,10 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["احمد علاء","سيف سي"],
+      "away_scorers": [
+        "احمد علاء",
+        "سيف سي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2217,7 +2469,15 @@
       "home_score": 1,
       "away_score": 4,
       "home_scorers": null,
-      "away_scorers": ["سيف ابو سريع","محمد سمير","نور محمد ابو النور","ايوب","صناعة الاهداف","سيد محمد","سيف ابو سريع"],
+      "away_scorers": [
+        "سيف ابو سريع",
+        "محمد سمير",
+        "نور محمد ابو النور",
+        "ايوب",
+        "صناعة الاهداف",
+        "سيد محمد",
+        "سيف ابو سريع"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2242,7 +2502,10 @@
       "home_score": 0,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["كريم وليد","عنتر شعبان"],
+      "away_scorers": [
+        "كريم وليد",
+        "عنتر شعبان"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2266,8 +2529,17 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 1,
-      "home_scorers": ["طارق متولي","عبد الحميد السيد (2)","صناعة الاهداف","عبد الفتاح تاج","احمد هشام","محمد هاني"],
-      "away_scorers": ["خالد كريم"],
+      "home_scorers": [
+        "طارق متولي",
+        "عبد الحميد السيد (2)",
+        "صناعة الاهداف",
+        "عبد الفتاح تاج",
+        "احمد هشام",
+        "محمد هاني"
+      ],
+      "away_scorers": [
+        "خالد كريم"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2316,7 +2588,12 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 2,
-      "home_scorers": ["محمود ابو سمك","خالد كريم","صناعة الاهداف","كريم جاد (2)"],
+      "home_scorers": [
+        "محمود ابو سمك",
+        "خالد كريم",
+        "صناعة الاهداف",
+        "كريم جاد (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2416,7 +2693,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["علي اسامة","يوسف عمرو"],
+      "home_scorers": [
+        "علي اسامة",
+        "يوسف عمرو"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2441,7 +2721,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["سيف سي"],
+      "home_scorers": [
+        "سيف سي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2492,7 +2774,13 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["علي ادريس","مروان ميسي","صناعة الاهداف","سيف سي","يوسف اسماعيل"],
+      "away_scorers": [
+        "علي ادريس",
+        "مروان ميسي",
+        "صناعة الاهداف",
+        "سيف سي",
+        "يوسف اسماعيل"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2516,7 +2804,11 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["فارس الزناتي","عبد الرحمن محمد","علي محمد"],
+      "home_scorers": [
+        "فارس الزناتي",
+        "عبد الرحمن محمد",
+        "علي محمد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2592,7 +2884,9 @@
       "home_score": 2,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["كريم وليد (3)"],
+      "away_scorers": [
+        "كريم وليد (3)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2641,7 +2935,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["ريعو","عيسي ايمن"],
+      "home_scorers": [
+        "ريعو",
+        "عيسي ايمن"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2691,7 +2988,15 @@
       "away_squade": null,
       "home_score": 5,
       "away_score": 1,
-      "home_scorers": ["محمود عبداللا","حمدي محروس (2)","فارس الزناتي","اسامة سعيد","صناعة الاهداف","فارس الزناتي (2)","حمدي محروس"],
+      "home_scorers": [
+        "محمود عبداللا",
+        "حمدي محروس (2)",
+        "فارس الزناتي",
+        "اسامة سعيد",
+        "صناعة الاهداف",
+        "فارس الزناتي (2)",
+        "حمدي محروس"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2716,7 +3021,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["السيد الوقاد"],
+      "home_scorers": [
+        "السيد الوقاد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2741,7 +3048,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["محمد اسامة"],
+      "home_scorers": [
+        "محمد اسامة"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2766,7 +3075,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["السيد احمد","شريف محمود"],
+      "home_scorers": [
+        "السيد احمد",
+        "شريف محمود"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2792,7 +3104,13 @@
       "home_score": 1,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["اسامة سعيد (2)","فارس الزناتي","صناعة الاهداف","فارس الزناتي","حمدي محروس (2)"],
+      "away_scorers": [
+        "اسامة سعيد (2)",
+        "فارس الزناتي",
+        "صناعة الاهداف",
+        "فارس الزناتي",
+        "حمدي محروس (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2817,7 +3135,9 @@
       "home_score": 1,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["خالد كريم"],
+      "away_scorers": [
+        "خالد كريم"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2867,7 +3187,9 @@
       "home_score": 2,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["حمدي محروس"],
+      "away_scorers": [
+        "حمدي محروس"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2892,7 +3214,10 @@
       "home_score": 0,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["مصطفي سلمي (2)","السيد احمد"],
+      "away_scorers": [
+        "مصطفي سلمي (2)",
+        "السيد احمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2917,7 +3242,9 @@
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
-      "away_scorers": ["السيد الوقاد"],
+      "away_scorers": [
+        "السيد الوقاد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2942,7 +3269,10 @@
       "home_score": 1,
       "away_score": 3,
       "home_scorers": null,
-      "away_scorers": ["شريف محمود (2)","السيد احمد"],
+      "away_scorers": [
+        "شريف محمود (2)",
+        "السيد احمد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2966,7 +3296,12 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 2,
-      "home_scorers": ["اسامة سعيد","فارس الزناتي (2)","صناعة الاهداف","فارس الزناتي"],
+      "home_scorers": [
+        "اسامة سعيد",
+        "فارس الزناتي (2)",
+        "صناعة الاهداف",
+        "فارس الزناتي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2991,7 +3326,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["سيف سي","محمد وحيد"],
+      "home_scorers": [
+        "سيف سي",
+        "محمد وحيد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3041,7 +3379,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 0,
-      "home_scorers": ["محمود عبداللا","فارس الزناتي"],
+      "home_scorers": [
+        "محمود عبداللا",
+        "فارس الزناتي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3066,7 +3407,11 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["السيد احمد","اسامة محمد","يوسف رضا"],
+      "home_scorers": [
+        "السيد احمد",
+        "اسامة محمد",
+        "يوسف رضا"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3116,7 +3461,11 @@
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
-      "home_scorers": ["السيد الوقاد","بلال عادل","محمود ابو سمك"],
+      "home_scorers": [
+        "السيد الوقاد",
+        "بلال عادل",
+        "محمود ابو سمك"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3161,20 +3510,25 @@
       "away_team_id": "t002",
       "venue": "مركز شباب امبابة",
       "status": "completed",
+      "stage": "2",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 5,
       "away_score": 3,
-      "home_scorers": null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_scorers": [
+        "محمد عصمت (2)",
+        "رضا الحاوي",
+        "جريندو",
+        "منصور"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null,
-      "stage": "2"
+      "away_sub": null
     },
     {
       "match_id": "m128",
@@ -3216,8 +3570,16 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 3,
-      "home_scorers": ["محمود ابو سمك"],
-      "away_scorers": ["محمد نصر","احمد سعد","اسامة سعيد","صناعة الاهداف","فارس الزناتي (2)"],
+      "home_scorers": [
+        "محمود ابو سمك"
+      ],
+      "away_scorers": [
+        "محمد نصر",
+        "احمد سعد",
+        "اسامة سعيد",
+        "صناعة الاهداف",
+        "فارس الزناتي (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -3391,7 +3753,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["محمد وائل"],
+      "home_scorers": [
+        "محمد وائل"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3467,7 +3831,10 @@
       "home_score": 1,
       "away_score": 2,
       "home_scorers": null,
-      "away_scorers": ["ميمو","عمر شومان"],
+      "away_scorers": [
+        "ميمو",
+        "عمر شومان"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -3491,7 +3858,9 @@
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
-      "home_scorers": ["يوسف محمود"],
+      "home_scorers": [
+        "يوسف محمود"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3591,7 +3960,10 @@
       "away_squade": null,
       "home_score": 2,
       "away_score": 1,
-      "home_scorers": ["محمد وائل","حسن طارق"],
+      "home_scorers": [
+        "محمد وائل",
+        "حسن طارق"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3851,9 +4223,8 @@
       "away_sub": null,
       "stage": "2"
     }
-    
-   ],
- "teams": [
+  ],
+  "teams": [
     {
       "team_id": "t001",
       "group": "الاوائل",
@@ -3862,13 +4233,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t002",
@@ -3878,13 +4249,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t003",
@@ -3894,29 +4265,37 @@
       "field": "نادي الغابة",
       "fieldurl": "https://www.google.com/maps/place/Forest+Sporting+Club/@30.1024182,31.3374519,235m/data=!3m1!1e3!4m6!3m5!1s0x145815eee8669443:0xc16d5aaa0baf8f07!8m2!3d30.1028344!4d31.3382485!16s%2Fg%2F1hm41wv_2?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t004",
-      "group": "الاوائل",
       "name": "الترسانة",
+      "group": "الاوائل",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/19470",
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": null,
+      "information": null,
+      "point_deduction": null,
+      "players": {
+        "coach": [
+          "المدير الفني ك / بهلول عبد المنعم",
+          "مدرب ك / مصطفي الشرقاوي",
+          "مدرب حراس ك / احمد صالح",
+          "اداري ك / عماد شعبان",
+          "اخصائي اصابات و تأهيل د / عمر السيد"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t005",
@@ -3926,13 +4305,20 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك/ايهاب فرج","مدرب عام ك/ محمود الدولي","مدرب حراس ك/ محمد علي حسن","الاداري ك/ احمد علي","أخصائي علاج طبيعي ك/ سيد شعيب",""],
+      "players": {
+        "coach": [
+          "المدير الفني ك/ايهاب فرج",
+          "مدرب عام ك/ محمود الدولي",
+          "مدرب حراس ك/ محمد علي حسن",
+          "الاداري ك/ احمد علي",
+          "أخصائي علاج طبيعي ك/ سيد شعيب",
+          ""
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t006",
@@ -3942,13 +4328,13 @@
       "field": "نادي الامن المركزي",
       "fieldurl": "https://www.google.com/maps/place/Central+Security+Forces+Club,+26th+of+July+Corridor,+Kerdasa,+Giza+Governorate/@30.0470841,31.0546146,1119m/data=!3m1!1e3!4m14!1m7!3m6!1s0x14585b061b6efa07:0xfddefaec34e96390!2z2YbYp9iv2Yog2KfZhNij2YXZhiDYp9mE2YXYsdmD2LLZiiDYt9ix2YrZgiDYp9mE2LXYrdix2KfZiNmK!8m2!3d30.0466183!4d31.0581483!16s%2Fg%2F11r113r4l9!3m5!1s0x14585b22ee8db5f7:0xd6f4add7ec4433b6!8m2!3d30.0465573!4d31.0585922!16s%2Fg%2F11cknf6gdk?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t007",
@@ -3958,13 +4344,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t008",
@@ -3974,13 +4360,23 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك/ عمرو العيسوي","مدرب ك/ عرفة محمد","مدرب حراس ك/ صالح جعفر","محلل اداء ك/ احمد ابو الخير","محلل اداء ك/ محمد خاطر","أخصائي علاج طبيعي ك/ طارق الطنبولي","اداري ك/ محمد محسن","اداري ك/ محمد طارق","مسئول المهمات / اسلام صبيح"],
+      "players": {
+        "coach": [
+          "المدير الفني ك/ عمرو العيسوي",
+          "مدرب ك/ عرفة محمد",
+          "مدرب حراس ك/ صالح جعفر",
+          "محلل اداء ك/ احمد ابو الخير",
+          "محلل اداء ك/ محمد خاطر",
+          "أخصائي علاج طبيعي ك/ طارق الطنبولي",
+          "اداري ك/ محمد محسن",
+          "اداري ك/ محمد طارق",
+          "مسئول المهمات / اسلام صبيح"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t009",
@@ -3990,13 +4386,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t010",
@@ -4006,13 +4402,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t011",
@@ -4022,13 +4418,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t012",
@@ -4038,13 +4434,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t013",
@@ -4054,13 +4450,13 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
+      "players": {
         "coach": null,
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t014",
@@ -4071,13 +4467,18 @@
       "fieldurl": null,
       "city": null,
       "information": "رئيس قطاع الناشئين و البراعم ك / اشرف عبد الحليم\nنائب رئيس القطاع ك / سعيد عبد الغفار",
-       "players": { 
-        "coach": ["المدير الفني ك/ سعد الحنتوشي","مدرب عام ك/ محمود بكار","مدرب حراس ك/ مراد النجار","دكتور/ اسماعيل عمران"],
+      "players": {
+        "coach": [
+          "المدير الفني ك/ سعد الحنتوشي",
+          "مدرب عام ك/ محمود بكار",
+          "مدرب حراس ك/ مراد النجار",
+          "دكتور/ اسماعيل عمران"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
-    }
+      }
     },
     {
       "team_id": "t015",
@@ -4087,14 +4488,40 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-       "players": { 
-        "coach": ["المدير الفني ك/ حسام حسن","مدرب عام ك/ احمد كشري","مدرب حراس ك/ احمد كمال","اداري ك/ حمدي عبد الجواد","مسئول المهمات/ ميدو فتحي"],
+      "players": {
+        "coach": [
+          "المدير الفني ك/ حسام حسن",
+          "مدرب عام ك/ احمد كشري",
+          "مدرب حراس ك/ احمد كمال",
+          "اداري ك/ حمدي عبد الجواد",
+          "مسئول المهمات/ ميدو فتحي"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
         "attackers": null
+      }
     }
-    }
+  ],
+  "venues": [
+    "الاتصالات القديم",
+    "الامن المركزي 6 أكتوبر",
+    "الترسانة الفرعي",
+    "السكة الحديد الرئيسي",
+    "السنطة بالغربية",
+    "المحروسة بالعباسية",
+    "المدينة الشبابية بابو قير",
+    "فرعي استاد السلام",
+    "فرعي القناة الجديد رقم 2",
+    "مركز شباب ابو المطامير",
+    "مركز شباب الساحل بشبرا",
+    "مركز شباب الهايكستب",
+    "مركز شباب امبابة",
+    "مركز شباب كفر الزيات",
+    "مركز شباب محلة مرحوم",
+    "مستشفي الصدر بالمحلة",
+    "نادي الشعب بالدقهلية",
+    "نادي الغابة",
+    "نادي راية بالبحيرة"
   ]
-
 }
