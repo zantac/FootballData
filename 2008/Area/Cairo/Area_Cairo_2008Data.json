@@ -3642,15 +3642,19 @@
     },
     {
       "team_id": "t004",
-      "group": null,
       "name": "النصر",
+      "group": null,
       "logo": "https://upload.wikimedia.org/wikipedia/ar/0/0c/Al_Nasr_SC_Egypt.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
-          "المدير الفني ك/ مصطفي يوسف"
+          "المدير الفني ك / سامح سمير",
+          "مدرب ك / احمد العجوز",
+          "مدرب حراس ك / محمد حازم"
         ],
         "goalkeepers": null,
         "defenders": null,
