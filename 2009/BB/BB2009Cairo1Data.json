@@ -8256,13 +8256,17 @@
       "away_team_id": "gat010",
       "venue": "الجزيرة بالمنصورية",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 0,
       "away_score": 3,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "محمد السيد (2)",
+        "احمد سيد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -8445,7 +8449,11 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "عبد الرحمن سمير",
+        "صناعة الاهداف",
+        "يوسف رامي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -10725,7 +10733,10 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "احمد محمد كوري",
+        "محمد حازم (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -10849,7 +10860,10 @@
       "away_score": 1,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "احمد خالد (2)",
+        "عبدالله شحبر"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
