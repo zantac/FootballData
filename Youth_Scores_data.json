@@ -183,6 +183,14 @@
                               ]
                     }
                    ]
+                },
+              {
+                    "competition_id": "c006",
+                    "name": {
+                             "ar": "بطولات ودية",
+                             "en":"Friendly Competitions"
+                            },
+                    "ages": null
                 }
               ]
    }
