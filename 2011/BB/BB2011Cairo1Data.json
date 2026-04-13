@@ -5722,7 +5722,10 @@
       "away_score": 2,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "حماصه",
+        "عبد الرحمن رمضان"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
