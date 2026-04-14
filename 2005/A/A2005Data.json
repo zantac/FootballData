@@ -8288,15 +8288,22 @@
     },
     {
       "team_id": "t018",
-      "group": "تحديد المراكز من 8 الي 21",
       "name": "مودرن سبورت",
+      "group": "تحديد المراكز من 8 الي 21",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": "مدير قطاع الناشئين ك / جمال السيد\nمدير اداري ك / ايمن عبد القادر",
+      "point_deduction": null,
       "players": {
         "coach": [
-          "المدير الفني ك/ محمد عبدالله"
+          "المدير الفني ك / هاني حجاج",
+          "مدرب ك / عبد الوهاب السيد",
+          "مدرب مساعد ك / عادل فتحي",
+          "اداري ك / عمران",
+          "طبيب د / احمد رمضان",
+          "اخصائي ك / بكر"
         ],
         "goalkeepers": null,
         "defenders": null,
