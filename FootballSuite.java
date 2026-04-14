@@ -1,3 +1,4 @@
+
 package com.waellotfy.footballsuite;
 
 import android.app.Activity;
@@ -20,6 +21,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -149,6 +151,9 @@ public class FootballSuite extends AndroidNonvisibleComponent implements Compone
     // Thread Pool
     private ExecutorService backgroundExecutor;
     
+    // ScrollView and upcoming match view for team match list
+    private ScrollView lastCreatedTeamMatchListScrollView;
+    private View firstUpcomingTeamMatchView;
     
     
     private Map<String, WeakReference<View>> viewCache = new ConcurrentHashMap<>();
@@ -439,33 +444,107 @@ public void ParseJsonFromUrl(String url) {
     }
 
     @SimpleFunction(description = "Creates and displays standings tables for all groups found in the data.")
-    public void CreateAllGroupsStandings(HVArrangement container, final String lang) {
-        if (jsonData == null) return;
-        try {
-            ViewGroup vg = (ViewGroup) container.getView();
-            vg.removeAllViews();
-            ScrollView sv = new ScrollView(context);
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            java.util.List<String> groups = getJavaGroupList();
-            if (groups.isEmpty()) groups.add("");
+public void CreateAllGroupsStandings(HVArrangement container, final String lang) {
+    if (jsonData == null) return;
+    try {
+        ViewGroup vg = (ViewGroup) container.getView();
+        vg.removeAllViews();
+        ScrollView sv = new ScrollView(context);
+        LinearLayout ml = new LinearLayout(context);
+        ml.setOrientation(LinearLayout.VERTICAL);
+        ml.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+        
+        java.util.List<String> groups = getJavaGroupList();
+        
+        // If no groups or only one group, show standings without collapse header
+        if (groups.isEmpty() || groups.size() == 1) {
+            // Calculate standings for all teams (pass empty string for group)
+            String groupId = groups.isEmpty() ? "" : groups.get(0);
+            java.util.List<TeamStats> standings = calculateStandingsForGroup(groupId, "");
+            if (standings != null && !standings.isEmpty()) {
+                View table = buildStandingsTable(standings, lang);
+                ml.addView(table);
+            } else {
+                TextView noData = new TextView(context);
+                noData.setText(getLocalizedText(null, "no_data_available", lang));
+                noData.setTextColor(this.secondaryTextColor);
+                noData.setGravity(Gravity.CENTER);
+                noData.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                ml.addView(noData);
+            }
+        } else {
+            // Multiple groups - show with collapse/expand functionality
+            final java.util.Map<String, Boolean> expandedStates = new java.util.HashMap<>();
             for (String gid : groups) {
-                if (gid != null && !gid.isEmpty())
-                    ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + gid, lang));
-                java.util.List<TeamStats> standings = calculateStandingsForGroup(gid, "");
-                if (standings != null && !standings.isEmpty()) {
-                    View table = buildStandingsTable(standings, lang);
-                    ml.addView(table);
+                expandedStates.put(gid, true);
+            }
+            
+            for (final String gid : groups) {
+                if (gid != null && !gid.isEmpty()) {
+                    // Create group container
+                    final LinearLayout groupContainer = new LinearLayout(context);
+                    groupContainer.setOrientation(LinearLayout.VERTICAL);
+                    groupContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                    
+                    // Create clickable header with arrow
+                    final LinearLayout headerLayout = createCollapsibleGroupHeader(
+                        getLocalizedText(null, "group", lang) + " " + gid, 
+                        lang, 
+                        expandedStates.get(gid)
+                    );
+                    
+                    // Create content container
+                    final LinearLayout contentContainer = new LinearLayout(context);
+                    contentContainer.setOrientation(LinearLayout.VERTICAL);
+                    contentContainer.setVisibility(expandedStates.get(gid) ? View.VISIBLE : View.GONE);
+                    
+                    // Calculate and add standings table
+                    java.util.List<TeamStats> standings = calculateStandingsForGroup(gid, "");
+                    if (standings != null && !standings.isEmpty()) {
+                        View table = buildStandingsTable(standings, lang);
+                        contentContainer.addView(table);
+                    } else {
+                        TextView noData = new TextView(context);
+                        noData.setText(getLocalizedText(null, "no_data_available", lang));
+                        noData.setTextColor(this.secondaryTextColor);
+                        noData.setGravity(Gravity.CENTER);
+                        noData.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                        contentContainer.addView(noData);
+                    }
+                    
+                    // Make header clickable
+                    headerLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean isExpanded = contentContainer.getVisibility() == View.VISIBLE;
+                            if (isExpanded) {
+                                contentContainer.setVisibility(View.GONE);
+                                updateGroupHeaderArrow(headerLayout, false);
+                                expandedStates.put(gid, false);
+                            } else {
+                                contentContainer.setVisibility(View.VISIBLE);
+                                updateGroupHeaderArrow(headerLayout, true);
+                                expandedStates.put(gid, true);
+                            }
+                        }
+                    });
+                    
+                    groupContainer.addView(headerLayout);
+                    groupContainer.addView(contentContainer);
+                    ml.addView(groupContainer);
+                    ml.addView(createDivider());
                 }
             }
-            sv.addView(ml);
-            vg.addView(sv);
-        } catch (Exception e) {
-            AfterParsingFail("Error creating all standings: " + e.getMessage());
         }
+        
+        sv.addView(ml);
+        vg.addView(sv);
+    } catch (Exception e) {
+        AfterParsingFail("Error creating all standings: " + e.getMessage());
     }
+}
 
-    @SimpleFunction(description = "Creates a view showing comprehensive statistics.")
+            @SimpleFunction(description = "Creates a view showing comprehensive statistics using modern cards.")
     public void CreateAllStatisticsView(final HVArrangement container, final String language) {
         if (this.jsonData == null) { AfterParsingFail("JSON data is not set."); return; }
         
@@ -503,13 +582,40 @@ public void ParseJsonFromUrl(String url) {
                                 LinearLayout mainLayout = new LinearLayout(context);
                                 mainLayout.setOrientation(LinearLayout.VERTICAL);
                                 mainLayout.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+                                
+                                // Light Gray Background
+                                sv.setBackgroundColor(Color.parseColor("#F5F5F5"));
 
                                 if (matchesByBucket.isEmpty()) {
-                                    mainLayout.addView(createSingleStatCard(getStatLocalizedText("no_completed_matches", language), "-", language));
+                                    TextView noData = new TextView(context);
+                                    noData.setText(getStatLocalizedText("no_completed_matches", language));
+                                    noData.setTextSize(16);
+                                    noData.setTextColor(secondaryTextColor);
+                                    noData.setGravity(Gravity.CENTER);
+                                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -1);
+                                    params.setMargins(dpToPx(16), dpToPx(100), dpToPx(16), dpToPx(100));
+                                    noData.setLayoutParams(params);
+                                    mainLayout.addView(noData);
+                                    
                                     sv.addView(mainLayout);
                                     vg.addView(sv);
                                     return;
                                 }
+
+                                // UPDATED ICONS (Replaced Snowflake/Hole with Down Trend/Arrow)
+                                String[] statTypes = {
+                                    "total_matches", "total_goals", "goal_rate", 
+                                    "winner_matches", "draw_matches", 
+                                    "strongest_attack", "strongest_defense", 
+                                    "weakest_attack", "weakest_defense"
+                                };
+                                
+                                String[] statIcons = {
+                                    "⚽", "🥅", "📈", 
+                                    "🏆", "🤝", 
+                                    "🔥", "🧱", 
+                                    "📉", "🔻" 
+                                };
 
                                 for (String bucketName : sortedBucketNames) {
                                     List<JSONObject> bucketMatches = matchesByBucket.get(bucketName);
@@ -519,13 +625,31 @@ public void ParseJsonFromUrl(String url) {
                                         mainLayout.addView(createStatsGroupHeaderView(bucketName, language));
                                     }
 
-                                    String[] statTypes = {"total_matches", "total_goals", "goal_rate", "winner_matches", "draw_matches", "strongest_attack", "strongest_defense", "weakest_attack", "weakest_defense"};
-                                    for (String statType : statTypes) {
+                                    List<View> cardList = new ArrayList<>();
+                                    
+                                    for (int i = 0; i < statTypes.length; i++) {
+                                        String statType = statTypes[i];
+                                        String icon = statIcons[i];
+                                        
                                         String value = calculateStatForGroup(bucketMatches, allTeams, statType, language);
-                                        mainLayout.addView(createSingleStatCard(getStatLocalizedText(statType + "_title", language), value, language));
+                                        String title = getStatLocalizedText(statType + "_title", language);
+                                        
+                                        View card = createModernStatCard(title, value, icon);
+                                        cardList.add(card);
                                     }
-                                    mainLayout.addView(createDivider());
+                                    
+                                    // Add cards to layout in rows of 2
+                                    for (int i = 0; i < cardList.size(); i += 2) {
+                                        View row = createStatsGridRow(cardList.get(i), (i + 1 < cardList.size()) ? cardList.get(i + 1) : null);
+                                        mainLayout.addView(row);
+                                    }
+                                    
+                                    // Spacing between groups
+                                    View spacer = new View(context);
+                                    spacer.setLayoutParams(new LinearLayout.LayoutParams(-1, dpToPx(24)));
+                                    mainLayout.addView(spacer);
                                 }
+                                
                                 sv.addView(mainLayout);
                                 vg.addView(sv);
                             } catch (Exception e) {
@@ -537,6 +661,130 @@ public void ParseJsonFromUrl(String url) {
                 } catch (final Exception e) {
                     activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error: " + e.getMessage()); }});
                 }
+            }
+        });
+    }
+    
+    // =======================
+    // UPDATED HELPER METHODS
+    // =======================
+
+        /**
+     * Creates a single modern stat card.
+     */
+    private View createModernStatCard(String title, String value, String icon) {
+        LinearLayout card = new LinearLayout(context);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setPadding(dpToPx(12), dpToPx(20), dpToPx(12), dpToPx(20)); 
+        card.setGravity(Gravity.CENTER);
+        
+        GradientDrawable bg = new GradientDrawable();
+        bg.setColor(Color.WHITE);
+        bg.setCornerRadius(dpToPx(12));
+        if (Build.VERSION.SDK_INT >= 16) {
+            card.setBackground(bg);
+        } else {
+            card.setBackgroundDrawable(bg);
+        }
+        
+        if (Build.VERSION.SDK_INT >= 21) {
+            card.setElevation(dpToPx(3));
+        }
+
+        // Note: We use WRAP_CONTENT initially so we can measure the natural height
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        card.setLayoutParams(params);
+
+        TextView iconView = new TextView(context);
+        iconView.setText(icon);
+        iconView.setTextSize(32); 
+        iconView.setGravity(Gravity.CENTER);
+        
+        TextView valueView = new TextView(context);
+        valueView.setText(value);
+        valueView.setTextSize(22);
+        valueView.setTypeface(null, Typeface.BOLD);
+        valueView.setTextColor(this.accentColor); 
+        valueView.setGravity(Gravity.CENTER);
+        
+        TextView titleView = new TextView(context);
+        titleView.setText(title);
+        titleView.setTextSize(12);
+        titleView.setTextColor(this.secondaryTextColor);
+        titleView.setGravity(Gravity.CENTER);
+        
+        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(-2, -2);
+        titleParams.setMargins(0, dpToPx(6), 0, 0); 
+        titleView.setLayoutParams(titleParams);
+
+        card.addView(iconView);
+        card.addView(valueView);
+        card.addView(titleView);
+
+        return card;
+    }
+
+    /**
+     * Creates a horizontal row for 2 cards.
+     */
+    private View createStatsGridRow(View card1, View card2) {
+        LinearLayout row = new LinearLayout(context);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER);
+        
+        LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        rowParams.setMargins(0, dpToPx(8), 0, dpToPx(8));
+        row.setLayoutParams(rowParams);
+
+        if (card1 != null) {
+            LinearLayout.LayoutParams p1 = (LinearLayout.LayoutParams) card1.getLayoutParams();
+            p1.setMargins(dpToPx(8), 0, dpToPx(4), 0); 
+            row.addView(card1, p1);
+        }
+        
+        if (card2 != null) {
+            LinearLayout.LayoutParams p2 = (LinearLayout.LayoutParams) card2.getLayoutParams();
+            p2.setMargins(dpToPx(4), 0, dpToPx(8), 0); 
+            row.addView(card2, p2);
+        }
+        
+        // --- NEW LOGIC HERE ---
+        // After adding views, run this to equalize heights
+        setHeightToTallest(card1, card2);
+
+        return row;
+    }
+
+    /**
+     * NEW HELPER METHOD
+     * Compares two views and sets the shorter one's height to match the taller one.
+     * Uses a ViewTreeObserver to wait for layout to complete.
+     */
+    private void setHeightToTallest(final View view1, final View view2) {
+        if (view1 == null || view2 == null) return;
+
+        // We need to wait for the layout to pass so getMeasuredHeight() returns a real value
+        view1.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                // Remove the listener immediately so we don't run this logic multiple times
+                view1.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                // Get the actual heights of both cards
+                int height1 = view1.getMeasuredHeight();
+                int height2 = view2.getMeasuredHeight();
+
+                // Find the maximum height
+                int maxHeight = Math.max(height1, height2);
+
+                // Apply the maximum height to both cards
+                ViewGroup.LayoutParams params1 = view1.getLayoutParams();
+                params1.height = maxHeight;
+                view1.setLayoutParams(params1);
+
+                ViewGroup.LayoutParams params2 = view2.getLayoutParams();
+                params2.height = maxHeight;
+                view2.setLayoutParams(params2);
             }
         });
     }
@@ -752,8 +1000,21 @@ public void CreateMatchList(HVArrangement container, final String lang) {
                                         java.util.List<JSONObject> groupMatches = byGroup.get(gName);
                                         if (groupMatches != null) {
                                             for (JSONObject match : groupMatches) {
-                                                ml.addView(createMatchItemView(match, teams, lang));
-                                            }
+    try {
+        View matchView = createMatchItemView(match, teams, lang);
+        ml.addView(matchView);
+        
+        // Check if this is the first upcoming match
+        if (firstUpcomingMatchView == null) {
+            String status = match.optString("status", "upcoming").toLowerCase();
+            if (!"completed".equals(status)) {
+                firstUpcomingMatchView = matchView;
+            }
+        }
+    } catch (Exception e) {
+        // Ignore individual match errors
+    }
+}
                                         }
                                     }
                                 }
@@ -1149,12 +1410,9 @@ public void CreateNewsList(HVArrangement container, final String language) {
         }
     }
 
-    @SimpleFunction(description = "Creates a list of all matches for a specific team.")
-public void CreateTeamMatchList(HVArrangement container, String teamId, String lang) {
+        @SimpleFunction(description = "Creates a list of all matches for a specific team.")
+    public void CreateTeamMatchList(HVArrangement container, String teamId, String lang) {
     if (jsonData == null) return;
-    
-    // We will NOT modify the global this.jsonData. Instead, we'll process a
-    // filtered list and pass it directly to the UI builder.
     
     backgroundExecutor.submit(new Runnable() {
         @Override
@@ -1166,7 +1424,7 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
                 final JSONArray teams = jsonData.getJSONArray("teams");
 
                 // Step 1: Filter matches for the specific team
-                java.util.List<JSONObject> teamMatchesList = new java.util.ArrayList<>();
+                final java.util.List<JSONObject> teamMatchesList = new java.util.ArrayList<>();
                 for (int i = 0; i < allMatches.length(); i++) {
                     JSONObject match = allMatches.getJSONObject(i);
                     String homeTeamId = match.optString("home_team_id", "");
@@ -1177,9 +1435,10 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
                     }
                 }
 
-                // Step 2: Sort and Group the filtered list (logic copied from CreateMatchList)
+                // Step 2: Sort matches by date and time
                 Collections.sort(teamMatchesList, new Comparator<JSONObject>() { 
-                    @Override public int compare(JSONObject o1, JSONObject o2) { 
+                    @Override 
+                    public int compare(JSONObject o1, JSONObject o2) { 
                         try { 
                             int d = o1.getString("date").compareTo(o2.getString("date")); 
                             if (d != 0) return d; 
@@ -1188,49 +1447,82 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
                     } 
                 });
                 
-                java.util.Map<String, java.util.Map<String, java.util.List<JSONObject>>> byDateAndWeek = new java.util.LinkedHashMap<>();
+                // Step 3: Group by date and week
+                final java.util.Map<String, java.util.Map<String, java.util.List<JSONObject>>> byDateAndWeek = new java.util.LinkedHashMap<>();
                 for (JSONObject match : teamMatchesList) {
                     String date = match.getString("date");
                     String week = match.getString("week");
-                    if (!byDateAndWeek.containsKey(date)) byDateAndWeek.put(date, new java.util.LinkedHashMap<String, java.util.List<JSONObject>>());
+                    if (!byDateAndWeek.containsKey(date)) {
+                        byDateAndWeek.put(date, new java.util.LinkedHashMap<String, java.util.List<JSONObject>>());
+                    }
                     java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
                     if (byWeek == null) continue;
-                    if (!byWeek.containsKey(week)) byWeek.put(week, new java.util.ArrayList<JSONObject>());
+                    if (!byWeek.containsKey(week)) {
+                        byWeek.put(week, new java.util.ArrayList<JSONObject>());
+                    }
                     java.util.List<JSONObject> weekList = byWeek.get(week);
-                    if(weekList != null) weekList.add(match);
+                    if (weekList != null) weekList.add(match);
                 }
                 
-                // Step 3: Build the UI on the main thread
+                // Step 4: Build UI on main thread
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             ViewGroup vg = (ViewGroup) container.getView();
                             vg.removeAllViews();
-                            ScrollView sv = new ScrollView(context);
-                            LinearLayout ml = new LinearLayout(context);
+                            
+                            final ScrollView sv = new ScrollView(context);
+                            final LinearLayout ml = new LinearLayout(context);
                             ml.setOrientation(LinearLayout.VERTICAL);
+                            
+                            // Store references for scrolling to upcoming match
+                            lastCreatedTeamMatchListScrollView = sv;
+                            firstUpcomingTeamMatchView = null; // Initialize to null
+                            
+                            // We do NOT need the 'today' date logic here anymore
+                            // because the check inside the view creation handles it.
                             
                             for (String date : byDateAndWeek.keySet()) {
                                 java.util.Map<String, java.util.List<JSONObject>> byWeek = byDateAndWeek.get(date);
                                 int totalDayMatches = 0;
-                                if(byWeek == null) continue;
-                                for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) totalDayMatches += weekMatchesList.size();
+                                if (byWeek == null) continue;
+                                for (java.util.List<JSONObject> weekMatchesList : byWeek.values()) {
+                                    totalDayMatches += weekMatchesList.size();
+                                }
                                 boolean multiWeek = byWeek.size() > 1;
-                                ml.addView(createDateHeaderView(date, totalDayMatches, lang, !multiWeek, byWeek.keySet().iterator().next()));
+                                String firstWeek = byWeek.keySet().iterator().next();
                                 
+                                try {
+                                    ml.addView(createDateHeaderView(date, totalDayMatches, lang, !multiWeek, firstWeek));
+                                } catch (ParseException e) {
+                                    // Ignore
+                                }
+                                
+                                // --- REMOVED THE BROKEN DETECTION LOOP HERE ---
+                                
+                                // Add matches for each week
                                 for (String week : byWeek.keySet()) {
                                     java.util.List<JSONObject> weekMatches = byWeek.get(week);
                                     if (weekMatches == null || weekMatches.isEmpty()) continue;
-                                    if (multiWeek) ml.addView(createWeekHeaderView(week, lang));
+                                    
+                                    if (multiWeek) {
+                                        ml.addView(createWeekHeaderView(week, lang));
+                                    }
+                                    
                                     java.util.Map<String, java.util.List<JSONObject>> byGroup = new java.util.LinkedHashMap<>();
                                     for (JSONObject match : weekMatches) {
                                         String group = match.optString("group", "_no_group_");
-                                        if (group.isEmpty() || group.equals("null")) group = "_no_group_";
-                                        if (!byGroup.containsKey(group)) byGroup.put(group, new java.util.ArrayList<JSONObject>());
+                                        if (group.isEmpty() || group.equals("null")) {
+                                            group = "_no_group_";
+                                        }
+                                        if (!byGroup.containsKey(group)) {
+                                            byGroup.put(group, new java.util.ArrayList<JSONObject>());
+                                        }
                                         java.util.List<JSONObject> groupList = byGroup.get(group);
                                         if (groupList != null) groupList.add(match);
                                     }
+                                    
                                     for (String gName : byGroup.keySet()) {
                                         if (!gName.equals("_no_group_")) {
                                             ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + gName, lang));
@@ -1238,14 +1530,30 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
                                         java.util.List<JSONObject> groupMatches = byGroup.get(gName);
                                         if (groupMatches != null) {
                                             for (JSONObject match : groupMatches) {
-                                                ml.addView(createMatchItemView(match, teams, lang));
+                                                try {
+                                                    View matchView = createMatchItemView(match, teams, lang);
+                                                    ml.addView(matchView);
+                                                    
+                                                    // Check if this is the first upcoming match
+                                                    // This logic is sufficient and works as the list builds
+                                                    if (firstUpcomingTeamMatchView == null) {
+                                                        String status = match.optString("status", "upcoming").toLowerCase();
+                                                        if (!"completed".equals(status)) {
+                                                            firstUpcomingTeamMatchView = matchView;
+                                                        }
+                                                    }
+                                                } catch (Exception e) {
+                                                    // Ignore individual match errors
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
+                            
                             sv.addView(ml);
                             vg.addView(sv);
+                            
                         } catch (Exception e) {
                             AfterParsingFail("Error building team match list UI: " + e.getMessage());
                         }
@@ -1386,9 +1694,40 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
     @SimpleFunction(description = "Scrolls a previously created match list to the first upcoming match.")
     public void ScrollMatchListToUpcoming() {
         if (lastCreatedMatchListScrollView != null && firstUpcomingMatchView != null) {
-            lastCreatedMatchListScrollView.post(new Runnable() { @Override public void run() { lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop()); }});
+            lastCreatedMatchListScrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    // FIX: Add a second, safer null check inside the runnable
+                    if (firstUpcomingMatchView != null) {
+                        lastCreatedMatchListScrollView.smoothScrollTo(0, firstUpcomingMatchView.getTop());
+                    }
+                }
+            });
+        }
+        // NOTE: The confusing "else if" for the team list has been removed from this method
+        // to ensure it only handles the main match list.
+    }
+     
+        @SimpleFunction(description = "Scrolls the Team Match List to the first upcoming match.")
+    public void ScrollTeamMatchListToUpcoming() {
+        if (lastCreatedTeamMatchListScrollView != null && firstUpcomingTeamMatchView != null) {
+            lastCreatedTeamMatchListScrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    // FIX: Add a second, safer null check inside the runnable
+                    if (firstUpcomingTeamMatchView != null) {
+                        lastCreatedTeamMatchListScrollView.smoothScrollTo(0, firstUpcomingTeamMatchView.getTop());
+                    }
+                }
+            });
+        } else {
+            // Optional: Notify the user if the list isn't ready or no upcoming match is found.
+            // This is good for debugging. You can remove it if you don't want the message.
+            // Toast.makeText(context, "No upcoming team match to scroll to.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
     @SimpleFunction(description = "Updates the persistent record of the current news count.")
     public void UpdateLastNewsCount() {
@@ -1609,6 +1948,8 @@ public void CreateTeamMatchList(HVArrangement container, String teamId, String l
         return d;
     }
 
+        
+
     // For list views - uses optimized fields
 private JSONObject findMatchByIdOptimized(String mId) throws JSONException {
     JSONArray matches = jsonData.optJSONArray("matches");
@@ -1692,9 +2033,9 @@ private void parseScorersFromMatchForStats(JSONObject match, JSONArray scorers, 
     JSONObject opponentTeamObj = getTeamInfoById(opponentTeamId, teams);
     String opponentTeamName = getLocalizedText(opponentTeamObj, "name", lang);
     
-    String score = isHome ? 
-        match.getInt("home_score") + " : " + match.getInt("away_score") :
-        match.getInt("away_score") + " : " + match.getInt("home_score");
+    // Always store score as "Home : Away"
+    boolean isRTL = "ar".equalsIgnoreCase(lang);
+    String score = isRTL ? (match.getInt("away_score") + " : " + match.getInt("home_score")) : (match.getInt("home_score") + " : " + match.getInt("away_score"));
     
     boolean isParsingAssists = false;
     int goalCount = 0;
@@ -2323,9 +2664,9 @@ private void parseScorersFromMatch(JSONObject match, JSONArray scorers, boolean 
     JSONObject opponentTeamObj = getTeamInfoById(opponentTeamId, teams);
     String opponentTeamName = getLocalizedText(opponentTeamObj, "name", lang);
     
-    String score = isHome ? 
-        match.getInt("home_score") + " : " + match.getInt("away_score") :
-        match.getInt("away_score") + " : " + match.getInt("home_score");
+    // Always store score as "Home : Away"
+    boolean isRTL = "ar".equalsIgnoreCase(lang);
+    String score = isRTL ? (match.getInt("away_score") + " : " + match.getInt("home_score")) : (match.getInt("home_score") + " : " + match.getInt("away_score"));
     
     boolean isParsingAssists = false;
     int goalCount = 0;
@@ -2546,88 +2887,242 @@ private String formatDate(String dateStr, String lang) {
         }
     }
 
-    private void calculateAndDisplayTournamentStats(HVArrangement c, String lang, final String statType) {
+        
+
+        private void calculateAndDisplayTournamentStats(HVArrangement c, String lang, final String statType) {
         if (jsonData == null) return;
         
         backgroundExecutor.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    java.util.Map<String, PlayerStat> playerStats = new java.util.HashMap<>();
+                    // 1. Process all matches to get ALL players (like 'Calculate Standings' pre-calc)
+                    java.util.Map<String, PlayerStat> allPlayerStats = new java.util.HashMap<>();
                     JSONArray matches = jsonData.optJSONArray("matches");
                     if (matches == null) return;
                     JSONArray teams = jsonData.getJSONArray("teams");
+                    
                     for (int i = 0; i < matches.length(); i++) {
                         JSONObject match = matches.getJSONObject(i);
                         if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+                        
                         JSONObject homeTInfo = getTeamInfoById(match.getString("home_team_id"), teams);
                         JSONObject awayTInfo = getTeamInfoById(match.getString("away_team_id"), teams);
-                        processTeamEvents(playerStats, match, "home_scorers", homeTInfo, lang);
-                        processTeamEvents(playerStats, match, "away_scorers", awayTInfo, lang);
+                        
+                        processTeamEvents(allPlayerStats, match, "home_scorers", homeTInfo, lang);
+                        processTeamEvents(allPlayerStats, match, "away_scorers", awayTInfo, lang);
                     }
-                    java.util.Map<String, java.util.List<PlayerStat>> statsByGroup = new java.util.LinkedHashMap<>();
-                    for (PlayerStat stat : playerStats.values()) {
-                        JSONObject teamInfo = getTeamInfoById(stat.teamId, teams);
-                        String groupKey = (teamInfo != null && teamInfo.has("group")) ? teamInfo.getString("group") : "_no_group_";
-                        if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.util.ArrayList<>());
-                        statsByGroup.get(groupKey).add(stat);
+
+                    // 2. Identify valid groups from the TEAMS data
+                    Set<String> uniqueGroupNames = new HashSet<>();
+                    for (int i = 0; i < teams.length(); i++) {
+                        String group = teams.getJSONObject(i).optString("group", "");
+                        
+                        // Clean up the string
+                        if (group == null) group = "";
+                        group = group.trim();
+                        
+                        // FILTER LOGIC:
+                        // 1. Cannot be empty
+                        // 2. Cannot be the word "null", "none", or "others"
+                        // 3. REMOVED the check for pure numbers (\d+) to allow groups like "1", "2", "1-2-3"
+                        
+                        boolean isValid = !group.isEmpty() && 
+                                          !group.equalsIgnoreCase("null") && 
+                                          !group.equalsIgnoreCase("others") &&
+                                          !group.equalsIgnoreCase("none");
+                        
+                        if (isValid) {
+                            uniqueGroupNames.add(group);
+                        }
                     }
-                    boolean hasAnyGroups = getJavaGroupList().size() > 1;
                     
-                    final Map<String, List<PlayerStat>> finalStatsByGroup = statsByGroup;
-                    final boolean finalHasAnyGroups = hasAnyGroups;
+                    final List<String> groups = new ArrayList<>(uniqueGroupNames);
+                    Collections.sort(groups); // Sort A, B, C...
+
+                    // 3. Prepare the data map: Group Name -> List of Players
+                    // (This acts as our 'calculated data' ready to be displayed)
+                    final Map<String, List<PlayerStat>> dataByGroup = new LinkedHashMap<>();
                     
+                    // Add valid groups
+                    for (String g : groups) {
+                        dataByGroup.put(g, new ArrayList<PlayerStat>());
+                    }
+                    // Add a catch-all for invalid groups
+                    dataByGroup.put("_invalid_", new ArrayList<PlayerStat>());
+
+                    // Distribute players into these buckets
+                    for (PlayerStat stat : allPlayerStats.values()) {
+                        JSONObject tObj = getTeamInfoById(stat.teamId, teams);
+                        String pGroup = (tObj != null) ? tObj.optString("group", "") : "";
+                        
+                        boolean foundGroup = false;
+                        if (pGroup != null && !pGroup.trim().isEmpty() && dataByGroup.containsKey(pGroup)) {
+                            dataByGroup.get(pGroup).add(stat);
+                            foundGroup = true;
+                        }
+                        
+                        if (!foundGroup) {
+                            dataByGroup.get("_invalid_").add(stat);
+                        }
+                    }
+                    
+                    // Sort players inside each group and limit to 20
+                    for (List<PlayerStat> list : dataByGroup.values()) {
+                        Collections.sort(list, new Comparator<PlayerStat>() { 
+                            @Override public int compare(PlayerStat o1, PlayerStat o2) {
+                                int s1 = "goals".equals(statType) ? o1.goals : o1.assists;
+                                int s2 = "goals".equals(statType) ? o2.goals : o2.assists;
+                                return Integer.valueOf(s2).compareTo(s1);
+                            }
+                        });
+                        if (list.size() > 20) {
+                            // Keep only top 20 (create new list to avoid UnsupportedOperationException)
+                            List<PlayerStat> top20 = new ArrayList<>(list.subList(0, 20));
+                            list.clear();
+                            list.addAll(top20);
+                        }
+                    }
+
+                    // ==========================================
+                    // UI THREAD - YOUR EXACT PATTERN STARTS HERE
+                    // ==========================================
                     activity.runOnUiThread(new Runnable() {
-    @Override
-    public void run() {
-        try {
-            ViewGroup vg = (ViewGroup) c.getView();
-            vg.removeAllViews();
-            ScrollView sv = new ScrollView(context);
-            LinearLayout ml = new LinearLayout(context);
-            ml.setOrientation(LinearLayout.VERTICAL);
-            List<String> sortedGroupKeys = new ArrayList<>(finalStatsByGroup.keySet());
-            Collections.sort(sortedGroupKeys);
+                        @Override
+                        public void run() {
+                            try {
+                                ViewGroup vg = (ViewGroup) c.getView();
+                                vg.removeAllViews();
+                                ScrollView sv = new ScrollView(context);
+                                LinearLayout ml = new LinearLayout(context);
+                                ml.setOrientation(LinearLayout.VERTICAL);
+                                ml.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
 
-            for (String groupName : sortedGroupKeys) {
-                java.util.List<PlayerStat> groupStats = finalStatsByGroup.get(groupName);
-                Collections.sort(groupStats, new Comparator<PlayerStat>() { 
-                    @Override public int compare(PlayerStat o1, PlayerStat o2) {
-                        if ("goals".equals(statType)) return Integer.valueOf(o2.goals).compareTo(o1.goals);
-                        else return Integer.valueOf(o2.assists).compareTo(o1.assists);
-                    }
-                });
-                if (finalHasAnyGroups && !groupName.equals("_no_group_"))
-                    ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
-                ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, statType, lang)));
-                ml.addView(createDivider());
-                int limitCounter = 0;
-                int MAX_ITEMS_TO_SHOW = 15;
+                                // If no groups or only one group, show stats without collapse header
+                                if (groups.isEmpty() || groups.size() == 1) {
+                                    // Determine which list to show
+                                    List<PlayerStat> listToShow;
+                                    String titleText = "";
 
-                for (PlayerStat stat : groupStats) {
-                    if (limitCounter >= MAX_ITEMS_TO_SHOW) break;
-                    
-                    int count = "goals".equals(statType) ? stat.goals : stat.assists;
-                    if (count > 0) {
-                        ml.addView(createTournamentStatRowWithType(stat, count, lang, statType));
-                        ml.addView(createDivider());
-                        limitCounter++;
-                    }
-                }
-            }
-            sv.addView(ml);
-            vg.addView(sv);
-        } catch (Exception e) {
-            AfterParsingFail("Error building UI: " + e.getMessage());
-        }
-    }
-});
+                                    if (groups.size() == 1) {
+                                        // Show the single valid group
+                                        String gid = groups.get(0);
+                                        listToShow = dataByGroup.get(gid);
+                                        titleText = getLocalizedText(null, "group", lang) + " " + gid;
+                                        
+                                        // Add header
+                                        View header = createListGroupHeaderView(titleText, lang);
+                                        ml.addView(header);
+                                    } else {
+                                        // No groups found. Show the "invalid" bucket (which contains everyone)
+                                        // OR show nothing if empty.
+                                        listToShow = dataByGroup.get("_invalid_");
+                                        // No header added here, just the list directly
+                                    }
+
+                                    if (listToShow != null && !listToShow.isEmpty()) {
+                                        for (PlayerStat stat : listToShow) {
+                                            int count = "goals".equals(statType) ? stat.goals : stat.assists;
+                                            if (count > 0) {
+                                                View row = createTournamentStatRowWithType(stat, count, lang, statType);
+                                                ml.addView(row);
+                                                ml.addView(createDivider());
+                                            }
+                                        }
+                                    } else {
+                                        // Fallback for no data
+                                        TextView noData = new TextView(context);
+                                        noData.setText(getLocalizedText(null, "no_data_available", lang));
+                                        noData.setTextColor(secondaryTextColor);
+                                        noData.setGravity(Gravity.CENTER);
+                                        noData.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                                        ml.addView(noData);
+                                    }
+                                } else {
+                                    // Multiple groups - show with collapse/expand functionality
+                                    final java.util.Map<String, Boolean> expandedStates = new java.util.HashMap<>();
+                                    for (String gid : groups) {
+                                        expandedStates.put(gid, true);
+                                    }
+                                    
+                                    for (final String gid : groups) {
+                                        if (gid != null && !gid.isEmpty()) {
+                                            // Create group container
+                                            final LinearLayout groupContainer = new LinearLayout(context);
+                                            groupContainer.setOrientation(LinearLayout.VERTICAL);
+                                            groupContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                                            
+                                            // Create clickable header with arrow
+                                            final LinearLayout headerLayout = createCollapsibleGroupHeader(
+                                                getLocalizedText(null, "group", lang) + " " + gid, 
+                                                lang, 
+                                                expandedStates.get(gid)
+                                            );
+
+                                            // Create content container
+                                            final LinearLayout contentContainer = new LinearLayout(context);
+                                            contentContainer.setOrientation(LinearLayout.VERTICAL);
+                                            contentContainer.setVisibility(expandedStates.get(gid) ? View.VISIBLE : View.GONE);
+
+                                            List<PlayerStat> groupStats = dataByGroup.get(gid);
+                                            if (groupStats != null) {
+                                                for (PlayerStat stat : groupStats) {
+                                                    int count = "goals".equals(statType) ? stat.goals : stat.assists;
+                                                    if (count > 0) {
+                                                        View row = createTournamentStatRowWithType(stat, count, lang, statType);
+                                                        contentContainer.addView(row);
+                                                        contentContainer.addView(createDivider());
+                                                    }
+                                                }
+                                            }
+
+                                            // Make header clickable
+                                            headerLayout.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    boolean isExpanded = contentContainer.getVisibility() == View.VISIBLE;
+                                                    if (isExpanded) {
+                                                        contentContainer.setVisibility(View.GONE);
+                                                        updateGroupHeaderArrow(headerLayout, false);
+                                                        expandedStates.put(gid, false);
+                                                    } else {
+                                                        contentContainer.setVisibility(View.VISIBLE);
+                                                        updateGroupHeaderArrow(headerLayout, true);
+                                                        expandedStates.put(gid, true);
+                                                    }
+                                                }
+                                            });
+                                            
+                                            groupContainer.addView(headerLayout);
+                                            groupContainer.addView(contentContainer);
+                                            ml.addView(groupContainer);
+                                        }
+                                    }
+                                }
+
+                                sv.addView(ml);
+                                vg.addView(sv);
+                            } catch (Exception e) {
+                                AfterParsingFail("Error building UI: " + e.getMessage());
+                            }
+                        }
+                    });
+
                 } catch (Exception e) {
                     activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error: " + e.getMessage()); }});
                 }
             }
         });
     }
+
+    // Add this helper method if you don't have it (Required for the arrow to update)
+    private void updateGroupHeaderArrow(View header, boolean isExpanded) {
+        TextView arrowView = (TextView) header.getTag();
+        if (arrowView != null) {
+            arrowView.setText(isExpanded ? "▼" : "▶");
+            arrowView.setTag(isExpanded ? "expanded" : "collapsed");
+        }
+    }            
 
     private String[] parsePlayerEventString(String raw) {
         Pattern p = Pattern.compile("(.*?) *\\((\\d+)\\)");
@@ -2698,7 +3193,7 @@ private void processTeamAssists(java.util.Map<String, PlayerStat> stats, JSONObj
     }
 }
 
-    private void calculateAndDisplayCleanSheets(HVArrangement c, String lang) {
+            private void calculateAndDisplayCleanSheets(HVArrangement c, String lang) {
         if (jsonData == null) return;
         
         backgroundExecutor.submit(new Runnable() {
@@ -2709,9 +3204,12 @@ private void processTeamAssists(java.util.Map<String, PlayerStat> stats, JSONObj
                     JSONArray matches = jsonData.optJSONArray("matches");
                     if (matches == null) return;
                     JSONArray teams = jsonData.getJSONArray("teams");
+                    
+                    // 1. Process all matches to get ALL keepers
                     for (int i = 0; i < matches.length(); i++) {
                         JSONObject match = matches.getJSONObject(i);
                         if (!"completed".equalsIgnoreCase(match.optString("status"))) continue;
+                        
                         if (match.getInt("away_score") == 0) {
                             JSONObject teamInfo = getTeamInfoById(match.getString("home_team_id"), teams);
                             updateCleanSheetStat(keeperStats, teamInfo, getLocalizedArray(match, "home_squade", lang), lang);
@@ -2721,18 +3219,77 @@ private void processTeamAssists(java.util.Map<String, PlayerStat> stats, JSONObj
                             updateCleanSheetStat(keeperStats, teamInfo, getLocalizedArray(match, "away_squade", lang), lang);
                         }
                     }
-                    java.util.Map<String, java.util.List<PlayerStat>> statsByGroup = new java.util.LinkedHashMap<>();
-                    for (PlayerStat stat : keeperStats.values()) {
-                        JSONObject teamInfo = getTeamInfoById(stat.teamId, teams);
-                        String groupKey = (teamInfo != null && teamInfo.has("group")) ? teamInfo.getString("group") : "_no_group_";
-                        if (!statsByGroup.containsKey(groupKey)) statsByGroup.put(groupKey, new java.util.ArrayList<>());
-                        statsByGroup.get(groupKey).add(stat);
+
+                    // 2. Identify valid groups from the TEAMS data
+                    Set<String> uniqueGroupNames = new HashSet<>();
+                    for (int i = 0; i < teams.length(); i++) {
+                        String group = teams.getJSONObject(i).optString("group", "");
+                        
+                        // Clean up the string
+                        if (group == null) group = "";
+                        group = group.trim();
+                        
+                        // FILTER LOGIC:
+                        // 1. Cannot be empty
+                        // 2. Cannot be the word "null", "none", or "others"
+                        // 3. REMOVED the check for pure numbers (\d+) to allow groups like "1", "2", "1-2-3"
+                        
+                        boolean isValid = !group.isEmpty() && 
+                                          !group.equalsIgnoreCase("null") && 
+                                          !group.equalsIgnoreCase("others") &&
+                                          !group.equalsIgnoreCase("none");
+                        
+                        if (isValid) {
+                            uniqueGroupNames.add(group);
+                        }
                     }
-                    boolean hasAnyGroups = getJavaGroupList().size() > 1;
                     
-                    final Map<String, List<PlayerStat>> finalStatsByGroup = statsByGroup;
-                    final boolean finalHasAnyGroups = hasAnyGroups;
+                    final List<String> groups = new ArrayList<>(uniqueGroupNames);
+                    Collections.sort(groups); // Sort A, B, C...
+
+                    // 3. Prepare the data map: Group Name -> List of Keepers
+                    final Map<String, List<PlayerStat>> dataByGroup = new LinkedHashMap<>();
                     
+                    // Add valid groups
+                    for (String g : groups) {
+                        dataByGroup.put(g, new ArrayList<PlayerStat>());
+                    }
+                    // Add a catch-all for invalid groups
+                    dataByGroup.put("_invalid_", new ArrayList<PlayerStat>());
+
+                    // Distribute keepers into these buckets
+                    for (PlayerStat stat : keeperStats.values()) {
+                        JSONObject tObj = getTeamInfoById(stat.teamId, teams);
+                        String pGroup = (tObj != null) ? tObj.optString("group", "") : "";
+                        
+                        boolean foundGroup = false;
+                        if (pGroup != null && !pGroup.trim().isEmpty() && dataByGroup.containsKey(pGroup)) {
+                            dataByGroup.get(pGroup).add(stat);
+                            foundGroup = true;
+                        }
+                        
+                        if (!foundGroup) {
+                            dataByGroup.get("_invalid_").add(stat);
+                        }
+                    }
+
+                    // Sort keepers inside each group and limit to 20
+                    for (List<PlayerStat> list : dataByGroup.values()) {
+                        Collections.sort(list, new Comparator<PlayerStat>() {
+                            @Override public int compare(PlayerStat o1, PlayerStat o2) {
+                                return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets);
+                            }
+                        });
+                        if (list.size() > 20) {
+                            List<PlayerStat> top20 = new ArrayList<>(list.subList(0, 20));
+                            list.clear();
+                            list.addAll(top20);
+                        }
+                    }
+
+                    // ==========================================
+                    // UI THREAD - MATCHING YOUR PATTERN
+                    // ==========================================
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -2742,27 +3299,107 @@ private void processTeamAssists(java.util.Map<String, PlayerStat> stats, JSONObj
                                 ScrollView sv = new ScrollView(context);
                                 LinearLayout ml = new LinearLayout(context);
                                 ml.setOrientation(LinearLayout.VERTICAL);
-                                List<String> sortedGroupKeys = new ArrayList<>(finalStatsByGroup.keySet());
-                                Collections.sort(sortedGroupKeys);
+                                ml.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
 
-                                for (String groupName : sortedGroupKeys) {
-                                    java.util.List<PlayerStat> groupStats = finalStatsByGroup.get(groupName);
-                                    Collections.sort(groupStats, new Comparator<PlayerStat>() { 
-                                        @Override public int compare(PlayerStat o1, PlayerStat o2) { 
-                                            return Integer.valueOf(o2.cleanSheets).compareTo(o1.cleanSheets); 
+                                // If no groups or only one group, show stats without collapse header
+                                if (groups.isEmpty() || groups.size() == 1) {
+                                    // Determine which list to show
+                                    List<PlayerStat> listToShow;
+                                    String titleText = "";
+
+                                    if (groups.size() == 1) {
+                                        // Show the single valid group
+                                        String gid = groups.get(0);
+                                        listToShow = dataByGroup.get(gid);
+                                        titleText = getLocalizedText(null, "group", lang) + " " + gid;
+                                        
+                                        // Add header
+                                        View header = createListGroupHeaderView(titleText, lang);
+                                        ml.addView(header);
+                                    } else {
+                                        // No groups found. Show the "invalid" bucket (which contains everyone)
+                                        listToShow = dataByGroup.get("_invalid_");
+                                        // No header added
+                                    }
+
+                                    if (listToShow != null && !listToShow.isEmpty()) {
+                                        for (PlayerStat stat : listToShow) {
+                                            if (stat.cleanSheets > 0) {
+                                                View row = createTournamentStatRowWithType(stat, stat.cleanSheets, lang, "clean_sheets");
+                                                ml.addView(row);
+                                                ml.addView(createDivider());
+                                            }
                                         }
-                                    });
-                                    if (finalHasAnyGroups && !groupName.equals("_no_group_"))
-                                        ml.addView(createListGroupHeaderView(getLocalizedText(null, "group", lang) + " " + groupName, lang));
-                                    ml.addView(createStatsHeaderRow(lang, getLocalizedText(null, "clean_sheets", lang)));
-                                    ml.addView(createDivider());
-                                    for (PlayerStat stat : groupStats) {
-                                        if (stat.cleanSheets > 0) {
-                                            ml.addView(createTournamentStatRow(stat, stat.cleanSheets, lang));
-                                            ml.addView(createDivider());
+                                    } else {
+                                        // Fallback for no data
+                                        TextView noData = new TextView(context);
+                                        noData.setText(getLocalizedText(null, "no_data_available", lang));
+                                        noData.setTextColor(secondaryTextColor);
+                                        noData.setGravity(Gravity.CENTER);
+                                        noData.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                                        ml.addView(noData);
+                                    }
+                                } else {
+                                    // Multiple groups - show with collapse/expand functionality
+                                    final java.util.Map<String, Boolean> expandedStates = new java.util.HashMap<>();
+                                    for (String gid : groups) {
+                                        expandedStates.put(gid, true);
+                                    }
+                                    
+                                    for (final String gid : groups) {
+                                        if (gid != null && !gid.isEmpty()) {
+                                            // Create group container
+                                            final LinearLayout groupContainer = new LinearLayout(context);
+                                            groupContainer.setOrientation(LinearLayout.VERTICAL);
+                                            groupContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                                            
+                                            // Create clickable header with arrow
+                                            final LinearLayout headerLayout = createCollapsibleGroupHeader(
+                                                getLocalizedText(null, "group", lang) + " " + gid, 
+                                                lang, 
+                                                expandedStates.get(gid)
+                                            );
+
+                                            // Create content container
+                                            final LinearLayout contentContainer = new LinearLayout(context);
+                                            contentContainer.setOrientation(LinearLayout.VERTICAL);
+                                            contentContainer.setVisibility(expandedStates.get(gid) ? View.VISIBLE : View.GONE);
+
+                                            List<PlayerStat> groupStats = dataByGroup.get(gid);
+                                            if (groupStats != null) {
+                                                for (PlayerStat stat : groupStats) {
+                                                    if (stat.cleanSheets > 0) {
+                                                        View row = createTournamentStatRowWithType(stat, stat.cleanSheets, lang, "clean_sheets");
+                                                        contentContainer.addView(row);
+                                                        contentContainer.addView(createDivider());
+                                                    }
+                                                }
+                                            }
+
+                                            // Make header clickable
+                                            headerLayout.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    boolean isExpanded = contentContainer.getVisibility() == View.VISIBLE;
+                                                    if (isExpanded) {
+                                                        contentContainer.setVisibility(View.GONE);
+                                                        updateGroupHeaderArrow(headerLayout, false);
+                                                        expandedStates.put(gid, false);
+                                                    } else {
+                                                        contentContainer.setVisibility(View.VISIBLE);
+                                                        updateGroupHeaderArrow(headerLayout, true);
+                                                        expandedStates.put(gid, true);
+                                                    }
+                                                }
+                                            });
+                                            
+                                            groupContainer.addView(headerLayout);
+                                            groupContainer.addView(contentContainer);
+                                            ml.addView(groupContainer);
                                         }
                                     }
                                 }
+
                                 sv.addView(ml);
                                 vg.addView(sv);
                             } catch (Exception e) {
@@ -2770,6 +3407,7 @@ private void processTeamAssists(java.util.Map<String, PlayerStat> stats, JSONObj
                             }
                         }
                     });
+
                 } catch (Exception e) {
                     activity.runOnUiThread(new Runnable() { public void run() { AfterParsingFail("Error: " + e.getMessage()); }});
                 }
@@ -3471,9 +4109,9 @@ private void parseAssistsFromMatch(JSONObject match, JSONArray scorers, boolean 
     JSONObject opponentTeamObj = getTeamInfoById(opponentTeamId, teams);
     String opponentTeamName = getLocalizedText(opponentTeamObj, "name", lang);
     
-    String score = isHome ? 
-        match.getInt("home_score") + " : " + match.getInt("away_score") :
-        match.getInt("away_score") + " : " + match.getInt("home_score");
+    // Always store score as "Home : Away"
+    boolean isRTL = "ar".equalsIgnoreCase(lang);
+    String score = isRTL ? (match.getInt("away_score") + " : " + match.getInt("home_score")) : (match.getInt("home_score") + " : " + match.getInt("away_score"));
     
     boolean isParsingAssists = false;
     int assistCount = 0;
@@ -3516,7 +4154,8 @@ private void parseCleanSheetsFromMatch(JSONObject match, String teamId, String p
     JSONObject opponentTeamObj = getTeamInfoById(opponentTeamId, teams);
     String opponentTeamName = getLocalizedText(opponentTeamObj, "name", lang);
     
-    String score = match.getInt("home_score") + " : " + match.getInt("away_score");
+    boolean isRTL = "ar".equalsIgnoreCase(lang);
+    String score = isRTL ? (match.getInt("away_score") + " : " + match.getInt("home_score")) : (match.getInt("home_score") + " : " + match.getInt("away_score"));
     
     // Check if the goalkeeper is the player
     JSONArray squad = isHome ? getLocalizedArray(match, "home_squade", lang) : getLocalizedArray(match, "away_squade", lang);
@@ -3531,7 +4170,7 @@ private void parseCleanSheetsFromMatch(JSONObject match, String teamId, String p
     }
 }
 
-// Create match stat card view - NEW DESIGN
+// Create match stat card view - using stored score
 private View createMatchStatCard(MatchStatInfo stat, String statType, String lang, final Dialog parentDialog) {
     boolean isRTL = "ar".equalsIgnoreCase(lang);
     LinearLayout card = new LinearLayout(context);
@@ -3548,20 +4187,21 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
     dateView.setPadding(0, 0, 0, dpToPx(8));
     card.addView(dateView);
     
-    // Teams logos row
+    // Teams logos and result row
     LinearLayout logosRow = new LinearLayout(context);
     logosRow.setOrientation(LinearLayout.HORIZONTAL);
     logosRow.setGravity(Gravity.CENTER);
     logosRow.setPadding(0, dpToPx(8), 0, dpToPx(8));
     
-    // Get team IDs from stat (you'll need to pass team IDs or get from match)
-    // For now, we'll extract from the match data
     try {
         JSONObject match = findMatchById(stat.matchId);
         if (match != null) {
             JSONArray teams = jsonData.getJSONArray("teams");
-            JSONObject homeTeam = getTeamInfoById(match.getString("home_team_id"), teams);
-            JSONObject awayTeam = getTeamInfoById(match.getString("away_team_id"), teams);
+            String homeTeamId = match.getString("home_team_id");
+            String awayTeamId = match.getString("away_team_id");
+            
+            JSONObject homeTeam = getTeamInfoById(homeTeamId, teams);
+            JSONObject awayTeam = getTeamInfoById(awayTeamId, teams);
             
             // Home team logo
             ImageView homeLogo = new ImageView(context);
@@ -3575,14 +4215,25 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
                 }
             }
             
-            // VS text or score
-            TextView vsText = new TextView(context);
-            vsText.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(40), -2));
-            vsText.setText(stat.score);
-            vsText.setTextSize(14);
-            vsText.setTypeface(null, Typeface.BOLD);
-            vsText.setTextColor(this.primaryTextColor);
-            vsText.setGravity(Gravity.CENTER);
+            // Score text - FIX APPLIED HERE
+            TextView scoreText = new TextView(context);
+            scoreText.setLayoutParams(new LinearLayout.LayoutParams(dpToPx(60), -2));
+            int homeScore = match.getInt("home_score");
+            int awayScore = match.getInt("away_score");
+            
+            // ✅ FIX: Apply RTL logic to match the score display in match details
+            String scoreString;
+            if (isRTL) {
+                scoreString = String.format(Locale.US, "%d : %d", awayScore, homeScore);
+            } else {
+                scoreString = String.format(Locale.US, "%d : %d", homeScore, awayScore);
+            }
+            scoreText.setText(scoreString);
+            
+            scoreText.setTextSize(16);
+            scoreText.setTypeface(null, Typeface.BOLD);
+            scoreText.setTextColor(this.primaryTextColor);
+            scoreText.setGravity(Gravity.CENTER);
             
             // Away team logo
             ImageView awayLogo = new ImageView(context);
@@ -3595,18 +4246,28 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
                 }
             }
             
+            // Add views in correct order
             if (isRTL) {
                 logosRow.addView(awayLogo);
-                logosRow.addView(vsText);
+                logosRow.addView(scoreText);
                 logosRow.addView(homeLogo);
             } else {
                 logosRow.addView(homeLogo);
-                logosRow.addView(vsText);
+                logosRow.addView(scoreText);
                 logosRow.addView(awayLogo);
             }
+        } else {
+            // If match not found, just show the stored score
+            TextView scoreOnly = new TextView(context);
+            scoreOnly.setText(stat.score);
+            scoreOnly.setTextSize(16);
+            scoreOnly.setTypeface(null, Typeface.BOLD);
+            scoreOnly.setTextColor(this.primaryTextColor);
+            scoreOnly.setGravity(Gravity.CENTER);
+            logosRow.addView(scoreOnly);
         }
     } catch (JSONException e) {
-        // If can't get teams, just show score
+        // If error, just show the stored score
         TextView scoreOnly = new TextView(context);
         scoreOnly.setText(stat.score);
         scoreOnly.setTextSize(16);
@@ -3673,6 +4334,18 @@ private View createMatchStatCard(MatchStatInfo stat, String statType, String lan
     });
     
     return card;
+}
+
+// Helper method to create team logo ImageView
+private ImageView createTeamLogo(JSONObject team) throws JSONException {
+    ImageView logo = new ImageView(context);
+    if (team != null) {
+        String logoUrl = team.optString("logo");
+        if (!logoUrl.isEmpty()) {
+            Picasso.with(context).load(logoUrl).into(logo);
+        }
+    }
+    return logo;
 }
 
     private View buildStandingsTable(java.util.List<TeamStats> sorted, final String lang) throws JSONException {
@@ -4248,6 +4921,51 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
     
     return card;
 }
+    
+    // Create collapsible group header with arrow indicator
+    private LinearLayout createCollapsibleGroupHeader(String title, String lang, boolean isExpanded) {
+    boolean isRTL = "ar".equalsIgnoreCase(lang);
+    LinearLayout header = new LinearLayout(context);
+    header.setOrientation(LinearLayout.HORIZONTAL);
+    header.setGravity(Gravity.CENTER_VERTICAL);
+    header.setBackgroundColor(this.headerBackgroundColor);
+    header.setPadding(dpToPx(24), dpToPx(16), dpToPx(24), dpToPx(16));
+    header.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+    
+    // Group title text
+    TextView titleView = new TextView(context);
+    titleView.setText(title);
+    titleView.setTextSize(16);
+    titleView.setTypeface(null, Typeface.BOLD);
+    titleView.setTextColor(this.groupHeaderTextColor);
+    titleView.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1));
+    titleView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+    
+    // Arrow indicator (▼ for expanded, ▶ for collapsed)
+    TextView arrowView = new TextView(context);
+    arrowView.setText(isExpanded ? "▼" : "▶");
+    arrowView.setTextSize(18);
+    arrowView.setTextColor(this.accentColor);
+    arrowView.setPadding(dpToPx(8), 0, dpToPx(8), 0);
+    arrowView.setTag(isExpanded ? "expanded" : "collapsed");
+    
+    // Add views in correct RTL order
+    if (isRTL) {
+        header.addView(arrowView);
+        header.addView(titleView);
+    } else {
+        header.addView(titleView);
+        header.addView(arrowView);
+    }
+    
+    // Store arrow reference in header's tag for later updates
+    header.setTag(arrowView);
+    
+    return header;
+}
+
+
+
 
     private LinearLayout createTeamLayout(JSONObject tInfo, String lang) throws JSONException {
     LinearLayout l = new LinearLayout(context);
@@ -4356,7 +5074,9 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
             if ("vs".equals(key)) return isAR ? "ضد" : "vs";
             if ("no_goals_found".equals(key)) return isAR ? "لم يتم تسجيل أهداف" : "No goals found";
             if ("no_stats_found".equals(key)) return isAR ? "لا توجد إحصائيات" : "No statistics found";
+            if ("no_data_available".equals(key)) return isAR ? "لا توجد بيانات" : "No data available";
             return (key != null) ? key : "";
+            
         }
         if (!o.has(key) || o.isNull(key)) return "";
         try {
