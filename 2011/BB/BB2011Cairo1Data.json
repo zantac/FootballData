@@ -5751,7 +5751,11 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "حازم",
+        "يوسف",
+        "صافي ابو الحجاج"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
