@@ -575,7 +575,7 @@
       "whatsapp_number": "201207648209",
       "location": "بنها",
       "location_url": "https://www.google.com/maps/place/30%C2%B027'59.8%22N+31%C2%B010'50.6%22E/@30.4664099,31.1809652,83m/data=!3m1!1e3!4m4!3m3!8m2!3d30.4666111!4d31.1807222?hl=ar&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D",
-      "expire_date": "11-01-2026"
+      "expire_date": "11-10-2026"
     },
      {
       "name": "Fitness Zone",
@@ -601,7 +601,7 @@
     }
   ],
   "app_version": {
-    "version_code": "10",
-    "version_name": "5"
+    "version_code": "13",
+    "version_name": "7"
   }
 }
