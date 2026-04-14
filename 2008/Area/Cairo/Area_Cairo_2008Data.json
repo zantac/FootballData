@@ -3495,7 +3495,10 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "صلاح محمد",
+        "محمد هاني"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -3650,7 +3653,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-      "information": null,
+      "information": "مدير الكرة ك / عصام صلاح الشحري",
       "point_deduction": null,
       "players": {
         "coach": [
