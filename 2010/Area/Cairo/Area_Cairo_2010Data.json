@@ -4029,7 +4029,12 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "اوشا",
+        "ياسين عبد العظيم",
+        "صناعة الاهداف",
+        "كهربا"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
