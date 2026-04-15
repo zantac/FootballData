@@ -1,4 +1,4 @@
-# --- START OF FILE Paste April 15, 2026 - 6:13PM (MODIFIED) ---
+# --- START OF FILE Paste April 15, 2026 - 6:13PM (FINAL) ---
 
 import json
 import os
@@ -15,6 +15,8 @@ class ComboboxSearchable(ttk.Combobox):
     """A Combobox that filters its values based on user typing."""
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
+        if 'width' not in kwargs:
+            self['width'] = 20
         self._full_list = list(self['values'])
         self.bind('<KeyRelease>', self._filter_list)
         self.bind('<FocusOut>', self._restore_list)
@@ -23,7 +25,6 @@ class ComboboxSearchable(ttk.Combobox):
         search_term = self.get().lower()
         filtered_values = [val for val in self._full_list if search_term in val.lower()]
         self['values'] = filtered_values
-        
         if filtered_values and event and event.keysym not in ('BackSpace', 'Delete'):
             if self.get():
                 self.event_generate('<Button-1>')
@@ -58,7 +59,7 @@ class ArrayFieldEditor(ttk.Frame):
         row_frame = ttk.Frame(self.list_frame)
         row_frame.pack(fill=tk.X, pady=2)
         
-        entry = ttk.Entry(row_frame, width=35)
+        entry = ttk.Entry(row_frame, width=30)
         entry.pack(side=tk.LEFT, padx=(0,5))
         entry.insert(0, initial_value)
         entry.bind("<KeyRelease>", lambda e: self.dirty_callback())
@@ -168,44 +169,78 @@ class MatchEditorTab(ttk.Frame):
             return False
 
     def create_widgets(self):
-        left_frame = ttk.Frame(self, width=400)
-        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, padx=10, pady=10, expand=False)
-        
-        ttk.Label(left_frame, text="Matches by Date", font=("Segoe UI", 12, "bold")).pack(pady=5)
+        # Use grid for main layout to give left frame a fixed width
+        self.columnconfigure(0, weight=0)   # left frame – fixed width
+        self.columnconfigure(1, weight=1)   # right frame – expands
+        self.rowconfigure(0, weight=1)
+
+        # --- LEFT SIDE: LIST & BUTTONS (fixed width) ---
+        left_frame = ttk.Frame(self, width=300, relief="sunken")
+        left_frame.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        left_frame.grid_propagate(False)  # Prevent shrinking
+        left_frame.columnconfigure(0, weight=1)
+        left_frame.rowconfigure(0, weight=0)   # label
+        left_frame.rowconfigure(1, weight=1)   # tree
+        left_frame.rowconfigure(2, weight=0)   # buttons
+
+        ttk.Label(left_frame, text="Matches by Date", font=("Segoe UI", 12, "bold")).grid(row=0, column=0, pady=5, sticky="ew")
         
         tree_frame = ttk.Frame(left_frame)
-        tree_frame.pack(fill=tk.BOTH, expand=True)
+        tree_frame.grid(row=1, column=0, sticky="nsew", pady=(0, 10))
+        tree_frame.columnconfigure(0, weight=1)
+        tree_frame.rowconfigure(0, weight=1)
         
         self.match_tree = ttk.Treeview(tree_frame, selectmode="browse", show="tree")
         vsb = ttk.Scrollbar(tree_frame, orient="vertical", command=self.match_tree.yview)
         self.match_tree.configure(yscrollcommand=vsb.set)
-        self.match_tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        vsb.pack(side=tk.RIGHT, fill=tk.Y)
+        self.match_tree.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
         
         self.match_tree.bind("<<TreeviewSelect>>", self.on_match_select)
         
+        # --- BUTTONS (New, Duplicate, Delete, Collapse, Expand) ---
         btn_frame = ttk.Frame(left_frame)
-        btn_frame.pack(pady=10)
-        ttk.Button(btn_frame, text="New", image=self.icons.get('new'), compound=tk.LEFT, command=self.new_match).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Duplicate", image=self.icons.get('duplicate'), compound=tk.LEFT, command=self.duplicate_match).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Delete", image=self.icons.get('delete'), compound=tk.LEFT, command=self.delete_match).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Collapse", image=self.icons.get('collapse'), compound=tk.LEFT, command=self.collapse_all_dates).pack(side=tk.LEFT, padx=5)
+        btn_frame.grid(row=2, column=0, pady=5)
+        
+        # Row 0: New, Duplicate
+        ttk.Button(btn_frame, text="New", image=self.icons.get('new'), compound=tk.LEFT, command=self.new_match).grid(row=0, column=0, padx=5, pady=2)
+        ttk.Button(btn_frame, text="Duplicate", image=self.icons.get('duplicate'), compound=tk.LEFT, command=self.duplicate_match).grid(row=0, column=1, padx=5, pady=2)
+        
+        # Row 1: Delete, Collapse, Expand
+        ttk.Button(btn_frame, text="Delete", image=self.icons.get('delete'), compound=tk.LEFT, command=self.delete_match).grid(row=1, column=0, padx=5, pady=2)
+        ttk.Button(btn_frame, text="Collapse", image=self.icons.get('collapse'), compound=tk.LEFT, command=self.collapse_all_dates).grid(row=1, column=1, padx=5, pady=2)
+        ttk.Button(btn_frame, text="Expand", image=self.icons.get('expand'), compound=tk.LEFT, command=self.expand_all_dates).grid(row=1, column=2, padx=5, pady=2)
 
+        # --- RIGHT SIDE: FORM (with horizontal scrollbar) ---
         right_frame = ttk.Frame(self)
-        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=10, pady=10)
+        right_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+        right_frame.columnconfigure(0, weight=1)
+        right_frame.rowconfigure(0, weight=1)
         
+        # Create canvas with both scrollbars
         canvas = tk.Canvas(right_frame, highlightthickness=0)
-        scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
+        h_scrollbar = ttk.Scrollbar(right_frame, orient="horizontal", command=canvas.xview)
+        v_scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
+        canvas.configure(xscrollcommand=h_scrollbar.set, yscrollcommand=v_scrollbar.set)
+        
+        canvas.grid(row=0, column=0, sticky="nsew")
+        h_scrollbar.grid(row=1, column=0, sticky="ew")
+        v_scrollbar.grid(row=0, column=1, sticky="ns")
+        
+        right_frame.columnconfigure(0, weight=1)
+        right_frame.rowconfigure(0, weight=1)
+        
         scrollable_frame = ttk.Frame(canvas)
-        
-        scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
         
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
+        def _configure_scroll_region(event):
+            canvas.configure(scrollregion=canvas.bbox("all"))
+        scrollable_frame.bind("<Configure>", _configure_scroll_region)
         
-        canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+        # Mouse wheel binding for vertical scroll
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
         canvas.bind("<Button-1>", lambda e: canvas.focus_set())
         scrollable_frame.bind("<Button-1>", lambda e: canvas.focus_set())
 
@@ -222,51 +257,79 @@ class MatchEditorTab(ttk.Frame):
             ("home_score", "Home Score:", "int"), ("away_score", "Away Score:", "int"),
         ]
         
-        array_fields = [
-            "home_squad", "away_squad", "home_scorers", "away_scorers",
-            "home_yc", "away_yc", "home_rc", "away_rc", "home_sub", "away_sub"
-        ]
+        scrollable_frame.columnconfigure(1, weight=1) 
+        scrollable_frame.columnconfigure(3, weight=1) 
         
         row = 0
         for field, label, ftype in simple_fields:
-            lbl = ttk.Label(scrollable_frame, text=label, width=28, anchor="e")
-            lbl.grid(row=row, column=0, padx=5, pady=5, sticky="e")
+            lbl = ttk.Label(scrollable_frame, text=label, width=25, anchor="e")
+            lbl.grid(row=row, column=0, padx=5, pady=2, sticky="e")
             widget = None
             if ftype == "date":
                 widget = DateEntry(scrollable_frame, width=20, date_pattern='yyyy-mm-dd')
                 widget.bind("<<DateEntrySelected>>", self._mark_dirty)
             elif ftype == "team_dropdown":
-                widget = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=40)
+                widget = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=35)
                 widget.bind("<<ComboboxSelected>>", self._mark_dirty)
                 widget.bind("<KeyRelease>", self._mark_dirty)
             elif ftype == "venue_dropdown":
-                widget = ComboboxSearchable(scrollable_frame, values=self.venue_list, width=40)
+                widget = ComboboxSearchable(scrollable_frame, values=self.venue_list, width=35)
                 widget.bind("<<ComboboxSelected>>", self._mark_dirty)
                 widget.bind("<KeyRelease>", self._mark_dirty)
             elif ftype in ("status_dropdown", "stage_dropdown"):
                 values = status_options if ftype == "status_dropdown" else stage_options
-                widget = ttk.Combobox(scrollable_frame, values=values, width=38)
+                widget = ttk.Combobox(scrollable_frame, values=values, width=33)
                 widget.bind("<<ComboboxSelected>>", self._mark_dirty)
-            else: # text, int
-                widget = ttk.Entry(scrollable_frame, width=42)
+            else:
+                widget = ttk.Entry(scrollable_frame, width=37)
                 widget.bind("<KeyRelease>", self._mark_dirty)
             
-            widget.grid(row=row, column=1, padx=5, pady=5, sticky="w")
+            widget.grid(row=row, column=1, padx=5, pady=2, sticky="ew", columnspan=3)
             self.widgets[field] = widget
             row += 1
         
-        for field in array_fields:
-            label_text = field.replace("_", " ").title() + ":"
-            ttk.Label(scrollable_frame, text=label_text, width=28, anchor="ne").grid(row=row, column=0, padx=5, pady=5, sticky="ne")
-            editor = ArrayFieldEditor(scrollable_frame, field, dirty_callback=self._mark_dirty)
-            editor.grid(row=row, column=1, padx=5, pady=5, sticky="w")
-            self.widgets[field] = editor
-            row += 1
-        
-        ttk.Button(scrollable_frame, text="Save Current Match", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_match).grid(row=row, column=0, columnspan=2, pady=20)
+        ttk.Label(scrollable_frame, text="HOME", font=("Segoe UI", 10, "bold", "underline"), foreground="blue").grid(row=row, column=1, sticky="w", padx=10, pady=(15,5))
+        ttk.Label(scrollable_frame, text="AWAY", font=("Segoe UI", 10, "bold", "underline"), foreground="red").grid(row=row, column=3, sticky="w", padx=10, pady=(15,5))
+        row += 1
+
+        array_pairs = [
+            ("home_squad", "away_squad", "Squad"),
+            ("home_scorers", "away_scorers", "Scorers"),
+            ("home_yc", "away_yc", "Yellow Cards"),
+            ("home_rc", "away_rc", "Red Cards"),
+            ("home_sub", "away_sub", "Substitutes")
+        ]
+
+        scrollable_frame.columnconfigure(0, weight=0)
+        scrollable_frame.columnconfigure(1, weight=1)
+        scrollable_frame.columnconfigure(2, weight=0)
+        scrollable_frame.columnconfigure(3, weight=1)
+
+        current_grid_row = row
+
+        for home_field, away_field, suffix in array_pairs:
+            ttk.Frame(scrollable_frame, height=10).grid(row=current_grid_row, column=0, columnspan=4)
+            current_grid_row += 1
+            
+            lbl_home = ttk.Label(scrollable_frame, text=f"Home {suffix}:", anchor="e")
+            lbl_home.grid(row=current_grid_row, column=0, padx=5, pady=2, sticky="ne")
+            
+            editor_home = ArrayFieldEditor(scrollable_frame, home_field, dirty_callback=self._mark_dirty)
+            editor_home.grid(row=current_grid_row, column=1, padx=5, pady=2, sticky="nsew")
+            self.widgets[home_field] = editor_home
+            
+            lbl_away = ttk.Label(scrollable_frame, text=f"Away {suffix}:", anchor="e")
+            lbl_away.grid(row=current_grid_row, column=2, padx=5, pady=2, sticky="ne")
+            
+            editor_away = ArrayFieldEditor(scrollable_frame, away_field, dirty_callback=self._mark_dirty)
+            editor_away.grid(row=current_grid_row, column=3, padx=5, pady=2, sticky="nsew")
+            self.widgets[away_field] = editor_away
+            
+            current_grid_row += 1
+
+        ttk.Button(scrollable_frame, text="Save Current Match", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_match).grid(row=current_grid_row, column=0, columnspan=4, pady=20)
 
     def refresh_match_tree(self):
-        # ... (same as before)
         self.match_tree.delete(*self.match_tree.get_children())
         matches_by_date = {}
         for match in self.data.get("matches", []):
@@ -292,6 +355,10 @@ class MatchEditorTab(ttk.Frame):
     def collapse_all_dates(self):
         for child in self.match_tree.get_children():
             self.match_tree.item(child, open=False)
+
+    def expand_all_dates(self):
+        for child in self.match_tree.get_children():
+            self.match_tree.item(child, open=True)
 
     def get_match_by_tree_selection(self):
         selection = self.match_tree.selection()
@@ -331,7 +398,7 @@ class MatchEditorTab(ttk.Frame):
                 widget.set_value(value if value else [])
             elif isinstance(widget, ttk.Combobox):
                 widget.set(str(value) if value is not None else "")
-            else: # Entry
+            else:
                 widget.delete(0, tk.END)
                 widget.insert(0, str(value) if value not in (None, "") else "")
         self.is_dirty = False
@@ -470,6 +537,7 @@ class TeamEditorTab(ttk.Frame):
         left_frame = ttk.Frame(self, width=300)
         left_frame.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=10)
         
+        
         ttk.Label(left_frame, text="Teams", font=("Segoe UI", 12, "bold")).pack(pady=5)
         
         list_frame = ttk.Frame(left_frame)
@@ -566,7 +634,7 @@ class TeamEditorTab(ttk.Frame):
             if isinstance(widget, tk.Text):
                 widget.delete(1.0, tk.END)
                 if value: widget.insert(1.0, str(value))
-            else: # Entry
+            else:
                 widget.delete(0, tk.END)
                 if value is not None: widget.insert(0, str(value))
         
@@ -590,7 +658,7 @@ class TeamEditorTab(ttk.Frame):
         if not self._check_unsaved_changes(): return
 
         duplicated_team = copy.deepcopy(self.current_team)
-        duplicated_team['team_id'] = "" # Clear ID to force user to enter a new one
+        duplicated_team['team_id'] = ""
         duplicated_team['name'] = f"{duplicated_team.get('name', '')} (Copy)"
 
         self.current_team = duplicated_team
@@ -661,7 +729,15 @@ class MainApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Football Data Manager")
-        self.root.geometry("1300x800")
+        
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        
+        width = screen_width // 2
+        height = screen_height - 80
+        x = (screen_width - width) // 2
+        y = 40
+        self.root.geometry(f"{width}x{height}+{x}+{y}")
         
         self.setup_styles()
         self.load_icons()
@@ -703,25 +779,18 @@ class MainApp:
         self.style.map("Treeview", background=[('selected', '#0078d7')])
         self.style.configure("Treeview.Heading", font=("Segoe UI", 10, 'bold'))
 
-    # --- THIS IS THE NEW, CORRECTED CODE ---
-def load_icons(self):
-    self.icons = {}
-    icon_names = ['new', 'duplicate', 'delete', 'collapse', 'save']
-    
-    # Get the absolute path to the directory where the script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    for name in icon_names:
-        try:
-            # Create a full, absolute path to the icon file
-            icon_path = os.path.join(script_dir, 'icons', f'{name}.png')
-            
-            image = Image.open(icon_path).resize((16, 16), Image.Resampling.LANCZOS)
-            self.icons[name] = ImageTk.PhotoImage(image)
-        except Exception as e:
-            # The error message will now show the full path, which is more helpful
-            print(f"Warning: Could not load icon '{icon_path}'. {e}")
-
+    def load_icons(self):
+        self.icons = {}
+        icon_names = ['new', 'duplicate', 'delete', 'collapse', 'save', 'expand']
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        for name in icon_names:
+            try:
+                icon_path = os.path.join(script_dir, 'icons', f'{name}.png')
+                image = Image.open(icon_path).resize((16, 16), Image.Resampling.LANCZOS)
+                self.icons[name] = ImageTk.PhotoImage(image)
+            except Exception as e:
+                print(f"Warning: Could not load icon '{icon_path}'. {e}")
+         
     def load_initial_file(self):
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
         if not file_path: return False
@@ -731,14 +800,12 @@ def load_icons(self):
         return False
 
     def open_new_file(self):
-        # Check for unsaved changes in the currently active tab
         current_tab_index = self.notebook.index(self.notebook.select())
         current_tab = self.notebook.tabs()[current_tab_index]
         tab_widget = self.root.nametowidget(current_tab)
         if hasattr(tab_widget, '_check_unsaved_changes'):
             if not tab_widget._check_unsaved_changes():
-                return # User cancelled
-
+                return
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
         if file_path and self._load_file_data(file_path):
             self.rebuild_ui()
@@ -752,7 +819,6 @@ def load_icons(self):
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load file:\n{e}")
             return False
-        # Validate structure
         for key in ["matches", "teams", "venues"]:
             if key not in self.data: self.data[key] = []
         return True
@@ -760,12 +826,9 @@ def load_icons(self):
     def rebuild_ui(self):
         for tab in self.notebook.tabs():
             self.notebook.forget(tab)
-            
         self.update_data_helpers()
-        
         self.match_tab = MatchEditorTab(self.notebook, self.data, self.team_map, self.venue_list, self.save_to_file, self.icons)
         self.team_tab = TeamEditorTab(self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui, self.icons)
-        
         self.notebook.add(self.match_tab, text="Matches")
         self.notebook.add(self.team_tab, text="Teams")
 
