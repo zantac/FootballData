@@ -8501,7 +8501,10 @@
       "away_score": 1,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "زياد عادل (2)",
+        "عمرو خالد (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
