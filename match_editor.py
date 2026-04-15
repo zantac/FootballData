@@ -1,6 +1,7 @@
 # --- START OF FILE Paste April 15, 2026 - 6:13PM (MODIFIED) ---
 
 import json
+import os
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog, font
 from tkcalendar import DateEntry
@@ -702,16 +703,24 @@ class MainApp:
         self.style.map("Treeview", background=[('selected', '#0078d7')])
         self.style.configure("Treeview.Heading", font=("Segoe UI", 10, 'bold'))
 
-    def load_icons(self):
-        self.icons = {}
-        icon_names = ['new', 'duplicate', 'delete', 'collapse', 'save']
-        for name in icon_names:
-            try:
-                # User needs to create an 'icons' folder with 16x16 PNG files.
-                image = Image.open(f"icons/{name}.png").resize((16, 16), Image.Resampling.LANCZOS)
-                self.icons[name] = ImageTk.PhotoImage(image)
-            except Exception as e:
-                print(f"Warning: Could not load icon 'icons/{name}.png'. {e}")
+    # --- THIS IS THE NEW, CORRECTED CODE ---
+def load_icons(self):
+    self.icons = {}
+    icon_names = ['new', 'duplicate', 'delete', 'collapse', 'save']
+    
+    # Get the absolute path to the directory where the script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    for name in icon_names:
+        try:
+            # Create a full, absolute path to the icon file
+            icon_path = os.path.join(script_dir, 'icons', f'{name}.png')
+            
+            image = Image.open(icon_path).resize((16, 16), Image.Resampling.LANCZOS)
+            self.icons[name] = ImageTk.PhotoImage(image)
+        except Exception as e:
+            # The error message will now show the full path, which is more helpful
+            print(f"Warning: Could not load icon '{icon_path}'. {e}")
 
     def load_initial_file(self):
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
