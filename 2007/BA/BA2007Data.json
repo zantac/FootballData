@@ -3602,9 +3602,13 @@
       "note": null,
       "home_score": 3,
       "away_score": 1,
-      "home_squade": null,
-      "away_squade": null,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "شريف محمود",
+        "اسامة محمد",
+        "محمد علي سمكة"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -3627,10 +3631,14 @@
       "note": null,
       "home_score": 2,
       "away_score": 3,
-      "home_squade": null,
-      "away_squade": null,
+      "home_squad": null,
+      "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "محمد اسامة",
+        "احمد فاروق",
+        "عبد الرحمن هاني"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -4227,14 +4235,22 @@
   "teams": [
     {
       "team_id": "t001",
-      "group": "الاوائل",
       "name": "القناة",
+      "group": "الاوائل",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/12252",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / احمد العجوز",
+          "مدرب ك / محمد غريب",
+          "مدرب حراس ك / حسام الدين احمد",
+          "اداري ك / محمد علي",
+          "اخصائي علاج طبيعي د / مصطفي عبدالله"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
