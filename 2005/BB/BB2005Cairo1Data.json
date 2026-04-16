@@ -5989,21 +5989,23 @@
       "home_team_id": "gat014",
       "away_team_id": "gat002",
       "venue": "الجزيرة بالمنصورية",
-      "status": "upcoming",
+      "status": "completed",
+      "stage": "1",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "زياد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null,
-      "stage": "1"
+      "away_sub": null
     },
     {
       "match_id": "m274",
@@ -6014,21 +6016,26 @@
       "home_team_id": "gat013",
       "away_team_id": "gat003",
       "venue": "نادي فيجين",
-      "status": "upcoming",
+      "status": "completed",
+      "stage": "1",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
-      "home_score": 0,
-      "away_score": 0,
+      "home_score": 2,
+      "away_score": 2,
+      "home_squad": null,
+      "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "طارق الرشيدي",
+        "رامي شعراوي",
+        "صناعة الاهداف",
+        "فوزي الشرباصي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null,
-      "stage": "1"
+      "away_sub": null
     },
     {
       "match_id": "m276",
@@ -6039,21 +6046,24 @@
       "home_team_id": "gat011",
       "away_team_id": "gat005",
       "venue": "دجلة سبورتنج",
-      "status": "upcoming",
+      "status": "completed",
+      "stage": "1",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
-      "home_score": 0,
+      "home_score": 4,
       "away_score": 0,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "يوسف عبد الحميد (3)",
+        "يوسف خالد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
       "away_rc": null,
       "home_sub": null,
-      "away_sub": null,
-      "stage": "1"
+      "away_sub": null
     },
     {
       "match_id": "m277",
@@ -7837,7 +7847,11 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "محمد ربيع",
+        "يامن حماده",
+        "حسام الهندي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -7862,7 +7876,10 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "زياد عادل",
+        "خالد المحمودي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -8271,12 +8288,14 @@
     },
     {
       "team_id": "gbt001",
-      "group": "2B",
       "name": "بورفؤاد",
+      "group": "2B",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/618.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك / ميدو الشافعي",
@@ -8406,7 +8425,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-      "information": "رئيس القطاع ك / ابمن رجب",
+      "information": "رئيس القطاع ك / ايمن رجب\nالمشرف المالي ك / احمد رجب",
       "point_deduction": null,
       "players": {
         "coach": [
