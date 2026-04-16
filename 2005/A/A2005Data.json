@@ -7773,7 +7773,9 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "عبد الرحمن بودا (3)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -7797,7 +7799,10 @@
       "away_score": 0,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "صالح فريد (2)",
+        "حسين عبد الستار"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -7822,7 +7827,9 @@
       "away_score": 0,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "احمد شلبي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -7872,7 +7879,9 @@
       "away_score": 1,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "عبدالله فوزي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -9054,20 +9063,21 @@
     },
     {
       "team_id": "t021",
-      "group": "تحديد المراكز من 8 الي 21",
       "name": "كهرباء الاسماعيلية",
+      "group": "تحديد المراكز من 8 الي 21",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/19506",
       "field": null,
       "fieldurl": null,
       "city": "الاسماعيلية",
+      "information": "مدير الكرة ك / ايمن الجمل\nمشرف عام ك / شحتة سليمان\nمدير اداري ك / محمود كوكي",
+      "point_deduction": null,
       "players": {
         "coach": [
-          "المدير الفني ك/ حسين بلبل ",
+          "المدير الفني ك/ حسين بلبل",
           "مدرب ك / محمد ياسر",
           "مدرب حراس ك / صلاح الحسن",
           "اداري ك / سامح شعبان",
-          "اخصائي علاج طبيعي ك / جمال الكيال",
-          ""
+          "اخصائي علاج طبيعي ك / جمال الكيال"
         ],
         "goalkeepers": null,
         "defenders": null,
