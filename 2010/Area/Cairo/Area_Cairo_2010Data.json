@@ -3018,9 +3018,12 @@
       "note": null,
       "home_score": 2,
       "away_score": 2,
-      "home_squade": null,
-      "away_squade": null,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "عبد الرحمن",
+        "ياسين عمرو"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
