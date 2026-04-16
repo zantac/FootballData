@@ -7672,10 +7672,14 @@
       "stage": "2",
       "note": null,
       "home_score": 3,
-      "away_score": 1,
+      "away_score": 2,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "عاصم جمال",
+        "محمد جابر",
+        "محمود تريزيجيه"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -7725,7 +7729,12 @@
       "away_score": 2,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "مؤمن خالد (2)",
+        "محمود نحلة",
+        "محمد مبروك",
+        "محمد موكا"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
