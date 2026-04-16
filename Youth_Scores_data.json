@@ -15,7 +15,7 @@
                     [
                      {
                       "age": "2005",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@fd1fd2eed7f8af3509f7e1a1d00a973b37d29daf/2005/A/A2005Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@085f578e9d67dbd828a753915b32226ee22e38b5/2005/A/A2005Data.json",
                       "sector": null
                      },
                      {
@@ -95,7 +95,7 @@
                       "age": "2007",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@28653352f32e63f11543f35686fbf62ec999bb33/2007/BB/BB2007Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@12d50f2713dc886a86a4a665e3834910392389e2/2007/BB/BB2007Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@11c2e059677443bd9cd6b11bd6179d10af0ec115/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b0fdf5e635566215c584b3bf61c1c977fa8ed4ee/2007/BB/BB2007UpperEgyptData.json"
                         ],
@@ -173,7 +173,7 @@
                     {
                      "age": "2010",
                      "matchesurl": [
-                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@2b13cb361f7b5fd7882eb91f6be6f7c24c62e70b/2010/Area/Cairo/Area_Cairo_2010Data.json",
+                                    "https://cdn.jsdelivr.net/gh/zantac/FootballData@994a820175035fd333e2cdb2cd057cc831c511ba/2010/Area/Cairo/Area_Cairo_2010Data.json",
                                     "https://cdn.jsdelivr.net/gh/zantac/FootballData@59745ef3649128e3e9feeb7db4f599d0b707fc3b/2010/Area/Cairo/Cairo_Cup_2010Data.json"
                                      
                                    ],
