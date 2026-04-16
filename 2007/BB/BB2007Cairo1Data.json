@@ -6105,7 +6105,11 @@
       "away_score": 3,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "يوسف دسوقي (2)",
+        "فليكس",
+        "فراشة"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
