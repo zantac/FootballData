@@ -8742,7 +8742,9 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "اياد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -8816,7 +8818,11 @@
       "away_score": 0,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "عمر وليد",
+        "محمد عبد الناصر",
+        "اياد الشافعي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -11049,12 +11055,14 @@
   "teams": [
     {
       "team_id": "gat001",
-      "group": "2A",
       "name": "بنها",
+      "group": "2A",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/620.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس القطاع ك / خالد حرفوش",
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك / سعيد نجيب",
