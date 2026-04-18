@@ -7541,7 +7541,9 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "ادهم وليد"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -7565,8 +7567,14 @@
       "away_score": 2,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
-      "away_scorers": null,
+      "home_scorers": [
+        "حسن",
+        "كالوشا",
+        "محمود محفوظ"
+      ],
+      "away_scorers": [
+        "محمد محمود (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
