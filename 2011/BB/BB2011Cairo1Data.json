@@ -5855,7 +5855,10 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "ادهم احمد",
+        "حسن مرعي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
