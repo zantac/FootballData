@@ -4156,7 +4156,10 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "محمد خالد (2)",
+        "ابراهيم نبيل"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
