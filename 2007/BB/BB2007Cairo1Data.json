@@ -7348,7 +7348,11 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "اسلام شوقي (3)",
+        "عمر خالد (2)",
+        "فارس سمير"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -7897,14 +7901,21 @@
     },
     {
       "team_id": "gbt011",
-      "group": "2B",
       "name": "الشرقية بالزقازيق",
+      "group": "2B",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/702.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين ك / هشام عكاشة",
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / يوسف عمر",
+          "مدرب  ك / محمد سامي",
+          "مدرب حراس ك / محمد شطة",
+          "اداري ك / سلامة الضوي"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
