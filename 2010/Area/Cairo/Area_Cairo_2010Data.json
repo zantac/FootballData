@@ -4108,7 +4108,11 @@
       "home_squad": null,
       "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "احمد عزيز (2)",
+        "ياسين جمال",
+        "بركات"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
