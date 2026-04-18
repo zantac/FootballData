@@ -3660,9 +3660,12 @@
       "note": null,
       "home_score": 2,
       "away_score": 0,
-      "home_squade": null,
-      "away_squade": null,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "جريندو",
+        "رضا"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -4297,7 +4300,7 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-      "information": null,
+      "information": "مدير فني القطاع د / بدر شحاتة\nمدير القطاع ك / يحيي السيد\nمشرف حراس المرمي ك / حسن علي\nمشرف علي القطاع ك / محسن النكلاوي\nمشرف علي القطاع ك / محمد مصطفي قسيسة",
       "point_deduction": null,
       "players": {
         "coach": [
