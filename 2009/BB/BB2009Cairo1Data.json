@@ -219,7 +219,8 @@
       "away_score": 2,
       "home_squade": null,
       "away_squade": [
-        "يوسف نصر عبد العال (ح.م)"],
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "home_scorers": null,
       "away_scorers": [
         "زين شريف",
@@ -1057,11 +1058,14 @@
       "away_team_id": "gat015",
       "venue": "الجزيرة بالمنصورية",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 1,
       "away_score": 0,
+      "home_squade": null,
+      "away_squade": [
+        "يوسف ناصر عبد العال"
+      ],
       "home_scorers": [
         "كوري"
       ],
