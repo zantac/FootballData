@@ -213,11 +213,14 @@
       "away_team_id": "gat015",
       "venue": "نيو جيزة الرئيسي",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 0,
       "away_score": 2,
+      "home_squad": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
+      "away_squad": null,
       "home_scorers": null,
       "away_scorers": [
         "زين شريف",
