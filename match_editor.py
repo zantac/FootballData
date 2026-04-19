@@ -293,7 +293,7 @@ class MatchEditorTab(ttk.Frame):
         row += 1
 
         array_pairs = [
-            ("home_squad", "away_squad", "Squad"),
+            ("home_squade", "away_squade", "Squad"),
             ("home_scorers", "away_scorers", "Scorers"),
             ("home_yc", "away_yc", "Yellow Cards"),
             ("home_rc", "away_rc", "Red Cards"),
@@ -416,7 +416,7 @@ class MatchEditorTab(ttk.Frame):
         new_match = {
             "match_id": new_id, "group": "", "week": "", "date": "", "time": "",
             "home_team_id": "", "away_team_id": "", "venue": "", "status": "upcoming",
-            "note": None, "home_squad": None, "away_squad": None,
+            "note": None, "home_squade": None, "away_squade": None,
             "home_score": None, "away_score": None, "home_scorers": None,
             "away_scorers": None, "home_yc": None, "away_yc": None,
             "home_rc": None, "away_rc": None, "home_sub": None, "away_sub": None, "stage": ""
