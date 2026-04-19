@@ -218,7 +218,8 @@
       "home_score": 0,
       "away_score": 2,
       "home_squad": null,
-      "away_squad": ["يوسف نصر عبد العال (ح.م)"],
+      "away_squad": [
+        "يوسف نصر عبد العال (ح.م)"],
       "home_scorers": null,
       "away_scorers": [
         "زين شريف",
