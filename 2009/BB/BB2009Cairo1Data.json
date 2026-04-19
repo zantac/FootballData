@@ -523,7 +523,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
@@ -1063,9 +1065,7 @@
       "home_score": 1,
       "away_score": 0,
       "home_squade": null,
-      "away_squade": [
-        "يوسف ناصر عبد العال"
-      ],
+      "away_squade": null,
       "home_scorers": [
         "كوري"
       ],
@@ -1886,7 +1886,9 @@
       "home_score": 0,
       "away_score": 0,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -2046,7 +2048,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 3,
       "away_score": 0,
@@ -2521,7 +2525,9 @@
       "status": "completed",
       "note": null,
       "home_squade": null,
-      "away_squade": null,
+      "away_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
@@ -4348,7 +4354,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
@@ -5095,7 +5103,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
@@ -5608,7 +5618,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 0,
       "away_score": 0,
@@ -6545,7 +6557,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 0,
       "away_score": 0,
@@ -7003,7 +7017,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 4,
       "away_score": 0,
@@ -7951,7 +7967,9 @@
       "venue": "فرعي نادي الشمس",
       "status": "completed",
       "note": null,
-      "home_squade": null,
+      "home_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "away_squade": null,
       "home_score": 1,
       "away_score": 0,
@@ -8161,7 +8179,9 @@
       "status": "completed",
       "note": null,
       "home_squade": null,
-      "away_squade": null,
+      "away_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "home_score": 0,
       "away_score": 1,
       "home_scorers": null,
@@ -8405,7 +8425,9 @@
       "status": "completed",
       "note": null,
       "home_squade": null,
-      "away_squade": null,
+      "away_squade": [
+        "يوسف نصر عبد العال (ح.م)"
+      ],
       "home_score": 0,
       "away_score": 0,
       "home_scorers": null,
