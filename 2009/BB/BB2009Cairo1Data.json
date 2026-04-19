@@ -5526,7 +5526,7 @@
       "away_scorers": [
         "محمد جابر حمودي",
         "صناعة الاهداف",
-        "زياد زيزو"
+        "زياد موسي"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -7783,13 +7783,16 @@
       "away_team_id": "gat007",
       "venue": "الاعلاميين",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 2,
       "away_score": 2,
+      "home_squad": null,
+      "away_squad": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "زياد موسي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -8203,12 +8206,15 @@
       "away_team_id": "gat008",
       "venue": "جامعة حلوان",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 1,
       "away_score": 2,
-      "home_scorers": null,
+      "home_squad": null,
+      "away_squad": null,
+      "home_scorers": [
+        "زياد موسي"
+      ],
       "away_scorers": [
         "يوسف ابو الدهب",
         "علي حليم"
@@ -8666,7 +8672,9 @@
       "away_score": 1,
       "home_squad": null,
       "away_squad": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "زياد موسي"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
