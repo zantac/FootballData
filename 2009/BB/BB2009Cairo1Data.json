@@ -6698,13 +6698,16 @@
       "away_team_id": "gat001",
       "venue": "القناطر الخيرية",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 1,
       "away_score": 2,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": [
-        "ادم الازهري"
+        "ادم الازهري",
+        "صناعة الاهداف",
+        "زياد موسي"
       ],
       "away_scorers": [
         "عمر خليل",
@@ -6964,13 +6967,18 @@
       "away_team_id": "gat007",
       "venue": "نادي الحضارات",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 2,
       "away_score": 1,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "ادم الازهري",
+        "صناعة الاهداف",
+        "زياد موسي"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -7809,10 +7817,13 @@
       "note": null,
       "home_score": 2,
       "away_score": 2,
-      "home_squad": null,
-      "away_squad": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
       "away_scorers": [
+        "زياد موسي",
+        "اياد عصام",
+        "صناعة الاهداف",
         "زياد موسي"
       ],
       "home_yc": null,
