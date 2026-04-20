@@ -2912,7 +2912,7 @@
     },
     {
       "match_id": "m105",
-      "group": null,
+      "group": "",
       "week": "18",
       "date": "2026-01-31",
       "time": "14:30",
@@ -2920,20 +2920,16 @@
       "away_team_id": "t004",
       "venue": "نادي راية بالبحيرة",
       "status": "completed",
+      "stage": "",
       "note": null,
+      "home_score": 3,
+      "away_score": 1,
       "home_squade": null,
       "away_squade": null,
-      "home_score": 4,
-      "away_score": 1,
       "home_scorers": [
-        "معاذ سعيد(2)",
-        "محمود عطا",
-        "هادي محمد",
-        "صناعة الاهداف",
-        "يوسف الصافي",
-        "اسلام سمير",
-        "احمد منجي",
-        "عبدالله شيكولاتة"
+        "معاذ سعيد",
+        "محمود حسب الله",
+        "هادي محمد"
       ],
       "away_scorers": null,
       "home_yc": null,
@@ -3403,7 +3399,7 @@
     },
     {
       "match_id": "m123",
-      "group": null,
+      "group": "",
       "week": "21",
       "date": "2026-03-28",
       "time": "14:30",
@@ -3411,17 +3407,21 @@
       "away_team_id": "t003",
       "venue": "المحروسة بالعباسية",
       "status": "completed",
+      "stage": "",
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
       "home_score": 1,
       "away_score": 2,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": [
         "زياد ايهاب"
       ],
       "away_scorers": [
         "يوسف جمعة",
-        "مصطفي طيب"
+        "مصطفي طيب",
+        "صناعة الاهداف",
+        "اوفا",
+        "عبدالله شيكولاته"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -4074,10 +4074,13 @@
       "note": null,
       "home_score": 1,
       "away_score": 2,
-      "home_squad": null,
-      "away_squad": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "مصطفي الطيب",
+        "محمود عطا"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
