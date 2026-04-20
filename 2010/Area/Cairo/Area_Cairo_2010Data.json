@@ -2002,9 +2002,11 @@
       "note": null,
       "home_score": 1,
       "away_score": 1,
-      "home_squad": null,
-      "away_squad": null,
-      "home_scorers": null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_scorers": [
+        "زياد كريم"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -2077,9 +2079,14 @@
       "note": null,
       "home_score": 5,
       "away_score": 1,
-      "home_squad": null,
-      "away_squad": null,
-      "home_scorers": null,
+      "home_squade": null,
+      "away_squade": null,
+      "home_scorers": [
+        "ياسين ابو زيد (2)",
+        "انس ناصر",
+        "مازن خالد",
+        "ابراهيم ممدوح"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -4434,16 +4441,18 @@
     },
     {
       "team_id": "gat003",
-      "group": "1",
       "name": "الشمس",
+      "group": "1",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/621.png",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": [
           "المدير الفني ك / ايهاب الصباحي",
-          "مدرب ك / زيزو",
+          "مدرب ك / حمدي فراج",
           "مدرب الحراس ك / ديدا",
           "اداري ك / حمدي فراج",
           "طبيب الفريق د / اسلام خالد الدين"
