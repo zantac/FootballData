@@ -3585,10 +3585,13 @@
       "note": null,
       "home_score": 2,
       "away_score": 2,
-      "home_squad": null,
-      "away_squad": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "كريم محمد",
+        "محمد رضا"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -5414,15 +5417,19 @@
     },
     {
       "team_id": "gat003",
-      "group": "3A",
       "name": "ميجاسبورت\n (بلقاس سيتي)",
+      "group": "3A",
       "logo": "https://ia801304.us.archive.org/1/items/20250930_20250930_1705/%D8%A8%D9%84%D9%82%D8%A7%D8%B3%20%D8%B3%D9%8A%D8%AA%D9%8A.png",
       "field": null,
       "fieldurl": null,
       "city": null,
       "information": "مدير قطاع الناشئين ك / ايمن الحكيم\nالمدير الاداري للقطاع ك / فادي متولي",
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / احمد عادل",
+          "اداري ك / هيثم عبد الغني"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
