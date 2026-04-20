@@ -7892,7 +7892,9 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "اياد عبده (2)"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -8713,7 +8715,8 @@
         "coach": [
           "المدير الفني ك / عبد الكريم",
           "مدرب ك / فتح الله محمد",
-          "مدرب ك / محمد السيد"
+          "مدرب ك / محمد السيد",
+          "اداري ك / محمد سمير"
         ],
         "goalkeepers": null,
         "defenders": null,
