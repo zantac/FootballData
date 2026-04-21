@@ -249,12 +249,12 @@ class MatchEditorTab(ttk.Frame):
         status_options = ["upcoming", "completed", "delayed"]
         stage_options = ["", "1", "2", "knockout"]
 
+        # --- Simple fields (excluding home/away team and scores) ---
         simple_fields = [
             ("match_id", "Match ID:", "text"), ("group", "Group:", "text"), ("week", "Week:", "text"),
-            ("date", "Date:", "date"), ("time", "Time (HH:MM):", "text"), ("home_team_id", "Home Team:", "team_dropdown"),
-            ("away_team_id", "Away Team:", "team_dropdown"), ("venue", "Venue:", "venue_dropdown"),
+            ("date", "Date:", "date"), ("time", "Time (HH:MM):", "text"),
+            ("venue", "Venue:", "venue_dropdown"),
             ("status", "Status:", "status_dropdown"), ("stage", "Stage:", "stage_dropdown"), ("note", "Note:", "text"),
-            ("home_score", "Home Score:", "int"), ("away_score", "Away Score:", "int"),
         ]
         
         scrollable_frame.columnconfigure(1, weight=1) 
@@ -268,10 +268,6 @@ class MatchEditorTab(ttk.Frame):
             if ftype == "date":
                 widget = DateEntry(scrollable_frame, width=20, date_pattern='yyyy-mm-dd')
                 widget.bind("<<DateEntrySelected>>", self._mark_dirty)
-            elif ftype == "team_dropdown":
-                widget = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=35)
-                widget.bind("<<ComboboxSelected>>", self._mark_dirty)
-                widget.bind("<KeyRelease>", self._mark_dirty)
             elif ftype == "venue_dropdown":
                 widget = ComboboxSearchable(scrollable_frame, values=self.venue_list, width=35)
                 widget.bind("<<ComboboxSelected>>", self._mark_dirty)
@@ -288,10 +284,42 @@ class MatchEditorTab(ttk.Frame):
             self.widgets[field] = widget
             row += 1
         
+        # --- HOME vs AWAY header ---
         ttk.Label(scrollable_frame, text="HOME", font=("Segoe UI", 10, "bold", "underline"), foreground="blue").grid(row=row, column=1, sticky="w", padx=10, pady=(15,5))
         ttk.Label(scrollable_frame, text="AWAY", font=("Segoe UI", 10, "bold", "underline"), foreground="red").grid(row=row, column=3, sticky="w", padx=10, pady=(15,5))
         row += 1
 
+        # --- Team row (Home Team vs Away Team) ---
+        ttk.Label(scrollable_frame, text="Team:", anchor="e").grid(row=row, column=0, padx=5, pady=2, sticky="e")
+        home_team_cb = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=35)
+        home_team_cb.bind("<<ComboboxSelected>>", self._mark_dirty)
+        home_team_cb.bind("<KeyRelease>", self._mark_dirty)
+        home_team_cb.grid(row=row, column=1, padx=5, pady=2, sticky="ew")
+        self.widgets["home_team_id"] = home_team_cb
+
+        ttk.Label(scrollable_frame, text="Team:", anchor="e").grid(row=row, column=2, padx=5, pady=2, sticky="e")
+        away_team_cb = ComboboxSearchable(scrollable_frame, values=list(self.team_map.keys()), width=35)
+        away_team_cb.bind("<<ComboboxSelected>>", self._mark_dirty)
+        away_team_cb.bind("<KeyRelease>", self._mark_dirty)
+        away_team_cb.grid(row=row, column=3, padx=5, pady=2, sticky="ew")
+        self.widgets["away_team_id"] = away_team_cb
+        row += 1
+
+        # --- Score row (Home Score vs Away Score) ---
+        ttk.Label(scrollable_frame, text="Score:", anchor="e").grid(row=row, column=0, padx=5, pady=2, sticky="e")
+        home_score_entry = ttk.Entry(scrollable_frame, width=37)
+        home_score_entry.bind("<KeyRelease>", self._mark_dirty)
+        home_score_entry.grid(row=row, column=1, padx=5, pady=2, sticky="ew")
+        self.widgets["home_score"] = home_score_entry
+
+        ttk.Label(scrollable_frame, text="Score:", anchor="e").grid(row=row, column=2, padx=5, pady=2, sticky="e")
+        away_score_entry = ttk.Entry(scrollable_frame, width=37)
+        away_score_entry.bind("<KeyRelease>", self._mark_dirty)
+        away_score_entry.grid(row=row, column=3, padx=5, pady=2, sticky="ew")
+        self.widgets["away_score"] = away_score_entry
+        row += 1
+
+        # --- Array fields (Squad, Scorers, Yellow/Red cards, Substitutes) ---
         array_pairs = [
             ("home_squade", "away_squade", "Squad"),
             ("home_scorers", "away_scorers", "Scorers"),
@@ -305,29 +333,27 @@ class MatchEditorTab(ttk.Frame):
         scrollable_frame.columnconfigure(2, weight=0)
         scrollable_frame.columnconfigure(3, weight=1)
 
-        current_grid_row = row
-
         for home_field, away_field, suffix in array_pairs:
-            ttk.Frame(scrollable_frame, height=10).grid(row=current_grid_row, column=0, columnspan=4)
-            current_grid_row += 1
+            ttk.Frame(scrollable_frame, height=10).grid(row=row, column=0, columnspan=4)
+            row += 1
             
             lbl_home = ttk.Label(scrollable_frame, text=f"Home {suffix}:", anchor="e")
-            lbl_home.grid(row=current_grid_row, column=0, padx=5, pady=2, sticky="ne")
+            lbl_home.grid(row=row, column=0, padx=5, pady=2, sticky="ne")
             
             editor_home = ArrayFieldEditor(scrollable_frame, home_field, dirty_callback=self._mark_dirty)
-            editor_home.grid(row=current_grid_row, column=1, padx=5, pady=2, sticky="nsew")
+            editor_home.grid(row=row, column=1, padx=5, pady=2, sticky="nsew")
             self.widgets[home_field] = editor_home
             
             lbl_away = ttk.Label(scrollable_frame, text=f"Away {suffix}:", anchor="e")
-            lbl_away.grid(row=current_grid_row, column=2, padx=5, pady=2, sticky="ne")
+            lbl_away.grid(row=row, column=2, padx=5, pady=2, sticky="ne")
             
             editor_away = ArrayFieldEditor(scrollable_frame, away_field, dirty_callback=self._mark_dirty)
-            editor_away.grid(row=current_grid_row, column=3, padx=5, pady=2, sticky="nsew")
+            editor_away.grid(row=row, column=3, padx=5, pady=2, sticky="nsew")
             self.widgets[away_field] = editor_away
             
-            current_grid_row += 1
+            row += 1
 
-        ttk.Button(scrollable_frame, text="Save Current Match", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_match).grid(row=current_grid_row, column=0, columnspan=4, pady=20)
+        ttk.Button(scrollable_frame, text="Save Current Match", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_match).grid(row=row, column=0, columnspan=4, pady=20)
 
     def refresh_match_tree(self):
         self.match_tree.delete(*self.match_tree.get_children())
@@ -452,8 +478,10 @@ class MatchEditorTab(ttk.Frame):
         
         updated = {}
         for field, widget in self.widgets.items():
-            if field == "date": value = widget.get_date().strftime("%Y-%m-%d")
-            elif field in ("home_team_id", "away_team_id"): value = self.team_map.get(widget.get(), "")
+            if field == "date": 
+                value = widget.get_date().strftime("%Y-%m-%d")
+            elif field in ("home_team_id", "away_team_id"): 
+                value = self.team_map.get(widget.get(), "")
             elif field == "venue":
                 value = widget.get().strip()
                 if value and value not in self.venue_list:
@@ -463,10 +491,12 @@ class MatchEditorTab(ttk.Frame):
             elif field in ("home_score", "away_score"):
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
-            elif isinstance(widget, ArrayFieldEditor): value = widget.get_value()
+            elif isinstance(widget, ArrayFieldEditor): 
+                value = widget.get_value()
             else:
                 value = widget.get().strip()
-                if field == "note" and not value: value = None
+                if field == "note" and not value: 
+                    value = None
             updated[field] = value
         
         original_id = self.current_match.get("match_id")
@@ -500,6 +530,8 @@ class MatchEditorTab(ttk.Frame):
             self.save_callback()
             self.is_dirty = False
             messagebox.showinfo("Deleted", f"Match {match_id} removed.")
+
+    
 
 # ---------------------- Team Editor Tab ----------------------
 
