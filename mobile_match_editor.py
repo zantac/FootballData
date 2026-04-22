@@ -183,16 +183,29 @@ class MatchEditorTab(ttk.Frame):
         top_frame.grid(row=0, column=0, sticky="ew", padx=5, pady=3)
         top_frame.columnconfigure(0, weight=1)
 
+                # Buttons row - two rows to fit on mobile
         btn_frame = ttk.Frame(top_frame)
         btn_frame.grid(row=0, column=0, sticky="ew", pady=2)
+        btn_frame.columnconfigure(0, weight=1)
+        
+        # First row: New, Dup, Del
+        row1 = ttk.Frame(btn_frame)
+        row1.pack(fill=tk.X, pady=1)
         for text, cmd, icon in [("New", self.new_match, 'new'),
                                 ("Dup", self.duplicate_match, 'duplicate'),
-                                ("Del", self.delete_match, 'delete'),
-                                ("Collapse", self.collapse_all_dates, 'collapse'),
-                                ("Expand", self.expand_all_dates, 'expand')]:
-            btn = ttk.Button(btn_frame, text=text, image=self.icons.get(icon),
+                                ("Del", self.delete_match, 'delete')]:
+            btn = ttk.Button(row1, text=text, image=self.icons.get(icon),
                              compound=tk.LEFT, command=cmd)
-            btn.pack(side=tk.LEFT, padx=2)
+            btn.pack(side=tk.LEFT, padx=2, expand=True, fill=tk.X)
+        
+        # Second row: Collapse, Expand
+        row2 = ttk.Frame(btn_frame)
+        row2.pack(fill=tk.X, pady=1)
+        for text, cmd, icon in [("Collapse", self.collapse_all_dates, 'collapse'),
+                                ("Expand", self.expand_all_dates, 'expand')]:
+            btn = ttk.Button(row2, text=text, image=self.icons.get(icon),
+                             compound=tk.LEFT, command=cmd)
+            btn.pack(side=tk.LEFT, padx=2, expand=True, fill=tk.X)
 
         tree_container = ttk.Frame(top_frame)
         tree_container.grid(row=1, column=0, sticky="nsew", pady=2)
