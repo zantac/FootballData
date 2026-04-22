@@ -19,10 +19,14 @@ except ImportError:
     print("Warning: arabic-reshaper not installed.")
 
 def reshape_arabic(text):
-    if not HAS_RESHAPER or not text or not isinstance(text, str):
+    if not text or not isinstance(text, str):
         return text
+    # Check if text contains Arabic characters
     if any('\u0600' <= c <= '\u06FF' for c in text):
-        return arabic_reshaper.reshape(text)
+        # Reshape the text to connect letters
+        reshaped_text = arabic_reshaper.reshape(text)
+        # Reverse the entire string as a simple fix for RTL
+        return reshaped_text[::-1]
     return text
 
 # ---------------------- Custom Widgets (unchanged) ----------------------
