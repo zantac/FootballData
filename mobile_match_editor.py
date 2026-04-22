@@ -580,59 +580,79 @@ class TeamEditorTab(ttk.Frame):
             return False
 
     def create_widgets(self):
-        # Use PanedWindow for left/right but on portrait we still need left list narrow
-        paned = ttk.PanedWindow(self, orient=tk.HORIZONTAL)
-        paned.pack(fill=tk.BOTH, expand=True)
+        # Main vertical layout
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=0)   # team list frame (fixed height)
+        self.rowconfigure(1, weight=1)   # form frame (expands)
 
-        left_frame = ttk.Frame(paned, width=150)
-        paned.add(left_frame, weight=0)
-        right_frame = ttk.Frame(paned)
-        paned.add(right_frame, weight=1)
+        # --- TOP: team list with buttons ---
+        top_frame = ttk.Frame(self)
+        top_frame.grid(row=0, column=0, sticky="ew", padx=5, pady=3)
+        top_frame.columnconfigure(0, weight=1)
 
-        ttk.Label(left_frame, text="Teams", font=("Segoe UI", 9, "bold")).pack(pady=2)
-        self.team_listbox = tk.Listbox(left_frame, width=20, font=("DejaVu Sans", 8), relief="flat")
-        vsb = ttk.Scrollbar(left_frame, orient="vertical", command=self.team_listbox.yview)
-        self.team_listbox.configure(yscrollcommand=vsb.set)
-        self.team_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        vsb.pack(side=tk.RIGHT, fill=tk.Y)
-        self.team_listbox.bind("<<ListboxSelect>>", self.on_team_select)
-
-        btn_frame = ttk.Frame(left_frame)
-        btn_frame.pack(pady=3)
+        # Buttons row
+        btn_frame = ttk.Frame(top_frame)
+        btn_frame.grid(row=0, column=0, sticky="ew", pady=2)
         ttk.Button(btn_frame, text="New", image=self.icons.get('new'), compound=tk.LEFT, command=self.new_team).pack(side=tk.LEFT, padx=2)
         ttk.Button(btn_frame, text="Dup", image=self.icons.get('duplicate'), compound=tk.LEFT, command=self.duplicate_team).pack(side=tk.LEFT, padx=2)
         ttk.Button(btn_frame, text="Del", image=self.icons.get('delete'), compound=tk.LEFT, command=self.delete_team).pack(side=tk.LEFT, padx=2)
 
-        # Right side scrollable form
-        canvas = tk.Canvas(right_frame, highlightthickness=0)
-        vscroll = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
-        canvas.configure(yscrollcommand=vscroll.set)
-        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        vscroll.pack(side=tk.RIGHT, fill=tk.Y)
+        # Team listbox (with scrollbar, fixed height)
+        list_container = ttk.Frame(top_frame)
+        list_container.grid(row=1, column=0, sticky="ew", pady=2)
+        list_container.columnconfigure(0, weight=1)
+        list_container.rowconfigure(0, weight=1)
+
+        self.team_listbox = tk.Listbox(list_container, height=8, font=("DejaVu Sans", 8), relief="flat")
+        vsb = ttk.Scrollbar(list_container, orient="vertical", command=self.team_listbox.yview)
+        self.team_listbox.configure(yscrollcommand=vsb.set)
+        self.team_listbox.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
+        self.team_listbox.bind("<<ListboxSelect>>", self.on_team_select)
+
+        # --- BOTTOM: scrollable form (with left margin) ---
+        bottom_frame = ttk.Frame(self)
+        bottom_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=3)
+        bottom_frame.columnconfigure(0, weight=1)
+        bottom_frame.rowconfigure(0, weight=1)
+
+        canvas = tk.Canvas(bottom_frame, highlightthickness=0)
+        v_scrollbar = ttk.Scrollbar(bottom_frame, orient="vertical", command=canvas.yview)
+        canvas.configure(yscrollcommand=v_scrollbar.set)
+        canvas.grid(row=0, column=0, sticky="nsew")
+        v_scrollbar.grid(row=0, column=1, sticky="ns")
 
         scrollable = ttk.Frame(canvas)
         canvas.create_window((0,0), window=scrollable, anchor="nw")
-        def on_configure(e):
+
+        def on_configure(event):
             canvas.configure(scrollregion=canvas.bbox("all"))
         scrollable.bind("<Configure>", on_configure)
 
+        def on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", on_mousewheel)
+
+        # --- Build the form (small fonts, single column) ---
         self.widgets = {}
+        row = 0
+
         fields = [
             ("team_id", "ID:"), ("name", "Name:"), ("group", "Grp:"),
             ("logo", "Logo:"), ("field", "Field:"), ("fieldurl", "Field URL:"),
             ("city", "City:"), ("information", "Info:"), ("point_deduction", "Pts Ded:")
         ]
-        row = 0
+
         for field, label in fields:
             frm = ttk.Frame(scrollable)
-            frm.grid(row=row, column=0, sticky="ew", pady=1)
+            frm.grid(row=row, column=0, sticky="ew", pady=2)
             frm.columnconfigure(1, weight=1)
-            ttk.Label(frm, text=label, width=8, anchor="e").grid(row=0, column=0, padx=2)
+            ttk.Label(frm, text=label, width=8, anchor="e", font=("DejaVu Sans", 7)).grid(row=0, column=0, padx=2)
             if field == "information":
-                w = tk.Text(frm, width=30, height=3, font=("DejaVu Sans", 8))
+                w = tk.Text(frm, width=30, height=3, font=("DejaVu Sans", 7))
                 w.bind("<KeyRelease>", self._mark_dirty)
             else:
-                w = ttk.Entry(frm, width=25)
+                w = ttk.Entry(frm, width=25, font=("DejaVu Sans", 7))
                 w.bind("<KeyRelease>", self._mark_dirty)
             w.grid(row=0, column=1, sticky="ew", padx=2)
             self.widgets[field] = w
@@ -643,7 +663,8 @@ class TeamEditorTab(ttk.Frame):
         self.players_editor = DictFieldEditor(scrollable, "players", dirty_callback=self._mark_dirty)
         self.players_editor.grid(row=row, column=0, sticky="ew", pady=2)
         row += 1
-        ttk.Button(scrollable, text="Save Team", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_team).grid(row=row, column=0, pady=5)
+
+        ttk.Button(scrollable, text="Save Team", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_team).grid(row=row, column=0, pady=8)
 
     def refresh_team_list(self):
         current_id = self.current_team.get("team_id") if self.current_team else None
@@ -655,18 +676,22 @@ class TeamEditorTab(ttk.Frame):
             self.team_listbox.insert(tk.END, display)
             if team.get("team_id") == current_id:
                 self.team_listbox.selection_set(i)
+                self.team_listbox.see(i)
+
     def on_team_select(self, event):
         if not self._check_unsaved_changes(): return
         sel = self.team_listbox.curselection()
         if not sel: return
         self.current_team = self.sorted_teams[sel[0]]
         self.populate_form(self.current_team)
+
     def populate_form(self, team):
         for field, widget in self.widgets.items():
             value = team.get(field)
             if isinstance(widget, tk.Text):
                 widget.delete(1.0, tk.END)
-                if value: widget.insert(1.0, str(value))
+                if value:
+                    widget.insert(1.0, str(value))
             else:
                 widget.delete(0, tk.END)
                 if value is not None:
@@ -675,11 +700,17 @@ class TeamEditorTab(ttk.Frame):
                     widget.insert(0, str(value))
         self.players_editor.set_value(team.get("players"))
         self.is_dirty = False
+
     def new_team(self):
         if not self._check_unsaved_changes(): return
-        self.current_team = {"team_id":"","name":"","group":"","logo":None,"field":None,"fieldurl":None,"city":None,"information":None,"players":{},"point_deduction":None}
+        self.current_team = {
+            "team_id": "", "name": "", "group": "", "logo": None,
+            "field": None, "fieldurl": None, "city": None,
+            "information": None, "players": {}, "point_deduction": None
+        }
         self.populate_form(self.current_team)
         self.is_dirty = True
+
     def duplicate_team(self):
         if not self.current_team:
             messagebox.showwarning("Warning", "Select a team to duplicate.")
@@ -687,11 +718,12 @@ class TeamEditorTab(ttk.Frame):
         if not self._check_unsaved_changes(): return
         dup = copy.deepcopy(self.current_team)
         dup['team_id'] = ""
-        dup['name'] = f"{dup.get('name','')} (Copy)"
+        dup['name'] = f"{dup.get('name', '')} (Copy)"
         self.current_team = dup
         self.populate_form(dup)
         self.is_dirty = True
         messagebox.showinfo("Duplicated", "Team duplicated. Set new ID.")
+
     def save_current_team(self):
         if not self.current_team:
             messagebox.showwarning("Warning", "No team loaded.")
@@ -705,7 +737,7 @@ class TeamEditorTab(ttk.Frame):
                 value = int(txt) if txt.isdigit() else None
             else:
                 value = widget.get().strip()
-            if not value and field not in ["team_id","name","point_deduction"]:
+            if not value and field not in ["team_id", "name", "point_deduction"]:
                 value = None
             updated[field] = value
         updated["players"] = self.players_editor.get_value()
@@ -730,8 +762,10 @@ class TeamEditorTab(ttk.Frame):
         self.refresh_team_list()
         self.is_dirty = False
         messagebox.showinfo("Success", "Team saved.")
+
     def delete_team(self):
-        if not self.current_team: return
+        if not self.current_team:
+            return
         tid = self.current_team.get("team_id")
         if messagebox.askyesno("Confirm", f"Delete {tid}?"):
             self.data["teams"] = [t for t in self.data["teams"] if t.get("team_id") != tid]
