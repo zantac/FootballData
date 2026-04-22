@@ -292,7 +292,7 @@ class MatchEditorTab(ttk.Frame):
                        ("home_yc", "YC"), ("home_rc", "RC"), ("home_sub", "Sub")]
         for field, label in home_arrays:
             frm = ttk.Frame(scrollable)
-            frm.grid(row=row, column=0, sticky="ew", pady=2)
+            frm.grid(row=row, column=0, sticky="ew", pady=2, padx=10)
             ttk.Label(frm, text=label+":", font=("DejaVu Sans", 6), anchor="w").pack(anchor="w")
             editor = ArrayFieldEditor(frm, field, dirty_callback=self._mark_dirty)
             editor.pack(fill=tk.X)
@@ -331,7 +331,7 @@ class MatchEditorTab(ttk.Frame):
                        ("away_yc", "YC"), ("away_rc", "RC"), ("away_sub", "Sub")]
         for field, label in away_arrays:
             frm = ttk.Frame(scrollable)
-            frm.grid(row=row, column=0, sticky="ew", pady=2)
+            frm.grid(row=row, column=0, sticky="ew", pady=2, padx=10)
             ttk.Label(frm, text=label+":", font=("DejaVu Sans", 6), anchor="w").pack(anchor="w")
             editor = ArrayFieldEditor(frm, field, dirty_callback=self._mark_dirty)
             editor.pack(fill=tk.X)
