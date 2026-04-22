@@ -1,5 +1,4 @@
-# --- MOBILE PORTRAIT OPTIMIZED VERSION ---
-# Place this entire script in Pydroid3 and run.
+# --- MOBILE PORTRAIT OPTIMIZED VERSION WITH PROPER ARABIC SUPPORT ---
 
 import json
 import os
@@ -10,30 +9,35 @@ from datetime import datetime
 import copy
 from PIL import Image, ImageTk
 
-# ---------------------- Arabic Reshaper ----------------------
+# ---------------------- Arabic Reshaper & Bidi ----------------------
 try:
     import arabic_reshaper
-    HAS_RESHAPER = True
+    from bidi.algorithm import get_display
+    HAS_BIDI = True
 except ImportError:
-    HAS_RESHAPER = False
-    print("Warning: arabic-reshaper not installed.")
+    HAS_BIDI = False
+    print("Warning: arabic-reshaper or python-bidi not installed. Arabic text may not display correctly.")
 
 def reshape_arabic(text):
+    """
+    Properly reshape and reorder Arabic text for Tkinter display.
+    Uses arabic_reshaper to connect letters and python-bidi for RTL ordering.
+    """
     if not text or not isinstance(text, str):
         return text
     # Check if text contains Arabic characters
     if any('\u0600' <= c <= '\u06FF' for c in text):
-        if HAS_RESHAPER:
-            # Reshape the text to connect letters
-            reshaped_text = arabic_reshaper.reshape(text)
-            # Reverse the entire string as a simple fix for RTL
-            return reshaped_text[::-1]
+        if HAS_BIDI:
+            # Reshape to connect letters, then apply RTL algorithm
+            reshaped = arabic_reshaper.reshape(text)
+            bidi_text = get_display(reshaped)
+            return bidi_text
         else:
-            # Simple reverse without reshaping
+            # Fallback: simple reversal (not perfect but better than nothing)
             return text[::-1]
     return text
 
-# ---------------------- Custom Widgets (unchanged) ----------------------
+# ---------------------- Custom Widgets ----------------------
 class ComboboxSearchable(ttk.Combobox):
     def __init__(self, master, **kwargs):
         if 'width' not in kwargs:
@@ -137,8 +141,7 @@ class DictFieldEditor(ttk.Frame):
         for key, editor in self.editors.items():
             editor.set_value(value_dict.get(key))
 
-# ---------------------- Match Editor Tab (Portrait) ----------------------
-
+# ---------------------- Match Editor Tab ----------------------
 class MatchEditorTab(ttk.Frame):
     def __init__(self, parent, data, team_map, venue_list, save_callback, icons={}):
         super().__init__(parent)
@@ -172,15 +175,14 @@ class MatchEditorTab(ttk.Frame):
     def create_widgets(self):
         # Main vertical layout
         self.columnconfigure(0, weight=1)
-        self.rowconfigure(0, weight=0)   # tree frame (fixed height)
-        self.rowconfigure(1, weight=1)   # form frame (expands)
+        self.rowconfigure(0, weight=0)
+        self.rowconfigure(1, weight=1)
 
-        # --- TOP: match tree (LARGER & TALLER) ---
+        # --- TOP: match tree ---
         top_frame = ttk.Frame(self)
         top_frame.grid(row=0, column=0, sticky="ew", padx=5, pady=3)
         top_frame.columnconfigure(0, weight=1)
 
-        # Buttons row
         btn_frame = ttk.Frame(top_frame)
         btn_frame.grid(row=0, column=0, sticky="ew", pady=2)
         for text, cmd, icon in [("New", self.new_match, 'new'),
@@ -192,7 +194,6 @@ class MatchEditorTab(ttk.Frame):
                              compound=tk.LEFT, command=cmd)
             btn.pack(side=tk.LEFT, padx=2)
 
-        # Treeview with bigger font and more rows
         tree_container = ttk.Frame(top_frame)
         tree_container.grid(row=1, column=0, sticky="nsew", pady=2)
         tree_container.columnconfigure(0, weight=1)
@@ -210,7 +211,7 @@ class MatchEditorTab(ttk.Frame):
         style.configure("Treeview", font=("DejaVu Sans", 7), rowheight=70)
         style.configure("Treeview.Heading", font=("Segoe UI", 8, "bold"))
 
-        # --- BOTTOM: scrollable form (with left margin) ---
+        # --- BOTTOM: scrollable form ---
         bottom_frame = ttk.Frame(self)
         bottom_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=3)
         bottom_frame.columnconfigure(0, weight=1)
@@ -233,11 +234,9 @@ class MatchEditorTab(ttk.Frame):
             canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         canvas.bind_all("<MouseWheel>", on_mousewheel)
 
-        # --- Build the form (smaller fonts) ---
         self.widgets = {}
         row = 0
 
-        # Common fields (single column)
         simple_fields = [
             ("match_id", "ID:"), ("group", "Grp:"), ("week", "Wk:"),
             ("date", "Date:"), ("time", "Time:"), ("venue", "Venue:"),
@@ -247,14 +246,11 @@ class MatchEditorTab(ttk.Frame):
             frm = ttk.Frame(scrollable)
             frm.grid(row=row, column=0, sticky="ew", pady=1)
             frm.columnconfigure(1, weight=1)
-            lbl = ttk.Label(frm, text=label, width=6, anchor="e", font=("DejaVu Sans", 6))
-            lbl.grid(row=0, column=0, padx=2)
+            ttk.Label(frm, text=label, width=6, anchor="e", font=("DejaVu Sans", 6)).grid(row=0, column=0, padx=2)
             if field == "date":
-                w = DateEntry(frm, width=12, date_pattern='yyyy-mm-dd',
-                              font=("DejaVu Sans", 6))
+                w = DateEntry(frm, width=12, date_pattern='yyyy-mm-dd', font=("DejaVu Sans", 6))
                 w.bind("<<DateEntrySelected>>", self._mark_dirty)
             elif field == "venue":
-                # Show reshaped venue names in the dropdown
                 w = ComboboxSearchable(frm, values=[reshape_arabic(v) for v in self.venue_list], width=20)
                 w.bind("<<ComboboxSelected>>", self._mark_dirty)
                 w.bind("<KeyRelease>", self._mark_dirty)
@@ -269,12 +265,11 @@ class MatchEditorTab(ttk.Frame):
             self.widgets[field] = w
             row += 1
 
-        # ---- HOME section ----
+        # HOME section
         ttk.Label(scrollable, text="HOME", font=("Segoe UI", 9, "bold"),
                   foreground="blue").grid(row=row, column=0, sticky="w", pady=(8,2))
         row += 1
 
-        # Home team
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
@@ -285,7 +280,6 @@ class MatchEditorTab(ttk.Frame):
         self.widgets["home_team_id"] = home_team
         row += 1
 
-        # Home score
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
@@ -296,7 +290,6 @@ class MatchEditorTab(ttk.Frame):
         self.widgets["home_score"] = home_score
         row += 1
 
-        # Home array fields
         home_arrays = [("home_squade", "Squad"), ("home_scorers", "Scorers"),
                        ("home_yc", "YC"), ("home_rc", "RC"), ("home_sub", "Sub")]
         for field, label in home_arrays:
@@ -308,12 +301,11 @@ class MatchEditorTab(ttk.Frame):
             self.widgets[field] = editor
             row += 1
 
-        # ---- AWAY section ----
+        # AWAY section
         ttk.Label(scrollable, text="AWAY", font=("Segoe UI", 9, "bold"),
                   foreground="red").grid(row=row, column=0, sticky="w", pady=(10,2))
         row += 1
 
-        # Away team
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
@@ -324,7 +316,6 @@ class MatchEditorTab(ttk.Frame):
         self.widgets["away_team_id"] = away_team
         row += 1
 
-        # Away score
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
@@ -335,7 +326,6 @@ class MatchEditorTab(ttk.Frame):
         self.widgets["away_score"] = away_score
         row += 1
 
-        # Away array fields
         away_arrays = [("away_squade", "Squad"), ("away_scorers", "Scorers"),
                        ("away_yc", "YC"), ("away_rc", "RC"), ("away_sub", "Sub")]
         for field, label in away_arrays:
@@ -347,12 +337,9 @@ class MatchEditorTab(ttk.Frame):
             self.widgets[field] = editor
             row += 1
 
-        # Save button
-        save_btn = ttk.Button(scrollable, text="Save Match", image=self.icons.get('save'),
-                              compound=tk.LEFT, command=self.save_current_match)
-        save_btn.grid(row=row, column=0, pady=10)
+        ttk.Button(scrollable, text="Save Match", image=self.icons.get('save'),
+                   compound=tk.LEFT, command=self.save_current_match).grid(row=row, column=0, pady=10)
 
-    # ---------- Helper methods ----------
     def refresh_match_tree(self):
         self.match_tree.delete(*self.match_tree.get_children())
         matches_by_date = {}
@@ -419,7 +406,6 @@ class MatchEditorTab(ttk.Frame):
                 name = self.get_team_name(value) if value else ""
                 widget.set(reshape_arabic(name))
             elif field == "venue":
-                # Reshape venue name for display
                 widget.set(reshape_arabic(str(value)) if value else "")
             elif isinstance(widget, ArrayFieldEditor):
                 if value and isinstance(value, list):
@@ -493,11 +479,8 @@ class MatchEditorTab(ttk.Frame):
                     original_name = display_name
                 value = self.team_map.get(original_name, "")
             elif field == "venue":
-                # Get the raw (unreshaped) text from the combobox
                 value = widget.get().strip()
-                # If it's a new venue, add to list (store raw)
                 if value and value not in self.venue_list:
-                    # Try to find the original unreshaped version (if it came from reshaping)
                     original_venue = None
                     for v in self.venue_list:
                         if reshape_arabic(v) == value:
@@ -507,14 +490,12 @@ class MatchEditorTab(ttk.Frame):
                         original_venue = value
                     self.venue_list.append(original_venue)
                     self.data["venues"] = sorted(self.venue_list)
-                    # Update combobox with reshaped names
                     self.widgets["venue"].update_values([reshape_arabic(v) for v in self.venue_list])
                     value = original_venue
             elif field in ("home_score", "away_score"):
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
             elif isinstance(widget, ArrayFieldEditor):
-                # The editor returns raw (unreshaped) values – we keep them as is
                 value = widget.get_value()
             else:
                 value = widget.get().strip()
@@ -550,6 +531,8 @@ class MatchEditorTab(ttk.Frame):
             self.save_callback()
             self.is_dirty = False
             messagebox.showinfo("Deleted", f"{mid} removed.")
+
+# ---------------------- Team Editor Tab (Fixed) ----------------------
 class TeamEditorTab(ttk.Frame):
     def __init__(self, parent, data, save_callback, refresh_team_map_callback, icons={}):
         super().__init__(parent)
@@ -582,22 +565,20 @@ class TeamEditorTab(ttk.Frame):
     def create_widgets(self):
         # Main vertical layout
         self.columnconfigure(0, weight=1)
-        self.rowconfigure(0, weight=0)   # team list frame (fixed height)
-        self.rowconfigure(1, weight=1)   # form frame (expands)
+        self.rowconfigure(0, weight=0)
+        self.rowconfigure(1, weight=1)
 
         # --- TOP: team list with buttons ---
         top_frame = ttk.Frame(self)
         top_frame.grid(row=0, column=0, sticky="ew", padx=5, pady=3)
         top_frame.columnconfigure(0, weight=1)
 
-        # Buttons row
         btn_frame = ttk.Frame(top_frame)
         btn_frame.grid(row=0, column=0, sticky="ew", pady=2)
         ttk.Button(btn_frame, text="New", image=self.icons.get('new'), compound=tk.LEFT, command=self.new_team).pack(side=tk.LEFT, padx=2)
         ttk.Button(btn_frame, text="Dup", image=self.icons.get('duplicate'), compound=tk.LEFT, command=self.duplicate_team).pack(side=tk.LEFT, padx=2)
         ttk.Button(btn_frame, text="Del", image=self.icons.get('delete'), compound=tk.LEFT, command=self.delete_team).pack(side=tk.LEFT, padx=2)
 
-        # Team listbox (with scrollbar, fixed height)
         list_container = ttk.Frame(top_frame)
         list_container.grid(row=1, column=0, sticky="ew", pady=2)
         list_container.columnconfigure(0, weight=1)
@@ -610,7 +591,7 @@ class TeamEditorTab(ttk.Frame):
         vsb.grid(row=0, column=1, sticky="ns")
         self.team_listbox.bind("<<ListboxSelect>>", self.on_team_select)
 
-        # --- BOTTOM: scrollable form (with left margin) ---
+        # --- BOTTOM: scrollable form ---
         bottom_frame = ttk.Frame(self)
         bottom_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=3)
         bottom_frame.columnconfigure(0, weight=1)
@@ -633,7 +614,6 @@ class TeamEditorTab(ttk.Frame):
             canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         canvas.bind_all("<MouseWheel>", on_mousewheel)
 
-        # --- Build the form (small fonts, single column) ---
         self.widgets = {}
         row = 0
 
@@ -688,19 +668,27 @@ class TeamEditorTab(ttk.Frame):
     def populate_form(self, team):
         for field, widget in self.widgets.items():
             value = team.get(field)
-        if isinstance(widget, tk.Text):
-            widget.delete(1.0, tk.END)
-            if value:
-                if field == "information":
-                    value = reshape_arabic(str(value))
-                widget.insert(1.0, str(value))
-        else:
-            widget.delete(0, tk.END)
-            if value is not None:
-                if field in ("name", "group", "city"):
-                    value = reshape_arabic(str(value))
-                widget.insert(0, str(value))
-        self.players_editor.set_value(team.get("players"))  # no reshaping
+            if isinstance(widget, tk.Text):
+                widget.delete(1.0, tk.END)
+                if value:
+                    if field == "information":
+                        value = reshape_arabic(str(value))
+                    widget.insert(1.0, str(value))
+            else:  # Entry widget
+                widget.delete(0, tk.END)
+                if value is not None:
+                    if field in ("name", "group", "city"):
+                        value = reshape_arabic(str(value))
+                    widget.insert(0, str(value))
+        # Reshape player names for display (without altering stored data)
+        players = team.get("players", {})
+        reshaped_players = {}
+        for role, names in players.items():
+            if names and isinstance(names, list):
+                reshaped_players[role] = [reshape_arabic(str(n)) for n in names]
+            else:
+                reshaped_players[role] = names
+        self.players_editor.set_value(reshaped_players)
         self.is_dirty = False
 
     def new_team(self):
@@ -742,7 +730,7 @@ class TeamEditorTab(ttk.Frame):
             if not value and field not in ["team_id", "name", "point_deduction"]:
                 value = None
             updated[field] = value
-        updated["players"] = self.players_editor.get_value()
+        updated["players"] = self.players_editor.get_value()  # already raw (unreshaped)
         if not updated.get("team_id"):
             messagebox.showerror("Error", "Team ID required.")
             return
@@ -778,15 +766,13 @@ class TeamEditorTab(ttk.Frame):
             self.refresh_team_list()
             self.is_dirty = False
 
-# ---------------------- Main Application (adjusted for portrait) ----------------------
+# ---------------------- Main Application ----------------------
 class MainApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Football Manager")
-        # Use full screen but with safe margins
         w = root.winfo_screenwidth()
         h = root.winfo_screenheight()
-        # Use almost full screen, but keep status bar visible
         root.geometry(f"{w}x{h}+0+0")
         self.setup_styles()
         self.load_icons()
