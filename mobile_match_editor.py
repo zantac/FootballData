@@ -138,6 +138,7 @@ class DictFieldEditor(ttk.Frame):
             editor.set_value(value_dict.get(key))
 
 # ---------------------- Match Editor Tab (Portrait) ----------------------
+
 class MatchEditorTab(ttk.Frame):
     def __init__(self, parent, data, team_map, venue_list, save_callback, icons={}):
         super().__init__(parent)
@@ -198,21 +199,20 @@ class MatchEditorTab(ttk.Frame):
         tree_container.rowconfigure(0, weight=1)
 
         self.match_tree = ttk.Treeview(tree_container, selectmode="browse", show="tree",
-                                       height=10)   # show 10 matches at once
+                                       height=10)
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.match_tree.yview)
         self.match_tree.configure(yscrollcommand=vsb.set)
         self.match_tree.grid(row=0, column=0, sticky="ew")
         vsb.grid(row=0, column=1, sticky="ns")
         self.match_tree.bind("<<TreeviewSelect>>", self.on_match_select)
 
-        # Style the tree font (larger)
         style = ttk.Style()
         style.configure("Treeview", font=("DejaVu Sans", 7), rowheight=70)
         style.configure("Treeview.Heading", font=("Segoe UI", 8, "bold"))
 
         # --- BOTTOM: scrollable form (with left margin) ---
         bottom_frame = ttk.Frame(self)
-        bottom_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=3)   # added left margin
+        bottom_frame.grid(row=1, column=0, sticky="nsew", padx=8, pady=3)
         bottom_frame.columnconfigure(0, weight=1)
         bottom_frame.rowconfigure(0, weight=1)
 
@@ -254,7 +254,8 @@ class MatchEditorTab(ttk.Frame):
                               font=("DejaVu Sans", 6))
                 w.bind("<<DateEntrySelected>>", self._mark_dirty)
             elif field == "venue":
-                w = ComboboxSearchable(frm, values=self.venue_list, width=20)
+                # Show reshaped venue names in the dropdown
+                w = ComboboxSearchable(frm, values=[reshape_arabic(v) for v in self.venue_list], width=20)
                 w.bind("<<ComboboxSelected>>", self._mark_dirty)
                 w.bind("<KeyRelease>", self._mark_dirty)
             elif field in ("status", "stage"):
@@ -351,9 +352,7 @@ class MatchEditorTab(ttk.Frame):
                               compound=tk.LEFT, command=self.save_current_match)
         save_btn.grid(row=row, column=0, pady=10)
 
-    # ---------- The rest of the methods (refresh_match_tree, populate_form, etc.) ----------
-    # They remain exactly as in your original script, but we'll include them for completeness.
-    # (Copy from your existing MatchEditorTab – no changes needed)
+    # ---------- Helper methods ----------
     def refresh_match_tree(self):
         self.match_tree.delete(*self.match_tree.get_children())
         matches_by_date = {}
@@ -411,31 +410,31 @@ class MatchEditorTab(ttk.Frame):
     def populate_form(self, match):
         for field, widget in self.widgets.items():
             value = match.get(field)
-        if field == "date":
-            if value:
-                try: widget.set_date(datetime.strptime(value, "%Y-%m-%d"))
-                except: widget.set_date(datetime.now())
-            else: widget.set_date(datetime.now())
-        elif field in ("home_team_id", "away_team_id"):
-            name = self.get_team_name(value) if value else ""
-            widget.set(reshape_arabic(name))
-        elif field == "venue":
-            # Reshape the venue name for display
-            widget.set(reshape_arabic(str(value)) if value else "")
-        elif isinstance(widget, ArrayFieldEditor):
-            if value and isinstance(value, list):
-                reshaped = [reshape_arabic(str(v)) for v in value]
-                widget.set_value(reshaped)
+            if field == "date":
+                if value:
+                    try: widget.set_date(datetime.strptime(value, "%Y-%m-%d"))
+                    except: widget.set_date(datetime.now())
+                else: widget.set_date(datetime.now())
+            elif field in ("home_team_id", "away_team_id"):
+                name = self.get_team_name(value) if value else ""
+                widget.set(reshape_arabic(name))
+            elif field == "venue":
+                # Reshape venue name for display
+                widget.set(reshape_arabic(str(value)) if value else "")
+            elif isinstance(widget, ArrayFieldEditor):
+                if value and isinstance(value, list):
+                    reshaped = [reshape_arabic(str(v)) for v in value]
+                    widget.set_value(reshaped)
+                else:
+                    widget.set_value([])
+            elif isinstance(widget, ttk.Combobox):
+                widget.set(str(value) if value is not None else "")
             else:
-                widget.set_value([])
-        elif isinstance(widget, ttk.Combobox):
-            widget.set(str(value) if value is not None else "")
-        else:
-            widget.delete(0, tk.END)
-            val = str(value) if value not in (None, "") else ""
-            if field in ("group", "note", "venue"):   # you can keep this, but venue is already handled above
-                val = reshape_arabic(val)
-            widget.insert(0, val)
+                widget.delete(0, tk.END)
+                val = str(value) if value not in (None, "") else ""
+                if field in ("group", "note"):
+                    val = reshape_arabic(val)
+                widget.insert(0, val)
         self.is_dirty = False
 
     def new_match(self):
@@ -485,7 +484,6 @@ class MatchEditorTab(ttk.Frame):
                 value = widget.get_date().strftime("%Y-%m-%d")
             elif field in ("home_team_id", "away_team_id"):
                 display_name = widget.get()
-                # find original name (unreshaped)
                 original_name = None
                 for name in self.team_map.keys():
                     if reshape_arabic(name) == display_name:
@@ -495,16 +493,29 @@ class MatchEditorTab(ttk.Frame):
                     original_name = display_name
                 value = self.team_map.get(original_name, "")
             elif field == "venue":
+                # Get the raw (unreshaped) text from the combobox
                 value = widget.get().strip()
+                # If it's a new venue, add to list (store raw)
                 if value and value not in self.venue_list:
-                    self.venue_list.append(value)
+                    # Try to find the original unreshaped version (if it came from reshaping)
+                    original_venue = None
+                    for v in self.venue_list:
+                        if reshape_arabic(v) == value:
+                            original_venue = v
+                            break
+                    if original_venue is None:
+                        original_venue = value
+                    self.venue_list.append(original_venue)
                     self.data["venues"] = sorted(self.venue_list)
-                    self.widgets["venue"].update_values(self.venue_list)
+                    # Update combobox with reshaped names
+                    self.widgets["venue"].update_values([reshape_arabic(v) for v in self.venue_list])
+                    value = original_venue
             elif field in ("home_score", "away_score"):
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
             elif isinstance(widget, ArrayFieldEditor):
-                value = widget.get_value()  # already list of strings (original, unreshaped)
+                # The editor returns raw (unreshaped) values – we keep them as is
+                value = widget.get_value()
             else:
                 value = widget.get().strip()
                 if field == "note" and not value:
@@ -539,7 +550,6 @@ class MatchEditorTab(ttk.Frame):
             self.save_callback()
             self.is_dirty = False
             messagebox.showinfo("Deleted", f"{mid} removed.")
-
 class TeamEditorTab(ttk.Frame):
     def __init__(self, parent, data, save_callback, refresh_team_map_callback, icons={}):
         super().__init__(parent)
