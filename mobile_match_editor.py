@@ -23,10 +23,14 @@ def reshape_arabic(text):
         return text
     # Check if text contains Arabic characters
     if any('\u0600' <= c <= '\u06FF' for c in text):
-        # Reshape the text to connect letters
-        reshaped_text = arabic_reshaper.reshape(text)
-        # Reverse the entire string as a simple fix for RTL
-        return reshaped_text[::-1]
+        if HAS_RESHAPER:
+            # Reshape the text to connect letters
+            reshaped_text = arabic_reshaper.reshape(text)
+            # Reverse the entire string as a simple fix for RTL
+            return reshaped_text[::-1]
+        else:
+            # Simple reverse without reshaping
+            return text[::-1]
     return text
 
 # ---------------------- Custom Widgets (unchanged) ----------------------
@@ -407,30 +411,31 @@ class MatchEditorTab(ttk.Frame):
     def populate_form(self, match):
         for field, widget in self.widgets.items():
             value = match.get(field)
-            if field == "date":
-                if value:
-                    try: widget.set_date(datetime.strptime(value, "%Y-%m-%d"))
-                    except: widget.set_date(datetime.now())
-                else: widget.set_date(datetime.now())
-            elif field in ("home_team_id", "away_team_id"):
-                name = self.get_team_name(value) if value else ""
-                widget.set(reshape_arabic(name))
-            elif isinstance(widget, ArrayFieldEditor):
-                # reshape each string in the list
-                if value and isinstance(value, list):
-                    reshaped = [reshape_arabic(str(v)) for v in value]
-                    widget.set_value(reshaped)
-                else:
-                    widget.set_value([])
-            elif isinstance(widget, ttk.Combobox):
-                widget.set(str(value) if value is not None else "")
+        if field == "date":
+            if value:
+                try: widget.set_date(datetime.strptime(value, "%Y-%m-%d"))
+                except: widget.set_date(datetime.now())
+            else: widget.set_date(datetime.now())
+        elif field in ("home_team_id", "away_team_id"):
+            name = self.get_team_name(value) if value else ""
+            widget.set(reshape_arabic(name))
+        elif field == "venue":
+            # Reshape the venue name for display
+            widget.set(reshape_arabic(str(value)) if value else "")
+        elif isinstance(widget, ArrayFieldEditor):
+            if value and isinstance(value, list):
+                reshaped = [reshape_arabic(str(v)) for v in value]
+                widget.set_value(reshaped)
             else:
-                widget.delete(0, tk.END)
-                val = str(value) if value not in (None, "") else ""
-                # reshape if it's a text field that may contain Arabic
-                if field in ("group", "note", "venue"):
-                    val = reshape_arabic(val)
-                widget.insert(0, val)
+                widget.set_value([])
+        elif isinstance(widget, ttk.Combobox):
+            widget.set(str(value) if value is not None else "")
+        else:
+            widget.delete(0, tk.END)
+            val = str(value) if value not in (None, "") else ""
+            if field in ("group", "note", "venue"):   # you can keep this, but venue is already handled above
+                val = reshape_arabic(val)
+            widget.insert(0, val)
         self.is_dirty = False
 
     def new_match(self):
