@@ -185,22 +185,22 @@ class MatchEditorTab(ttk.Frame):
 
         # Treeview with bigger font and more rows
         tree_container = ttk.Frame(top_frame)
-        tree_container.grid(row=1, column=0, sticky="ew", pady=2)
+        tree_container.grid(row=1, column=0, sticky="nsew", pady=2)
         tree_container.columnconfigure(0, weight=1)
         tree_container.rowconfigure(0, weight=1)
 
         self.match_tree = ttk.Treeview(tree_container, selectmode="browse", show="tree",
-                                       height=5)   # show 5 matches at once
+                                       height=10)   # show 10 matches at once
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.match_tree.yview)
         self.match_tree.configure(yscrollcommand=vsb.set)
-        self.match_tree.grid(row=0, column=0, sticky="nsew")
+        self.match_tree.grid(row=0, column=0, sticky="ew")
         vsb.grid(row=0, column=1, sticky="ns")
         self.match_tree.bind("<<TreeviewSelect>>", self.on_match_select)
 
         # Style the tree font (larger)
         style = ttk.Style()
-        style.configure("Treeview", font=("DejaVu Sans", 7), rowheight=30)
-        style.configure("Treeview.Heading", font=("Segoe UI", 7, "bold"))
+        style.configure("Treeview", font=("DejaVu Sans", 7), rowheight=70)
+        style.configure("Treeview.Heading", font=("Segoe UI", 8, "bold"))
 
         # --- BOTTOM: scrollable form (with left margin) ---
         bottom_frame = ttk.Frame(self)
