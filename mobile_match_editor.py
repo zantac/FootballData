@@ -190,7 +190,7 @@ class MatchEditorTab(ttk.Frame):
         tree_container.rowconfigure(0, weight=1)
 
         self.match_tree = ttk.Treeview(tree_container, selectmode="browse", show="tree",
-                                       height=12)   # show 12 matches at once
+                                       height=5)   # show 5 matches at once
         vsb = ttk.Scrollbar(tree_container, orient="vertical", command=self.match_tree.yview)
         self.match_tree.configure(yscrollcommand=vsb.set)
         self.match_tree.grid(row=0, column=0, sticky="nsew")
@@ -199,8 +199,8 @@ class MatchEditorTab(ttk.Frame):
 
         # Style the tree font (larger)
         style = ttk.Style()
-        style.configure("Treeview", font=("DejaVu Sans", 9), rowheight=24)
-        style.configure("Treeview.Heading", font=("Segoe UI", 9, "bold"))
+        style.configure("Treeview", font=("DejaVu Sans", 7), rowheight=30)
+        style.configure("Treeview.Heading", font=("Segoe UI", 7, "bold"))
 
         # --- BOTTOM: scrollable form (with left margin) ---
         bottom_frame = ttk.Frame(self)
@@ -239,11 +239,11 @@ class MatchEditorTab(ttk.Frame):
             frm = ttk.Frame(scrollable)
             frm.grid(row=row, column=0, sticky="ew", pady=1)
             frm.columnconfigure(1, weight=1)
-            lbl = ttk.Label(frm, text=label, width=6, anchor="e", font=("DejaVu Sans", 8))
+            lbl = ttk.Label(frm, text=label, width=6, anchor="e", font=("DejaVu Sans", 6))
             lbl.grid(row=0, column=0, padx=2)
             if field == "date":
                 w = DateEntry(frm, width=12, date_pattern='yyyy-mm-dd',
-                              font=("DejaVu Sans", 7))
+                              font=("DejaVu Sans", 6))
                 w.bind("<<DateEntrySelected>>", self._mark_dirty)
             elif field == "venue":
                 w = ComboboxSearchable(frm, values=self.venue_list, width=20)
@@ -254,22 +254,22 @@ class MatchEditorTab(ttk.Frame):
                 w = ttk.Combobox(frm, values=opts, width=18)
                 w.bind("<<ComboboxSelected>>", self._mark_dirty)
             else:
-                w = ttk.Entry(frm, width=22, font=("DejaVu Sans", 7))
+                w = ttk.Entry(frm, width=22, font=("DejaVu Sans", 6))
                 w.bind("<KeyRelease>", self._mark_dirty)
             w.grid(row=0, column=1, sticky="ew", padx=2)
             self.widgets[field] = w
             row += 1
 
         # ---- HOME section ----
-        ttk.Label(scrollable, text="🏠 HOME", font=("Segoe UI", 9, "bold"),
-                  foreground="blue").grid(row=row, column=0, sticky="w", pady=(5,2))
+        ttk.Label(scrollable, text="HOME", font=("Segoe UI", 9, "bold"),
+                  foreground="blue").grid(row=row, column=0, sticky="w", pady=(8,2))
         row += 1
 
         # Home team
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
-        ttk.Label(frm, text="Team:", width=6, anchor="e", font=("DejaVu Sans", 8)).grid(row=0, column=0, padx=2)
+        ttk.Label(frm, text="Team:", width=6, anchor="e", font=("DejaVu Sans", 6)).grid(row=0, column=0, padx=5)
         home_team = ComboboxSearchable(frm, values=[reshape_arabic(n) for n in self.team_map.keys()], width=20)
         home_team.bind("<<ComboboxSelected>>", self._mark_dirty)
         home_team.grid(row=0, column=1, sticky="ew", padx=2)
@@ -280,10 +280,10 @@ class MatchEditorTab(ttk.Frame):
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
-        ttk.Label(frm, text="Score:", width=6, anchor="e", font=("DejaVu Sans", 8)).grid(row=0, column=0, padx=2)
-        home_score = ttk.Entry(frm, width=22, font=("DejaVu Sans", 7))
+        ttk.Label(frm, text="Score:", width=6, anchor="e", font=("DejaVu Sans", 6)).grid(row=0, column=0, padx=5)
+        home_score = ttk.Entry(frm, width=22, font=("DejaVu Sans", 6))
         home_score.bind("<KeyRelease>", self._mark_dirty)
-        home_score.grid(row=0, column=1, sticky="ew", padx=2)
+        home_score.grid(row=0, column=1, sticky="ew", padx=5)
         self.widgets["home_score"] = home_score
         row += 1
 
@@ -293,14 +293,14 @@ class MatchEditorTab(ttk.Frame):
         for field, label in home_arrays:
             frm = ttk.Frame(scrollable)
             frm.grid(row=row, column=0, sticky="ew", pady=2)
-            ttk.Label(frm, text=label+":", font=("DejaVu Sans", 8), anchor="w").pack(anchor="w")
+            ttk.Label(frm, text=label+":", font=("DejaVu Sans", 6), anchor="w").pack(anchor="w")
             editor = ArrayFieldEditor(frm, field, dirty_callback=self._mark_dirty)
             editor.pack(fill=tk.X)
             self.widgets[field] = editor
             row += 1
 
         # ---- AWAY section ----
-        ttk.Label(scrollable, text="✈️ AWAY", font=("Segoe UI", 9, "bold"),
+        ttk.Label(scrollable, text="AWAY", font=("Segoe UI", 9, "bold"),
                   foreground="red").grid(row=row, column=0, sticky="w", pady=(10,2))
         row += 1
 
@@ -308,7 +308,7 @@ class MatchEditorTab(ttk.Frame):
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
-        ttk.Label(frm, text="Team:", width=6, anchor="e", font=("DejaVu Sans", 8)).grid(row=0, column=0, padx=2)
+        ttk.Label(frm, text="Team:", width=6, anchor="e", font=("DejaVu Sans", 6)).grid(row=0, column=0, padx=2)
         away_team = ComboboxSearchable(frm, values=[reshape_arabic(n) for n in self.team_map.keys()], width=20)
         away_team.bind("<<ComboboxSelected>>", self._mark_dirty)
         away_team.grid(row=0, column=1, sticky="ew", padx=2)
@@ -319,8 +319,8 @@ class MatchEditorTab(ttk.Frame):
         frm = ttk.Frame(scrollable)
         frm.grid(row=row, column=0, sticky="ew", pady=1)
         frm.columnconfigure(1, weight=1)
-        ttk.Label(frm, text="Score:", width=6, anchor="e", font=("DejaVu Sans", 8)).grid(row=0, column=0, padx=2)
-        away_score = ttk.Entry(frm, width=22, font=("DejaVu Sans", 7))
+        ttk.Label(frm, text="Score:", width=6, anchor="e", font=("DejaVu Sans", 6)).grid(row=0, column=0, padx=2)
+        away_score = ttk.Entry(frm, width=22, font=("DejaVu Sans", 6))
         away_score.bind("<KeyRelease>", self._mark_dirty)
         away_score.grid(row=0, column=1, sticky="ew", padx=2)
         self.widgets["away_score"] = away_score
@@ -332,14 +332,14 @@ class MatchEditorTab(ttk.Frame):
         for field, label in away_arrays:
             frm = ttk.Frame(scrollable)
             frm.grid(row=row, column=0, sticky="ew", pady=2)
-            ttk.Label(frm, text=label+":", font=("DejaVu Sans", 8), anchor="w").pack(anchor="w")
+            ttk.Label(frm, text=label+":", font=("DejaVu Sans", 6), anchor="w").pack(anchor="w")
             editor = ArrayFieldEditor(frm, field, dirty_callback=self._mark_dirty)
             editor.pack(fill=tk.X)
             self.widgets[field] = editor
             row += 1
 
         # Save button
-        save_btn = ttk.Button(scrollable, text="💾 Save Match", image=self.icons.get('save'),
+        save_btn = ttk.Button(scrollable, text="Save Match", image=self.icons.get('save'),
                               compound=tk.LEFT, command=self.save_current_match)
         save_btn.grid(row=row, column=0, pady=10)
 
