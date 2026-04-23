@@ -431,7 +431,7 @@ class MainApp:
         self.style.configure('TLabel', padding=2); self.style.configure('TButton', padding=4)
         self.style.configure('TEntry', padding=2, font=text_font); self.style.configure('TCombobox', padding=2, font=text_font)
         # --- THIS IS THE FIX ---
-        self.style.configure("Treeview", rowheight=35, font=("DejaVu Sans", 9))
+        self.style.configure("Treeview", rowheight=50, font=("DejaVu Sans", 9))
         self.style.configure("Treeview.Heading", font=("Segoe UI", 9, "bold"))
         self.style.map('TCombobox', fieldbackground=[('readonly','white')])
 
