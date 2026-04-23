@@ -1,9 +1,8 @@
-# --- START OF FILE: football_editor.py (IMPROVED VERSION) ---
+# --- START OF FILE: football_editor.py (FINAL VERSION) ---
 
 # --- MOBILE PORTRAIT OPTIMIZED JSON EDITOR WITH PROPER ARABIC SUPPORT ---
-# Designed for editing a football league's data (matches, teams, etc.)
-# on Android devices using Pydroid 3.
-# This version ensures that Arabic text is saved correctly in its logical order.
+# Designed for editing a football league's data on Android using Pydroid 3.
+# This version includes fixes for Treeview row height and Arabic text rendering.
 
 import json
 import os
@@ -15,7 +14,6 @@ import copy
 from PIL import Image, ImageTk
 
 # ---------------------- Arabic Reshaper & Bidi ----------------------
-# These libraries are essential for displaying Arabic text correctly in Tkinter.
 try:
     import arabic_reshaper
     from bidi.algorithm import get_display
@@ -23,7 +21,6 @@ try:
 except ImportError:
     HAS_BIDI = False
     print("Warning: 'arabic-reshaper' or 'python-bidi' not installed. Arabic text may not display correctly.")
-    print("In Pydroid 3, go to Menu -> Pip and install them.")
 
 def reshape_arabic(text):
     """
@@ -42,7 +39,6 @@ def reshape_arabic(text):
 
 # ---------------------- Custom Widgets for a Better UI ----------------------
 class ComboboxSearchable(ttk.Combobox):
-    """A combobox that filters its values as the user types."""
     def __init__(self, master, **kwargs):
         if 'width' not in kwargs: kwargs['width'] = 18
         super().__init__(master, **kwargs)
@@ -65,14 +61,10 @@ class ComboboxSearchable(ttk.Combobox):
         self['values'] = self._full_list
 
 class ArrayFieldEditor(ttk.Frame):
-    """A widget for editing a list of strings."""
     def __init__(self, parent, field_name, initial_list=None, dirty_callback=None, **kwargs):
         super().__init__(parent, **kwargs)
-        self.field_name = field_name
-        self.dirty_callback = dirty_callback
-        self.entries = []
-        self.list_frame = ttk.Frame(self)
-        self.list_frame.pack(fill=tk.X, pady=1)
+        self.dirty_callback = dirty_callback; self.entries = []
+        self.list_frame = ttk.Frame(self); self.list_frame.pack(fill=tk.X, pady=1)
         add_btn = ttk.Button(self, text="+", command=self.add_entry, width=3)
         add_btn.pack(anchor=tk.W, pady=(0, 2))
         if initial_list:
@@ -80,12 +72,10 @@ class ArrayFieldEditor(ttk.Frame):
 
     def add_entry(self, initial_value=""):
         if self.dirty_callback: self.dirty_callback()
-        row_frame = ttk.Frame(self.list_frame)
-        row_frame.pack(fill=tk.X, pady=1)
+        row_frame = ttk.Frame(self.list_frame); row_frame.pack(fill=tk.X, pady=1)
         entry = ttk.Entry(row_frame, width=25)
         entry.pack(side=tk.LEFT, padx=(0, 3), expand=True, fill=tk.X)
-        entry.insert(0, initial_value)
-        entry.bind("<KeyRelease>", lambda e: self.dirty_callback())
+        entry.insert(0, initial_value); entry.bind("<KeyRelease>", lambda e: self.dirty_callback())
         remove_btn = ttk.Button(row_frame, text="✖", width=2, command=lambda rf=row_frame: self.remove_entry(rf))
         remove_btn.pack(side=tk.LEFT)
         self.entries.append((entry, row_frame))
@@ -94,9 +84,7 @@ class ArrayFieldEditor(ttk.Frame):
         if self.dirty_callback: self.dirty_callback()
         for i, (entry, frame) in enumerate(self.entries):
             if frame == row_frame:
-                frame.destroy()
-                del self.entries[i]
-                break
+                frame.destroy(); del self.entries[i]; break
 
     def get_value(self):
         result = [entry.get().strip() for entry, _ in self.entries if entry.get().strip()]
@@ -109,22 +97,17 @@ class ArrayFieldEditor(ttk.Frame):
             for item in value_list: self.add_entry(initial_value=str(item))
 
 class DictFieldEditor(ttk.Frame):
-    """A specialized widget for editing a dictionary of lists (e.g., team squads)."""
     def __init__(self, parent, field_name, initial_dict=None, dirty_callback=None, **kwargs):
         super().__init__(parent, **kwargs)
-        self.editors = {}
-        self.sub_keys = ["coach", "goalkeepers", "defenders", "midfielders", "attackers"]
+        self.editors = {}; self.sub_keys = ["coach", "goalkeepers", "defenders", "midfielders", "attackers"]
         initial_dict = initial_dict or {}
         for key in self.sub_keys:
-            frame = ttk.Frame(self)
-            frame.pack(fill=tk.X, pady=1)
+            frame = ttk.Frame(self); frame.pack(fill=tk.X, pady=1)
             short_label = {"coach": "Coach", "goalkeepers": "GK", "defenders": "DEF",
                            "midfielders": "MID", "attackers": "ATT"}.get(key, key.title())
-            lbl = ttk.Label(frame, text=short_label + ":", width=6, anchor="w")
-            lbl.pack(side=tk.TOP, anchor="w")
+            lbl = ttk.Label(frame, text=short_label + ":", width=6, anchor="w"); lbl.pack(side=tk.TOP, anchor="w")
             editor = ArrayFieldEditor(frame, key, initial_list=initial_dict.get(key, []), dirty_callback=dirty_callback)
-            editor.pack(fill=tk.X)
-            self.editors[key] = editor
+            editor.pack(fill=tk.X); self.editors[key] = editor
 
     def get_value(self):
         result = {key: editor.get_value() for key, editor in self.editors.items()}
@@ -136,19 +119,14 @@ class DictFieldEditor(ttk.Frame):
             editor.set_value(value_dict.get(key))
 
 def create_reverse_map(data_list):
-    """Creates a dictionary to map reshaped Arabic text back to its original form."""
     return {reshape_arabic(item): item for item in data_list}
 
 # ---------------------- Match Editor Tab ----------------------
 class MatchEditorTab(ttk.Frame):
     def __init__(self, parent, data, team_map, venue_list, save_callback, icons={}):
-        super().__init__(parent)
-        self.data = data; self.team_map = team_map; self.venue_list = venue_list
-        self.save_callback = save_callback; self.icons = icons
-        self.current_match = None; self.is_dirty = False
-        self.pack(fill=tk.BOTH, expand=True)
-        self.create_widgets()
-        self.refresh_match_tree()
+        super().__init__(parent); self.data = data; self.team_map = team_map; self.venue_list = venue_list
+        self.save_callback = save_callback; self.icons = icons; self.current_match = None; self.is_dirty = False
+        self.pack(fill=tk.BOTH, expand=True); self.create_widgets(); self.refresh_match_tree()
 
     def _mark_dirty(self, event=None): self.is_dirty = True
 
@@ -156,24 +134,20 @@ class MatchEditorTab(ttk.Frame):
         if not self.is_dirty: return True
         response = messagebox.askyesnocancel("Unsaved Changes", "Save changes?")
         if response is True:
-            self.save_current_match()
-            return not self.is_dirty
+            self.save_current_match(); return not self.is_dirty
         return response is not None
 
     def create_widgets(self):
-        self.columnconfigure(0, weight=1); self.rowconfigure(1, weight=1)
-        self.rowconfigure(0, weight=0, minsize=200)
+        self.columnconfigure(0, weight=1); self.rowconfigure(1, weight=1); self.rowconfigure(0, weight=0, minsize=200)
         top_frame = ttk.Frame(self); top_frame.grid(row=0, column=0, sticky="nsew", padx=5, pady=3)
         top_frame.columnconfigure(0, weight=1); top_frame.rowconfigure(1, weight=1)
         btn_frame = ttk.Frame(top_frame); btn_frame.grid(row=0, column=0, sticky="ew")
         row1 = ttk.Frame(btn_frame); row1.pack(fill=tk.X, pady=1)
-        btn_configs1 = [("New", self.new_match, 'new'), ("Dup", self.duplicate_match, 'duplicate'), ("Del", self.delete_match, 'delete')]
-        for text, cmd, icon in btn_configs1:
+        for text, cmd, icon in [("New", self.new_match, 'new'), ("Dup", self.duplicate_match, 'duplicate'), ("Del", self.delete_match, 'delete')]:
             btn = ttk.Button(row1, text=text, image=self.icons.get(icon), compound=tk.LEFT, command=cmd)
             btn.pack(side=tk.LEFT, padx=2, expand=True, fill=tk.X)
         row2 = ttk.Frame(btn_frame); row2.pack(fill=tk.X, pady=1)
-        btn_configs2 = [("Collapse", self.collapse_all_dates, 'collapse'), ("Expand", self.expand_all_dates, 'expand')]
-        for text, cmd, icon in btn_configs2:
+        for text, cmd, icon in [("Collapse", self.collapse_all_dates, 'collapse'), ("Expand", self.expand_all_dates, 'expand')]:
             btn = ttk.Button(row2, text=text, image=self.icons.get(icon), compound=tk.LEFT, command=cmd)
             btn.pack(side=tk.LEFT, padx=2, expand=True, fill=tk.X)
         tree_container = ttk.Frame(top_frame); tree_container.grid(row=1, column=0, sticky="nsew", pady=2)
@@ -184,16 +158,14 @@ class MatchEditorTab(ttk.Frame):
         vsb.grid(row=0, column=1, sticky="ns"); self.match_tree.bind("<<TreeviewSelect>>", self.on_match_select)
         bottom_frame = ttk.Frame(self); bottom_frame.grid(row=1, column=0, sticky="nsew", padx=5, pady=3)
         bottom_frame.columnconfigure(0, weight=1); bottom_frame.rowconfigure(0, weight=1)
-        canvas = tk.Canvas(bottom_frame, highlightthickness=0)
-        v_scrollbar = ttk.Scrollbar(bottom_frame, orient="vertical", command=canvas.yview)
+        canvas = tk.Canvas(bottom_frame, highlightthickness=0); v_scrollbar = ttk.Scrollbar(bottom_frame, orient="vertical", command=canvas.yview)
         canvas.configure(yscrollcommand=v_scrollbar.set); canvas.grid(row=0, column=0, sticky="nsew")
         v_scrollbar.grid(row=0, column=1, sticky="ns"); scrollable_frame = ttk.Frame(canvas)
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units"))
         self.widgets = {}; row = 0
-        simple_fields = [("match_id", "ID:"), ("group", "Grp:"), ("week", "Wk:"), ("date", "Date:"), 
-                         ("time", "Time:"), ("venue", "Venue:"), ("status", "Status:"), ("stage", "Stage:"), ("note", "Note:")]
+        simple_fields = [("match_id", "ID:"), ("group", "Grp:"), ("week", "Wk:"), ("date", "Date:"), ("time", "Time:"), ("venue", "Venue:"), ("status", "Status:"), ("stage", "Stage:"), ("note", "Note:")]
         for field, label in simple_fields:
             frm = ttk.Frame(scrollable_frame); frm.grid(row=row, column=0, sticky="ew", pady=1)
             frm.columnconfigure(1, weight=1); ttk.Label(frm, text=label, width=7, anchor="e").grid(row=0, column=0, padx=2)
@@ -210,57 +182,42 @@ class MatchEditorTab(ttk.Frame):
         ttk.Button(scrollable_frame, text="Save Match", image=self.icons.get('save'), compound=tk.LEFT, command=self.save_current_match).grid(row=row, column=0, pady=10)
 
     def create_team_section(self, parent, prefix, start_row):
-        row = start_row
-        frm = ttk.Frame(parent); frm.grid(row=row, column=0, sticky="ew", pady=1); frm.columnconfigure(1, weight=1); row+=1
+        row = start_row; frm = ttk.Frame(parent); frm.grid(row=row, column=0, sticky="ew", pady=1); frm.columnconfigure(1, weight=1); row+=1
         ttk.Label(frm, text="Team:", width=7, anchor="e").grid(row=0, column=0, padx=2)
         team_combo = ComboboxSearchable(frm, values=[reshape_arabic(n) for n in self.team_map.keys()], width=20)
-        team_combo.bind("<<ComboboxSelected>>", self._mark_dirty); team_combo.grid(row=0, column=1, sticky="ew", padx=2)
-        self.widgets[f"{prefix}_team_id"] = team_combo
+        team_combo.bind("<<ComboboxSelected>>", self._mark_dirty); team_combo.grid(row=0, column=1, sticky="ew", padx=2); self.widgets[f"{prefix}_team_id"] = team_combo
         frm = ttk.Frame(parent); frm.grid(row=row, column=0, sticky="ew", pady=1); frm.columnconfigure(1, weight=1); row+=1
         ttk.Label(frm, text="Score:", width=7, anchor="e").grid(row=0, column=0, padx=2)
         score_entry = ttk.Entry(frm, width=22); score_entry.bind("<KeyRelease>", self._mark_dirty)
         score_entry.grid(row=0, column=1, sticky="ew", padx=2); self.widgets[f"{prefix}_score"] = score_entry
-        array_fields = [("squade", "Squad"), ("scorers", "Scorers"), ("yc", "Yellows"), ("rc", "Reds"), ("sub", "Subs")]
-        for field, label in array_fields:
+        for field, label in [("squade", "Squad"), ("scorers", "Scorers"), ("yc", "Yellows"), ("rc", "Reds"), ("sub", "Subs")]:
             full_field = f"{prefix}_{field}"; frm = ttk.Frame(parent); frm.grid(row=row, column=0, sticky="ew", pady=2, padx=10); row+=1
             ttk.Label(frm, text=label+":", anchor="w").pack(anchor="w")
-            editor = ArrayFieldEditor(frm, full_field, dirty_callback=self._mark_dirty); editor.pack(fill=tk.X)
-            self.widgets[full_field] = editor
+            editor = ArrayFieldEditor(frm, full_field, dirty_callback=self._mark_dirty); editor.pack(fill=tk.X); self.widgets[full_field] = editor
 
     def refresh_match_tree(self):
-        self.match_tree.delete(*self.match_tree.get_children())
-        matches_by_date = {}
+        self.match_tree.delete(*self.match_tree.get_children()); matches_by_date = {}
         for match in self.data.get("matches", []):
-            date = match.get("date", "Unknown Date")
-            matches_by_date.setdefault(date, []).append(match)
+            matches_by_date.setdefault(match.get("date", "Unknown Date"), []).append(match)
         for date in sorted(matches_by_date.keys()):
             try: dt = datetime.strptime(date, "%Y-%m-%d"); display_date = f"{date} ({dt.strftime('%a')})"
             except (ValueError, TypeError): display_date = date
             date_node = self.match_tree.insert("", "end", text=display_date, open=True)
-            sorted_matches = sorted(matches_by_date[date], key=lambda m: m.get("time", ""))
-            for match in sorted_matches:
+            for match in sorted(matches_by_date[date], key=lambda m: m.get("time", "")):
                 home_name = self.get_team_name(match.get("home_team_id")) or "?"; away_name = self.get_team_name(match.get("away_team_id")) or "?"
                 match_text = f"ID:{match.get('match_id')} - {reshape_arabic(home_name)} vs {reshape_arabic(away_name)}"
                 self.match_tree.insert(date_node, "end", text=match_text, values=(match.get('match_id'),))
 
     def collapse_all_dates(self): [self.match_tree.item(c, open=False) for c in self.match_tree.get_children()]
     def expand_all_dates(self): [self.match_tree.item(c, open=True) for c in self.match_tree.get_children()]
-    def get_match_by_id(self, match_id):
-        for match in self.data.get("matches", []):
-            if str(match.get("match_id")) == str(match_id): return match
-        return None
-    def get_team_name(self, team_id):
-        for name, tid in self.team_map.items():
-            if tid == team_id: return name
-        return None
-
+    def get_match_by_id(self, match_id): return next((m for m in self.data.get("matches", []) if str(m.get("match_id")) == str(match_id)), None)
+    def get_team_name(self, team_id): return next((name for name, tid in self.team_map.items() if tid == team_id), None)
+    
     def on_match_select(self, event):
         selection = self.match_tree.selection()
-        if not selection: return
-        item = self.match_tree.item(selection[0])
-        if not item['values']: return
+        if not selection or not self.match_tree.item(selection[0])['values']: return
         if not self._check_unsaved_changes(): return
-        match = self.get_match_by_id(item['values'][0])
+        match = self.get_match_by_id(self.match_tree.item(selection[0])['values'][0])
         if match: self.current_match = match; self.populate_form(match)
 
     def populate_form(self, match):
@@ -270,28 +227,23 @@ class MatchEditorTab(ttk.Frame):
                 try: widget.set_date(value)
                 except: widget.set_date(datetime.now())
             elif field in ("home_team_id", "away_team_id"):
-                name = self.get_team_name(value) or ""
-                widget.set(reshape_arabic(name))  # Display reshaped
+                widget.set(reshape_arabic(self.get_team_name(value) or ""))
             elif field == "venue":
-                widget.set(reshape_arabic(str(value)) if value else "") # Display reshaped
+                widget.set(reshape_arabic(str(value) if value else ""))
             elif isinstance(widget, ArrayFieldEditor):
-                widget.set_value(value if value else []) # Use raw logical text
+                widget.set_value(value or [])
             elif isinstance(widget, ttk.Combobox):
                 widget.set(str(value) if value is not None else "")
             else: # Entry widget
                 widget.delete(0, tk.END)
-                val = str(value) if value is not None else ""
-                widget.insert(0, val) # Use raw logical text
+                widget.insert(0, str(value) if value is not None else "")
         self.is_dirty = False
 
     def new_match(self):
         if not self._check_unsaved_changes(): return
         existing_ids = [int(str(m.get("match_id","m0"))[1:]) for m in self.data.get("matches",[]) if str(m.get("match_id","m0")).startswith("m") and str(m.get("match_id","m0"))[1:].isdigit()]
-        new_id_num = max(existing_ids) + 1 if existing_ids else 1
-        new_id = f"m{new_id_num:03d}"
+        new_id = f"m{(max(existing_ids) + 1 if existing_ids else 1):03d}"
         new_match = {"match_id": new_id, "date": datetime.now().strftime("%Y-%m-%d"), "status": "upcoming"}
-        for key in self.widgets.keys():
-            if key not in new_match: new_match[key] = None
         self.current_match = new_match; self.populate_form(new_match); self.is_dirty = True
 
     def duplicate_match(self):
@@ -299,64 +251,53 @@ class MatchEditorTab(ttk.Frame):
         if not self._check_unsaved_changes(): return
         dup = copy.deepcopy(self.current_match)
         existing_ids = [int(str(m.get("match_id","m0"))[1:]) for m in self.data.get("matches",[]) if str(m.get("match_id","m0")).startswith("m") and str(m.get("match_id","m0"))[1:].isdigit()]
-        new_id_num = max(existing_ids) + 1 if existing_ids else 1
-        dup['match_id'] = f"m{new_id_num:03d}"
+        dup['match_id'] = f"m{(max(existing_ids) + 1 if existing_ids else 1):03d}"
         self.current_match = dup; self.populate_form(dup); self.is_dirty = True
         messagebox.showinfo("Duplicated", f"Match duplicated with new ID: {dup['match_id']}")
 
     def save_current_match(self):
         if not self.current_match: return messagebox.showwarning("Warning", "No match selected.")
-        updated = {}; team_name_reverse_map = create_reverse_map(self.team_map.keys())
-        venue_name_reverse_map = create_reverse_map(self.venue_list)
+        updated = {}; team_name_reverse_map = create_reverse_map(self.team_map.keys()); venue_name_reverse_map = create_reverse_map(self.venue_list)
         for field, widget in self.widgets.items():
             value = None
             if isinstance(widget, DateEntry): value = widget.get_date().strftime("%Y-%m-%d")
             elif field in ("home_team_id", "away_team_id"):
-                display_name = widget.get()
-                original_name = team_name_reverse_map.get(display_name, display_name)
+                original_name = team_name_reverse_map.get(widget.get(), widget.get())
                 value = self.team_map.get(original_name, "")
             elif isinstance(widget, ArrayFieldEditor): value = widget.get_value()
-            elif isinstance(widget, ttk.Combobox):
-                value = widget.get().strip()
-                if field == "venue":
-                    original_venue = venue_name_reverse_map.get(value, value)
-                    if original_venue and original_venue not in self.venue_list:
-                        self.venue_list.append(original_venue); self.data["venues"] = sorted(self.venue_list)
-                        self.widgets["venue"].update_values([reshape_arabic(v) for v in self.venue_list])
-                    value = original_venue
+            elif field == "venue":
+                original_venue = venue_name_reverse_map.get(widget.get().strip(), widget.get().strip())
+                if original_venue and original_venue not in self.venue_list:
+                    self.venue_list.append(original_venue); self.data["venues"] = sorted(self.venue_list)
+                    self.widgets["venue"].update_values([reshape_arabic(v) for v in self.venue_list])
+                value = original_venue
             else: value = widget.get().strip()
             if field in ("home_score", "away_score"): value = int(value) if value.isdigit() else None
             elif not value: value = None
             updated[field] = value
         updated["match_id"] = str(self.widgets["match_id"].get().strip() or self.current_match.get("match_id"))
         matches = self.data.get("matches", []); original_id = self.current_match.get("match_id")
-        found = any(str(m.get("match_id")) == str(original_id) for m in matches)
-        if found:
-            for i, m in enumerate(matches):
-                if str(m.get("match_id")) == str(original_id): matches[i] = updated; break
+        found_index = next((i for i, m in enumerate(matches) if str(m.get("match_id")) == str(original_id)), -1)
+        if found_index != -1: matches[found_index] = updated
         else: matches.append(updated)
-        self.data["matches"] = matches; self.current_match = updated
-        self.refresh_match_tree(); self.save_callback(); self.is_dirty = False
-        messagebox.showinfo("Success", f"Match '{updated['match_id']}' saved.")
+        self.data["matches"] = matches; self.current_match = updated; self.refresh_match_tree()
+        self.save_callback(); self.is_dirty = False; messagebox.showinfo("Success", f"Match '{updated['match_id']}' saved.")
 
     def delete_match(self):
         if not self.current_match: return
         mid = self.current_match.get("match_id")
         if messagebox.askyesno("Confirm Deletion", f"Delete match '{mid}'?"):
             self.data["matches"] = [m for m in self.data["matches"] if str(m.get("match_id")) != str(mid)]
-            self.current_match = None; self.populate_form({})
-            self.refresh_match_tree(); self.save_callback(); self.is_dirty = False
-            messagebox.showinfo("Deleted", f"Match '{mid}' removed.")
+            self.current_match = None; self.populate_form({}); self.refresh_match_tree()
+            self.save_callback(); self.is_dirty = False; messagebox.showinfo("Deleted", f"Match '{mid}' removed.")
 
 # ---------------------- Team Editor Tab ----------------------
 class TeamEditorTab(ttk.Frame):
     def __init__(self, parent, data, save_callback, refresh_all_ui_callback, icons={}):
-        super().__init__(parent)
-        self.data = data; self.save_callback = save_callback
+        super().__init__(parent); self.data = data; self.save_callback = save_callback
         self.refresh_all_ui_callback = refresh_all_ui_callback; self.icons = icons
         self.current_team = None; self.is_dirty = False
-        self.pack(fill=tk.BOTH, expand=True)
-        self.create_widgets(); self.refresh_team_list()
+        self.pack(fill=tk.BOTH, expand=True); self.create_widgets(); self.refresh_team_list()
 
     def _mark_dirty(self, event=None): self.is_dirty = True
 
@@ -364,18 +305,15 @@ class TeamEditorTab(ttk.Frame):
         if not self.is_dirty: return True
         response = messagebox.askyesnocancel("Unsaved Changes", "Save team?")
         if response is True:
-            self.save_current_team()
-            return not self.is_dirty
+            self.save_current_team(); return not self.is_dirty
         return response is not None
 
     def create_widgets(self):
-        self.columnconfigure(0, weight=1); self.rowconfigure(1, weight=1)
-        self.rowconfigure(0, weight=0, minsize=180)
+        self.columnconfigure(0, weight=1); self.rowconfigure(1, weight=1); self.rowconfigure(0, weight=0, minsize=180)
         top_frame = ttk.Frame(self); top_frame.grid(row=0, column=0, sticky="nsew", padx=5, pady=3)
         top_frame.columnconfigure(0, weight=1); top_frame.rowconfigure(1, weight=1)
         btn_frame = ttk.Frame(top_frame); btn_frame.grid(row=0, column=0, sticky="ew")
-        btn_configs = [("New", self.new_team, 'new'), ("Dup", self.duplicate_team, 'duplicate'), ("Del", self.delete_team, 'delete')]
-        for i, (text, cmd, icon) in enumerate(btn_configs):
+        for i, (text, cmd, icon) in enumerate([("New", self.new_team, 'new'), ("Dup", self.duplicate_team, 'duplicate'), ("Del", self.delete_team, 'delete')]):
             btn_frame.columnconfigure(i, weight=1)
             ttk.Button(btn_frame, text=text, image=self.icons.get(icon), compound=tk.LEFT, command=cmd).grid(row=0, column=i, sticky="ew", padx=2)
         list_container = ttk.Frame(top_frame); list_container.grid(row=1, column=0, sticky="nsew", pady=2)
@@ -386,24 +324,18 @@ class TeamEditorTab(ttk.Frame):
         vsb.grid(row=0, column=1, sticky="ns"); self.team_listbox.bind("<<ListboxSelect>>", self.on_team_select)
         bottom_frame = ttk.Frame(self); bottom_frame.grid(row=1, column=0, sticky="nsew", padx=5, pady=3)
         bottom_frame.columnconfigure(0, weight=1); bottom_frame.rowconfigure(0, weight=1)
-        canvas = tk.Canvas(bottom_frame, highlightthickness=0)
-        v_scrollbar = ttk.Scrollbar(bottom_frame, orient="vertical", command=canvas.yview)
-        canvas.configure(yscrollcommand=v_scrollbar.set); canvas.grid(row=0, column=0, sticky="nsew")
-        v_scrollbar.grid(row=0, column=1, sticky="ns"); scrollable_frame = ttk.Frame(canvas)
-        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas = tk.Canvas(bottom_frame, highlightthickness=0); v_scrollbar = ttk.Scrollbar(bottom_frame, orient="vertical", command=canvas.yview)
+        canvas.configure(yscrollcommand=v_scrollbar.set); canvas.grid(row=0, column=0, sticky="nsew"); v_scrollbar.grid(row=0, column=1, sticky="ns")
+        scrollable_frame = ttk.Frame(canvas); canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units"))
         self.widgets = {}; row = 0
-        fields = [("team_id", "ID:"), ("name", "Name:"), ("group", "Grp:"), ("logo", "Logo:"),
-                  ("field", "Field:"), ("fieldurl", "Field URL:"), ("city", "City:"),
-                  ("information", "Info:"), ("point_deduction", "Pts Ded:")]
-        for field, label in fields:
-            frm = ttk.Frame(scrollable_frame); frm.grid(row=row, column=0, sticky="ew", pady=2)
-            frm.columnconfigure(1, weight=1)
+        for field, label in [("team_id", "ID:"), ("name", "Name:"), ("group", "Grp:"), ("logo", "Logo:"), ("field", "Field:"), ("fieldurl", "Field URL:"), ("city", "City:"), ("information", "Info:"), ("point_deduction", "Pts Ded:")]:
+            frm = ttk.Frame(scrollable_frame); frm.grid(row=row, column=0, sticky="ew", pady=2); frm.columnconfigure(1, weight=1)
             ttk.Label(frm, text=label, width=9, anchor="e").grid(row=0, column=0, padx=2)
-            if field == "information": w = tk.Text(frm, width=30, height=3, relief="flat"); w.bind("<KeyRelease>", self._mark_dirty)
-            else: w = ttk.Entry(frm, width=25); w.bind("<KeyRelease>", self._mark_dirty)
-            w.grid(row=0, column=1, sticky="ew", padx=2); self.widgets[field] = w; row += 1
+            if field == "information": w = tk.Text(frm, width=30, height=3, relief="flat")
+            else: w = ttk.Entry(frm, width=25)
+            w.bind("<KeyRelease>", self._mark_dirty); w.grid(row=0, column=1, sticky="ew", padx=2); self.widgets[field] = w; row += 1
         ttk.Label(scrollable_frame, text="Squad:", font=("Segoe UI", 8, "bold")).grid(row=row, column=0, sticky="w", pady=(5,0)); row += 1
         self.players_editor = DictFieldEditor(scrollable_frame, "players", dirty_callback=self._mark_dirty)
         self.players_editor.grid(row=row, column=0, sticky="ew", pady=2); row += 1
@@ -420,22 +352,20 @@ class TeamEditorTab(ttk.Frame):
                 self.team_listbox.selection_set(i); self.team_listbox.activate(i); self.team_listbox.see(i)
 
     def on_team_select(self, event):
-        sel = self.team_listbox.curselection();
-        if not sel: return
-        if not self._check_unsaved_changes(): return
-        self.current_team = self.sorted_teams[sel[0]]
-        self.populate_form(self.current_team)
+        sel = self.team_listbox.curselection()
+        if not sel or not self._check_unsaved_changes(): return
+        self.current_team = self.sorted_teams[sel[0]]; self.populate_form(self.current_team)
 
     def populate_form(self, team):
         for field, widget in self.widgets.items():
             value = team.get(field, "")
             if isinstance(widget, tk.Text):
                 widget.delete(1.0, tk.END)
-                if value: widget.insert(1.0, str(value)) # Use raw logical text
+                if value: widget.insert(1.0, str(value))
             else:
                 widget.delete(0, tk.END)
-                if value is not None: widget.insert(0, str(value)) # Use raw logical text
-        self.players_editor.set_value(team.get("players", {})) # Use raw logical text
+                if value is not None: widget.insert(0, str(value))
+        self.players_editor.set_value(team.get("players", {}))
         self.is_dirty = False
 
     def new_team(self):
@@ -446,27 +376,23 @@ class TeamEditorTab(ttk.Frame):
     def duplicate_team(self):
         if not self.current_team: return messagebox.showwarning("Warning", "Select a team to duplicate.")
         if not self._check_unsaved_changes(): return
-        dup = copy.deepcopy(self.current_team); dup['team_id'] = ""
-        dup['name'] = f"{dup.get('name', '')} (Copy)"; self.current_team = dup
-        self.populate_form(dup); self.is_dirty = True
+        dup = copy.deepcopy(self.current_team); dup['team_id'] = ""; dup['name'] = f"{dup.get('name', '')} (Copy)"
+        self.current_team = dup; self.populate_form(dup); self.is_dirty = True
         messagebox.showinfo("Duplicated", "Team duplicated. Set a new ID.")
 
     def save_current_team(self):
         if not self.current_team: return messagebox.showwarning("Warning", "No team loaded.")
         updated = {}
         for field, widget in self.widgets.items():
-            if isinstance(widget, tk.Text): value = widget.get(1.0, tk.END).strip()
-            else: value = widget.get().strip()
+            value = widget.get(1.0, tk.END).strip() if isinstance(widget, tk.Text) else widget.get().strip()
             if field == "point_deduction": value = int(value) if value.isdigit() else None
             elif not value: value = None
             updated[field] = value
         updated["players"] = self.players_editor.get_value()
         if not updated.get("team_id"): return messagebox.showerror("Error", "Team ID is required.")
         teams = self.data.get("teams", []); orig_id = self.current_team.get("team_id")
-        found = any(t.get("team_id") == orig_id for t in teams if orig_id)
-        if found:
-            for i, t in enumerate(teams):
-                if t.get("team_id") == orig_id: teams[i] = updated; break
+        found_index = next((i for i, t in enumerate(teams) if t.get("team_id") == orig_id), -1) if orig_id else -1
+        if found_index != -1: teams[found_index] = updated
         else:
             if any(t.get("team_id") == updated["team_id"] for t in teams):
                 return messagebox.showerror("Error", f"Team ID '{updated['team_id']}' already exists.")
@@ -504,7 +430,8 @@ class MainApp:
         self.style.configure('.', background="#f0f0f0", font=default_font)
         self.style.configure('TLabel', padding=2); self.style.configure('TButton', padding=4)
         self.style.configure('TEntry', padding=2, font=text_font); self.style.configure('TCombobox', padding=2, font=text_font)
-        self.style.configure("Treeview", rowheight=25, font=("DejaVu Sans", 8))
+        # --- THIS IS THE FIX ---
+        self.style.configure("Treeview", rowheight=35, font=("DejaVu Sans", 9))
         self.style.configure("Treeview.Heading", font=("Segoe UI", 9, "bold"))
         self.style.map('TCombobox', fieldbackground=[('readonly','white')])
 
@@ -513,8 +440,7 @@ class MainApp:
         script_dir = os.path.dirname(os.path.abspath(__file__)); icon_dir = os.path.join(script_dir, 'icons')
         for name in icon_names:
             try:
-                path = os.path.join(icon_dir, f'{name}.png')
-                img = Image.open(path).resize((16, 16), Image.Resampling.LANCZOS)
+                img = Image.open(os.path.join(icon_dir, f'{name}.png')).resize((16, 16), Image.Resampling.LANCZOS)
                 self.icons[name] = ImageTk.PhotoImage(img)
             except Exception as e: print(f"Could not load icon: {name}.png ({e})")
 
@@ -538,8 +464,7 @@ class MainApp:
                 if key not in self.data: self.data[key] = []
             return True
         except Exception as e:
-            messagebox.showerror("File Load Error", f"Failed to load or parse JSON file:\n{e}")
-            return False
+            messagebox.showerror("File Load Error", f"Failed to load or parse JSON file:\n{e}"); return False
 
     def rebuild_ui(self):
         for tab in self.notebook.tabs(): self.notebook.forget(tab)
@@ -564,8 +489,7 @@ class MainApp:
             self.match_tab.widgets["home_team_id"].update_values(reshaped_teams)
             self.match_tab.widgets["away_team_id"].update_values(reshaped_teams)
             self.match_tab.venue_list = self.venue_list
-            reshaped_venues = [reshape_arabic(v) for v in self.venue_list]
-            self.match_tab.widgets["venue"].update_values(reshaped_venues)
+            self.match_tab.widgets["venue"].update_values([reshape_arabic(v) for v in self.venue_list])
             self.match_tab.refresh_match_tree()
 
     def save_to_file(self):
