@@ -4314,7 +4314,10 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "يوسف محمد",
+        "احمد اوشه"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -4842,14 +4845,20 @@
     },
     {
       "team_id": "gct008",
-      "group": "3",
       "name": "الداخلية",
+      "group": "3",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": "رئيس قطاع الناشئين ك / هيثم جبريل\nمدير اداري ك / ضياء قطب\nمدير شئون اللاعبين ك / محمد مجدي",
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / اشرف عراقي",
+          "مدرب ك / محمود حسنين",
+          "مدرب حراس ك / مصطفي احمد"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
