@@ -32,12 +32,12 @@
       "date": "2026-04-25",
       "time": "16:00",
       "venue": "المنيا طه حسين",
-      "status": "upcoming",
+      "status": "completed",
       "stage": "knockout",
       "note": null,
       "home_team_id": "t003",
       "away_team_id": "t004",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "home_squade": null,
       "away_squade": null,
@@ -237,35 +237,27 @@
     },
     {
       "team_id": "t003",
-      "group": null,
       "name": "المنيا\nبطل شمال الصعيد",
-      "logo": null,
+      "group": null,
+      "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1777132997/327166785_1225002601725145_3047767820591409899_n.jpg_rf2r9w.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "information": null,
+      "point_deduction": null,
+      "players": null
     },
     {
       "team_id": "t004",
-      "group": null,
       "name": "انبي\nبطل القاهرة الكبري",
-      "logo": null,
+      "group": null,
+      "logo": "https://ia601009.us.archive.org/28/items/20251226_20251226_0933/%D8%A7%D9%86%D8%A8%D9%8A.png",
       "field": null,
       "fieldurl": null,
       "city": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "information": null,
+      "point_deduction": null,
+      "players": null
     },
     {
       "team_id": "t005",
@@ -317,29 +309,25 @@
     },
     {
       "team_id": "t008",
-      "group": null,
       "name": "سموحة\nبطل غرب الدلتا",
-      "logo": null,
+      "group": null,
+      "logo": "https://ia601009.us.archive.org/19/items/20251226_20251226_1149/%D8%B3%D9%85%D9%88%D8%AD%D8%A9.png",
       "field": null,
       "fieldurl": null,
       "city": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "information": null,
+      "point_deduction": null,
+      "players": null
     }
   ],
   "venues": [
-    "السد بأسوان",
     "اسمنت اسيوط",
+    "السد بأسوان",
     "المنيا طه حسين",
     "انبي الكيلو 17",
     "بروسيا بالعاشر من رمضان",
-    "مركز شباب المثلث",
+    "سموحة",
     "فرعي غزل شبين",
-    "سموحة"
+    "مركز شباب المثلث"
   ]
 }
