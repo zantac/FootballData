@@ -245,9 +245,20 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-      "information": null,
+      "information": "رئيس قطاع الناشئين د / يحيي كامل\nمدير اداري ك / محمد ابو العلا\nمدير مالي  ك / ناصر اديب",
       "point_deduction": null,
-      "players": null
+      "players": {
+        "coach": [
+          "المدير الفني ك / اشرف عبد الحميد",
+          "مدرب حراس ك / محمد ربيع",
+          "مخطط احمال ك / عصام طلعت",
+          "تأهيل اصابات د / محمد الفارس"
+        ],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
     },
     {
       "team_id": "t004",
