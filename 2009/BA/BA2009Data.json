@@ -3403,18 +3403,20 @@
       "week": "21",
       "date": "2026-03-28",
       "time": "14:30",
-      "home_team_id": "t007",
-      "away_team_id": "t003",
       "venue": "المحروسة بالعباسية",
       "status": "completed",
       "stage": "",
       "note": null,
+      "home_team_id": "t007",
+      "away_team_id": "t003",
       "home_score": 1,
       "away_score": 2,
       "home_squade": null,
       "away_squade": null,
       "home_scorers": [
-        "زياد ايهاب"
+        "زياد ايهاب",
+        "صناعة الاهداف",
+        "ياسين ابو سريع"
       ],
       "away_scorers": [
         "يوسف جمعة",
