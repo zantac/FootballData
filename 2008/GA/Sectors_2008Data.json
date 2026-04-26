@@ -68,7 +68,11 @@
       "away_score": 0,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "طارق محمود (2)",
+        "محمد سامي (2)",
+        "كريم سعد"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
@@ -276,14 +280,20 @@
     },
     {
       "team_id": "t005",
-      "group": null,
       "name": "بروسيا\nبطل شرق الدلتا",
+      "group": null,
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1777146237/474630427_917446233911702_1653504125009977975_n.jpg_bidz1n.jpg",
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / حسام جمال",
+          "مدرب حراس ك / محمود وحيد",
+          "اداري ك / احمد ماهر"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
