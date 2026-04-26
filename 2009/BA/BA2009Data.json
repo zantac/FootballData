@@ -4228,7 +4228,10 @@
       "away_score": 0,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "مروان عبد العزيز",
+        "احمد عبد الوهاب"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
