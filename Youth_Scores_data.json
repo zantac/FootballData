@@ -77,7 +77,7 @@
                       "age": "2005",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@a463d251862e536435a316220f00c90730868bbc/2005/BB/BB2005Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@63e3dfb26b73a0e16a61122725d8fb9cc6f09ab6/2005/BB/BB2005Cairo1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@5f662a76724b3c37fe6d5cda066bf7a748683a30/2005/BB/BB2005Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7f192200944973108277c3156034e9f76f6abad3/2005/BB/BB2005UpperEgyptData.json"
                         ],
@@ -96,7 +96,7 @@
                       "matchesurl": 
                         [
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@5cc754e80e3225168d44ccc8ceb1e563058360af/2007/BB/BB2007Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@ca522710d7258fa6c286ccf7724c5a9d3ce2157c/2007/BB/BB2007Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@4737739d16d48ea04bb50ebff6e9030c27aa8da1/2007/BB/BB2007Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@b0fdf5e635566215c584b3bf61c1c977fa8ed4ee/2007/BB/BB2007UpperEgyptData.json"
                         ],
                       "sector": {
@@ -113,8 +113,8 @@
                       "age": "2009",
                       "matchesurl": 
                         [
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@89f7e9b3d6f4fc2296ca6b94c942636a0a435843/2009/BB/BB2009Cairo1Data.json",
-                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@083d5c8e1f82ae2ecc9d5f96f9f7e1723f41d51e/2009/BB/BB2009Delta1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@f8b3956e3d70326bced715ba9ceb40d1fd405e7e/2009/BB/BB2009Cairo1Data.json",
+                         "https://cdn.jsdelivr.net/gh/zantac/FootballData@0b0a3129a046896c8427e267f36e6a71d9a0813a/2009/BB/BB2009Delta1Data.json",
                          "https://cdn.jsdelivr.net/gh/zantac/FootballData@7de5b75d6b697f377e53b664f926ef8b4ed8202c/2009/BB/BB2009UpperEgyptData.json"
                         ],
                      "sector": {
@@ -162,17 +162,17 @@
                      },
                      {
                       "age": "2009",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@e8aa7d7d88bbb9d0d0658450aad9c0b6b03682dd/2009/GA/Sectors_2009Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@ef10c27255ed5b3875ac37c3adf9ea0d24507323/2009/GA/Sectors_2009Data.json",
                       "sector": null
                      },
                      {
                       "age": "2010",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@cbfebe4133f54f26bfc598458751457befacde3f/2010/GA/Sectors_2010Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@83b567e5e12322fe9e9cc7f2e43e20ab024d8ec9/2010/GA/Sectors_2010Data.json",
                       "sector": null
                      },
                      {
                       "age": "2011",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@f5e00ecf8bce86f45a060cf8b13568f6c6c1cb8c/2011/GA/Sectors_2011Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@adb19afefda2f38911c6c25fa1d0d6ef80b6f6c5/2011/GA/Sectors_2011Data.json",
                       "sector": null
                      }
                     ]
@@ -586,6 +586,11 @@
   "date": "2026-04-29",
   "title": "اختبارات نادي جي",
   "details": "حان وقت الإختبارات ✔️\n‎اليكم جدول اختبارات ناشئين نادي چي لكرة القدم ⚫️\n‎فئات عمرية : 2007-2009- 2011- 2012-2013 \n‎سجل بياناتك من خلال اللينك ⬇️ : \nhttps://docs.google.com/forms/d/e/1FAIpQLScOP2qhmI4djPk3noWzZ6IYtjLcsHCFnYRVslEGo_S3FEMupA/viewform\nيوم السبت\n9 مايو\n16 مايو\n23 مايو"
+},
+{
+  "date": "2026-05-02",
+  "title": "اختبارات نادي نرهادو",
+  "details": "يعلن نادي نرهادو \nعن اختبارات لفرق قطاع الناشئين (2007/2008) - (2009) - (2010)\nتقام الاختبارات على ملعب نرهادو \\\"العربي\\\" بجوار ملعب إيجلز (الشيخ زايد)\nاللوكيشن: ملعب العربي\n https://maps.app.goo.gl/3GmsMqVqm6oEDhYw7\nتبدأ فترة الاختبارات من يوم 2 مايو وتستمر إلى 30 مايو من عام 2026.\nإليكم المواعيد التفصيلية للاختبارات:\nمواليد 2007/2008 (السبت والأربعاء من الساعة 5 إلى7 مساء)\nمواليد 2009 (السبت والاثنين من الساعة 3 إلى 5 مساء)\nمواليد 2010 (السبت والاثنين من الساعة 5 إلى7 مساء) \nملاحظة: جميع الاختبارات تتوقف مؤقتاً خلال فترة أجازة عيد الأضحى المبارك\nللاستفسار تواصل مع كابتن محي برسالة على رقم: 01093068918 \n"
 }
     
   ],
