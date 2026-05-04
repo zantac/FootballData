@@ -3327,7 +3327,9 @@
       "away_score": 4,
       "home_squade": null,
       "away_squade": null,
-      "home_scorers": null,
+      "home_scorers": [
+        "ياسين عمرو (2)"
+      ],
       "away_scorers": null,
       "home_yc": null,
       "away_yc": null,
