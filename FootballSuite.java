@@ -44,6 +44,12 @@ import android.content.ContentResolver;
 import android.webkit.MimeTypeMap;
 import android.util.Log;
 import android.os.Environment;
+import android.text.util.Linkify;
+import android.text.style.URLSpan;
+import android.text.method.LinkMovementMethod;
+import android.graphics.PixelFormat;
+import android.graphics.Paint;
+import android.graphics.Canvas;
 
 import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.SimpleEvent;
@@ -5511,118 +5517,147 @@ private View createMatchDetailHeaderView(JSONObject match, JSONArray teams, fina
         }
     }
 
-    private View createNewsCardView(JSONObject newsItem, String lang) throws JSONException {
-    boolean isRTL = "ar".equalsIgnoreCase(lang);
-    LinearLayout card = new LinearLayout(context);
-    
-    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
-    params.setMargins(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
-    card.setLayoutParams(params);
-    card.setOrientation(LinearLayout.VERTICAL);
-    card.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
-    
-    if (Build.VERSION.SDK_INT >= 17) {
-        card.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
-    }
-
-    GradientDrawable bg = new GradientDrawable();
-    bg.setColor(this.cardBackgroundColor);
-    bg.setCornerRadius(dpToPx(8));
-    bg.setStroke(dpToPx(1), this.dividerColor);
-    if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
-    else card.setBackgroundDrawable(bg);
-    if (Build.VERSION.SDK_INT >= 21) card.setElevation(dpToPx(2));
-
-    // Image Handling - Make it clickable
-    String imageUrl = newsItem.optString("image", null);
-    if (isValid(imageUrl)) {
-        ImageView imageView = new ImageView(context);
-        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, 
-            ViewGroup.LayoutParams.WRAP_CONTENT);
-        imageParams.setMargins(0, 0, 0, dpToPx(12));
-        imageView.setLayoutParams(imageParams);
-        imageView.setAdjustViewBounds(true);
-        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        private View createNewsCardView(JSONObject newsItem, String lang) throws JSONException {
+        boolean isRTL = "ar".equalsIgnoreCase(lang);
+        LinearLayout card = new LinearLayout(context);
         
-        // Load image with Picasso
-        Picasso.with(context).load(imageUrl)
-            .error(android.R.drawable.ic_menu_gallery)
-            .into(imageView);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
+        params.setMargins(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+        card.setLayoutParams(params);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
         
-        // Make image clickable
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Fire the event
-                NewsImageClicked(imageUrl);
-                // Show full screen image
-                showFullScreenImageDialog(imageUrl);
+        if (Build.VERSION.SDK_INT >= 17) {
+            card.setLayoutDirection(isRTL ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
+        }
+
+        GradientDrawable bg = new GradientDrawable();
+        bg.setColor(this.cardBackgroundColor);
+        bg.setCornerRadius(dpToPx(8));
+        bg.setStroke(dpToPx(1), this.dividerColor);
+        if (Build.VERSION.SDK_INT >= 16) card.setBackground(bg);
+        else card.setBackgroundDrawable(bg);
+        if (Build.VERSION.SDK_INT >= 21) card.setElevation(dpToPx(2));
+
+        // --- Image Handling ---
+        String imageUrl = newsItem.optString("image", null);
+        if (isValid(imageUrl)) {
+            ImageView imageView = new ImageView(context);
+            LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+            imageParams.setMargins(0, 0, 0, dpToPx(12));
+            imageView.setLayoutParams(imageParams);
+            imageView.setAdjustViewBounds(true);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            
+            // Load image with Picasso
+            Picasso.with(context).load(imageUrl)
+                .error(android.R.drawable.ic_menu_gallery)
+                .into(imageView);
+            
+            // Make image clickable
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Fire event
+                    NewsImageClicked(imageUrl);
+                    // Show full screen image
+                    showFullScreenImageDialog(imageUrl);
+                }
+            });
+            
+            card.addView(imageView);
+        }
+
+        // --- Title ---
+        TextView titleView = new TextView(context);
+        titleView.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 
+                ViewGroup.LayoutParams.WRAP_CONTENT)); 
+        titleView.setText(getLocalizedText(newsItem, "title", lang));
+        titleView.setTextSize(18);
+        titleView.setTypeface(null, Typeface.BOLD);
+        titleView.setTextColor(this.primaryTextColor);
+        titleView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT); 
+        card.addView(titleView);
+
+        // --- Date ---
+        TextView dateView = new TextView(context);
+        dateView.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        dateView.setText(getLocalizedText(newsItem, "date", lang));
+        dateView.setTextSize(12);
+        dateView.setTextColor(this.secondaryTextColor);
+        dateView.setPadding(0, dpToPx(4), 0, dpToPx(8));
+        dateView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+        card.addView(dateView);
+
+        // --- Details (With Links and Copy Feature) ---
+        Object detailsObj = newsItem.opt("details");
+        
+        if (detailsObj instanceof JSONArray) {
+            JSONArray detailsArray = (JSONArray) detailsObj;
+            for (int i = 0; i < detailsArray.length(); i++) {
+                String paragraph = detailsArray.getString(i);
+                if (!paragraph.isEmpty()) {
+                    TextView detailsView = createSelectableTextViewWithLinks(paragraph.trim());
+                    detailsView.setTextSize(14);
+                    detailsView.setTextColor(this.secondaryTextColor);
+                    detailsView.setLineSpacing(0, 1.4f);
+                    detailsView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
+                    detailsView.setPadding(0, dpToPx(8), 0, dpToPx(4));
+                    card.addView(detailsView);
+                }
             }
-        });
-        
-        card.addView(imageView);
-    }
-
-    LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT, 
-        ViewGroup.LayoutParams.WRAP_CONTENT);
-
-    // Title
-    TextView titleView = new TextView(context);
-    titleView.setLayoutParams(textParams); 
-    titleView.setText(getLocalizedText(newsItem, "title", lang));
-    titleView.setTextSize(18);
-    titleView.setTypeface(null, Typeface.BOLD);
-    titleView.setTextColor(this.primaryTextColor);
-    titleView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT); 
-    card.addView(titleView);
-
-    // Date
-    TextView dateView = new TextView(context);
-    dateView.setLayoutParams(textParams);
-    dateView.setText(getLocalizedText(newsItem, "date", lang));
-    dateView.setTextSize(12);
-    dateView.setTextColor(this.secondaryTextColor);
-    dateView.setPadding(0, dpToPx(4), 0, dpToPx(8));
-    dateView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
-    card.addView(dateView);
-
-    // Details - Handle both String and Array formats
-    Object detailsObj = newsItem.opt("details");
-    
-    if (detailsObj instanceof JSONArray) {
-        JSONArray detailsArray = (JSONArray) detailsObj;
-        for (int i = 0; i < detailsArray.length(); i++) {
-            String paragraph = detailsArray.getString(i);
-            if (!paragraph.isEmpty()) {
-                TextView detailsView = new TextView(context);
-                detailsView.setLayoutParams(textParams);
-                detailsView.setText(paragraph.trim());
+        } else {
+            String details = getLocalizedText(newsItem, "details", lang).trim();
+            if (!details.isEmpty()) {
+                TextView detailsView = createSelectableTextViewWithLinks(details);
                 detailsView.setTextSize(14);
                 detailsView.setTextColor(this.secondaryTextColor);
-                detailsView.setLineSpacing(0, 1.4f);
+                detailsView.setLineSpacing(0, 1.2f);
                 detailsView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
-                detailsView.setPadding(0, dpToPx(8), 0, dpToPx(4));
                 card.addView(detailsView);
             }
         }
-    } else {
-        String details = getLocalizedText(newsItem, "details", lang).trim();
-        if (!details.isEmpty()) {
-            TextView detailsView = new TextView(context);
-            detailsView.setLayoutParams(textParams);
-            detailsView.setText(details);
-            detailsView.setTextSize(14);
-            detailsView.setTextColor(this.secondaryTextColor);
-            detailsView.setLineSpacing(0, 1.2f);
-            detailsView.setGravity(isRTL ? Gravity.RIGHT : Gravity.LEFT);
-            card.addView(detailsView);
-        }
+
+        return card;
     }
 
-    return card;
-}
+        /**
+     * ✅ NEW HELPER METHOD
+     * Creates a TextView that is selectable (copyable) and automatically detects links.
+     */
+    private TextView createSelectableTextViewWithLinks(String text) {
+        TextView tv = new TextView(context);
+        
+        // 1. Enable Selection (Long press to copy)
+        tv.setTextIsSelectable(true);
+        
+        // 2. Set Text
+        tv.setText(text);
+        
+        // 3. Enable Link Movement (Clicking links opens browser)
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+        
+        // 4. Auto-find web links and make them clickable
+        tv.setLinksClickable(true);
+        Linkify.addLinks(tv, Linkify.WEB_URLS);
+        
+        // 5. Set a visual color for links (Blue) to indicate they are clickable
+        tv.setLinkTextColor(Color.BLUE);
+        
+        // 6. Styling
+        tv.setTextSize(14);
+        tv.setTextColor(this.secondaryTextColor);
+        // Ensure text wrapping works correctly
+        tv.setHorizontallyScrolling(false);
+        tv.setMaxWidth(Integer.MAX_VALUE); // Allow full width
+
+        return tv;
+    }
 
     private java.util.Map<String, List<JSONObject>> smartGroupCompletedMatches(JSONArray allMatches, JSONArray allTeams) throws JSONException {
         java.util.Map<String, List<JSONObject>> matchesByBucket = new HashMap<>();
@@ -6085,5 +6120,76 @@ if (jsonData.has("matches")) {
             tv.setTypeface(null, Typeface.BOLD);
         }
         return tv;
+    }
+        // ==========================================
+    // ==========================================
+    // WATERMARK IMPLEMENTATION
+    // ==========================================
+    
+    private View watermarkView;
+    private WindowManager wm;
+
+    @SimpleFunction(description = "Starts the watermark protection overlay.")
+    public void StartWatermark() {
+        if (watermarkView != null) return; // Already running
+
+        wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        
+        // Create a View that draws the text
+        watermarkView = new View(context) {
+            Paint paint = new Paint();
+            
+            @Override
+            protected void onDraw(Canvas canvas) {
+                super.onDraw(canvas);
+                
+                // Paint settings
+                paint.setColor(Color.WHITE);
+                paint.setAlpha(200); // Slight transparency
+                paint.setTextSize(40); // Text size
+                paint.setAntiAlias(true); // Smooth edges
+                paint.setFakeBoldText(true); // Bold text
+                paint.setTextAlign(Paint.Align.CENTER); // Center alignment
+                paint.setShadowLayer(10, 10, 10, Color.BLACK); // Drop shadow
+
+                // Draw text at center
+                String text = "youthscores.org";
+                float textWidth = paint.measureText(text);
+                float x = (canvas.getWidth() - textWidth) / 2;
+                float y = canvas.getHeight() / 2;
+                
+                canvas.drawText(text, x, y, paint);
+            }
+        };
+
+        // Layout Params to overlay everything
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY, 
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | 
+            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | 
+            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+            PixelFormat.TRANSLUCENT
+        );
+
+        try {
+            wm.addView(watermarkView, params);
+        } catch (Exception e) {
+            // Permission might be denied
+            android.util.Log.e("Watermark", "Failed to add view", e);
+        }
+    }
+
+    @SimpleFunction(description = "Stops the watermark protection overlay.")
+    public void StopWatermark() {
+        if (watermarkView != null && wm != null) {
+            try {
+                wm.removeView(watermarkView);
+            } catch (Exception e) {
+                // Ignore
+            }
+            watermarkView = null;
+        }
     }
 }
