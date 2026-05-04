@@ -1059,7 +1059,7 @@ public void CreateMatchList(HVArrangement container, final String lang) {
         createTwoColumnDetailView(container, matchId, lang, "yellow_cards", "home_yc", "away_yc"); 
     }
 
-    @SimpleFunction(description = "Creates and displays a scrollable list of news articles with newest first.")
+    @SimpleFunction(description = "Creates and displays a searchable list of news articles with newest first.")
 public void CreateNewsList(HVArrangement container, final String language) {
     if (jsonData == null) return;
     ViewGroup vg = (ViewGroup) container.getView();
@@ -1069,7 +1069,7 @@ public void CreateNewsList(HVArrangement container, final String language) {
         if (newsArray == null || newsArray.length() == 0) return;
         
         // Convert JSONArray to List for sorting
-        List<JSONObject> newsList = new ArrayList<>();
+        final List<JSONObject> newsList = new ArrayList<>();
         for (int i = 0; i < newsArray.length(); i++) {
             newsList.add(newsArray.getJSONObject(i));
         }
@@ -1081,11 +1081,7 @@ public void CreateNewsList(HVArrangement container, final String language) {
                 try {
                     String date1 = o1.optString("date", "0000-00-00");
                     String date2 = o2.optString("date", "0000-00-00");
-                    
-                    // For YYYY-MM-DD format, string comparison works correctly
-                    // because year comes first, then month, then day
                     return date2.compareTo(date1); // Newest first (reverse order)
-                    
                 } catch (Exception e) {
                     return 0;
                 }
@@ -1093,49 +1089,61 @@ public void CreateNewsList(HVArrangement container, final String language) {
         });
         
         final int lastSeenCount = prefs.getInt(LAST_NEWS_COUNT_KEY, 0);
-        int currentCount = newsList.size();
+        final int currentCount = newsList.size();
         
         // Calculate new news count based on sorted order
-        int newCount = 0;
+        final int newCount;
         if (currentCount > lastSeenCount) {
             newCount = currentCount - lastSeenCount;
             String message = "ar".equalsIgnoreCase(language) ? 
                 newCount + " خبر جديد غير مقروء" : 
                 newCount + " new unread news";
             NewNewsFound(newCount, message);
+        } else {
+            newCount = 0;
         }
         
-        final ScrollView sv = new ScrollView(context);
-        LinearLayout ml = new LinearLayout(context);
-        ml.setOrientation(LinearLayout.VERTICAL);
-        ml.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
         
-        // Track the first new item (newest unread)
-        View firstNewItemView = null;
+        EditText searchBar = new EditText(context);
+        searchBar.setHint(getLocalizedText(null, "search", language));
+        searchBar.setTextColor(this.primaryTextColor);
+        searchBar.setHintTextColor(this.secondaryTextColor);
+        LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(-1, -2);
+        searchParams.setMargins(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(8));
+        searchBar.setLayoutParams(searchParams);
+        searchBar.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
         
-        // Add all news in sorted order (newest first)
-        for (int i = 0; i < newsList.size(); i++) {
-            JSONObject newsItem = newsList.get(i);
-            View newsCard = createNewsCardView(newsItem, language);
-            ml.addView(newsCard);
-            
-            // Mark the first new news item (newest unread)
-            if (i < newCount && firstNewItemView == null) {
-                firstNewItemView = newsCard;
+        final LinearLayout newsListContainer = new LinearLayout(context);
+        newsListContainer.setOrientation(LinearLayout.VERTICAL);
+        newsListContainer.setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8));
+        
+        final View[] firstNewItemView = new View[1];
+        buildFilteredNewsList(newsListContainer, newsList, language, "", newCount, firstNewItemView);
+        
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                buildFilteredNewsList(newsListContainer, newsList, language, s.toString(), newCount, null);
             }
-        }
+            @Override public void afterTextChanged(Editable s) {}
+        });
         
-        sv.addView(ml);
-        vg.addView(sv);
+        ScrollView sv = new ScrollView(context);
+        sv.addView(newsListContainer);
         
-        // Scroll to the first new item if exists
-        final View targetView = firstNewItemView;
-        if (targetView != null) {
-            sv.post(new Runnable() { 
-                @Override 
-                public void run() { 
-                    sv.smoothScrollTo(0, targetView.getTop()); 
-                } 
+        mainLayout.addView(searchBar);
+        mainLayout.addView(sv);
+        vg.addView(mainLayout);
+        
+        if (firstNewItemView[0] != null) {
+            final View targetView = firstNewItemView[0];
+            sv.post(new Runnable() {
+                @Override
+                public void run() {
+                    sv.smoothScrollTo(0, targetView.getTop());
+                }
             });
         }
         
@@ -1143,6 +1151,58 @@ public void CreateNewsList(HVArrangement container, final String language) {
         AfterParsingFail("Error creating news list: " + e.getMessage());
     }
 }
+
+    private void buildFilteredNewsList(LinearLayout container, List<JSONObject> newsList, String language, String filter, int newCount, View[] firstNewItemView) {
+        container.removeAllViews();
+        String lowerFilter = filter == null ? "" : filter.toLowerCase().trim();
+        int visibleCount = 0;
+        try {
+            for (int i = 0; i < newsList.size(); i++) {
+                JSONObject newsItem = newsList.get(i);
+                if (!lowerFilter.isEmpty()) {
+                    String title = getLocalizedText(newsItem, "title", language).toLowerCase();
+                    String searchText = buildNewsSearchText(newsItem, language).toLowerCase();
+                    if (!title.contains(lowerFilter) && !searchText.contains(lowerFilter)) {
+                        continue;
+                    }
+                }
+                View newsCard = createNewsCardView(newsItem, language);
+                container.addView(newsCard);
+                if (firstNewItemView != null && lowerFilter.isEmpty() && visibleCount < newCount && firstNewItemView[0] == null) {
+                    firstNewItemView[0] = newsCard;
+                }
+                visibleCount++;
+            }
+            if (visibleCount == 0) {
+                TextView emptyView = new TextView(context);
+                emptyView.setText("ar".equalsIgnoreCase(language) ? "لا توجد أخبار مطابقة" : "No matching news found");
+                emptyView.setTextColor(this.secondaryTextColor);
+                emptyView.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
+                container.addView(emptyView);
+            }
+        } catch (Exception e) {
+            AfterParsingFail("Error filtering news list: " + e.getMessage());
+        }
+    }
+
+    private String buildNewsSearchText(JSONObject newsItem, String language) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getLocalizedText(newsItem, "title", language)).append(" ");
+        builder.append(getLocalizedText(newsItem, "date", language)).append(" ");
+        Object detailsObj = newsItem.opt("details");
+        try {
+            if (detailsObj instanceof JSONArray) {
+                JSONArray detailsArray = (JSONArray) detailsObj;
+                for (int j = 0; j < detailsArray.length(); j++) {
+                    builder.append(detailsArray.optString(j)).append(" ");
+                }
+            } else {
+                builder.append(getLocalizedText(newsItem, "details", language));
+            }
+        } catch (Exception ignored) {
+        }
+        return builder.toString();
+    }
 
     @SimpleFunction(description = "Creates and displays a random ad from the 'Ads' section of the JSON data.")
     public void CreateRandomAd(HVArrangement container, final long timeInMilliseconds) {
