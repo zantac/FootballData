@@ -774,8 +774,7 @@ class MainApp:
         self.setup_styles()
         self.load_icons()
 
-        self.root.bind_class("Entry", "<Control-a>", lambda e: e.widget.select_range(0, "end"))
-        self.root.bind_class("Text", "<Control-a>", lambda e: e.widget.tag_add("sel", "1.0", "end"))
+        self._bind_text_shortcuts()
         
         self.data = None
         self.file_path = None
@@ -822,7 +821,20 @@ class MainApp:
                 self.icons[name] = ImageTk.PhotoImage(image)
             except Exception as e:
                 print(f"Warning: Could not load icon '{icon_path}'. {e}")
-         
+        
+    def _bind_text_shortcuts(self):
+        shortcut_bindings = {
+            '<Control-a>': lambda e: e.widget.select_range(0, 'end') if hasattr(e.widget, 'select_range') else e.widget.tag_add('sel', '1.0', 'end'),
+            '<Control-c>': lambda e: e.widget.event_generate('<<Copy>>'),
+            '<Control-x>': lambda e: e.widget.event_generate('<<Cut>>'),
+            '<Control-v>': lambda e: e.widget.event_generate('<<Paste>>'),
+        }
+
+        widget_classes = ['Entry', 'Text', 'TEntry', 'TCombobox', 'Combobox']
+        for widget_class in widget_classes:
+            for sequence, command in shortcut_bindings.items():
+                self.root.bind_class(widget_class, sequence, command)
+
     def load_initial_file(self):
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
         if not file_path: return False
