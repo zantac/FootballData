@@ -339,17 +339,18 @@
       "date": "2026-05-14",
       "time": "16:30",
       "venue": "الاعلاميين",
-      "status": "upcoming",
+      "status": "completed",
       "stage": "knockout",
       "note": null,
       "home_team_id": "t004",
       "away_team_id": "t008",
-      "home_score": 0,
+      "home_score": 2,
       "away_score": 0,
       "home_squade": null,
       "away_squade": null,
       "home_scorers": [
-        "احمد عبد الباسط"
+        "فارس فخري",
+        "انس رشدي"
       ],
       "away_scorers": null,
       "home_yc": null,
@@ -425,9 +426,26 @@
       "field": null,
       "fieldurl": null,
       "city": null,
-      "information": null,
+      "information": "مدير فني قطاع الناشئين ك / سامي ندا",
       "point_deduction": null,
-      "players": null
+      "players": {
+        "coach": [
+          "المدير الفني ك / معتز حامد",
+          "مدرب ك / نور الدين ناجي",
+          "مدرب حراس ك / خالد فرحات",
+          "مدير اداري ك / هاني عبد الفتاح",
+          "طبيب د / احمد سامح",
+          "علاج طبيعي د / محمود شاهين",
+          "اخصائي تأهيل ك / محمد ضياء الدين",
+          "اخصائي تدليك ك / محمود حسني",
+          "مسئول مهمات ك / محمد سعد",
+          "مسئول مهمات ك / محمد عاطف"
+        ],
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
     },
     {
       "team_id": "t005",
