@@ -1,0 +1,360 @@
+{
+  "matches": null,
+  "teams": [
+    
+    {
+      "team_id": "t001",
+      "group": null,
+      "name": "الزمالك",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
+      "field": null,
+      "fieldurl": null,
+      "city": "الجيزة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t002",
+      "group": null,
+      "name": "بيراميدز",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t003",
+      "group": null,
+      "name": "الاهلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t004",
+      "group": null,
+      "name": "سيراميكا كليوباترا",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50882",
+      "field": null,
+      "fieldurl": null,
+      "city": "السويس",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t005",
+      "group": null,
+      "name": "المصري",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8303",
+      "field": null,
+      "fieldurl": null,
+      "city": "بورسعيد",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t006",
+      "group": null,
+      "name": "انبي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t007",
+      "name": "سموحة",
+      "group": null,
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8309",
+      "field": null,
+      "fieldurl": null,
+      "city": "الاسكندرية",
+      "information": "رئيس قطاع الناشئين ك / حماده البحر",
+      "point_deduction": null,
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t008",
+      "group": null,
+      "name": "وادي دجلة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t009",
+      "group": null,
+      "name": "زد اف سي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/29732",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t010",
+      "group": null,
+      "name": "البنك الاهلي",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50527",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t011",
+      "group": null,
+      "name": "بتروجت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
+      "field": null,
+      "fieldurl": null,
+      "city": "السويس",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t012",
+      "group": null,
+      "name": "الجونة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
+      "field": null,
+      "fieldurl": null,
+      "city": "الغردقة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t013",
+      "group": null,
+      "name": "مودرن سبورت",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t014",
+      "group": null,
+      "name": "طلائع الجيش",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8306",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t015",
+      "group": null,
+      "name": "غزل المحلة",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8610",
+      "field": null,
+      "fieldurl": null,
+      "city": "الغربية",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t016",
+      "group": null,
+      "name": "المقاولون العرب",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
+      "field": null,
+      "fieldurl": null,
+      "city": "القاهرة",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t017",
+      "group": null,
+      "name": "الاتحاد السكندري",
+      "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
+      "field": null,
+      "fieldurl": null,
+      "city": "الاسكندرية",
+      "information": null,
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t018",
+      "group": null,
+      "name": "القناة",
+      "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745823/12252_rudmtc.png",
+      "field": null,
+      "fieldurl": null,
+      "city": "الاسماعيلية",
+      "information": null,
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t019",
+      "group": null,
+      "name": "بترول اسيوط",
+      "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745477/381138136_829473065541495_2622633524029911606_n.jpg_rnlgxi.jpg",
+      "field": null,
+      "fieldurl": null,
+      "city": "اسيوط",
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    },
+    {
+      "team_id": "t020",
+      "name": "ابو قير للاسمدة",
+      "group": null,
+      "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745622/19480_gh9kls.png",
+      "field": null,
+      "fieldurl": null,
+      "city": "الاسكندرية",
+      "information": null,
+      "point_deduction": null,
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
+    }
+  ],
+  "venues": [
+    "افريكانا - برج العرب",
+    "الاتحاد بسموحة",
+    "الامن المركزي - 6 اكتوبر",
+    "الاهلي - مدينة نصر",
+    "الزمالك - ميت عقبة",
+    "المحروسة بالعباسية",
+    "المقاولون العرب",
+    "النادي الاجتماعي رقم 1",
+    "انبي - الكيلو 17",
+    "جولدن جيتس بالمقطم",
+    "حرس الحدود الرئيسي",
+    "دار الوقود",
+    "دايموند بالقطامية",
+    "زد الشيخ زايد",
+    "سموحة",
+    "فرعي الدفاع الجوي رقم 3",
+    "فرعي المقاولون",
+    "فرعي جهاز الرياضة",
+    "فرعي غزل المحلة",
+    "مركز شباب النصر بامبروزو",
+    "مركز شباب زينهم",
+    "ملعب المحروسة",
+    "ملعب دار المدفعية بمدينة نصر",
+    "ملعب نادي دايموند بالقطامية",
+    "نادي الفروسية بمدينة نصر",
+    "وادي دجلة - التجمع الاول"
+  ]
+}
