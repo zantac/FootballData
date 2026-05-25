@@ -291,29 +291,7 @@
                              "ar": "القطاعات",
                              "en":"Sectors"
                             },
-                    "ages": 
-                    [
-                      {
-                     "age": "2007",
-                     "matchesurl": null,
-                     "sector": null
-                     },
-                     {
-                      "age": "2009",
-                      "matchesurl": null,
-                      "sector": null
-                     },
-                     {
-                      "age": "2010",
-                      "matchesurl": null,
-                      "sector": null
-                     },
-                     {
-                      "age": "2011",
-                      "matchesurl": null,
-                      "sector": null
-                     }
-                    ]
+                    "ages": null
                   },
                 {
                     "competition_id": "c010",
@@ -322,29 +300,7 @@
                              "en": "Areas"
                             },
                              
-                    "ages": 
-                   [
-                    {
-                     "age": "2007",
-                     "matchesurl": null,
-                     "sector":null
-                    },
-                    {
-                     "age": "2009",
-                     "matchesurl": null,
-                     "sector":null
-                    },
-                    {
-                     "age": "2010",
-                     "matchesurl": null,
-                     "sector":null
-                    },
-                    {
-                     "age": "2011",
-                     "matchesurl": null,
-                     "sector":null
-                    }
-                   ]
+                    "ages": null
                 },
               {
                     "competition_id": "c011",
