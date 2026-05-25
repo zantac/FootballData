@@ -220,6 +220,141 @@
                     "ages": null
                 }
               ]
+   },
+   {
+      "season": "2026-2027",
+      "competitions": 
+              [
+                  {
+                    "competition_id": "c001",
+                     "name": {
+                              "ar": "دوري الجمهورية القسم الاول",
+                              "en": "National league first division"
+                             },
+                     "ages": 
+                    [
+                     {
+                      "age": "2007",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@ab3d984e06ed7590c273fd988c1a34ab354d86ad/2026/2007/A/A2007Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@7a3928ccd013b8fd4e510fb766dea97e5f738bea/2026/2009/A/A2009Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2010",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@df41a09e43ac885c7355e922b6a36439f79bd4ab/2026/2010/A/A2010Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2251c1dda1777c56dc20ee46948c4353d7fb4ac6/2011/A/A2011Data.json",
+                      "sector": null
+                     }
+                   ]
+                  },
+                  {
+                     "competition_id": "c002",
+                     "name": {
+                               "ar":"دوري القسم الثاني أ",
+                               "en": "National league second division A"
+                             },
+                     "ages": 
+                   [
+                     {
+                     "age": "2007",
+                     "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@fbdadab733423ae3ef33aa75ec49fdfc983abdbd/2007/BA/BA2007Data.json",
+                     "sector": null
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@762d2fcacba280a05501d66381ee2009b1e5712d/2026/2009/BA/BA2009Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2010",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@d93eb495575217e928e9fdd357c1461445aa0c8d/2026/2010/BA/BA2010Data.json",
+                      "sector": null
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2b3e7f16cf664239597841d4c5130852bb21dfe0/2011/BA/BA2011Data.json",
+                      "sector": null
+                     }
+                   ]
+                  },
+                  {
+                    "competition_id": "c004",
+                    "name": {
+                             "ar": "القطاعات",
+                             "en":"Sectors"
+                            },
+                    "ages": 
+                    [
+                      {
+                     "age": "2007",
+                     "matchesurl": null,
+                     "sector": null
+                     },
+                     {
+                      "age": "2009",
+                      "matchesurl": null,
+                      "sector": null
+                     },
+                     {
+                      "age": "2010",
+                      "matchesurl": null,
+                      "sector": null
+                     },
+                     {
+                      "age": "2011",
+                      "matchesurl": null,
+                      "sector": null
+                     }
+                    ]
+                  },
+                {
+                    "competition_id": "c005",
+                    "name": {
+                             "ar":"المناطق",
+                             "en": "Areas"
+                            },
+                             
+                    "ages": 
+                   [
+                    {
+                     "age": "2007",
+                     "matchesurl": null,
+                     "sector":null
+                    },
+                    {
+                     "age": "2009",
+                     "matchesurl": null,
+                     "sector":null
+                    },
+                    {
+                     "age": "2010",
+                     "matchesurl": null,
+                     "sector":null
+                    },
+                    {
+                     "age": "2011",
+                     "matchesurl": null,
+                     "sector":null
+                    }
+                   ]
+                },
+              {
+                    "competition_id": "c006",
+                    "name": {
+                             "ar": "بطولات ودية",
+                             "en":"Friendly Competitions"
+                            },
+                    "ages": null
+                }
+              ]
    }
  ],
   "venues": 
