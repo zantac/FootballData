@@ -226,7 +226,7 @@
       "competitions": 
               [
                   {
-                    "competition_id": "c001",
+                    "competition_id": "c007",
                      "name": {
                               "ar": "دوري الجمهورية القسم الاول",
                               "en": "National league first division"
@@ -256,7 +256,7 @@
                    ]
                   },
                   {
-                     "competition_id": "c002",
+                     "competition_id": "c008",
                      "name": {
                                "ar":"دوري القسم الثاني أ",
                                "en": "National league second division A"
@@ -286,7 +286,7 @@
                    ]
                   },
                   {
-                    "competition_id": "c004",
+                    "competition_id": "c009",
                     "name": {
                              "ar": "القطاعات",
                              "en":"Sectors"
@@ -316,7 +316,7 @@
                     ]
                   },
                 {
-                    "competition_id": "c005",
+                    "competition_id": "c010",
                     "name": {
                              "ar":"المناطق",
                              "en": "Areas"
@@ -347,7 +347,7 @@
                    ]
                 },
               {
-                    "competition_id": "c006",
+                    "competition_id": "c011",
                     "name": {
                              "ar": "بطولات ودية",
                              "en":"Friendly Competitions"
