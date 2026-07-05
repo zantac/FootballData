@@ -744,7 +744,7 @@
       "whatsapp_number": "201064428821",
       "location": null,
       "location_url": null,
-      "expire_date": "11-10-2026"
+      "expire_date": "11-10-2027"
     },
     {
       "name": "للاعلان هنا",
@@ -755,29 +755,40 @@
       "whatsapp_number": "201064428821",
       "location": null,
       "location_url": null,
-      "expire_date": "11-10-2026"
+      "expire_date": "11-10-2027"
     },
     {
-      "name": "مركز التحدي",
-      "image": "https://ia600208.us.archive.org/6/items/al-tahady/al%20tahady.jpg",
+      "name": "ClubHub",
+      "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1783231244/ClubHub-Facebook-Post_xig9bj.png",
       "youtube_video":null,
-      "facebook_link":"https://web.facebook.com/profile.php?id=100093288710605",
-      "mobile_number": "01207648209",
-      "whatsapp_number": "201207648209",
-      "location": "بنها",
-      "location_url": "https://www.google.com/maps/place/30%C2%B027'59.8%22N+31%C2%B010'50.6%22E/@30.4664099,31.1809652,83m/data=!3m1!1e3!4m4!3m3!8m2!3d30.4666111!4d31.1807222?hl=ar&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D",
-      "expire_date": "11-01-2026"
+      "facebook_link":"https://web.facebook.com/profile.php?id=61590966590323",
+      "mobile_number": "01039781127",
+      "whatsapp_number": "01039781127",
+      "location": null,
+      "location_url": null,
+      "expire_date": "11-10-2027"
     },
      {
-      "name": "Fitness Zone",
-      "image": "https://scontent.faly1-2.fna.fbcdn.net/v/t39.30808-6/377504752_740790331394344_8872115572428066156_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeECTbj4MEofqpW_55hh09kj0D0CNoN6KirQPQI2g3oqKkbAvBNaxUi-eCuTkwYTsc8&_nc_ohc=Dqqx8PRLjvAQ7kNvwGQCyFm&_nc_oc=AdnJ6E_fhX6QlioOWu9_w7SuW3KqGY92mSTTBqZrNtG7moPpTaLz3-l1AgSldVAdzqM&_nc_zt=23&_nc_ht=scontent.faly1-2.fna&_nc_gid=SXyo6Fk0J2IOO9jwDsKzmA&oh=00_Afb1XgOqM4EOFUaDoe0os5MC96XonwEfXgIiKCm8IhUFSQ&oe=68DEF465",
+      "name": "ClubHub",
+      "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1783231222/ClubHub-Payments-Post_dbtaug.png",
       "youtube_video":null,
-      "facebook_link":"https://web.facebook.com/mohamedateff11",
-      "mobile_number": "01203980138",
-      "whatsapp_number": "201203980138",
-      "location": "بنها - شبلنجة",
-      "location_url": "https://www.google.com/maps/place/30%C2%B028'12.8%22N+31%C2%B015'16.1%22E/@30.4699225,31.2545656,197m/data=!3m1!1e3!4m4!3m3!8m2!3d30.4702225!4d31.2544746?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D",
-      "expire_date": "11-01-2026"
+      "facebook_link":"https://web.facebook.com/profile.php?id=61590966590323",
+      "mobile_number": "01039781127",
+      "whatsapp_number": "01039781127",
+      "location": null,
+      "location_url": null,
+      "expire_date": "11-10-2027"
+    },
+    {
+      "name": "ClubHub",
+      "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1783231167/ClubHub-Post-2160_v49y0t.png",
+      "youtube_video":null,
+      "facebook_link":"https://web.facebook.com/profile.php?id=61590966590323",
+      "mobile_number": "01039781127",
+      "whatsapp_number": "01039781127",
+      "location": null,
+      "location_url": null,
+      "expire_date": "11-10-2027"
     },
     {
       "name": "Falcons FC",
