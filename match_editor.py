@@ -835,6 +835,19 @@ class MainApp:
             for sequence, command in shortcut_bindings.items():
                 self.root.bind_class(widget_class, sequence, command)
 
+    def _normalize_data(self, data):
+        if not isinstance(data, dict):
+            data = {}
+
+        normalized = dict(data)
+        for key in ["matches", "teams", "venues"]:
+            value = normalized.get(key)
+            if value is None:
+                normalized[key] = []
+            elif not isinstance(value, list):
+                normalized[key] = []
+        return normalized
+
     def load_initial_file(self):
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
         if not file_path: return False
@@ -857,14 +870,12 @@ class MainApp:
     def _load_file_data(self, file_path):
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                self.data = json.load(f)
+                self.data = self._normalize_data(json.load(f))
             self.file_path = file_path
             self.root.title(f"Football Data Manager - {file_path}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load file:\n{e}")
             return False
-        for key in ["matches", "teams", "venues"]:
-            if key not in self.data: self.data[key] = []
         return True
 
     def rebuild_ui(self):
@@ -877,10 +888,19 @@ class MainApp:
         self.notebook.add(self.team_tab, text="Teams")
 
     def update_data_helpers(self):
-        self.team_map = {team.get("name", "Unknown"): team.get("team_id") for team in self.data.get("teams", [])}
-        venues = set(self.data.get("venues", []))
-        for match in self.data.get("matches", []):
-            if match.get("venue"): venues.add(match["venue"])
+        teams = self.data.get("teams") or []
+        matches = self.data.get("matches") or []
+        venues = set(self.data.get("venues") or [])
+
+        self.team_map = {}
+        for team in teams:
+            if isinstance(team, dict):
+                self.team_map[team.get("name", "Unknown")] = team.get("team_id")
+
+        for match in matches:
+            if isinstance(match, dict) and match.get("venue"):
+                venues.add(match["venue"])
+
         self.venue_list = sorted(list(venues))
         self.data["venues"] = self.venue_list
 
