@@ -236,22 +236,27 @@
                      {
                       "age": "2007",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@d24d8b80943c705ec71153666c51f0a7db5b76d9/2026/2007/A/A2007Data.json",
-                      "sector": null
+                      "sector": null,
+                       "match_days": [3]
                      },
                      {
                       "age": "2009",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@7a3928ccd013b8fd4e510fb766dea97e5f738bea/2026/2009/A/A2009Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [1, 6]
+            
                      },
                      {
                       "age": "2010",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@df41a09e43ac885c7355e922b6a36439f79bd4ab/2026/2010/A/A2010Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [0, 6]
                      },
                      {
                       "age": "2011",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2251c1dda1777c56dc20ee46948c4353d7fb4ac6/2026/2011/A/A2011Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [6, 3]
                      }
                    ]
                   },
@@ -266,22 +271,26 @@
                      {
                      "age": "2007",
                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@c94297ccd469141d22cbb07f1584ae4a0f031f45/2026/2007/BA/BA2007Data.json",
-                     "sector": null
+                     "sector": null,
+                      "match_days": [6, 3]
                      },
                      {
                       "age": "2009",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@762d2fcacba280a05501d66381ee2009b1e5712d/2026/2009/BA/BA2009Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [6, 3]
                      },
                      {
                       "age": "2010",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@d93eb495575217e928e9fdd357c1461445aa0c8d/2026/2010/BA/BA2010Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [6, 3]
                      },
                      {
                       "age": "2011",
                       "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@2b3e7f16cf664239597841d4c5130852bb21dfe0/2011/BA/BA2011Data.json",
-                      "sector": null
+                      "sector": null,
+                      "match_days": [6, 3]
                      }
                    ]
                   },
@@ -728,7 +737,10 @@
 {
   "date": "2026-05-22",
   "title": "مسابقات المراحل السنية للموسم الرياضي 2026/2027 ",
-  "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779750334/706101888_976253448664204_3805301206595606700_n.jpg_e2lcrf.jpg",
+  "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779750030/703182951_976253221997560_9089064589148250687_n.jpg_lbbwkw.jpg",
+  "images": ["https://res.cloudinary.com/debq5s4sn/image/upload/v1779750030/703182951_976253221997560_9089064589148250687_n.jpg_lbbwkw.jpg",
+            "https://res.cloudinary.com/debq5s4sn/image/upload/v1779750059/703676335_976253295330886_7510472132075575474_n.jpg_tivov8.jpg",
+            "https://res.cloudinary.com/debq5s4sn/image/upload/v1779750334/706101888_976253448664204_3805301206595606700_n.jpg_e2lcrf.jpg"],
   "details": null
 }
     
