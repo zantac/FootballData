@@ -10,6 +10,8 @@
       "field": null,
       "fieldurl": null,
       "city": "الجيزة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -26,6 +28,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -42,6 +46,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -58,6 +64,8 @@
       "field": null,
       "fieldurl": null,
       "city": "السويس",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -74,6 +82,8 @@
       "field": null,
       "fieldurl": null,
       "city": "بورسعيد",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -90,6 +100,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -106,7 +118,7 @@
       "field": null,
       "fieldurl": null,
       "city": "الاسكندرية",
-      "information": "رئيس قطاع الناشئين ك / حماده البحر",
+      "information": null,
       "point_deduction": null,
       "players": {
         "coach": null,
@@ -124,6 +136,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -140,6 +154,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -156,6 +172,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -172,6 +190,8 @@
       "field": null,
       "fieldurl": null,
       "city": "السويس",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -188,6 +208,8 @@
       "field": null,
       "fieldurl": null,
       "city": "الغردقة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -204,6 +226,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -220,6 +244,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -236,6 +262,8 @@
       "field": null,
       "fieldurl": null,
       "city": "الغربية",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -252,6 +280,8 @@
       "field": null,
       "fieldurl": null,
       "city": "القاهرة",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -269,6 +299,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -286,6 +317,7 @@
       "fieldurl": null,
       "city": "الاسماعيلية",
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -302,6 +334,8 @@
       "field": null,
       "fieldurl": null,
       "city": "اسيوط",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
