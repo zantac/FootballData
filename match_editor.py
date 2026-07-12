@@ -331,6 +331,20 @@ class MatchEditorTab(ttk.Frame):
         self.widgets["away_score"] = away_score_entry
         row += 1
 
+        # --- Penalty row (Home Penalty vs Away Penalty) ---
+        ttk.Label(scrollable_frame, text="Penalty:", anchor="e").grid(row=row, column=0, padx=5, pady=2, sticky="e")
+        home_penalty_entry = ttk.Entry(scrollable_frame, width=37)
+        home_penalty_entry.bind("<KeyRelease>", self._mark_dirty)
+        home_penalty_entry.grid(row=row, column=1, padx=5, pady=2, sticky="ew")
+        self.widgets["home_penalty"] = home_penalty_entry
+
+        ttk.Label(scrollable_frame, text="Penalty:", anchor="e").grid(row=row, column=2, padx=5, pady=2, sticky="e")
+        away_penalty_entry = ttk.Entry(scrollable_frame, width=37)
+        away_penalty_entry.bind("<KeyRelease>", self._mark_dirty)
+        away_penalty_entry.grid(row=row, column=3, padx=5, pady=2, sticky="ew")
+        self.widgets["away_penalty"] = away_penalty_entry
+        row += 1
+
         # --- Array fields (Squad, Scorers, Yellow/Red cards, Substitutes) ---
         array_pairs = [
             ("home_squade", "away_squade", "Squad"),
@@ -456,7 +470,8 @@ class MatchEditorTab(ttk.Frame):
             "home_team_id": "", "away_team_id": "", "venue": "", "status": "upcoming",
             "note": None, "home_squade": None, "away_squade": None,
             "home_score": None, "away_score": None, "home_scorers": None,
-            "away_scorers": None, "home_yc": None, "away_yc": None,
+            "away_scorers": None, "home_penalty": None, "away_penalty": None,
+            "home_yc": None, "away_yc": None,
             "home_rc": None, "away_rc": None, "home_sub": None, "away_sub": None, "stage": ""
         }
         self.current_match = new_match
@@ -500,7 +515,7 @@ class MatchEditorTab(ttk.Frame):
                     self.venue_list.append(value)
                     self.data["venues"] = sorted(self.venue_list)
                     self.widgets["venue"].update_values(self.venue_list)
-            elif field in ("home_score", "away_score"):
+            elif field in ("home_score", "away_score", "home_penalty", "away_penalty"):
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
             elif isinstance(widget, ArrayFieldEditor): 
