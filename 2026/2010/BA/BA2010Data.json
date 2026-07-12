@@ -11,6 +11,7 @@
       "fieldurl": null,
       "city": "الاسماعيلية",
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -27,6 +28,8 @@
       "field": null,
       "fieldurl": null,
       "city": "الاسكندرية",
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -44,6 +47,7 @@
       "fieldurl": null,
       "city": "الاسكندرية",
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -79,6 +83,7 @@
       "fieldurl": null,
       "city": null,
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -96,6 +101,7 @@
       "fieldurl": null,
       "city": null,
       "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -112,6 +118,8 @@
       "field": "نادي الامن المركزي",
       "fieldurl": "https://www.google.com/maps/place/Central+Security+Forces+Club,+26th+of+July+Corridor,+Kerdasa,+Giza+Governorate/@30.0470841,31.0546146,1119m/data=!3m1!1e3!4m14!1m7!3m6!1s0x14585b061b6efa07:0xfddefaec34e96390!2z2YbYp9iv2Yog2KfZhNij2YXZhiDYp9mE2YXYsdmD2LLZiiDYt9ix2YrZgiDYp9mE2LXYrdix2KfZiNmK!8m2!3d30.0466183!4d31.0581483!16s%2Fg%2F11r113r4l9!3m5!1s0x14585b22ee8db5f7:0xd6f4add7ec4433b6!8m2!3d30.0465573!4d31.0585922!16s%2Fg%2F11cknf6gdk?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -128,6 +136,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -144,6 +154,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -160,6 +172,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -176,6 +190,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -192,6 +208,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -208,6 +226,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -242,6 +262,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -258,6 +280,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -274,6 +298,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -290,6 +316,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -306,6 +334,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -322,6 +352,8 @@
       "field": null,
       "fieldurl": null,
       "city": null,
+      "information": null,
+      "point_deduction": null,
       "players": {
         "coach": null,
         "goalkeepers": null,
