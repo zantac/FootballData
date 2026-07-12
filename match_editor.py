@@ -138,13 +138,14 @@ class DictFieldEditor(ttk.Frame):
 # ---------------------- Match Editor Tab ----------------------
 
 class MatchEditorTab(ttk.Frame):
-    def __init__(self, parent, data, team_map, venue_list, save_callback, icons={}):
+    def __init__(self, parent, data, team_map, venue_list, save_callback, icons={}, dirty_callback=None):
         super().__init__(parent)
         self.data = data
         self.team_map = team_map
         self.venue_list = venue_list
         self.save_callback = save_callback
         self.icons = icons
+        self.dirty_callback = dirty_callback
         self.current_match = None
         self.is_dirty = False
         
@@ -154,6 +155,8 @@ class MatchEditorTab(ttk.Frame):
 
     def _mark_dirty(self, event=None):
         self.is_dirty = True
+        if self.dirty_callback:
+            self.dirty_callback(True)
 
     def _check_unsaved_changes(self):
         if not self.is_dirty:
@@ -175,9 +178,12 @@ class MatchEditorTab(ttk.Frame):
         self.rowconfigure(0, weight=1)
 
         # --- LEFT SIDE: LIST & BUTTONS (fixed width) ---
-        left_frame = ttk.Frame(self, width=300, relief="sunken")
-        left_frame.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
-        left_frame.grid_propagate(False)  # Prevent shrinking
+        paned = ttk.Panedwindow(self, orient=tk.HORIZONTAL)
+        paned.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        left_frame = ttk.Frame(paned, width=320, relief="sunken")
+        right_frame = ttk.Frame(paned)
+        paned.add(left_frame, weight=1)
+        paned.add(right_frame, weight=3)
         left_frame.columnconfigure(0, weight=1)
         left_frame.rowconfigure(0, weight=0)   # label
         left_frame.rowconfigure(1, weight=1)   # tree
@@ -212,8 +218,6 @@ class MatchEditorTab(ttk.Frame):
         ttk.Button(btn_frame, text="Expand", image=self.icons.get('expand'), compound=tk.LEFT, command=self.expand_all_dates).grid(row=1, column=2, padx=5, pady=2)
 
         # --- RIGHT SIDE: FORM (with horizontal scrollbar) ---
-        right_frame = ttk.Frame(self)
-        right_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
         right_frame.columnconfigure(0, weight=1)
         right_frame.rowconfigure(0, weight=1)
         
@@ -231,11 +235,17 @@ class MatchEditorTab(ttk.Frame):
         right_frame.rowconfigure(0, weight=1)
         
         scrollable_frame = ttk.Frame(canvas)
-        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        scrollable_frame.columnconfigure(0, weight=0)
+        scrollable_frame.columnconfigure(1, weight=1)
+        scrollable_frame.columnconfigure(2, weight=1)
+        scrollable_frame.columnconfigure(3, weight=1)
+        window_id = canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         
         def _configure_scroll_region(event):
             canvas.configure(scrollregion=canvas.bbox("all"))
+            canvas.itemconfigure(window_id, width=canvas.winfo_width())
         scrollable_frame.bind("<Configure>", _configure_scroll_region)
+        canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window_id, width=e.width))
         
         # Mouse wheel binding for vertical scroll
         def _on_mousewheel(event):
@@ -257,8 +267,10 @@ class MatchEditorTab(ttk.Frame):
             ("status", "Status:", "status_dropdown"), ("stage", "Stage:", "stage_dropdown"), ("note", "Note:", "text"),
         ]
         
-        scrollable_frame.columnconfigure(1, weight=1) 
-        scrollable_frame.columnconfigure(3, weight=1) 
+        scrollable_frame.columnconfigure(0, weight=0)
+        scrollable_frame.columnconfigure(1, weight=1)
+        scrollable_frame.columnconfigure(2, weight=1)
+        scrollable_frame.columnconfigure(3, weight=1)
         
         row = 0
         for field, label, ftype in simple_fields:
@@ -277,7 +289,7 @@ class MatchEditorTab(ttk.Frame):
                 widget = ttk.Combobox(scrollable_frame, values=values, width=33)
                 widget.bind("<<ComboboxSelected>>", self._mark_dirty)
             else:
-                widget = ttk.Entry(scrollable_frame, width=37)
+                widget = ttk.Entry(scrollable_frame)
                 widget.bind("<KeyRelease>", self._mark_dirty)
             
             widget.grid(row=row, column=1, padx=5, pady=2, sticky="ew", columnspan=3)
@@ -536,12 +548,13 @@ class MatchEditorTab(ttk.Frame):
 # ---------------------- Team Editor Tab ----------------------
 
 class TeamEditorTab(ttk.Frame):
-    def __init__(self, parent, data, save_callback, refresh_team_map_callback, icons={}):
+    def __init__(self, parent, data, save_callback, refresh_team_map_callback, icons={}, dirty_callback=None):
         super().__init__(parent)
         self.data = data
         self.save_callback = save_callback
         self.refresh_team_map_callback = refresh_team_map_callback
         self.icons = icons
+        self.dirty_callback = dirty_callback
         self.current_team = None
         self.is_dirty = False
         
@@ -551,6 +564,8 @@ class TeamEditorTab(ttk.Frame):
 
     def _mark_dirty(self, event=None):
         self.is_dirty = True
+        if self.dirty_callback:
+            self.dirty_callback(True)
         
     def _check_unsaved_changes(self):
         if not self.is_dirty:
@@ -566,42 +581,55 @@ class TeamEditorTab(ttk.Frame):
             return False
 
     def create_widgets(self):
-        left_frame = ttk.Frame(self, width=300)
-        left_frame.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=10)
-        
-        
+        self.columnconfigure(0, weight=0)
+        self.columnconfigure(1, weight=1)
+        self.rowconfigure(0, weight=1)
+
+        left_frame = ttk.Frame(self, width=280, padding=(5, 5))
+        right_frame = ttk.Frame(self, padding=(5, 5))
+        left_frame.grid(row=0, column=0, sticky="nsew")
+        right_frame.grid(row=0, column=1, sticky="nsew")
+        left_frame.grid_propagate(False)
+
         ttk.Label(left_frame, text="Teams", font=("Segoe UI", 12, "bold")).pack(pady=5)
-        
+
         list_frame = ttk.Frame(left_frame)
         list_frame.pack(fill=tk.BOTH, expand=True)
-        
+
         self.team_listbox = tk.Listbox(list_frame, width=40, font=("Segoe UI", 10), relief="flat", borderwidth=1)
         vsb = ttk.Scrollbar(list_frame, orient="vertical", command=self.team_listbox.yview)
         self.team_listbox.configure(yscrollcommand=vsb.set)
         self.team_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         vsb.pack(side=tk.RIGHT, fill=tk.Y)
-        
+
         self.team_listbox.bind("<<ListboxSelect>>", self.on_team_select)
-        
+
         btn_frame = ttk.Frame(left_frame)
         btn_frame.pack(pady=10)
         ttk.Button(btn_frame, text="New", image=self.icons.get('new'), compound=tk.LEFT, command=self.new_team).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Duplicate", image=self.icons.get('duplicate'), compound=tk.LEFT, command=self.duplicate_team).pack(side=tk.LEFT, padx=5)
         ttk.Button(btn_frame, text="Delete", image=self.icons.get('delete'), compound=tk.LEFT, command=self.delete_team).pack(side=tk.LEFT, padx=5)
 
-        right_frame = ttk.Frame(self)
-        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=10, pady=10)
-        
+        right_frame.columnconfigure(0, weight=1)
+        right_frame.rowconfigure(0, weight=1)
+
         canvas = tk.Canvas(right_frame, highlightthickness=0)
         scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
-        
-        scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
-        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        scrollable_frame.columnconfigure(0, weight=0)
+        scrollable_frame.columnconfigure(1, weight=1)
+
+        window_id = canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
-        
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
+
+        def _resize_scrollable(event):
+            canvas.configure(scrollregion=canvas.bbox("all"))
+            canvas.itemconfigure(window_id, width=canvas.winfo_width())
+        scrollable_frame.bind("<Configure>", _resize_scrollable)
+        canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window_id, width=e.width))
+
+        canvas.grid(row=0, column=0, sticky="nsew")
+        scrollbar.grid(row=0, column=1, sticky="ns")
         canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
         canvas.bind("<Button-1>", lambda e: canvas.focus_set())
         scrollable_frame.bind("<Button-1>", lambda e: canvas.focus_set())
@@ -778,16 +806,41 @@ class MainApp:
         
         self.data = None
         self.file_path = None
+        self.json_folder_path = None
+        self.available_json_files = []
         
         self.toolbar = ttk.Frame(root, padding=5)
         self.toolbar.pack(side=tk.TOP, fill=tk.X)
         
-        ttk.Button(self.toolbar, text="Open New File", command=self.open_new_file).pack(side=tk.LEFT, padx=5)
+        ttk.Button(self.toolbar, text="Open File", command=self.open_file).pack(side=tk.LEFT, padx=5)
+        ttk.Button(self.toolbar, text="Open Folder", command=self.open_folder).pack(side=tk.LEFT, padx=5)
+        ttk.Button(self.toolbar, text="Save As", command=self.save_as_file).pack(side=tk.LEFT, padx=5)
+        ttk.Button(self.toolbar, text="Refresh Files", command=self.refresh_file_list).pack(side=tk.LEFT, padx=5)
         
-        self.content_frame = ttk.Frame(root)
+        self.content_frame = ttk.Panedwindow(root, orient=tk.HORIZONTAL)
         self.content_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-        self.notebook = ttk.Notebook(self.content_frame)
+        self.file_list_frame = ttk.Frame(self.content_frame, padding=(5,5))
+        self.notebook_frame = ttk.Frame(self.content_frame)
+        self.content_frame.add(self.file_list_frame, weight=1)
+        self.content_frame.add(self.notebook_frame, weight=3)
+        self.file_list_frame.configure(width=260)
+        self.notebook_frame.configure(width=640)
+        
+        ttk.Label(self.file_list_frame, text="JSON Files", font=("Segoe UI", 11, "bold")).pack(pady=(0,5))
+        self.folder_label = ttk.Label(self.file_list_frame, text="No folder loaded", wraplength=240, justify="left")
+        self.folder_label.pack(padx=5, pady=(0,10))
+        self.file_listbox = tk.Listbox(self.file_list_frame, activestyle="none")
+        self.file_listbox.pack(fill=tk.BOTH, expand=True)
+        self.file_listbox.bind("<<ListboxSelect>>", self.on_file_select)
+        
+        self.notebook = ttk.Notebook(self.notebook_frame)
         self.notebook.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.status_frame = ttk.Frame(root, padding=(5, 4))
+        self.status_frame.pack(side=tk.BOTTOM, fill=tk.X)
+        self.status_label = ttk.Label(self.status_frame, text="No file loaded", anchor="w")
+        self.status_label.pack(fill=tk.X)
+        self.dirty_state = False
         
         if not self.load_initial_file():
             self.root.destroy()
@@ -850,22 +903,135 @@ class MainApp:
 
     def load_initial_file(self):
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
-        if not file_path: return False
+        if not file_path:
+            return False
         if self._load_file_data(file_path):
+            folder = os.path.dirname(file_path)
+            self.json_folder_path = folder
+            self.available_json_files = self._find_json_files(folder)
+            self.update_folder_label()
+            self.refresh_file_list()
             self.rebuild_ui()
+            self.update_status(file_path=self.file_path, dirty=False)
             return True
         return False
 
-    def open_new_file(self):
-        current_tab_index = self.notebook.index(self.notebook.select())
-        current_tab = self.notebook.tabs()[current_tab_index]
-        tab_widget = self.root.nametowidget(current_tab)
-        if hasattr(tab_widget, '_check_unsaved_changes'):
-            if not tab_widget._check_unsaved_changes():
-                return
+    def open_file(self):
+        if not self._check_unsaved_current_tab():
+            return
         file_path = filedialog.askopenfilename(title="Select JSON file", filetypes=[("JSON files", "*.json")])
         if file_path and self._load_file_data(file_path):
+            folder = os.path.dirname(file_path)
+            self.json_folder_path = folder
+            self.available_json_files = self._find_json_files(folder)
+            self.update_folder_label()
+            self.refresh_file_list()
             self.rebuild_ui()
+            self.update_status(file_path=self.file_path, dirty=False)
+
+    def open_folder(self):
+        if not self._check_unsaved_current_tab():
+            return
+        folder = filedialog.askdirectory(title="Select folder containing JSON files")
+        if not folder:
+            return
+        self.json_folder_path = folder
+        self.available_json_files = self._find_json_files(folder)
+        self.update_folder_label()
+        if not self.available_json_files:
+            messagebox.showinfo("No JSON files", "No JSON files were found in the selected folder.")
+            self.file_listbox.delete(0, tk.END)
+            self.file_path = None
+            self.data = None
+            for tab in self.notebook.tabs():
+                self.notebook.forget(tab)
+            self.update_status(dirty=False)
+            return
+        self.refresh_file_list()
+        self.file_listbox.selection_set(0)
+        if self._load_file_data(self.available_json_files[0]):
+            self.rebuild_ui()
+            self.update_status(file_path=self.file_path, dirty=False)
+
+    def refresh_file_list(self):
+        self.file_listbox.delete(0, tk.END)
+        for path in self.available_json_files:
+            display = os.path.relpath(path, self.json_folder_path) if self.json_folder_path else os.path.basename(path)
+            self.file_listbox.insert(tk.END, display)
+        if self.file_path and self.file_path in self.available_json_files:
+            index = self.available_json_files.index(self.file_path)
+            self.file_listbox.selection_set(index)
+            self.file_listbox.see(index)
+        elif self.available_json_files:
+            self.file_listbox.selection_set(0)
+            self.file_listbox.see(0)
+        self.update_status(file_path=self.file_path, dirty=self.dirty_state)
+
+    def _find_json_files(self, folder_path):
+        json_files = []
+        for root_dir, dirnames, filenames in os.walk(folder_path):
+            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
+            for filename in sorted(filenames):
+                if filename.lower().endswith('.json'):
+                    json_files.append(os.path.join(root_dir, filename))
+        return json_files
+
+    def update_folder_label(self):
+        if self.json_folder_path:
+            self.folder_label.config(text=self.json_folder_path)
+        else:
+            self.folder_label.config(text="No folder loaded")
+
+    def _check_unsaved_current_tab(self):
+        if not self.notebook.tabs():
+            return True
+        current_tab = self.notebook.select()
+        if not current_tab:
+            return True
+        tab_widget = self.root.nametowidget(current_tab)
+        if hasattr(tab_widget, '_check_unsaved_changes'):
+            return tab_widget._check_unsaved_changes()
+        return True
+
+    def set_dirty_state(self, dirty=True):
+        self.update_status(file_path=self.file_path, dirty=dirty)
+
+    def save_as_file(self):
+        if not self.data:
+            messagebox.showwarning("Warning", "No data available to save.")
+            return
+        file_path = filedialog.asksaveasfilename(title="Save As", defaultextension=".json", filetypes=[("JSON files", "*.json")])
+        if not file_path:
+            return
+        try:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(self.data, f, indent=2, ensure_ascii=False)
+            self.file_path = file_path
+            self.root.title(f"Football Data Manager - {file_path}")
+            if self.json_folder_path and os.path.commonpath([self.json_folder_path, file_path]) == self.json_folder_path:
+                self.available_json_files = self._find_json_files(self.json_folder_path)
+                self.refresh_file_list()
+            else:
+                self.json_folder_path = os.path.dirname(file_path)
+                self.available_json_files = self._find_json_files(self.json_folder_path)
+                self.update_folder_label()
+                self.refresh_file_list()
+            messagebox.showinfo("Saved", f"Data saved as {file_path}.")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save file:\n{e}")
+
+    def on_file_select(self, event):
+        if not self.file_listbox.curselection():
+            return
+        selected_index = self.file_listbox.curselection()[0]
+        file_path = self.available_json_files[selected_index]
+        if file_path == self.file_path:
+            return
+        if not self._check_unsaved_current_tab():
+            return
+        if self._load_file_data(file_path):
+            self.rebuild_ui()
+            self.update_status(file_path=self.file_path, dirty=False)
 
     def _load_file_data(self, file_path):
         try:
@@ -882,8 +1048,12 @@ class MainApp:
         for tab in self.notebook.tabs():
             self.notebook.forget(tab)
         self.update_data_helpers()
-        self.match_tab = MatchEditorTab(self.notebook, self.data, self.team_map, self.venue_list, self.save_to_file, self.icons)
-        self.team_tab = TeamEditorTab(self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui, self.icons)
+        self.match_tab = MatchEditorTab(
+            self.notebook, self.data, self.team_map, self.venue_list,
+            self.save_to_file, self.icons, dirty_callback=self.set_dirty_state)
+        self.team_tab = TeamEditorTab(
+            self.notebook, self.data, self.save_to_file, self.refresh_helpers_and_ui,
+            self.icons, dirty_callback=self.set_dirty_state)
         self.notebook.add(self.match_tab, text="Matches")
         self.notebook.add(self.team_tab, text="Teams")
 
@@ -913,11 +1083,26 @@ class MainApp:
             self.match_tab.refresh_match_tree()
 
     def save_to_file(self):
+        if not self.file_path:
+            self.save_as_file()
+            return
         try:
             with open(self.file_path, 'w', encoding='utf-8') as f:
                 json.dump(self.data, f, indent=2, ensure_ascii=False)
+            self.update_status(file_path=self.file_path, dirty=False)
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save file:\n{e}")
+
+    def update_status(self, file_path=None, dirty=False):
+        file_path = file_path or self.file_path
+        title = os.path.basename(file_path) if file_path else "No file loaded"
+        status = f"{title}"
+        if self.json_folder_path:
+            status += f"  |  {self.json_folder_path}"
+        if dirty:
+            status += "  [Unsaved changes]"
+        self.status_label.config(text=status)
+        self.dirty_state = dirty
 
 if __name__ == "__main__":
     root = tk.Tk()
