@@ -522,7 +522,7 @@ class MatchEditorTab(ttk.Frame):
                 value = widget.get_value()
             else:
                 value = widget.get().strip()
-                if field == "note" and not value: 
+                if field in ("note", "stage") and not value:
                     value = None
             updated[field] = value
         
