@@ -5,11 +5,11 @@
     {
       "team_id": "t001",
       "group": null,
-      "name": "الزمالك",
+      "name": "Zamalek",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
       "field": null,
       "fieldurl": null,
-      "city": "الجيزة",
+      "city": "Giza",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -23,11 +23,11 @@
     {
       "team_id": "t002",
       "group": null,
-      "name": "بيراميدز",
+      "name": "Pyramids",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -41,11 +41,11 @@
     {
       "team_id": "t003",
       "group": null,
-      "name": "الاهلي",
+      "name": "Al Ahly",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -59,11 +59,11 @@
     {
       "team_id": "t004",
       "group": null,
-      "name": "سيراميكا كليوباترا",
+      "name": "Ceramica Cleopatra",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50882",
       "field": null,
       "fieldurl": null,
-      "city": "السويس",
+      "city": "Suez",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -77,11 +77,11 @@
     {
       "team_id": "t005",
       "group": null,
-      "name": "المصري",
+      "name": "Al Masry",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8303",
       "field": null,
       "fieldurl": null,
-      "city": "بورسعيد",
+      "city": "Port Said",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -95,11 +95,11 @@
     {
       "team_id": "t006",
       "group": null,
-      "name": "انبي",
+      "name": "ENPPI",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -112,12 +112,12 @@
     },
     {
       "team_id": "t007",
-      "name": "سموحة",
+      "name": "Smouha",
       "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8309",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": "Alexandria",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -131,11 +131,11 @@
     {
       "team_id": "t008",
       "group": null,
-      "name": "وادي دجلة",
+      "name": "Wadi Degla",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -149,11 +149,11 @@
     {
       "team_id": "t009",
       "group": null,
-      "name": "زد اف سي",
+      "name": "ZED FC",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/29732",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -167,11 +167,11 @@
     {
       "team_id": "t010",
       "group": null,
-      "name": "البنك الاهلي",
+      "name": "Bank Al Ahly",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50527",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -185,11 +185,11 @@
     {
       "team_id": "t011",
       "group": null,
-      "name": "بتروجت",
+      "name": "Petrojet",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
       "field": null,
       "fieldurl": null,
-      "city": "السويس",
+      "city": "Suez",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -203,11 +203,11 @@
     {
       "team_id": "t012",
       "group": null,
-      "name": "الجونة",
+      "name": "El Gouna",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
       "field": null,
       "fieldurl": null,
-      "city": "الغردقة",
+      "city": "Hurghada",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -221,11 +221,11 @@
     {
       "team_id": "t013",
       "group": null,
-      "name": "مودرن سبورت",
+      "name": "Modern Sport",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -239,11 +239,11 @@
     {
       "team_id": "t014",
       "group": null,
-      "name": "طلائع الجيش",
+      "name": "Talaea El Gaish",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8306",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -257,11 +257,11 @@
     {
       "team_id": "t015",
       "group": null,
-      "name": "غزل المحلة",
+      "name": "Ghazl El Mahalla",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8610",
       "field": null,
       "fieldurl": null,
-      "city": "الغربية",
+      "city": "Gharbia",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -275,11 +275,11 @@
     {
       "team_id": "t016",
       "group": null,
-      "name": "المقاولون العرب",
+      "name": "Arab Contractors",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": "Cairo",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -293,11 +293,11 @@
     {
       "team_id": "t017",
       "group": null,
-      "name": "الاتحاد السكندري",
+      "name": "Al Ittihad Alexandria",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": "Alexandria",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -311,11 +311,11 @@
     {
       "team_id": "t018",
       "group": null,
-      "name": "القناة",
+      "name": "El Qanah",
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745823/12252_rudmtc.png",
       "field": null,
       "fieldurl": null,
-      "city": "الاسماعيلية",
+      "city": "Ismailia",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -329,11 +329,11 @@
     {
       "team_id": "t019",
       "group": null,
-      "name": "بترول اسيوط",
+      "name": "Petro Asyut",
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745477/381138136_829473065541495_2622633524029911606_n.jpg_rnlgxi.jpg",
       "field": null,
       "fieldurl": null,
-      "city": "اسيوط",
+      "city": "Asyut",
       "information": null,
       "point_deduction": null,
       "players": {
@@ -346,12 +346,12 @@
     },
     {
       "team_id": "t020",
-      "name": "ابو قير للاسمدة",
+      "name": "Abu Qir Fertilizers",
       "group": null,
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779745622/19480_gh9kls.png",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": "Alexandria",
       "information": null,
       "point_deduction": null,
       "players": {
