@@ -275,362 +275,362 @@
     {
       "team_id": "t001",
       "group": null,
-      "name": "كهرباء الاسماعيلية",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/19506",
       "field": null,
       "fieldurl": null,
-      "city": "الاسماعيلية",
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "كهرباء الاسماعيلية",
+        "en": "Ismailia Electricity"
+      },
+      "city": {
+        "ar": "الاسماعيلية",
+        "en": "Ismailia"
+      },
+      "players": null
     },
     {
       "team_id": "t002",
       "group": null,
-      "name": "حرس الحدود",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8307",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "حرس الحدود",
+        "en": "Haras El Hodoud SC"
+      },
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
+      "players": null
     },
     {
       "team_id": "t003",
       "group": null,
-      "name": "فاركو",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/46242",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "فاركو",
+        "en": "Farco SC"
+      },
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
+      "players": null
     },
     {
       "team_id": "t004",
-      "name": "الاسماعيلي",
       "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8299",
       "field": null,
       "fieldurl": null,
-      "city": "الاسماعيلية",
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "الاسماعيلي",
+        "en": "Ismaily SC"
+      },
+      "city": {
+        "ar": "الاسماعيلية",
+        "en": "Ismailia"
+      },
+      "players": null
     },
     {
       "team_id": "t005",
       "group": null,
-      "name": "مسار",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/89524",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "مسار",
+        "en": "FC Masar"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t006",
       "group": null,
-      "name": "بروكسي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/72162",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "بروكسي",
+        "en": "Proxy SC"
+      },
+      "city": {
+        "ar": "البحيرة",
+        "en": "Beheira"
+      },
+      "players": null
     },
     {
       "team_id": "t007",
       "group": null,
-      "name": "لافيينا",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/67727",
       "field": "نادي الامن المركزي",
       "fieldurl": "https://www.google.com/maps/place/Central+Security+Forces+Club,+26th+of+July+Corridor,+Kerdasa,+Giza+Governorate/@30.0470841,31.0546146,1119m/data=!3m1!1e3!4m14!1m7!3m6!1s0x14585b061b6efa07:0xfddefaec34e96390!2z2YbYp9iv2Yog2KfZhNij2YXZhiDYp9mE2YXYsdmD2LLZiiDYt9ix2YrZgiDYp9mE2LXYrdix2KfZiNmK!8m2!3d30.0466183!4d31.0581483!16s%2Fg%2F11r113r4l9!3m5!1s0x14585b22ee8db5f7:0xd6f4add7ec4433b6!8m2!3d30.0465573!4d31.0585922!16s%2Fg%2F11cknf6gdk?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D",
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "لافيينا",
+        "en": "La Viena FC"
+      },
+      "city": {
+        "ar": "بني سويف",
+        "en": "Beni Suef"
+      },
+      "players": null
     },
     {
       "team_id": "t008",
       "group": null,
-      "name": "المصرية للاتصالات",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/54377",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "المصرية للاتصالات",
+        "en": "Telecom Egypt FC"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t009",
       "group": null,
-      "name": "السكة الحديد",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/19463",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "السكة الحديد",
+        "en": "El Sekka Al Hadid SC"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t010",
       "group": null,
-      "name": "المنصورة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/23662",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "المنصورة",
+        "en": "Al Mansoura SC"
+      },
+      "city": {
+        "ar": "الدقهلية",
+        "en": "Dakahlia"
+      },
+      "players": null
     },
     {
       "team_id": "t011",
       "group": null,
-      "name": "مالية كفر الزيات",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/19481",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "مالية كفر الزيات",
+        "en": "Maleyat Kafr El Zayat SC"
+      },
+      "city": {
+        "ar": "الغربية",
+        "en": "Gharbia"
+      },
+      "players": null
     },
     {
       "team_id": "t012",
       "group": null,
-      "name": "ديروط",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/20475",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "ديروط",
+        "en": "Dayrout SC"
+      },
+      "city": {
+        "ar": "اسيوط",
+        "en": "Asyut"
+      },
+      "players": null
     },
     {
       "team_id": "t013",
       "group": null,
-      "name": "الداخلية",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v2/Competitors/8608",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "الداخلية",
+        "en": "El Dakhleya SC"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t014",
-      "name": "الترسانة",
       "group": null,
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/19470",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "الترسانة",
+        "en": "Tersana SC"
+      },
+      "city": {
+        "ar": "الجيزة",
+        "en": "Giza"
+      },
+      "players": null
     },
     {
       "team_id": "t015",
       "group": null,
-      "name": "الانتاج الحربي",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/8304",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "الانتاج الحربي",
+        "en": "El Entag El Harby SC"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t016",
       "group": null,
-      "name": "طنطا",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v1/Competitors/12255",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "طنطا",
+        "en": "Tanta SC"
+      },
+      "city": {
+        "ar": "الغربية",
+        "en": "Gharbia"
+      },
+      "players": null
     },
     {
       "team_id": "t017",
       "group": null,
-      "name": "بلدية المحلة",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v6/Competitors/19491",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "بلدية المحلة",
+        "en": "Baladiyat ElMahalla SC"
+      },
+      "city": {
+        "ar": "المحلة",
+        "en": "ElMahalla"
+      },
+      "players": null
     },
     {
       "team_id": "t018",
       "group": null,
-      "name": "النصر",
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779749281/611_unnupv.png",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "النصر",
+        "en": "El Nasr SC"
+      },
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
+      "players": null
     },
     {
       "team_id": "t019",
       "group": null,
-      "name": "بلقاس سيتي",
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779749557/257441919_1081559709257318_3856500823454451954_n.png_oblof2.png",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "بلقاس سيتي",
+        "en": "BelqasCity"
+      },
+      "city": {
+        "ar": "الدقهلية",
+        "en": "Dakahlia"
+      },
+      "players": null
     },
     {
       "team_id": "t020",
       "group": null,
-      "name": "تيم اف سي",
       "logo": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779749444/306299405_104929819033178_6078546694974616381_n.jpg_s6b8ly.jpg",
       "field": null,
       "fieldurl": null,
-      "city": null,
       "information": null,
       "point_deduction": null,
-      "players": {
-        "coach": null,
-        "goalkeepers": null,
-        "defenders": null,
-        "midfielders": null,
-        "attackers": null
-      }
+      "name": {
+        "ar": "تيم اف سي",
+        "en": "Team Fc"
+      },
+      "city": {
+        "ar": "الجيزة",
+        "en": "Giza"
+      },
+      "players": null
     }
   ],
   "venues": [
