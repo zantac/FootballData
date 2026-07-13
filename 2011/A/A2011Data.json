@@ -7966,11 +7966,17 @@
     {
       "team_id": "t001",
       "group": "الاوائل",
-      "name": "الاهلي",
+      "name": {
+        "ar": "الاهلي",
+        "en": "Al Ahly SC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -7982,11 +7988,17 @@
     {
       "team_id": "t002",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "الزمالك",
+      "name": {
+        "ar": "الزمالك",
+        "en": "Zamalek SC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
       "field": null,
       "fieldurl": null,
-      "city": "الجيزة",
+      "city": {
+        "ar": "الجيزة",
+        "en": "Giza"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -7998,11 +8010,17 @@
     {
       "team_id": "t003",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "بيراميدز",
+      "name": {
+        "ar": "بيراميدز",
+        "en": "Pyramids FC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/22143",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8014,11 +8032,17 @@
     {
       "team_id": "t005",
       "group": "الاوائل",
-      "name": "البنك الاهلي",
+      "name": {
+        "ar": "البنك الاهلي",
+        "en": "National Bank of Egypt"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50527",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8030,11 +8054,17 @@
     {
       "team_id": "t006",
       "group": "الاوائل",
-      "name": "سيراميكا كليوباترا",
+      "name": {
+        "ar": "سيراميكا كليوباترا",
+        "en": "Ceramica Cleopatra"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50882",
       "field": null,
       "fieldurl": null,
-      "city": "السويس",
+      "city": {
+        "ar": "السويس",
+        "en": "Suez"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8046,11 +8076,17 @@
     {
       "team_id": "t007",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "فاركو",
+      "name": {
+        "ar": "فاركو",
+        "en": "Pharco FC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/46242",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
       "information": "المشرف علي قطاع الناشئين و البراعم و الكرة النسائية ك / عاطف حنفي\nمدير اداري قطاع الناشئين ك / شريف فاروق",
       "players": {
         "coach": [
@@ -8069,12 +8105,18 @@
     },
     {
       "team_id": "t008",
-      "name": "بتروجت",
+      "name": {
+        "ar": "بتروجت",
+        "en": "Petrojet"
+      },
       "group": "تحديد المراكز من 8 الي 20",
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8302",
       "field": null,
       "fieldurl": null,
-      "city": "السويس",
+      "city": {
+        "ar": "السويس",
+        "en": "Suez"
+      },
       "information": null,
       "point_deduction": null,
       "players": {
@@ -8093,11 +8135,17 @@
     {
       "team_id": "t009",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "حرس الحدود",
+      "name": {
+        "ar": "حرس الحدود",
+        "en": "Haras El Hodood"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8307",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
       "information": "المشرف العام علي قطاعات الكرة العقيد / محمد سمير ابو زيد\nرئيس قطاع الناشئين و البراعم ك / وليد عطية\nاداري قطاع الناشئين و البراعم ك / احمد الفار",
       "players": {
         "coach": [
@@ -8117,11 +8165,17 @@
     {
       "team_id": "t010",
       "group": "الاوائل",
-      "name": "زد اف سي",
+      "name": {
+        "ar": "زد اف سي",
+        "en": "ZED FC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/29732",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": [
           "المدير الفني ك/ حسين السقا",
@@ -8142,11 +8196,17 @@
     {
       "team_id": "t011",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "طلائع الجيش",
+      "name": {
+        "ar": "طلائع الجيش",
+        "en": "Tala'ea El Gaish"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8306",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "information": "رئيس القطاع ك / حمدي ذكي\nمدير اداري القطاع ك / اشرف عبد الصبور\nالمدير الاداري ك / محمد علي",
       "players": {
         "coach": [
@@ -8165,11 +8225,17 @@
     {
       "team_id": "t012",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "سموحة",
+      "name": {
+        "ar": "سموحة",
+        "en": "Smouha SC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8309",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
       "players": {
         "coach": [
           "المدير الفني ك / اسلام شيتوس",
@@ -8187,11 +8253,17 @@
     {
       "team_id": "t013",
       "group": "الاوائل",
-      "name": "الاسماعيلي",
+      "name": {
+        "ar": "الاسماعيلي",
+        "en": "Ismaily SC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8299",
       "field": null,
       "fieldurl": null,
-      "city": "الاسماعيلية",
+      "city": {
+        "ar": "الاسماعيلية",
+        "en": "Ismailia"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8203,11 +8275,17 @@
     {
       "team_id": "t014",
       "group": "الاوائل",
-      "name": "الاتحاد السكندري",
+      "name": {
+        "ar": "الاتحاد السكندري",
+        "en": "Al Ittihad"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
       "field": null,
       "fieldurl": null,
-      "city": "الاسكندرية",
+      "city": {
+        "ar": "الاسكندرية",
+        "en": "Alexandria"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8219,11 +8297,17 @@
     {
       "team_id": "t015",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "الجونة",
+      "name": {
+        "ar": "الجونة",
+        "en": "El Gounah FC"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
       "field": null,
       "fieldurl": null,
-      "city": "الغردقة",
+      "city": {
+        "ar": "الغردقة",
+        "en": "Hurghada"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8235,11 +8319,17 @@
     {
       "team_id": "t016",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "غزل المحلة",
+      "name": {
+        "ar": "غزل المحلة",
+        "en": "Ghazl El Mahalla"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/8610",
       "field": null,
       "fieldurl": null,
-      "city": "الغربية",
+      "city": {
+        "ar": "الغربية",
+        "en": "Gharbia"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8251,11 +8341,17 @@
     {
       "team_id": "t017",
       "group": "الاوائل",
-      "name": "انبي",
+      "name": {
+        "ar": "انبي",
+        "en": "ENPPI"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8300",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": [
           "المدير الفني  ك / شيكو",
@@ -8276,11 +8372,17 @@
     {
       "team_id": "t018",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "مودرن سبورت",
+      "name": {
+        "ar": "مودرن سبورت",
+        "en": "Modern Sport"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/50877",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8292,11 +8394,17 @@
     {
       "team_id": "t019",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "وادي دجلة",
+      "name": {
+        "ar": "وادي دجلة",
+        "en": "Wadi Degla"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8311",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": null,
         "goalkeepers": null,
@@ -8308,11 +8416,17 @@
     {
       "team_id": "t020",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "المقاولون العرب",
+      "name": {
+        "ar": "المقاولون العرب",
+        "en": "El Mokawloon El Arab"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v6/Competitors/8310",
       "field": null,
       "fieldurl": null,
-      "city": "القاهرة",
+      "city": {
+        "ar": "القاهرة",
+        "en": "Cairo"
+      },
       "players": {
         "coach": [
           "المدير الفني ك / سعيد سعد",
@@ -8330,11 +8444,17 @@
     {
       "team_id": "t021",
       "group": "تحديد المراكز من 8 الي 20",
-      "name": "كهرباء الاسماعيلية",
+      "name": {
+        "ar": "كهرباء الاسماعيلية",
+        "en": "Kahraba Ismailia"
+      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v2/Competitors/19506",
       "field": null,
       "fieldurl": null,
-      "city": "الاسماعيلية",
+      "city": {
+        "ar": "الاسماعيلية",
+        "en": "Ismailia"
+      },
       "information": "مدير الكرة ك / ايمن الجمل\nالمشرف العام ك / شحتة سليمان\nمدير اداري ك / محمود كوكي",
       "players": {
         "coach": [
