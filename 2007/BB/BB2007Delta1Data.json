@@ -4564,17 +4564,22 @@
       "week": "20",
       "date": "2026-01-29",
       "time": "14:30",
-      "home_team_id": "gbt013",
-      "away_team_id": "gbt002",
       "venue": "المدينة الشبابية بأبو قير",
       "status": "completed",
+      "stage": null,
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
+      "home_team_id": "gbt013",
+      "away_team_id": "gbt002",
       "home_score": 2,
       "away_score": 3,
+      "home_penalty": null,
+      "away_penalty": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": null,
-      "away_scorers": null,
+      "away_scorers": [
+        "محمود نيمار"
+      ],
       "home_yc": null,
       "away_yc": null,
       "home_rc": null,
@@ -4965,7 +4970,7 @@
       "home_scorers": null,
       "away_scorers": [
         "محمود نيمار",
-        "عبوه شريف"
+        "عبوده شريف"
       ],
       "home_yc": null,
       "away_yc": null,
