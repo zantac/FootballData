@@ -15,7 +15,7 @@
                     [
                      {
                       "age": "2005",
-                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@36cd55ac55d04c4f012d33e889bf41f45bd32fd5/2005/A/A2005Data.json",
+                      "matchesurl": "https://cdn.jsdelivr.net/gh/zantac/FootballData@fffc907792f0591c92fc225d4e08e9fc4fad833b/2005/A/A2005Data.json",
                       "sector": null
                      },
                      {
@@ -735,17 +735,7 @@
   ],
   "Ads": 
   [
-    {
-      "name": "Youth Scores",
-      "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779899591/icon_fbf0is.png",
-      "youtube_video":null,
-      "facebook_link":null,
-      "mobile_number": null,
-      "whatsapp_number": "201064428821",
-      "location": null,
-      "location_url": null,
-      "expire_date": "11-10-2027"
-    },
+    
     {
       "name": "للاعلان هنا",
       "image": "https://res.cloudinary.com/debq5s4sn/image/upload/v1779899629/ads_g990l4.png",
