@@ -8628,13 +8628,15 @@
     {
       "team_id": "t001",
       "group": "الاوائل",
-      "name": {
-        "ar": "الاهلي",
-        "en": "Al Ahly"
-      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v20/Competitors/8200",
       "field": null,
       "fieldurl": null,
+      "information": null,
+      "point_deduction": null,
+      "name": {
+        "ar": "الاهلي",
+        "en": "Al Ahly SC"
+      },
       "city": {
         "ar": "القاهرة",
         "en": "Cairo"
@@ -8667,13 +8669,15 @@
     {
       "team_id": "t002",
       "group": "تحديد المراكز من 8 الي 21",
-      "name": {
-        "ar": "الزمالك",
-        "en": "Zamalek"
-      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v5/Competitors/8201",
       "field": null,
       "fieldurl": null,
+      "information": null,
+      "point_deduction": null,
+      "name": {
+        "ar": "الزمالك",
+        "en": "Zamalek SC"
+      },
       "city": {
         "ar": "الجيزة",
         "en": "Giza"
@@ -8881,18 +8885,19 @@
     {
       "team_id": "t009",
       "group": "تحديد المراكز من 8 الي 21",
-      "name": {
-        "ar": "حرس الحدود",
-        "en": "Haras El Hodoud"
-      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v3/Competitors/8307",
       "field": null,
       "fieldurl": null,
+      "information": "رئيس قطاع الناشئين و البراعم ك / وليد عطية\nاداري قطاع الناشئين و البراعم ك / احمد الفار",
+      "point_deduction": null,
+      "name": {
+        "ar": "حرس الحدود",
+        "en": "Haras El Hodood"
+      },
       "city": {
         "ar": "الاسكندرية",
         "en": "Alexandria"
       },
-      "information": "رئيس قطاع الناشئين و البراعم ك / وليد عطية\nاداري قطاع الناشئين و البراعم ك / احمد الفار",
       "players": {
         "coach": [
           "المدير الفني ك/ وائل الدقاق",
@@ -9033,13 +9038,15 @@
     {
       "team_id": "t014",
       "group": "تحديد المراكز من 8 الي 21",
-      "name": {
-        "ar": "الاتحاد السكندري",
-        "en": "Al Ittihad Alexandria"
-      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8312",
       "field": null,
       "fieldurl": null,
+      "information": null,
+      "point_deduction": null,
+      "name": {
+        "ar": "الاتحاد السكندري",
+        "en": "Al Ittihad"
+      },
       "city": {
         "ar": "الاسكندرية",
         "en": "Alexandria"
@@ -9060,13 +9067,15 @@
     {
       "team_id": "t015",
       "group": "تحديد المراكز من 8 الي 21",
-      "name": {
-        "ar": "الجونة",
-        "en": "El Gouna FC"
-      },
       "logo": "https://imagecache.365scores.com/image/upload/f_png,w_24,h_24,c_limit,q_auto:eco,dpr_3,d_Competitors:default1.png/v1/Competitors/8308",
       "field": null,
       "fieldurl": null,
+      "information": null,
+      "point_deduction": null,
+      "name": {
+        "ar": "الجونة",
+        "en": "El Gounah FC"
+      },
       "city": {
         "ar": "الغردقة",
         "en": "Hurghada"
