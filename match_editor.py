@@ -9,6 +9,15 @@ from datetime import datetime
 import copy
 from PIL import Image, ImageTk
 
+def get_localized_text(value, prefer="ar"):
+    """Extract a display string from either a plain string or a {'ar':.., 'en':..} dict.
+    Default preference is Arabic (`ar`)."""
+    if isinstance(value, dict):
+        return value.get(prefer) or value.get("en") or value.get("ar") or ""
+    if value is None:
+        return ""
+    return str(value)
+
 # ---------------------- Custom Widgets ----------------------
 
 class ComboboxSearchable(ttk.Combobox):
@@ -651,24 +660,38 @@ class TeamEditorTab(ttk.Frame):
 
         self.widgets = {}
         fields = [
-            ("team_id", "Team ID:", "text"), ("name", "Name:", "text"), ("group", "Group:", "text"),
+            ("team_id", "Team ID:", "text"), ("name", "Name:", "bilingual"), ("group", "Group:", "text"),
             ("logo", "Logo URL:", "text"), ("field", "Field:", "text"), ("fieldurl", "Field URL:", "text"),
-            ("city", "City:", "text"), ("information", "Information:", "text_multiline"), ("point_deduction", "Point Deduction:", "int")
+            ("city", "City:", "bilingual"), ("information", "Information:", "text_multiline"), ("point_deduction", "Point Deduction:", "int")
         ]
-        
+
         row = 0
         for field, label, ftype in fields:
             ttk.Label(scrollable_frame, text=label, width=15, anchor="e").grid(row=row, column=0, padx=5, pady=5, sticky="ne")
-            widget = None
-            if ftype == "text_multiline":
-                widget = tk.Text(scrollable_frame, width=50, height=4, relief="flat", font=("Segoe UI", 10))
-                widget.bind("<KeyRelease>", self._mark_dirty)
+            if ftype == "bilingual":
+                bi_frame = ttk.Frame(scrollable_frame)
+                bi_frame.grid(row=row, column=1, padx=5, pady=5, sticky="w")
+                ttk.Label(bi_frame, text="AR:").pack(side=tk.LEFT)
+                ar_entry = ttk.Entry(bi_frame, width=22)
+                ar_entry.pack(side=tk.LEFT, padx=(2, 10))
+                ar_entry.bind("<KeyRelease>", self._mark_dirty)
+                ttk.Label(bi_frame, text="EN:").pack(side=tk.LEFT)
+                en_entry = ttk.Entry(bi_frame, width=22)
+                en_entry.pack(side=tk.LEFT, padx=(2, 0))
+                en_entry.bind("<KeyRelease>", self._mark_dirty)
+                self.widgets[f"{field}_ar"] = ar_entry
+                self.widgets[f"{field}_en"] = en_entry
             else:
-                widget = ttk.Entry(scrollable_frame, width=52)
-                widget.bind("<KeyRelease>", self._mark_dirty)
-            
-            widget.grid(row=row, column=1, padx=5, pady=5, sticky="w")
-            self.widgets[field] = widget
+                widget = None
+                if ftype == "text_multiline":
+                    widget = tk.Text(scrollable_frame, width=50, height=4, relief="flat", font=("Segoe UI", 10))
+                    widget.bind("<KeyRelease>", self._mark_dirty)
+                else:
+                    widget = ttk.Entry(scrollable_frame, width=52)
+                    widget.bind("<KeyRelease>", self._mark_dirty)
+
+                widget.grid(row=row, column=1, padx=5, pady=5, sticky="w")
+                self.widgets[field] = widget
             row += 1
             
         ttk.Label(scrollable_frame, text="Players Squad:", font=("Segoe UI", 10, "bold")).grid(row=row, column=0, columnspan=2, sticky="w", pady=(10, 5))
@@ -683,10 +706,10 @@ class TeamEditorTab(ttk.Frame):
     def refresh_team_list(self):
         current_selection_id = self.current_team.get("team_id") if self.current_team else None
         self.team_listbox.delete(0, tk.END)
-        self.sorted_teams = sorted(self.data.get("teams", []), key=lambda x: x.get("name", ""))
+        self.sorted_teams = sorted(self.data.get("teams", []), key=lambda x: get_localized_text(x.get("name")))
         new_selection_index = -1
         for i, team in enumerate(self.sorted_teams):
-            display_text = f"{team.get('team_id', '')} - {team.get('name', '')}"
+            display_text = f"{team.get('team_id', '')} - {get_localized_text(team.get('name'))}"
             self.team_listbox.insert(tk.END, display_text)
             if team.get("team_id") == current_selection_id:
                 new_selection_index = i
@@ -705,6 +728,8 @@ class TeamEditorTab(ttk.Frame):
 
     def populate_form(self, team):
         for field, widget in self.widgets.items():
+            if field in ("name_ar", "name_en", "city_ar", "city_en"):
+                continue
             value = team.get(field)
             if isinstance(widget, tk.Text):
                 widget.delete(1.0, tk.END)
@@ -712,7 +737,20 @@ class TeamEditorTab(ttk.Frame):
             else:
                 widget.delete(0, tk.END)
                 if value is not None: widget.insert(0, str(value))
-        
+
+        for base_field in ("name", "city"):
+            value = team.get(base_field)
+            if isinstance(value, dict):
+                ar_val, en_val = value.get("ar") or "", value.get("en") or ""
+            elif value:
+                ar_val, en_val = str(value), ""
+            else:
+                ar_val, en_val = "", ""
+            self.widgets[f"{base_field}_ar"].delete(0, tk.END)
+            self.widgets[f"{base_field}_ar"].insert(0, ar_val)
+            self.widgets[f"{base_field}_en"].delete(0, tk.END)
+            self.widgets[f"{base_field}_en"].insert(0, en_val)
+
         self.players_editor.set_value(team.get("players"))
         self.is_dirty = False
 
@@ -734,7 +772,14 @@ class TeamEditorTab(ttk.Frame):
 
         duplicated_team = copy.deepcopy(self.current_team)
         duplicated_team['team_id'] = ""
-        duplicated_team['name'] = f"{duplicated_team.get('name', '')} (Copy)"
+        name_val = duplicated_team.get('name')
+        if isinstance(name_val, dict):
+            new_name = dict(name_val)
+            if new_name.get('ar'): new_name['ar'] = f"{new_name['ar']} (Copy)"
+            if new_name.get('en'): new_name['en'] = f"{new_name['en']} (Copy)"
+            duplicated_team['name'] = new_name
+        else:
+            duplicated_team['name'] = f"{name_val or ''} (Copy)"
 
         self.current_team = duplicated_team
         self.populate_form(self.current_team)
@@ -748,17 +793,29 @@ class TeamEditorTab(ttk.Frame):
         
         updated = {}
         for field, widget in self.widgets.items():
+            if field in ("name_ar", "name_en", "city_ar", "city_en"):
+                continue
             if isinstance(widget, tk.Text): value = widget.get(1.0, tk.END).strip()
             elif field == "point_deduction":
                 txt = widget.get().strip()
                 value = int(txt) if txt.isdigit() else None
             else: value = widget.get().strip()
-            
-            if not value and field not in ["team_id", "name", "point_deduction"]:
+
+            if not value and field not in ["team_id", "point_deduction"]:
                 value = None
-            
+
             updated[field] = value
-        
+
+        for base_field in ("name", "city"):
+            ar_val = self.widgets[f"{base_field}_ar"].get().strip()
+            en_val = self.widgets[f"{base_field}_en"].get().strip()
+            if en_val:
+                updated[base_field] = {"ar": ar_val, "en": en_val}
+            elif ar_val:
+                updated[base_field] = ar_val
+            else:
+                updated[base_field] = None
+
         updated["players"] = self.players_editor.get_value()
         
         if not updated.get("team_id"):
@@ -1080,7 +1137,7 @@ class MainApp:
         self.team_map = {}
         for team in teams:
             if isinstance(team, dict):
-                self.team_map[team.get("name", "Unknown")] = team.get("team_id")
+                self.team_map[get_localized_text(team.get("name")) or "Unknown"] = team.get("team_id")
 
         for match in matches:
             if isinstance(match, dict) and match.get("venue"):
