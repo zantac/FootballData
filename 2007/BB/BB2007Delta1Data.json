@@ -337,7 +337,8 @@
         "عمرو مبارك"
       ],
       "away_scorers": [
-        "عبوده شريف"
+        "عبوده شريف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -1303,15 +1304,18 @@
       "week": "9",
       "date": "2025-11-13",
       "time": "14:30",
-      "home_team_id": "gbt011",
-      "away_team_id": "gbt002",
       "venue": "مركز شباب الهلال بمطروح",
       "status": "completed",
+      "stage": null,
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
+      "home_team_id": "gbt011",
+      "away_team_id": "gbt002",
       "home_score": 3,
       "away_score": 4,
+      "home_penalty": null,
+      "away_penalty": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": [
         "عمر عوض",
         "صناعة الاهداف",
@@ -1319,7 +1323,9 @@
       ],
       "away_scorers": [
         "محمود نيمار (3)",
-        "غنيم"
+        "غنيم",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -1548,17 +1554,20 @@
       "week": "10",
       "date": "2025-11-20",
       "time": "14:30",
-      "home_team_id": "gbt002",
-      "away_team_id": "gbt009",
       "venue": "مركز شباب ابو المطامير",
       "status": "completed",
+      "stage": null,
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
+      "home_team_id": "gbt002",
+      "away_team_id": "gbt009",
       "home_score": 2,
       "away_score": 0,
+      "home_penalty": null,
+      "away_penalty": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": [
-        "عبدالله الشريف",
+        "عبوده شريف",
         "يوسف وائل"
       ],
       "away_scorers": null,
@@ -3210,7 +3219,10 @@
       "away_squade": null,
       "home_scorers": [
         "محمود نيمار",
-        "عبوده شريف"
+        "عبوده شريف",
+        "جمعة فرج (2)",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "away_scorers": null,
       "home_yc": null,
@@ -3749,20 +3761,25 @@
       "week": "14",
       "date": "2025-12-18",
       "time": "14:30",
-      "home_team_id": "gbt003",
-      "away_team_id": "gbt002",
       "venue": "مركز شباب كوم حمادة",
       "status": "completed",
+      "stage": null,
       "note": null,
-      "home_squade": null,
-      "away_squade": null,
+      "home_team_id": "gbt003",
+      "away_team_id": "gbt002",
       "home_score": 4,
       "away_score": 1,
+      "home_penalty": null,
+      "away_penalty": null,
+      "home_squade": null,
+      "away_squade": null,
       "home_scorers": [
         "محمد مبروك"
       ],
       "away_scorers": [
-        "محمود نيمار"
+        "محمود نيمار",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -3894,7 +3911,8 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": [
-        "عبوده شريف"
+        "عبوده شريف",
+        "جمعة فرج"
       ],
       "away_scorers": [
         "عمرو مبارك"
@@ -4012,7 +4030,9 @@
       "away_squade": null,
       "home_scorers": null,
       "away_scorers": [
-        "محمود نيمار"
+        "محمود نيمار",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -4578,7 +4598,9 @@
       "away_squade": null,
       "home_scorers": null,
       "away_scorers": [
-        "محمود نيمار"
+        "محمود نيمار",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -4830,7 +4852,8 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": [
-        "عبوده شريف"
+        "عبوده شريف",
+        "جمعة فرج"
       ],
       "away_scorers": null,
       "home_yc": null,
@@ -4970,7 +4993,8 @@
       "home_scorers": null,
       "away_scorers": [
         "محمود نيمار",
-        "عبوده شريف"
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "home_yc": null,
       "away_yc": null,
@@ -5101,7 +5125,9 @@
       "home_squade": null,
       "away_squade": null,
       "home_scorers": [
-        "محمود نيمار"
+        "محمود نيمار",
+        "صناعة الاهداف",
+        "جمعة فرج"
       ],
       "away_scorers": null,
       "home_yc": null,
@@ -5634,13 +5660,19 @@
     {
       "team_id": "gbt002",
       "group": "3B",
-      "name": "م.ش ابو المطامير",
       "logo": "https://semedia.filgoal.com/Photos/Team/Medium/14165.png",
       "field": null,
       "fieldurl": null,
+      "information": null,
+      "point_deduction": null,
+      "name": "م.ش ابو المطامير",
       "city": null,
       "players": {
-        "coach": null,
+        "coach": [
+          "المدير الفني ك / محمود بكار",
+          "مدرب ك / محمد سمير",
+          "مدرب حراس ك / علي ابو العينين"
+        ],
         "goalkeepers": null,
         "defenders": null,
         "midfielders": null,
