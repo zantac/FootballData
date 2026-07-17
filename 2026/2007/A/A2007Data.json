@@ -17,7 +17,13 @@
         "ar": "الجيزة",
         "en": "Giza"
       },
-      "players": null
+      "players": {
+        "coach": null,
+        "goalkeepers": null,
+        "defenders": null,
+        "midfielders": null,
+        "attackers": null
+      }
     },
     {
       "team_id": "t002",
